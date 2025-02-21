@@ -53,7 +53,7 @@ if args.dataset.lower() == 'gsm8k':
       ids.append(id)
 ```
 
-### 3. Running CoT-UQ
+### 3. Running CoT-UQ Pipeline
 
 Get your Llama Family weight in https://huggingface.co/meta-llama
 
@@ -68,6 +68,8 @@ For instance, running the code on `Llama3.1-8B`:
 ```shell
 sh run_llama_pipeline.sh llama3-1_8B probas_mean hotpotQA output/llama-3.1-8B/
 ```
+
+### 4. Analyzing Results
 
 After running the pipeline, use `analyze_result.py` to compute performance metrics, such as the AUROC.
 

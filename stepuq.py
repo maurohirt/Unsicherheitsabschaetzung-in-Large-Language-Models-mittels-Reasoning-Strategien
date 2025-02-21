@@ -1,16 +1,17 @@
 import re
 import os
 import json
-import math
 from config import args
 from tqdm import tqdm
+from torchmetrics import AUROC
+
 from utils import get_tokenwise_importance, extract_p, extract_p_t_importance, extract_keywords, \
                     extract_keykeywords, extract_keystep, weighted_sum, extract_probing_confidence
-import torch
-from torchmetrics import AUROC
+
 from src.model.llama2_predict import predict, model_init
-from sentence_transformers.cross_encoder import CrossEncoder
 from src.model.llama2_predict import predict, model_init, generate_model_answer
+
+from sentence_transformers.cross_encoder import CrossEncoder
 
 # AP strategies: Probas-mean, Probas-min, Token-SAR
 def compute_step_uncertainty():

@@ -7,11 +7,12 @@ from tqdm import tqdm
 import torch.nn.functional as F
 
 from config import args
-from utils import load_data, print_exp, setup_log, is_effectively_empty, find_subsequence_position, step_exacts_2_list, \
-                    parse_response_to_dict, find_token_indices, is_word_in_sentence, match_final_answer_token_ids 
 from src.model.llama2_predict import predict, model_init
 from src.format.get_cot_prompt import get_cot_prompt
 from src.format.get_step_exact_tokens import get_step_exact_tokens
+
+from utils import load_data, print_exp, setup_log, is_effectively_empty, find_subsequence_position, step_exacts_2_list, \
+                    parse_response_to_dict, find_token_indices, is_word_in_sentence, match_final_answer_token_ids 
 
 def llama_inference_refining():
     output_dir = os.path.dirname(args.output_path)
@@ -220,7 +221,7 @@ def llama_inference_refining():
 
 if __name__ == '__main__':
     print_exp(args) 
-    
+
     if args.model_engine in ["llama3-1_8B", "llama2-13b"]:
         llama_inference_refining()
     else:
