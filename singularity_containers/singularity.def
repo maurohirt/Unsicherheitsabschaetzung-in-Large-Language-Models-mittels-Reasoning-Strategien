@@ -1,0 +1,132 @@
+Bootstrap: docker
+From: nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+
+%files
+    # Kopiert requirements.txt vom Host (aus dem Ordner, wo gebaut wird)
+    # ins Verzeichnis /opt/CoT-UQ im Container.
+    ./requirements.txt /opt/CoT-UQ/requirements.txt
+
+%environment
+    export LC_ALL=C
+    # PYTHONPATH ist hier optional, wenn du Code in /opt/CoT-UQ mountest
+    # oder wenn dein Code als installierbares Paket strukturiert ist.
+    # Für den Anfang kannst du es drin lassen, wenn du vorhast, deinen
+    # Code nach /opt/CoT-UQ zu mounten.
+    export PYTHONPATH=/opt/CoT-UQ
+
+%post
+    # Install system dependencies
+    apt-get update && apt-get install -y --no-install-recommends \
+        --allow-change-held-packages \ # <-- Diese Option HINZUFÜGEN
+        build-essential \
+        ca-certificates \
+        cmake \
+        curl \
+        git \
+        # libcudnn8 \
+        python3 \
+        python3-dev \
+        python3-pip \
+        wget \
+    && rm -rf /var/lib/apt/lists/* # Clean up apt cache
+
+    # Upgrade pip
+    python3 -m pip install --no-cache-dir --upgrade pip
+
+    # Create working directory
+    mkdir -p /opt/CoT-UQ
+    # Kein cd mehr hier nötig, wir verwenden absolute Pfade
+
+    # Install Python dependencies using requirements.txt
+    echo "Installing Python packages from /opt/CoT-UQ/requirements.txt"
+    python3 -m pip install --no-cache-dir -r /opt/CoT-UQ/requirements.txt
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to install packages from requirements.txt"
+        exit 1
+    fi
+
+    # NLTK data download
+    echo "Downloading NLTK data"
+    python3 -c "import nltk; nltk.download('punkt')"
+
+    # Install psutil for resource checking (wird von check_resources.py gebraucht)
+    echo "Installing psutil"
+    python3 -m pip install --no-cache-dir psutil
+
+    # Make a test script to check resources
+    echo "Creating check_resources.py"
+    cat > /opt/CoT-UQ/check_resources.py << 'EOL'
+import torch
+import os
+import sys
+import platform
+import psutil
+import importlib
+
+print("=" * 50)
+print("System Information:")
+print("-" * 50)
+print(f"Python version: {sys.version}")
+print(f"Platform: {platform.platform()}")
+print(f"CPU count: {os.cpu_count()}")
+memory = psutil.virtual_memory()
+print(f"Memory: {memory.total / (1024**3):.2f} GB total, {memory.available / (1024**3):.2f} GB available")
+
+print("\n" + "=" * 50)
+print("PyTorch & CUDA Information:")
+print("-" * 50)
+print(f"PyTorch version: {torch.__version__}")
+print(f"CUDA available: {torch.cuda.is_available()}")
+if torch.cuda.is_available():
+    print(f"CUDA version detected by PyTorch: {torch.version.cuda}")
+    print(f"cuDNN version detected by PyTorch: {torch.backends.cudnn.version()}")
+    print(f"GPU count: {torch.cuda.device_count()}")
+    for i in range(torch.cuda.device_count()):
+        print(f"GPU {i}: {torch.cuda.get_device_name(i)}")
+        print(f"  Memory: {torch.cuda.get_device_properties(i).total_memory / (1024**3):.2f} GB")
+        print(f"  Compute Capability: {torch.cuda.get_device_capability(i)}")
+else:
+    print("No CUDA GPUs detected by PyTorch")
+
+# Check other key packages from requirements.txt (example)
+print("\n" + "=" * 50)
+print("Checking key packages:")
+print("-" * 50)
+packages_to_check = ["transformers", "datasets", "accelerate", "peft", "trl", "sentencepiece"]
+for pkg_name in packages_to_check:
+    try:
+        lib = importlib.import_module(pkg_name.replace("-","_")) # Handle dashes like in rouge-chinese if needed
+        version = getattr(lib, '__version__', 'Version not found')
+        print(f"{pkg_name}: Installed (Version: {version})")
+    except ImportError:
+        print(f"{pkg_name}: NOT INSTALLED")
+
+print("\n" + "=" * 50)
+print("Relevant Environment Variables:")
+print("-" * 50)
+keys_to_show = ["CUDA", "PYTHON", "PATH", "LD_LIBRARY_PATH", "HF_HOME"]
+for key, value in sorted(os.environ.items()):
+    for show_key in keys_to_show:
+        if show_key in key:
+            print(f"{key}={value}")
+            break
+print("=" * 50)
+EOL
+
+    chmod +x /opt/CoT-UQ/check_resources.py
+    echo "Singularity definition post section finished."
+
+
+%runscript
+    echo "Container is running!"
+    echo "To check system resources: singularity exec [options] <container.sif> python3 /opt/CoT-UQ/check_resources.py"
+    echo "To run the project pipeline (example): singularity exec --nv [options] <container.sif> bash /opt/CoT-UQ/run_llama_pipeline.sh [args]"
+
+    # Default action: Run the check script
+    exec python3 /opt/CoT-UQ/check_resources.py "$@"
+
+
+%labels
+    Author Mauro Hirt
+    Version 1.1 # Version erhöht
+    Description Singularity container for CoT-UQ project using requirements.txt
