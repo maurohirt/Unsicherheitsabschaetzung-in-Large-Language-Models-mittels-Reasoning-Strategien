@@ -1,6 +1,6 @@
 variables:
-  DOCKER_REGISTRY: registry.gitlab.com
-  IMAGE_NAME: $CI_REGISTRY_IMAGE/cot-uq
+  DOCKER_REGISTRY: docker.io
+  IMAGE_NAME: maurohirtfhnw/cot-uq   # Das Repository auf Docker Hub, z.B. "maurohirtfhnw/cot-uq"
   IMAGE_TAG: $CI_COMMIT_SHORT_SHA
 
 docker-build:
@@ -9,7 +9,8 @@ docker-build:
   services:
     - docker:20.10.16-dind
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # Nutze hier die Docker Hub Credentials:
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY
   script:
     - docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest .
     - docker push $IMAGE_NAME:$IMAGE_TAG
@@ -27,7 +28,7 @@ test-docker:
     - name: docker:20.10.16-dind
       alias: dockerdaemon
   before_script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD $DOCKER_REGISTRY
   script:
     - docker run --rm $IMAGE_NAME:$IMAGE_TAG python -c 'import torch; print("PyTorch version:", torch.__version__)'
   rules:
