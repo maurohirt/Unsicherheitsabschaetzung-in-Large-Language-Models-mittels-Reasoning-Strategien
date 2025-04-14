@@ -1,7 +1,3 @@
-stages:
-  - build
-  - test
-
 variables:
   DOCKER_REGISTRY: registry.gitlab.com
   IMAGE_NAME: $CI_REGISTRY_IMAGE/cot-uq
@@ -18,18 +14,24 @@ docker-build:
     - docker build -t $IMAGE_NAME:$IMAGE_TAG -t $IMAGE_NAME:latest .
     - docker push $IMAGE_NAME:$IMAGE_TAG
     - docker push $IMAGE_NAME:latest
-  only:
-    - main
-    - tags
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_TAG'
+      changes:
+        - Dockerfile
+        - requirements.txt
 
 test-docker:
   stage: test
   image: docker:20.10.16
   services:
-    - docker:20.10.16-dind
+    - name: docker:20.10.16-dind
+      alias: dockerdaemon
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
-    - docker pull $IMAGE_NAME:$IMAGE_TAG
-    - docker run --rm $IMAGE_NAME:$IMAGE_TAG python -c "import torch; print(f'PyTorch version: {torch.__version__}')"
-  only:
-    - main
-    - tags
+    - docker run --rm $IMAGE_NAME:$IMAGE_TAG python -c 'import torch; print("PyTorch version:", torch.__version__)'
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main" || $CI_COMMIT_TAG'
+      changes:
+        - Dockerfile
+        - requirements.txt
