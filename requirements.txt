@@ -1,7 +1,7 @@
 # requirements.txt - Optimized Order
 
 # --- Core ML Framework ---
-torch>=1.13.1
+torch==2.1.2
 
 # --- Hugging Face Ecosystem ---
 # Core libraries for training and inference
