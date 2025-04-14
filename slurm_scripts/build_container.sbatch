@@ -3,56 +3,52 @@
 
 #====== SLURM Optionen für den Build-Job ======
 #SBATCH --job-name=build_singularity   # Name des Jobs
-#SBATCH --output=slurm-test-%j.out
-#SBATCH --error=slurm_logs/%x_%j.err  # Fehler-Datei
-#SBATCH --partition=performance              # *** ANPASSEN: Eine CPU-Partition wählen! ***
-                                       # (Build braucht keine GPU, 'performance' könnte gehen, aber eine reine CPU-Partition ist oft besser)
+#SBATCH --output=slurm-build-%j.out
+#SBATCH --error=slurm-build-%j.err  # Fehler-Datei
+#SBATCH --partition=performance        # CPU-Partition
 #SBATCH --cpus-per-task=2              # 2 CPUs sollten reichen
-#SBATCH --mem=8G                       # 8 GB Speicher (manche Builds brauchen etwas mehr)
-#SBATCH --time=00:15:00                # 45 Minuten (sollte für den Build reichen)
+#SBATCH --mem=8G                       # 8 GB Speicher
+#SBATCH --time=00:30:00                # 30 Minuten
 
 #====== Umgebung ======
 echo "Build-Job gestartet am: $(date)"
 echo "Job ID: $SLURM_JOB_ID"
 echo "Job Name: $SLURM_JOB_NAME"
-echo "Hostname: $(hostname)" # Zeigt den Rechenknoten an, auf dem gebaut wird
-echo "Working directory: $(pwd)" # Sollte der Ordner sein, von dem aus submitted wurde
+echo "Hostname: $(hostname)"
+echo "Working directory: $(pwd)"
 
-#====== Modul laden & Bauen ======
-# Explizit das Modul laden (BESTE PRAXIS!)
-# Versuche 'apptainer' oder 'singularity' basierend auf deiner Recherche
-echo "Versuche Modul zu laden..."
-module load apptainer # ODER singularity, oder spezifische Version
-# TODO: Den korrekten Modulnamen hier eintragen, sobald bekannt!
-# Wenn kein Modul explizit geladen werden muss, kann die Zeile weg.
+# Erstelle Verzeichnisse falls nötig
+mkdir -p containers
 
-echo "Prüfe, ob Befehl gefunden wird..."
-which singularity || which apptainer # Zeigt den Pfad an, wenn gefunden
+# OPTION 1: Docker Image ziehen (aus dem Cheatsheet)
+# CUDA 11.8 mit PyTorch Container verwenden
+echo "Pulling Docker image to Singularity container..."
+singularity pull containers/cot_uq_env.sif docker://pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime
 
-# Wechsel ins Verzeichnis, wo die .def-Datei liegt (wichtig!)
-# $SLURM_SUBMIT_DIR ist das Verzeichnis, von dem aus sbatch aufgerufen wurde
-cd "$SLURM_SUBMIT_DIR" || exit 1
-echo "Aktuelles Verzeichnis nach cd: $(pwd)"
+# Aktuelles Arbeitsverzeichnis
+WORK_DIR=$(pwd)
 
-# Pfad zur Definitionsdatei und zum Ziel-Image
-DEF_FILE="singularity.def"
-SIF_FILE="./containers/cot_uq_env.sif"
+# Requirements in Container kopieren
+echo "Creating setup script for requirements..."
+cat > setup_container.sh << 'EOL'
+#!/bin/bash
+# Install additional requirements from the project
+pip install -r /requirements.txt
+python -c "import nltk; nltk.download('punkt')"
+EOL
 
-echo "Starte Build für ${SIF_FILE} aus ${DEF_FILE}"
+chmod +x setup_container.sh
 
-# Führe den Build-Befehl aus
-# Verwende singularity oder apptainer, je nachdem was verfügbar ist
-singularity build --fakeroot "${SIF_FILE}" "${DEF_FILE}"
-# ODER: apptainer build --fakeroot "${SIF_FILE}" "${DEF_FILE}"
+# Container mit Requirements ausführen
+echo "Installing requirements inside container..."
+singularity exec --bind ${WORK_DIR}/requirements.txt:/requirements.txt containers/cot_uq_env.sif ./setup_container.sh
 
-# Überprüfe den Exit-Code des Build-Prozesses
+# Überprüfe den Exit-Code
 EXIT_CODE=$?
 if [ ${EXIT_CODE} -eq 0 ]; then
-    echo "Singularity Image erfolgreich gebaut: ${SIF_FILE}"
+    echo "Singularity container successfully built and set up: containers/cot_uq_env.sif"
 else
-    echo "FEHLER beim Bauen des Singularity Images! Exit code: ${EXIT_CODE}."
-    # Bei Fehlern: Unfertiges Image löschen, falls vorhanden? (Optional)
-    # rm -f "${SIF_FILE}"
+    echo "ERROR setting up Singularity container! Exit code: ${EXIT_CODE}."
 fi
 
 echo "Build-Job beendet am: $(date)"

@@ -1,13 +1,14 @@
 #!/bin/bash
 
-#====== SLURM Optionen (Minimal für CPU-Test) ======
-#SBATCH --job-name=simple_container_test
-#SBATCH --output=slurm-test-%j.out
-#SBATCH --error=slurm-test-%j.err
-#SBATCH --partition=performance
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=1G
-#SBATCH --time=00:05:00
+#====== SLURM Optionen für GPU-Job ======
+#SBATCH --job-name=cot_uq_experiment
+#SBATCH --output=slurm-run-%j.out
+#SBATCH --error=slurm-run-%j.err
+#SBATCH --partition=performance       # GPU-Partition anpassen falls nötig
+#SBATCH --gpus=1                      # 1 GPU anfordern
+#SBATCH --cpus-per-task=4             # 4 CPU Kerne
+#SBATCH --mem=16G                     # 16 GB RAM
+#SBATCH --time=04:00:00               # 4 Stunden Laufzeit
 
 #====== Umgebung ======
 echo "Job gestartet am: $(date)"
@@ -16,21 +17,16 @@ echo "Job Name: $SLURM_JOB_NAME"
 echo "Hostname: $(hostname)"
 echo "Aktuelles Verzeichnis: $(pwd)"
 
-# Verzeichnisse erstellen falls nötig
-mkdir -p slurm-logs
+# GPU Information anzeigen
+nvidia-smi
 
 #====== Pfade definieren ======
-# Aktuelles Arbeitsverzeichnis (überall wo sbatch ausgeführt wurde)
 HOST_PROJECT_DIR=$(pwd)
 HOST_SIF_PATH="${HOST_PROJECT_DIR}/containers/cot_uq_env.sif"
 CONTAINER_PROJECT_DIR="/project"
 
 echo "Host Projekt Pfad: ${HOST_PROJECT_DIR}"
 echo "Container Image: ${HOST_SIF_PATH}"
-echo "Projekt wird nach ${CONTAINER_PROJECT_DIR} im Container gemountet."
-
-#====== Ausführung im Container ======
-echo "Starte Singularity Container (CPU only)..."
 
 # Check ob Container existiert
 if [ ! -f "${HOST_SIF_PATH}" ]; then
@@ -39,18 +35,20 @@ if [ ! -f "${HOST_SIF_PATH}" ]; then
     exit 1
 fi
 
-# Python-Skript im Container ausführen
-singularity exec \
+#====== Ausführung im Container ======
+echo "Starte Singularity Container mit GPU-Unterstützung..."
+
+# Run llama pipeline mit GPU-Unterstützung
+singularity exec --nv \
     --bind "${HOST_PROJECT_DIR}":"${CONTAINER_PROJECT_DIR}" \
     "${HOST_SIF_PATH}" \
-    python3 "${CONTAINER_PROJECT_DIR}/test_basic_setup.py"
+    bash "${CONTAINER_PROJECT_DIR}/run_llama_pipeline.sh"
 
-# Überprüfe den Exit-Code
 EXIT_CODE=$?
 if [ ${EXIT_CODE} -eq 0 ]; then
-    echo "Python script finished successfully."
+    echo "Experiment finished successfully."
 else
-    echo "Python script failed with exit code ${EXIT_CODE}."
+    echo "Experiment failed with exit code ${EXIT_CODE}."
 fi
 
 echo "Job beendet am: $(date)"
