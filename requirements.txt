@@ -1,16 +1,32 @@
+# requirements.txt - Optimized Order
+
+# --- Core ML Framework ---
 torch>=1.13.1
+
+# --- Hugging Face Ecosystem ---
+# Core libraries for training and inference
 transformers>=4.29.1
 datasets>=2.12.0
 accelerate>=0.21.0
 peft>=0.4.0
 trl>=0.4.7
-sentencepiece
-jieba
-rouge-chinese
-nltk
-gradio>=3.36.0
-uvicorn
-pydantic==1.10.11
-fastapi==0.95.1
-sse-starlette
+# Supporting libraries often used with Transformers
+sentencepiece # Tokenizer library
+
+# --- Other NLP & Evaluation ---
+# General NLP / Embeddings
 sentence_transformers
+nltk
+# Chinese Language Specific
+jieba           # Segmentation
+rouge-chinese   # Evaluation metric
+
+# --- Web API / Demo ---
+# API Framework & Server (Note: Pinned versions likely for compatibility)
+fastapi==0.95.1
+pydantic==1.10.11  # Often a dependency of FastAPI, pinned version matches FastAPI's needs
+uvicorn            # ASGI server for FastAPI
+sse-starlette      # Server-Sent Events support for Starlette/FastAPI
+
+# UI Demo Framework
+gradio>=3.36.0

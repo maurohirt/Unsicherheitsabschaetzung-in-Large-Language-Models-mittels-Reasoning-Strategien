@@ -1,8 +1,20 @@
-# SLURM Workflow für CoT-UQ
+# SLURM Workflow für CoT-UQ mit GitLab CI/CD
 
-Diese Anleitung erklärt, wie du das CoT-UQ Projekt auf dem SLURM-Cluster ausführst.
+Diese Anleitung erklärt, wie das CoT-UQ Projekt mit GitLab CI/CD und auf dem SLURM-Cluster ausgeführt wird.
 
-## Vorbereitung
+## Übersicht des Workflows
+
+1. **Vorbereitung**: Dockerfile und CI/CD im Repository konfigurieren
+2. **GitLab CI**: Automatischer Build und Push des Docker-Images in die Registry
+3. **SLURM**: Container aus Registry ziehen und für Tests/Experimente verwenden
+
+## Für Entwickler: GitLab Setup
+
+1. **Starte Pipeline im GitLab**
+   - Pushe Code inkl. Dockerfile und .gitlab-ci.yml auf dein GitLab-Repository
+   - Warte bis die CI/CD Pipeline den Container gebaut und in die Registry gepusht hat
+
+## Für Cluster-Nutzung: Testlauf auf SLURM
 
 1. **Repository klonen**
    ```bash
@@ -10,57 +22,72 @@ Diese Anleitung erklärt, wie du das CoT-UQ Projekt auf dem SLURM-Cluster ausfü
    cd CoT-UQ
    ```
 
-2. **Verzeichnisstruktur vorbereiten**
+2. **Container aus Registry ziehen**
    ```bash
-   mkdir -p containers slurm-logs
+   # Container-Verzeichnis erstellen
+   mkdir -p containers
+   
+   # SLURM-Job starten, der das Image aus der Registry zieht
+   sbatch slurm_scripts/pull_test_container.sbatch
+   ```
+   
+   **WICHTIG**: Passe vorher in `pull_test_container.sbatch` die Registry-URL und Image-Pfade an
+   ```
+   REGISTRY_URL="registry.gitlab.com"
+   IMAGE_PATH="your-group/your-project/cot-uq"  # Anpassen!
    ```
 
-## Container bauen
-
-1. **Container bauen**
+3. **CPU-Tests ausführen**
    ```bash
-   sbatch slurm_scripts/build_container.sbatch
+   sbatch slurm_scripts/test_simple.sbatch
    ```
+   
+   Dieser Job testet das Python-Setup und die Imports im Container.
 
-   Dieser Job baut einen Singularity-Container basierend auf PyTorch und installiert alle benötigten Abhängigkeiten.
-
-2. **Status prüfen**
+4. **GPU-Tests ausführen (falls GPU verfügbar)**
    ```bash
-   squeue -u $USER
+   sbatch slurm_scripts/test_gpu.sbatch
    ```
+   
+   Dieser Job testet die GPU-Verfügbarkeit und -Leistung mit PyTorch.
 
-   Warte bis der Job beendet ist. Die Ausgabe findest du in `slurm-build-JOBID.out`.
-
-## Test-Job ausführen
-
-1. **Basic Test** 
+5. **Experiment ausführen**
    ```bash
-   sbatch slurm_scripts/simple_cpu_test.sbatch
+   sbatch slurm_scripts/run_experiment_registry.sbatch
    ```
+   
+   **WICHTIG**: Passe vorher in `run_experiment_registry.sbatch` die Registry-URL und Image-Pfade an!
 
-   Dieser Job testet, ob der Container korrekt funktioniert und Python ausgeführt werden kann.
+## Status und Protokolle prüfen
 
-## Experiment ausführen
+```bash
+# Aktive Jobs anzeigen
+squeue -u $USER
 
-1. **Hauptexperiment starten**
-   ```bash
-   sbatch slurm_scripts/run_experiment.sbatch
-   ```
+# Ausgabe des Pull-Jobs prüfen
+cat slurm-pull-*.out
 
-   Dieser Job führt den LLaMA Pipeline-Prozess im Container mit GPU-Unterstützung aus.
+# Test-Ausgabe prüfen
+cat slurm-test-*.out
+
+# GPU-Test-Ausgabe prüfen
+cat slurm-gpu-*.out
+```
+
+## Datei-Erklärungen
+
+- **Dockerfile**: Definiert die Container-Umgebung
+- **.gitlab-ci.yml**: Konfiguriert automatische Builds
+- **pull_test_container.sbatch**: Lädt Container aus der Registry
+- **test_simple.sbatch**: Führt CPU-basierte Tests aus
+- **test_gpu.sbatch**: Führt GPU-basierte Tests aus
+- **run_experiment_registry.sbatch**: Führt das Hauptexperiment aus
 
 ## Anmerkungen
 
-- Die Jobs werden vom aktuellen Verzeichnis aus ausgeführt. Alle Pfade sind relativ dazu.
-- Der Container wird im Verzeichnis `./containers/` gespeichert
-- Output-Dateien werden als `slurm-NAME-JOBID.out/err` gespeichert
-- Die Experimente im Container verwenden die GPU mit dem `--nv` Flag
+- Die Jobs werden vom aktuellen Verzeichnis aus ausgeführt
+- Container werden in `./containers/` gespeichert
+- Für GPU-Tests und -Experimente wird das `--nv` Flag benötigt
+- Für private GitLab-Registries werden Anmeldedaten benötigt
 
-## Tipps bei Problemen
-
-- Überprüfe die Fehlerprotokolle in den `.err`-Dateien
-- Stelle sicher, dass die GPU-Partition verfügbar ist (`sinfo`)
-- Bei Container-Problemen kann ein direkter Docker-Pull hilfreich sein:
-  ```bash
-  singularity pull containers/cot_uq_env.sif docker://pytorch/pytorch:2.0.1-cuda11.7-cudnn8-runtime
-  ```
+Siehe auch `README_GITLAB.md` für weitere Details zum GitLab CI/CD-Workflow.
