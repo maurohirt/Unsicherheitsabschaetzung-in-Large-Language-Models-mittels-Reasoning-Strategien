@@ -62,9 +62,13 @@ singularity exec --nv --no-home --containall \
     export PYTHONPATH=./ &&
     mkdir -p /app/output/${MODEL_ENGINE}_${DATASET} &&
     
-    # Run inference with relative model path
-    python inference_refining.py --dataset ${DATASET} --model_engine ${MODEL_ENGINE} --model_path ${MODEL_ENGINE} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END} &&
-    python stepuq.py --dataset ${DATASET} --uq_engine ${UQ_ENGINE} --model_path ${MODEL_ENGINE} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END}
+    # Set the absolute path to the model within the container
+    MODEL_PATH_IN_CONTAINER=\"/app/models/Llama-3.1-8B\"
+    echo \"Using model at container path: \${MODEL_PATH_IN_CONTAINER}\"
+    
+    # Run inference with absolute path to model
+    python inference_refining.py --dataset ${DATASET} --model_engine ${MODEL_ENGINE} --model_path \${MODEL_PATH_IN_CONTAINER} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END} &&
+    python stepuq.py --dataset ${DATASET} --uq_engine ${UQ_ENGINE} --model_path \${MODEL_PATH_IN_CONTAINER} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END}
 "
 
 echo "✅ Job abgeschlossen."

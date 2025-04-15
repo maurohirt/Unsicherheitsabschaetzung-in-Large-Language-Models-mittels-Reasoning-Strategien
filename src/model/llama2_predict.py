@@ -24,26 +24,41 @@ def model_init(args):
     
     print(f"Loading model from: {actual_model_path}")
     
+    # Check if the path is a local directory
+    is_local_path = actual_model_path.startswith('/') or os.path.exists(actual_model_path)
+    
+    # Parameters for local vs remote loading
+    model_kwargs = {
+        "torch_dtype": torch.bfloat16,
+    }
+    
+    tokenizer_kwargs = {}
+    
+    # Add local_files_only flag only for local paths
+    if is_local_path:
+        model_kwargs["local_files_only"] = True
+        tokenizer_kwargs["local_files_only"] = True
+    
     try:
+        # For local paths, use standard HF loading but with local_files_only=True
         if "llama" in model_path.lower():
+            print(f"Loading LLaMA model with kwargs: {model_kwargs}")
             model = LlamaForCausalLM.from_pretrained(
                 actual_model_path,
-                torch_dtype=torch.bfloat16,
-                local_files_only=True,  # Force local loading
+                **model_kwargs
             ).to(device)
             tokenizer = AutoTokenizer.from_pretrained(
                 actual_model_path,
-                local_files_only=True,
+                **tokenizer_kwargs
             )
         elif "mistral" in model_path.lower():
             model = AutoModelForCausalLM.from_pretrained(
                 actual_model_path, 
-                torch_dtype=torch.bfloat16,
-                local_files_only=True,
+                **model_kwargs
             ).to(device)
             tokenizer = AutoTokenizer.from_pretrained(
                 actual_model_path,
-                local_files_only=True,
+                **tokenizer_kwargs
             )
         else:
             raise ValueError(f"Invalid Model Path: {model_path}")
