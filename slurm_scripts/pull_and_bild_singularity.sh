@@ -1,27 +1,36 @@
 #!/bin/bash
 #SBATCH --job-name=singularity_pull_test
-#SBATCH --output=../../outputs/singularity_pull_test_%j.log
-#SBATCH --error=../../outputs/singularity_pull_test_%j.err
-#SBATCH --time=00:05:00
+#SBATCH --output=$HOME/../../outputs/singularity_pull_test_%j.log
+#SBATCH --error=$HOME/../../outputs/singularity_pull_test_%j.err
+#SBATCH --time=00:15:00
 #SBATCH --partition=performance
-#SBATCH --mem=32G  # Erhöhe dies auf einen Wert, der ausreichend ist
+#SBATCH --mem=32G
 
 module load singularity
 
-DOCKER_REGISTRY="docker.io"
-IMAGE_NAME="maurohirtfhnw/cot-uq"
-IMAGE_TAG="latest"
-DOCKER_IMAGE="docker://${DOCKER_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
-SIF_FILE="../../containers/cot-uq_${IMAGE_TAG}.sif"
+# Safe Container Output
+SIF_FILE="$HOME/containers/cot-uq_latest.sif"
+mkdir -p "$(dirname "$SIF_FILE")"
 
-echo "Pulling Singularity image from ${DOCKER_IMAGE} ..."
-singularity pull "$SIF_FILE" "$DOCKER_IMAGE"
-if [ $? -ne 0 ]; then
-    echo "Fehler: Singularity pull schlug fehl!"
-    exit 1
+# Optional: Use clean cache location
+export SINGULARITY_CACHEDIR=/tmp/$USER-singularity-cache
+mkdir -p "$SINGULARITY_CACHEDIR"
+
+# Pull only if image does not exist
+DOCKER_IMAGE="docker://docker.io/maurohirtfhnw/cot-uq:latest"
+
+if [ ! -f "$SIF_FILE" ]; then
+    echo "Singularity image not found, pulling: $DOCKER_IMAGE → $SIF_FILE"
+    singularity pull "$SIF_FILE" "$DOCKER_IMAGE"
+    if [ $? -ne 0 ]; then
+        echo "❌ Fehler: Singularity pull schlug fehl!"
+        exit 1
+    fi
+    echo "✅ Image erfolgreich gespeichert unter: $SIF_FILE"
+else
+    echo "✅ Image bereits vorhanden: $SIF_FILE"
 fi
 
-echo "Image erfolgreich heruntergeladen als ${SIF_FILE}."
-echo "Starte Testbefehl im Container ..."
-singularity exec "$SIF_FILE" python -c 'import torch; print("PyTorch version:", torch.__version__)'
-echo "Pull- und Exec-Test abgeschlossen."
+# Run test
+echo "Starte Container-Test mit PyTorch..."
+singularity exec --nv "$SIF_FILE" python -c 'import torch; print("PyTorch version:", torch.__version__)'
