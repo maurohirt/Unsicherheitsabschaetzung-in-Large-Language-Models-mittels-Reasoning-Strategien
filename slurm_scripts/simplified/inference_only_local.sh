@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=cot_uq_run
-#SBATCH --output=$HOME/../../outputs/cot_uq_%j.log
-#SBATCH --error=$HOME/../../outputs/cot_uq_%j.err
-#SBATCH --time=10:00:00
+#SBATCH --job-name=cot_uq_inference
+#SBATCH --output=$HOME/../../outputs/cot_uq_inference_%j.log
+#SBATCH --error=$HOME/../../outputs/cot_uq_inference_%j.err
+#SBATCH --time=04:00:00
 #SBATCH --partition=performance
-#SBATCH --mem=64G
+#SBATCH --mem=32G
 #SBATCH --cpus-per-task=4
 #SBATCH --gres=gpu:1
 
@@ -16,6 +16,7 @@ PROJECT_DIR="$HOME/cot-uq"
 CONTAINER_DIR="$HOME/containers"
 SIF_FILE="$CONTAINER_DIR/cot-uq_latest.sif"
 OUTPUT_PATH="$HOME/outputs/llama3-1_8B_gsm8k"
+MODEL_LOCAL_PATH="$HOME/models/Llama-3.1-8B"  # Absoluter Pfad zum lokalen Modell
 
 # Singularity Pull-Konfiguration
 export SINGULARITY_CACHEDIR=/tmp/$USER-singularity-cache
@@ -39,20 +40,19 @@ fi
 
 # Pipeline-Parameter
 MODEL_ENGINE="llama3-1_8B"
-UQ_ENGINE="probas-mean"
 DATASET="gsm8k"
 TEMP=1.0
 TRY_TIMES=5
 TEST_START=0
-TEST_END=100
+TEST_END=5  # Reduziert auf 5 für ersten Test
 
-echo "▶️ Starte CoT-UQ Pipeline"
-echo "- Model:     $MODEL_ENGINE"
+echo "▶️ Starte Inference-Refining"
+echo "- Model:     $MODEL_ENGINE (lokaler Pfad: $MODEL_LOCAL_PATH)"
 echo "- Dataset:   $DATASET"
 echo "- Samples:   $TEST_START to $TEST_END"
 echo "- Output to: $OUTPUT_PATH"
 
-# Pipeline ausführen
+# Nur Inference-Refining ausführen mit lokalem Modellpfad
 singularity exec --nv --no-home --containall \
   --bind "$PROJECT_DIR:/app" \
   --bind "$HOME/models:/app/models" \
@@ -62,9 +62,8 @@ singularity exec --nv --no-home --containall \
     export PYTHONPATH=./ &&
     mkdir -p /app/output/${MODEL_ENGINE}_${DATASET} &&
     
-    # Run inference with relative model path
-    python inference_refining.py --dataset ${DATASET} --model_engine ${MODEL_ENGINE} --model_path ${MODEL_ENGINE} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END} &&
-    python stepuq.py --dataset ${DATASET} --uq_engine ${UQ_ENGINE} --model_path ${MODEL_ENGINE} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END}
+    # Run with standard model_path parameter - our updated code will handle paths properly
+    python inference_refining.py --dataset ${DATASET} --model_engine ${MODEL_ENGINE} --model_path ${MODEL_ENGINE} --temperature ${TEMP} --output_path output/${MODEL_ENGINE}_${DATASET} --try_times ${TRY_TIMES} --test_start ${TEST_START} --test_end ${TEST_END}
 "
 
 echo "✅ Job abgeschlossen."
