@@ -6,69 +6,26 @@ from transformers import LlamaTokenizer, LlamaForCausalLM, AutoConfig
 from transformers import AutoTokenizer, AutoModelForCausalLM
 # from peft import PeftModel
 
-import os
-
-# Use relative path with os.path to work in both local and Slurm environments
-ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
 HF_NAMES = {
-    'llama3-1_8B': os.path.join(ROOT_DIR, 'models/Llama-3.1-8B'),
+    'llama3-1_8B': 'meta-llama/Llama-3.1-8B',
     'llama2-13b': 'meta-llama/Llama-2-13b-chat-hf'
 }
 
 def model_init(args):
-    model_path = args.model_path
+    model_path = args.model_path # Replace to your model path
     device = torch.device("cuda:0")
-    
-    # Get the actual model path from HF_NAMES or use direct path
-    actual_model_path = HF_NAMES.get(model_path, model_path)
-    
-    print(f"Loading model from: {actual_model_path}")
-    
-    # Check if the path is a local directory
-    is_local_path = actual_model_path.startswith('/') or os.path.exists(actual_model_path)
-    
-    # Parameters for local vs remote loading
-    model_kwargs = {
-        "torch_dtype": torch.bfloat16,
-    }
-    
-    tokenizer_kwargs = {}
-    
-    # Add local_files_only flag only for local paths
-    if is_local_path:
-        model_kwargs["local_files_only"] = True
-        tokenizer_kwargs["local_files_only"] = True
-    
-    try:
-        # For local paths, use standard HF loading but with local_files_only=True
-        if "llama" in model_path.lower():
-            print(f"Loading LLaMA model with kwargs: {model_kwargs}")
-            model = LlamaForCausalLM.from_pretrained(
-                actual_model_path,
-                **model_kwargs
-            ).to(device)
-            tokenizer = AutoTokenizer.from_pretrained(
-                actual_model_path,
-                **tokenizer_kwargs
-            )
-        elif "mistral" in model_path.lower():
-            model = AutoModelForCausalLM.from_pretrained(
-                actual_model_path, 
-                **model_kwargs
-            ).to(device)
-            tokenizer = AutoTokenizer.from_pretrained(
-                actual_model_path,
-                **tokenizer_kwargs
-            )
-        else:
-            raise ValueError(f"Invalid Model Path: {model_path}")
-            
-        print(f"✅ Model successfully loaded from: {actual_model_path}")
-        return model, tokenizer, device
-        
-    except Exception as e:
-        print(f"❌ Error loading model from {actual_model_path}: {str(e)}")
-        raise
+    if "llama" in args.model_path:
+        model = LlamaForCausalLM.from_pretrained(
+            HF_NAMES[model_path],# config = config, 
+            torch_dtype=torch.bfloat16,
+        ).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
+    elif "mistral" in args.model_path:
+        model = AutoModelForCausalLM.from_pretrained(HF_NAMES[model_path], torch_dtype=torch.bfloat16).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
+    else:
+        raise("Invalid Model Path")
+    return model, tokenizer, device
 
 def predict(args, prompt, model, tokenizer):
     inputs = tokenizer(prompt, return_tensors="pt").to('cuda')

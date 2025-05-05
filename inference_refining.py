@@ -76,7 +76,7 @@ def llama_inference_refining():
 
                     final_answer_probabilities = {}
                     final_answer_token_ids = {}
-                    answer_start_indice, answer_token_ids = match_final_answer_token_ids(original_tokens, response_tokens, generated_ids)
+                    answer_start_indice, answer_token_ids = match_final_answer_token_ids(args, original_tokens, response_tokens, generated_ids)
                     if answer_start_indice == None:
                         log.debug(f'Cannot locate the Final Answer, Current try is {try_time + 1}')
                         try_time += 1
