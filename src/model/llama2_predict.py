@@ -14,21 +14,52 @@ HF_NAMES = {
 def model_init(args):
     model_path = args.model_path # Replace to your model path
     device = torch.device("cuda:0")
-    if "llama" in args.model_path:
-        model = LlamaForCausalLM.from_pretrained(
-            HF_NAMES[model_path],# config = config, 
-            torch_dtype=torch.bfloat16,
-        ).to(device)
-        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
-    elif "mistral" in args.model_path:
-        model = AutoModelForCausalLM.from_pretrained(HF_NAMES[model_path], torch_dtype=torch.bfloat16).to(device)
-        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
+    
+    # Determine the datatype based on hardware capabilities
+    dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+    print(f"[model_init] Using dtype: {dtype}")
+    
+    # Check if model_path is one of the predefined keys
+    if model_path in HF_NAMES:
+        # Try to find a symlink in the HF cache
+        symlink_path = f"/root/.cache/huggingface/symlinks/{model_path}"
+        if os.path.exists(symlink_path):
+            print(f"Using symlink at {symlink_path}")
+            actual_path = symlink_path
+        else:
+            # Fallback to the HF Hub name
+            actual_path = HF_NAMES[model_path]
     else:
-        raise("Invalid Model Path")
-    return model, tokenizer, device
+        # Use the provided path directly
+        actual_path = model_path
+    
+    print(f"Loading model from: {actual_path}")
+    
+    if "llama" in model_path.lower():
+        # Use local_files_only=True for offline mode
+        model = LlamaForCausalLM.from_pretrained(
+            actual_path,
+            torch_dtype=dtype,
+            device_map="auto",
+            local_files_only=True
+        )
+        tokenizer = AutoTokenizer.from_pretrained(actual_path, local_files_only=True)
+    elif "mistral" in model_path.lower():
+        model = AutoModelForCausalLM.from_pretrained(
+            actual_path, 
+            torch_dtype=dtype,
+            device_map="auto",
+            local_files_only=True
+        )
+        tokenizer = AutoTokenizer.from_pretrained(actual_path, local_files_only=True)
+    else:
+        raise ValueError(f"Invalid Model Path: {model_path}")
+    
+    return model, tokenizer, model.device
 
 def predict(args, prompt, model, tokenizer):
-    inputs = tokenizer(prompt, return_tensors="pt").to('cuda')
+    # Use the model's device directly
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     generate_ids = model.generate(
         **inputs, 
         max_new_tokens = args.max_length_cot,
@@ -39,16 +70,16 @@ def predict(args, prompt, model, tokenizer):
     return infer_res
 
 
-def tokenize(prompt, tokenizer, model_name, tokenizer_args=None):
+def tokenize(prompt, tokenizer, model_name, device, tokenizer_args=None):
     if 'instruct' in model_name.lower():
         messages = [
             {"role": "user", "content": prompt}
         ]
-        model_input = tokenizer.apply_chat_template(messages, return_tensors="pt", **(tokenizer_args or {})).to('cuda')
+        model_input = tokenizer.apply_chat_template(messages, return_tensors="pt", **(tokenizer_args or {})).to(device)
     else: # non instruct model
         model_input = tokenizer(prompt, return_tensors='pt', **(tokenizer_args or {}))
         if "input_ids" in model_input:
-            model_input = model_input["input_ids"].to('cuda')
+            model_input = model_input["input_ids"].to(device)
     return model_input
 
 
@@ -75,12 +106,11 @@ def generate_model_answer(args, prompt, model, tokenizer, device, do_sample=Fals
                            top_p=1.0, max_new_tokens=100, stop_token_id=None, verbose=False):
 
     model_path = args.model_path 
-    model_name = HF_NAMES[model_path]
+    model_name = model_path  # Use the direct model path instead of HF_NAMES lookup
 
-    model_input = tokenize(prompt, tokenizer, model_name).to(device)
+    model_input = tokenize(prompt, tokenizer, model_name, device)
 
     with torch.no_grad():
-
         model_output = generate(model_input, model, model_name, do_sample, output_scores, max_new_tokens=max_new_tokens,
                                 top_p=top_p, temperature=temperature, stop_token_id=stop_token_id, tokenizer=tokenizer)
 

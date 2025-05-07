@@ -1,0 +1,876 @@
+2025-05-05 16:01:41,421 : ##### This is the --1th-- Question #####
+2025-05-05 16:02:04,213 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:02:22,999 : Exact Tokens Have no contribution scores, Current try is 2
+2025-05-05 16:02:34,642 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:02:34,642 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:02:34,643 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:02:34,657 : ##### This is the --2th-- Question #####
+2025-05-05 16:02:44,919 : Cannot locate the Final Answer, Current try is 1
+2025-05-05 16:02:58,309 : ##### This is the --3th-- Question #####
+2025-05-05 16:03:14,901 : ##### This is the --4th-- Question #####
+2025-05-05 16:03:20,752 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:03:20,753 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:03:20,754 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:03:20,761 : ##### This is the --5th-- Question #####
+2025-05-05 16:03:39,648 : ##### This is the --6th-- Question #####
+2025-05-05 16:03:46,181 : ##### This is the --7th-- Question #####
+2025-05-05 16:03:54,755 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:04:08,093 : ##### This is the --8th-- Question #####
+2025-05-05 16:04:21,386 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:04:21,394 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:04:21,400 : ##### This is the --9th-- Question #####
+2025-05-05 16:04:40,437 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:04:40,439 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:04:40,451 : ##### This is the --10th-- Question #####
+2025-05-05 16:04:49,295 : ##### This is the --11th-- Question #####
+2025-05-05 16:05:00,080 : ##### This is the --12th-- Question #####
+2025-05-05 16:05:14,042 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:05:24,855 : ##### This is the --13th-- Question #####
+2025-05-05 16:05:37,457 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:05:56,666 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-05 16:06:07,311 : ##### This is the --14th-- Question #####
+2025-05-05 16:06:25,791 : ##### This is the --15th-- Question #####
+2025-05-05 16:06:44,217 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:06:44,221 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:06:44,228 : ##### This is the --16th-- Question #####
+2025-05-05 16:06:50,300 : ##### This is the --17th-- Question #####
+2025-05-05 16:07:04,104 : ##### This is the --18th-- Question #####
+2025-05-05 16:07:15,842 : ##### This is the --19th-- Question #####
+2025-05-05 16:07:20,619 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:07:29,701 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:07:29,707 : ##### This is the --20th-- Question #####
+2025-05-05 16:07:38,303 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:07:48,277 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:07:48,279 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:07:48,282 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:07:48,282 : Token Probability from All Steps are All None, Current try is 2
+2025-05-05 16:08:00,346 : ##### This is the --21th-- Question #####
+2025-05-05 16:08:19,137 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:08:19,138 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:08:19,140 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:08:19,153 : ##### This is the --22th-- Question #####
+2025-05-05 16:08:29,801 : ##### This is the --23th-- Question #####
+2025-05-05 16:08:41,451 : ##### This is the --24th-- Question #####
+2025-05-05 16:08:50,026 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:09:01,555 : ##### This is the --25th-- Question #####
+2025-05-05 16:09:16,699 : ##### This is the --26th-- Question #####
+2025-05-05 16:09:33,871 : ##### This is the --27th-- Question #####
+2025-05-05 16:09:47,017 : ##### This is the --28th-- Question #####
+2025-05-05 16:10:06,090 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:10:19,180 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:10:19,180 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:10:19,181 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:10:19,181 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:10:19,190 : ##### This is the --29th-- Question #####
+2025-05-05 16:10:32,684 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:10:32,693 : ##### This is the --30th-- Question #####
+2025-05-05 16:10:46,293 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:10:54,390 : ##### This is the --31th-- Question #####
+2025-05-05 16:11:10,652 : ##### This is the --32th-- Question #####
+2025-05-05 16:11:29,572 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:11:43,664 : Len of keywords list doesn't match the len of step dict, Current try is 2
+2025-05-05 16:11:55,284 : ##### This is the --33th-- Question #####
+2025-05-05 16:12:04,392 : ##### This is the --34th-- Question #####
+2025-05-05 16:12:14,800 : Cannot locate the Final Answer, Current try is 1
+2025-05-05 16:12:20,761 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:12:20,762 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:12:20,763 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:12:20,770 : ##### This is the --35th-- Question #####
+2025-05-05 16:12:25,891 : ##### This is the --36th-- Question #####
+2025-05-05 16:12:42,337 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:12:42,338 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:12:42,349 : ##### This is the --37th-- Question #####
+2025-05-05 16:12:51,874 : Cannot locate the Final Answer, Current try is 1
+2025-05-05 16:13:05,045 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:13:05,046 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:13:05,050 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:13:05,053 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:13:05,056 : 
+Step 6-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:13:05,075 : ##### This is the --38th-- Question #####
+2025-05-05 16:13:24,195 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:13:32,777 : New Reasoning Tokens Are None, Current try is 2
+2025-05-05 16:13:45,059 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:13:45,065 : ##### This is the --39th-- Question #####
+2025-05-05 16:13:51,211 : ##### This is the --40th-- Question #####
+2025-05-05 16:13:56,019 : ##### This is the --41th-- Question #####
+2025-05-05 16:14:08,189 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:14:20,646 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:14:20,647 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:14:20,647 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:14:20,647 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:14:20,650 : 
+Step 3-Keyword-3 Does not appear in the Step Text
+2025-05-05 16:14:20,661 : ##### This is the --42th-- Question #####
+2025-05-05 16:14:39,979 : ##### This is the --43th-- Question #####
+2025-05-05 16:14:47,038 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:14:58,103 : ##### This is the --44th-- Question #####
+2025-05-05 16:15:07,075 : ##### This is the --45th-- Question #####
+2025-05-05 16:15:19,057 : ##### This is the --46th-- Question #####
+2025-05-05 16:15:31,163 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:15:31,179 : ##### This is the --47th-- Question #####
+2025-05-05 16:15:39,758 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:15:51,456 : ##### This is the --48th-- Question #####
+2025-05-05 16:16:02,863 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:16:14,850 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-05 16:16:33,737 : Exact Tokens Have NO ANSWER, Current try is 3
+2025-05-05 16:16:42,319 : New Reasoning Tokens Are None, Current try is 4
+2025-05-05 16:17:01,415 : ##### This is the --49th-- Question #####
+2025-05-05 16:17:13,231 : ##### This is the --50th-- Question #####
+2025-05-05 16:17:28,488 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:17:28,491 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:17:28,497 : ##### This is the --51th-- Question #####
+2025-05-05 16:17:43,312 : ##### This is the --52th-- Question #####
+2025-05-05 16:18:00,964 : ##### This is the --53th-- Question #####
+2025-05-05 16:18:12,742 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:18:23,639 : Exact Tokens Have no contribution scores, Current try is 2
+2025-05-05 16:18:30,743 : ##### This is the --54th-- Question #####
+2025-05-05 16:18:42,616 : ##### This is the --55th-- Question #####
+2025-05-05 16:19:01,715 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:19:01,715 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:19:01,724 : ##### This is the --56th-- Question #####
+2025-05-05 16:19:06,097 : ##### This is the --57th-- Question #####
+2025-05-05 16:19:19,109 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:19:19,115 : ##### This is the --58th-- Question #####
+2025-05-05 16:19:31,074 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:19:31,090 : ##### This is the --59th-- Question #####
+2025-05-05 16:19:44,013 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:19:44,015 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:19:44,021 : ##### This is the --60th-- Question #####
+2025-05-05 16:19:55,382 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:19:55,387 : ##### This is the --61th-- Question #####
+2025-05-05 16:20:14,485 : ##### This is the --62th-- Question #####
+2025-05-05 16:20:23,083 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:20:29,751 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:20:29,760 : ##### This is the --63th-- Question #####
+2025-05-05 16:20:42,136 : ##### This is the --64th-- Question #####
+2025-05-05 16:20:53,907 : ##### This is the --65th-- Question #####
+2025-05-05 16:21:13,062 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:21:13,066 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:21:13,070 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:21:13,076 : ##### This is the --66th-- Question #####
+2025-05-05 16:21:25,222 : ##### This is the --67th-- Question #####
+2025-05-05 16:21:36,788 : ##### This is the --68th-- Question #####
+2025-05-05 16:21:48,675 : ##### This is the --69th-- Question #####
+2025-05-05 16:21:53,548 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:21:53,562 : ##### This is the --70th-- Question #####
+2025-05-05 16:22:07,118 : ##### This is the --71th-- Question #####
+2025-05-05 16:22:20,084 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:22:20,094 : ##### This is the --72th-- Question #####
+2025-05-05 16:22:32,827 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:22:46,844 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:22:46,845 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:22:46,847 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:22:46,855 : ##### This is the --73th-- Question #####
+2025-05-05 16:23:01,425 : ##### This is the --74th-- Question #####
+2025-05-05 16:23:14,267 : ##### This is the --75th-- Question #####
+2025-05-05 16:23:25,744 : ##### This is the --76th-- Question #####
+2025-05-05 16:23:38,492 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:23:57,786 : ##### This is the --77th-- Question #####
+2025-05-05 16:24:09,550 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:24:09,555 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:24:09,572 : ##### This is the --78th-- Question #####
+2025-05-05 16:24:21,059 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:24:35,876 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:24:35,885 : ##### This is the --79th-- Question #####
+2025-05-05 16:24:52,268 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:24:52,275 : ##### This is the --80th-- Question #####
+2025-05-05 16:25:07,054 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:25:07,060 : ##### This is the --81th-- Question #####
+2025-05-05 16:25:22,583 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:25:22,585 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:25:22,596 : ##### This is the --82th-- Question #####
+2025-05-05 16:25:41,656 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:25:41,664 : ##### This is the --83th-- Question #####
+2025-05-05 16:25:51,067 : ##### This is the --84th-- Question #####
+2025-05-05 16:26:01,737 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:26:01,737 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:26:01,737 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:26:01,739 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:26:01,746 : ##### This is the --85th-- Question #####
+2025-05-05 16:26:13,706 : ##### This is the --86th-- Question #####
+2025-05-05 16:26:22,993 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:26:23,009 : ##### This is the --87th-- Question #####
+2025-05-05 16:26:32,651 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:26:32,651 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:26:32,652 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:26:32,655 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:26:32,661 : ##### This is the --88th-- Question #####
+2025-05-05 16:26:45,858 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:26:45,865 : ##### This is the --89th-- Question #####
+2025-05-05 16:26:54,463 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:26:54,466 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:26:54,474 : ##### This is the --90th-- Question #####
+2025-05-05 16:27:02,722 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:27:22,066 : ##### This is the --91th-- Question #####
+2025-05-05 16:27:37,644 : ##### This is the --92th-- Question #####
+2025-05-05 16:27:44,905 : ##### This is the --93th-- Question #####
+2025-05-05 16:28:02,180 : ##### This is the --94th-- Question #####
+2025-05-05 16:28:09,343 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:28:20,939 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:28:20,941 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:28:20,948 : ##### This is the --95th-- Question #####
+2025-05-05 16:28:36,035 : ##### This is the --96th-- Question #####
+2025-05-05 16:28:47,639 : ##### This is the --97th-- Question #####
+2025-05-05 16:29:00,316 : ##### This is the --98th-- Question #####
+2025-05-05 16:29:12,427 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:29:12,427 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:29:12,429 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:29:12,431 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:29:12,433 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:29:12,433 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 16:29:24,295 : ##### This is the --99th-- Question #####
+2025-05-05 16:29:33,209 : ##### This is the --100th-- Question #####
+2025-05-05 16:29:41,831 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:29:57,458 : ##### This is the --101th-- Question #####
+2025-05-05 16:30:06,069 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:30:13,624 : ##### This is the --102th-- Question #####
+2025-05-05 16:30:25,573 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:30:32,639 : ##### This is the --103th-- Question #####
+2025-05-05 16:30:51,911 : ##### This is the --104th-- Question #####
+2025-05-05 16:31:01,341 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:31:13,650 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:31:13,669 : ##### This is the --105th-- Question #####
+2025-05-05 16:31:25,184 : ##### This is the --106th-- Question #####
+2025-05-05 16:31:44,210 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:31:44,219 : ##### This is the --107th-- Question #####
+2025-05-05 16:31:56,080 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:31:56,082 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:31:56,099 : ##### This is the --108th-- Question #####
+2025-05-05 16:32:08,596 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:08,610 : ##### This is the --109th-- Question #####
+2025-05-05 16:32:16,807 : ##### This is the --110th-- Question #####
+2025-05-05 16:32:29,727 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:29,728 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:29,730 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:29,730 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 16:32:41,666 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:41,667 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:41,670 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:32:41,670 : Token Probability from All Steps are All None, Current try is 2
+2025-05-05 16:32:53,679 : ##### This is the --111th-- Question #####
+2025-05-05 16:33:07,069 : ##### This is the --112th-- Question #####
+2025-05-05 16:33:17,677 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:33:17,689 : ##### This is the --113th-- Question #####
+2025-05-05 16:33:23,589 : ##### This is the --114th-- Question #####
+2025-05-05 16:33:35,681 : ##### This is the --115th-- Question #####
+2025-05-05 16:33:49,568 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:33:49,571 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:33:49,575 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:33:49,575 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 16:34:02,421 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:02,423 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:02,426 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:02,426 : Token Probability from All Steps are All None, Current try is 2
+2025-05-05 16:34:15,077 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:15,078 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:15,081 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:15,086 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:15,086 : Token Probability from All Steps are All None, Current try is 3
+2025-05-05 16:34:32,443 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:32,444 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:34:32,459 : ##### This is the --116th-- Question #####
+2025-05-05 16:34:45,084 : ##### This is the --117th-- Question #####
+2025-05-05 16:34:51,137 : ##### This is the --118th-- Question #####
+2025-05-05 16:35:10,460 : ##### This is the --119th-- Question #####
+2025-05-05 16:35:19,074 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:35:38,249 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-05 16:35:46,865 : New Reasoning Tokens Are None, Current try is 3
+2025-05-05 16:35:55,480 : New Reasoning Tokens Are None, Current try is 4
+2025-05-05 16:36:06,358 : ##### This is the --120th-- Question #####
+2025-05-05 16:36:18,186 : ##### This is the --121th-- Question #####
+2025-05-05 16:36:36,928 : ##### This is the --122th-- Question #####
+2025-05-05 16:36:45,528 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:36:55,540 : ##### This is the --123th-- Question #####
+2025-05-05 16:37:07,146 : ##### This is the --124th-- Question #####
+2025-05-05 16:37:26,420 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:37:26,422 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:37:26,431 : ##### This is the --125th-- Question #####
+2025-05-05 16:37:39,665 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:37:39,672 : ##### This is the --126th-- Question #####
+2025-05-05 16:37:51,789 : ##### This is the --127th-- Question #####
+2025-05-05 16:38:04,378 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:38:13,160 : ##### This is the --128th-- Question #####
+2025-05-05 16:38:21,776 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:38:40,341 : ##### This is the --129th-- Question #####
+2025-05-05 16:38:52,170 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:38:52,173 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:38:52,177 : 
+Step 6-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:38:52,183 : ##### This is the --130th-- Question #####
+2025-05-05 16:39:04,502 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:39:16,837 : ##### This is the --131th-- Question #####
+2025-05-05 16:39:28,846 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:39:28,847 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:39:28,847 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 16:39:47,981 : ##### This is the --132th-- Question #####
+2025-05-05 16:40:00,068 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:40:00,070 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:40:00,076 : ##### This is the --133th-- Question #####
+2025-05-05 16:40:11,544 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:40:11,552 : ##### This is the --134th-- Question #####
+2025-05-05 16:40:17,325 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:40:17,340 : ##### This is the --135th-- Question #####
+2025-05-05 16:40:26,690 : Cannot locate the Final Answer, Current try is 1
+2025-05-05 16:40:31,224 : Cannot locate the Final Answer, Current try is 2
+2025-05-05 16:40:39,801 : New Reasoning Tokens Are None, Current try is 3
+2025-05-05 16:40:51,938 : ##### This is the --136th-- Question #####
+2025-05-05 16:41:00,523 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:41:19,805 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:41:19,816 : ##### This is the --137th-- Question #####
+2025-05-05 16:41:34,296 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:41:34,300 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:41:34,306 : ##### This is the --138th-- Question #####
+2025-05-05 16:41:40,271 : ##### This is the --139th-- Question #####
+2025-05-05 16:41:47,622 : ##### This is the --140th-- Question #####
+2025-05-05 16:41:53,031 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:41:53,039 : ##### This is the --141th-- Question #####
+2025-05-05 16:41:58,286 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:41:58,292 : ##### This is the --142th-- Question #####
+2025-05-05 16:42:13,174 : ##### This is the --143th-- Question #####
+2025-05-05 16:42:19,487 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:19,488 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:19,490 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:19,491 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:19,493 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:19,493 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 16:42:28,092 : New Reasoning Tokens Are None, Current try is 2
+2025-05-05 16:42:42,326 : Len of keywords list doesn't match the len of step dict, Current try is 3
+2025-05-05 16:42:50,672 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:50,677 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:42:50,692 : ##### This is the --144th-- Question #####
+2025-05-05 16:43:03,899 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:43:03,900 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:43:03,901 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:43:03,902 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:43:03,909 : ##### This is the --145th-- Question #####
+2025-05-05 16:43:12,122 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:43:12,133 : ##### This is the --146th-- Question #####
+2025-05-05 16:43:24,575 : ##### This is the --147th-- Question #####
+2025-05-05 16:43:32,440 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:43:32,451 : ##### This is the --148th-- Question #####
+2025-05-05 16:43:44,609 : ##### This is the --149th-- Question #####
+2025-05-05 16:43:55,055 : ##### This is the --150th-- Question #####
+2025-05-05 16:44:03,675 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:44:14,642 : ##### This is the --151th-- Question #####
+2025-05-05 16:44:26,211 : ##### This is the --152th-- Question #####
+2025-05-05 16:44:38,401 : ##### This is the --153th-- Question #####
+2025-05-05 16:44:53,725 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:44:53,736 : ##### This is the --154th-- Question #####
+2025-05-05 16:45:02,338 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:45:14,396 : ##### This is the --155th-- Question #####
+2025-05-05 16:45:24,153 : ##### This is the --156th-- Question #####
+2025-05-05 16:45:35,816 : ##### This is the --157th-- Question #####
+2025-05-05 16:45:49,999 : ##### This is the --158th-- Question #####
+2025-05-05 16:46:07,530 : ##### This is the --159th-- Question #####
+2025-05-05 16:46:11,081 : ##### This is the --160th-- Question #####
+2025-05-05 16:46:12,270 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:46:18,636 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-05 16:46:26,935 : ##### This is the --161th-- Question #####
+2025-05-05 16:46:41,179 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:46:52,646 : ##### This is the --162th-- Question #####
+2025-05-05 16:47:01,222 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:47:09,802 : New Reasoning Tokens Are None, Current try is 2
+2025-05-05 16:47:16,982 : ##### This is the --163th-- Question #####
+2025-05-05 16:47:21,313 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:47:39,857 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:47:39,874 : ##### This is the --164th-- Question #####
+2025-05-05 16:47:51,499 : ##### This is the --165th-- Question #####
+2025-05-05 16:48:10,630 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:48:10,633 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:48:10,640 : ##### This is the --166th-- Question #####
+2025-05-05 16:48:14,682 : ##### This is the --167th-- Question #####
+2025-05-05 16:48:32,989 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:48:33,008 : ##### This is the --168th-- Question #####
+2025-05-05 16:48:45,035 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:48:53,009 : ##### This is the --169th-- Question #####
+2025-05-05 16:49:10,589 : ##### This is the --170th-- Question #####
+2025-05-05 16:49:29,784 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:49:29,788 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:49:29,794 : ##### This is the --171th-- Question #####
+2025-05-05 16:49:45,018 : ##### This is the --172th-- Question #####
+2025-05-05 16:50:00,246 : ##### This is the --173th-- Question #####
+2025-05-05 16:50:08,856 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:50:21,483 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:50:21,484 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:50:21,487 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:50:21,490 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:50:21,490 : Token Probability from All Steps are All None, Current try is 2
+2025-05-05 16:50:32,849 : ##### This is the --174th-- Question #####
+2025-05-05 16:50:43,158 : ##### This is the --175th-- Question #####
+2025-05-05 16:50:52,504 : ##### This is the --176th-- Question #####
+2025-05-05 16:50:58,831 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:50:58,839 : ##### This is the --177th-- Question #####
+2025-05-05 16:51:13,013 : ##### This is the --178th-- Question #####
+2025-05-05 16:51:26,452 : ##### This is the --179th-- Question #####
+2025-05-05 16:51:45,748 : ##### This is the --180th-- Question #####
+2025-05-05 16:52:04,836 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:52:04,846 : ##### This is the --181th-- Question #####
+2025-05-05 16:52:13,473 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:52:27,306 : ##### This is the --182th-- Question #####
+2025-05-05 16:52:39,153 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:52:51,298 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:52:51,298 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:52:51,298 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+2025-05-05 16:52:51,299 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:52:51,311 : ##### This is the --183th-- Question #####
+2025-05-05 16:53:06,254 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:53:06,269 : ##### This is the --184th-- Question #####
+2025-05-05 16:53:20,720 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:53:20,731 : ##### This is the --185th-- Question #####
+2025-05-05 16:53:26,037 : ##### This is the --186th-- Question #####
+2025-05-05 16:53:37,840 : ##### This is the --187th-- Question #####
+2025-05-05 16:53:49,941 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:53:49,943 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:53:49,946 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:53:49,949 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:53:49,949 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 16:53:59,381 : ##### This is the --188th-- Question #####
+2025-05-05 16:54:11,657 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:54:11,663 : ##### This is the --189th-- Question #####
+2025-05-05 16:54:30,929 : ##### This is the --190th-- Question #####
+2025-05-05 16:54:42,471 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:55:00,757 : ##### This is the --191th-- Question #####
+2025-05-05 16:55:16,219 : ##### This is the --192th-- Question #####
+2025-05-05 16:55:24,808 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:55:35,337 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:55:35,338 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:55:35,340 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:55:35,342 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:55:35,342 : Token Probability from All Steps are All None, Current try is 2
+2025-05-05 16:55:47,687 : ##### This is the --193th-- Question #####
+2025-05-05 16:55:57,821 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:55:57,831 : ##### This is the --194th-- Question #####
+2025-05-05 16:56:08,011 : ##### This is the --195th-- Question #####
+2025-05-05 16:56:20,132 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 16:56:25,524 : ##### This is the --196th-- Question #####
+2025-05-05 16:56:37,768 : ##### This is the --197th-- Question #####
+2025-05-05 16:56:50,429 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 16:57:05,933 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:57:05,934 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-05 16:57:05,935 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-05 16:57:05,938 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:57:05,946 : ##### This is the --198th-- Question #####
+2025-05-05 16:57:13,599 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:57:13,604 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:57:13,636 : ##### This is the --199th-- Question #####
+2025-05-05 16:57:22,247 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:57:41,514 : Len of keywords list doesn't match the len of step dict, Current try is 2
+2025-05-05 16:57:49,675 : ##### This is the --200th-- Question #####
+2025-05-05 16:58:01,031 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:58:01,036 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:58:01,042 : ##### This is the --201th-- Question #####
+2025-05-05 16:58:08,692 : ##### This is the --202th-- Question #####
+2025-05-05 16:58:22,414 : ##### This is the --203th-- Question #####
+2025-05-05 16:58:31,046 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 16:58:39,559 : ##### This is the --204th-- Question #####
+2025-05-05 16:58:52,441 : ##### This is the --205th-- Question #####
+2025-05-05 16:59:11,735 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 16:59:20,355 : New Reasoning Tokens Are None, Current try is 2
+2025-05-05 16:59:34,998 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:59:35,000 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:59:35,003 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:59:35,006 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:59:35,011 : 
+Step 6-Keyword-0 Does not appear in the Step Text
+2025-05-05 16:59:35,024 : ##### This is the --206th-- Question #####
+2025-05-05 16:59:54,139 : ##### This is the --207th-- Question #####
+2025-05-05 17:00:13,210 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:00:24,906 : Len of keywords list doesn't match the len of step dict, Current try is 2
+2025-05-05 17:00:36,376 : Len of keywords list doesn't match the len of step dict, Current try is 3
+2025-05-05 17:00:52,093 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:00:52,094 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:00:52,114 : ##### This is the --208th-- Question #####
+2025-05-05 17:01:11,394 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 17:01:19,452 : ##### This is the --209th-- Question #####
+2025-05-05 17:01:33,079 : ##### This is the --210th-- Question #####
+2025-05-05 17:01:41,710 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 17:01:53,843 : ##### This is the --211th-- Question #####
+2025-05-05 17:02:05,659 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:02:05,661 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:02:05,669 : ##### This is the --212th-- Question #####
+2025-05-05 17:02:17,263 : ##### This is the --213th-- Question #####
+2025-05-05 17:02:28,778 : ##### This is the --214th-- Question #####
+2025-05-05 17:02:44,470 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:02:44,471 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:02:44,473 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:02:44,483 : ##### This is the --215th-- Question #####
+2025-05-05 17:03:03,532 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:03:22,612 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:03:22,613 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:03:22,617 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:03:22,629 : ##### This is the --216th-- Question #####
+2025-05-05 17:03:41,672 : ##### This is the --217th-- Question #####
+2025-05-05 17:03:53,229 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:03:58,058 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:03:58,059 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:03:58,067 : ##### This is the --218th-- Question #####
+2025-05-05 17:04:13,085 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 17:04:32,126 : Exact Tokens Have no contribution scores, Current try is 2
+2025-05-05 17:04:38,064 : Exact Tokens Have no contribution scores, Current try is 3
+2025-05-05 17:04:50,804 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:04:50,814 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:04:50,830 : ##### This is the --219th-- Question #####
+2025-05-05 17:05:07,279 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:05:15,874 : New Reasoning Tokens Are None, Current try is 2
+2025-05-05 17:05:28,863 : Exact Tokens Have no contribution scores, Current try is 3
+2025-05-05 17:05:44,436 : ##### This is the --220th-- Question #####
+2025-05-05 17:05:56,476 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 17:06:03,501 : ##### This is the --221th-- Question #####
+2025-05-05 17:06:17,412 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:06:29,352 : Exact Tokens Have no contribution scores, Current try is 2
+2025-05-05 17:06:45,951 : ##### This is the --222th-- Question #####
+2025-05-05 17:06:54,912 : ##### This is the --223th-- Question #####
+2025-05-05 17:07:00,212 : ##### This is the --224th-- Question #####
+2025-05-05 17:07:08,147 : ##### This is the --225th-- Question #####
+2025-05-05 17:07:19,789 : ##### This is the --226th-- Question #####
+2025-05-05 17:07:26,844 : Cannot locate the Final Answer, Current try is 1
+2025-05-05 17:07:41,440 : Len of keywords list doesn't match the len of step dict, Current try is 2
+2025-05-05 17:07:50,767 : Len of keywords list doesn't match the len of step dict, Current try is 3
+2025-05-05 17:08:10,070 : ##### This is the --227th-- Question #####
+2025-05-05 17:08:15,598 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:08:15,599 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:08:15,606 : ##### This is the --228th-- Question #####
+2025-05-05 17:08:27,519 : ##### This is the --229th-- Question #####
+2025-05-05 17:08:43,288 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:09:02,501 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:09:02,504 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:09:02,514 : ##### This is the --230th-- Question #####
+2025-05-05 17:09:11,332 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:09:11,333 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:09:11,335 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:09:11,338 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:09:11,338 : Token Probability from All Steps are All None, Current try is 1
+2025-05-05 17:09:29,109 : ##### This is the --231th-- Question #####
+2025-05-05 17:09:39,341 : Cannot locate the Final Answer, Current try is 1
+2025-05-05 17:09:47,502 : ##### This is the --232th-- Question #####
+2025-05-05 17:10:06,724 : ##### This is the --233th-- Question #####
+2025-05-05 17:10:18,260 : ##### This is the --234th-- Question #####
+2025-05-05 17:10:29,250 : ##### This is the --235th-- Question #####
+2025-05-05 17:10:41,436 : ##### This is the --236th-- Question #####
+2025-05-05 17:10:59,490 : ##### This is the --237th-- Question #####
+2025-05-05 17:11:03,679 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 17:11:22,963 : ##### This is the --238th-- Question #####
+2025-05-05 17:11:31,543 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 17:11:44,174 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:11:44,176 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:11:44,178 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:11:44,192 : ##### This is the --239th-- Question #####
+2025-05-05 17:11:48,745 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 17:11:59,872 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:11:59,873 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:11:59,876 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:11:59,885 : ##### This is the --240th-- Question #####
+2025-05-05 17:12:11,894 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-05 17:12:24,724 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:12:24,727 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:12:24,730 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:12:24,735 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:12:24,748 : ##### This is the --241th-- Question #####
+2025-05-05 17:12:42,086 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-05 17:12:54,368 : ##### This is the --242th-- Question #####
+2025-05-05 17:13:06,942 : ##### This is the --243th-- Question #####
+2025-05-05 17:13:17,228 : ##### This is the --244th-- Question #####
+2025-05-05 17:13:23,405 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:23,406 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:23,407 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:23,410 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:23,418 : ##### This is the --245th-- Question #####
+2025-05-05 17:13:42,398 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:42,404 : ##### This is the --246th-- Question #####
+2025-05-05 17:13:54,791 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:54,795 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:13:54,796 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-05 17:13:54,807 : ##### This is the --247th-- Question #####
+2025-05-05 17:14:04,409 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:04,421 : ##### This is the --248th-- Question #####
+2025-05-05 17:14:09,636 : ##### This is the --249th-- Question #####
+2025-05-05 17:14:20,846 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:20,849 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:20,860 : ##### This is the --250th-- Question #####
+2025-05-05 17:14:36,617 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:36,621 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:36,624 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:36,634 : ##### This is the --251th-- Question #####
+2025-05-05 17:14:48,044 : ##### This is the --252th-- Question #####
+2025-05-05 17:14:59,524 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:14:59,538 : ##### This is the --253th-- Question #####
+2025-05-05 17:15:04,179 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:15:04,186 : ##### This is the --254th-- Question #####
+2025-05-05 17:15:17,534 : ##### This is the --255th-- Question #####
+2025-05-05 17:15:26,123 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 17:15:33,387 : ##### This is the --256th-- Question #####
+2025-05-05 17:15:45,225 : ##### This is the --257th-- Question #####
+2025-05-05 17:15:52,805 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:15:52,809 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:15:52,815 : ##### This is the --258th-- Question #####
+2025-05-05 17:16:04,788 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:16:04,802 : ##### This is the --259th-- Question #####
+2025-05-05 17:16:13,380 : New Reasoning Tokens Are None, Current try is 1
+2025-05-05 17:16:26,064 : Exact Tokens Have no contribution scores, Current try is 2
+2025-05-05 17:16:34,644 : New Reasoning Tokens Are None, Current try is 3
+2025-05-05 17:16:47,156 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:16:47,158 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:16:47,160 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:16:47,163 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:16:47,163 : Token Probability from All Steps are All None, Current try is 4
+2025-05-05 17:16:52,461 : New Reasoning Tokens Are None, Current try is 5
+2025-05-05 17:17:01,043 : New Reasoning Tokens Are None, Current try is 6
+2025-05-05 17:17:06,176 : ##### This is the --260th-- Question #####
+2025-05-05 17:17:16,954 : ##### This is the --261th-- Question #####
+2025-05-05 17:17:23,910 : ##### This is the --262th-- Question #####
+2025-05-05 17:17:40,474 : ##### This is the --263th-- Question #####
+2025-05-05 17:17:48,264 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:17:48,271 : ##### This is the --264th-- Question #####
+2025-05-05 17:18:01,036 : ##### This is the --265th-- Question #####
+2025-05-05 17:18:15,329 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:18:15,330 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:18:15,336 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-05 17:18:15,347 : ##### This is the --266th-- Question #####
+2025-05-05 17:18:31,567 : ##### This is the --267th-- Question #####
+2025-05-05 17:18:45,445 : ##### This is the --268th-- Question #####
+2025-05-05 17:18:57,414 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 17:19:16,731 : ##### This is the --269th-- Question #####
+2025-05-05 17:19:27,464 : ##### This is the --270th-- Question #####
+2025-05-05 17:19:33,527 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-05 17:19:48,079 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-05 17:20:07,422 : Len of keywords list doesn't match the len of step dict, Current try is 3
+2025-05-05 17:20:21,534 : 
+Step 1-Keyword-0 Does not appear in the Step Text

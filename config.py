@@ -35,8 +35,7 @@ def parse_arguments():
         choices=["probas-mean", "probas-min", "token-sar", "p-true", "self-probing"]
     )
     parser.add_argument(
-        "--model_path", default='llama3-1_8B', help="your local model path",
-        choices=["llama3-1_8B", "llama2-13b"]
+        "--model_path", default='llama3-1_8B', help="your local model path or absolute path to model"
     )
     parser.add_argument(
         "--output_path", default='output/llama-3.1-8B/', help="your local output path"

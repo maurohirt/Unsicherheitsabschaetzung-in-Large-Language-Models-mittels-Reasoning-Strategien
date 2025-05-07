@@ -1,0 +1,35 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama2-13b
+DATASET: hotpotQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama2-13b/hotpotQA
+TEMPERATURE: 1.2
+TRY_TIMES: 20
+ARRAY_ID: 2
+JOB_ID: 70473
+===== MODEL SETUP =====
+Using model path: /root/.cache/huggingface/models/llama2-13b
+Created symlink: llama2-13b -> /root/.cache/huggingface/models/llama2-13b
+===== GPU INFO BEFORE MODEL LOADING =====
+memory.total [MiB], memory.used [MiB], name
+20470 MiB, 2 MiB, NVIDIA RTX A4500
+20470 MiB, 2 MiB, NVIDIA RTX A4500
+===== STARTING INFERENCE FOR DATASET: hotpotQA =====
+---------------experiment args---------------
+max_length_cot:128
+try_times:20
+temperature:1.2
+dataset:hotpotQA
+datapath:None
+api_key:
+model_engine:llama2-13b
+uq_engine:probas-mean
+model_path:llama2-13b
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama2-13b/hotpotQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+The Number of Different Questions:  8447
+Using symlink at /root/.cache/huggingface/symlinks/llama2-13b
+Loading model from: /root/.cache/huggingface/symlinks/llama2-13b

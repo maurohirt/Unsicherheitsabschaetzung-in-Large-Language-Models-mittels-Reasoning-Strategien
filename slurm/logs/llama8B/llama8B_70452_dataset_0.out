@@ -1,0 +1,39 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: ASDiv
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+TEMPERATURE: 1.0
+TRY_TIMES: 20
+ARRAY_ID: 0
+JOB_ID: 70452
+===== MODEL SETUP =====
+Using model path: /root/.cache/huggingface/models/llama3-8B
+Created symlink: llama3-1_8B -> /root/.cache/huggingface/models/llama3-8B
+===== GPU INFO BEFORE MODEL LOADING =====
+memory.total [MiB], memory.used [MiB]
+24576 MiB, 6 MiB
+===== STARTING INFERENCE FOR DATASET: ASDiv =====
+---------------experiment args---------------
+max_length_cot:128
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+The Number of Different Questions:  2249
+Using symlink at /root/.cache/huggingface/symlinks/llama3-1_8B
+Loading model from: /root/.cache/huggingface/symlinks/llama3-1_8B
+FATAL: inference_refining.py execution failed with exit code 1
+❌ Inference job failed with exit status 1 for dataset: ASDiv
+Log files:
+- Standard output: slurm/logs/llama8B/llama8B_70452_ASDiv.out
+- Standard error:  slurm/logs/llama8B/llama8B_70452_ASDiv.err

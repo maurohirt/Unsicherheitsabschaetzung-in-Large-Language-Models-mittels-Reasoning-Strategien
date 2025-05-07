@@ -1,0 +1,34 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: gsm8k
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/gsm8k
+TEMPERATURE: 1.0
+TRY_TIMES: 20
+ARRAY_ID: 4
+JOB_ID: 70452
+===== MODEL SETUP =====
+Using model path: /root/.cache/huggingface/models/llama3-8B
+Created symlink: llama3-1_8B -> /root/.cache/huggingface/models/llama3-8B
+===== GPU INFO BEFORE MODEL LOADING =====
+memory.total [MiB], memory.used [MiB]
+24576 MiB, 6 MiB
+===== STARTING INFERENCE FOR DATASET: gsm8k =====
+---------------experiment args---------------
+max_length_cot:128
+try_times:20
+temperature:1.0
+dataset:gsm8k
+datapath:None
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/gsm8k
+test_start:0
+test_end:full
+
+---------------------------------------------
+The Number of Different Questions:  1318
+Using symlink at /root/.cache/huggingface/symlinks/llama3-1_8B
+Loading model from: /root/.cache/huggingface/symlinks/llama3-1_8B
