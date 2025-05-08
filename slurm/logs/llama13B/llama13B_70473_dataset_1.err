@@ -1,99 +1,0 @@
-Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:  33%|███▎      | 1/3 [00:12<00:24, 12.16s/it]Loading checkpoint shards:  67%|██████▋   | 2/3 [00:23<00:11, 11.81s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:30<00:00,  9.68s/it]Loading checkpoint shards: 100%|██████████| 3/3 [00:30<00:00, 10.29s/it]
-  0%|          | 0/1548 [00:00<?, ?it/s]2025-05-06 15:51:56,682 : ##### This is the --1th-- Question #####
-2025-05-06 16:00:55,031 : New Reasoning Tokens Are None, Current try is 1
-2025-05-06 16:09:51,064 : New Reasoning Tokens Are None, Current try is 2
-2025-05-06 16:18:47,098 : New Reasoning Tokens Are None, Current try is 3
-2025-05-06 16:27:43,125 : New Reasoning Tokens Are None, Current try is 4
-2025-05-06 16:36:39,203 : New Reasoning Tokens Are None, Current try is 5
-2025-05-06 16:45:35,385 : New Reasoning Tokens Are None, Current try is 6
-2025-05-06 16:54:31,472 : New Reasoning Tokens Are None, Current try is 7
-2025-05-06 17:03:27,503 : New Reasoning Tokens Are None, Current try is 8
-2025-05-06 17:12:23,587 : New Reasoning Tokens Are None, Current try is 9
-2025-05-06 17:21:19,623 : New Reasoning Tokens Are None, Current try is 10
-2025-05-06 17:30:15,659 : New Reasoning Tokens Are None, Current try is 11
-2025-05-06 17:39:11,747 : New Reasoning Tokens Are None, Current try is 12
-2025-05-06 17:48:07,883 : New Reasoning Tokens Are None, Current try is 13
-2025-05-06 17:57:03,912 : New Reasoning Tokens Are None, Current try is 14
-2025-05-06 18:05:59,954 : New Reasoning Tokens Are None, Current try is 15
-2025-05-06 18:14:55,990 : New Reasoning Tokens Are None, Current try is 16
-2025-05-06 18:23:52,023 : New Reasoning Tokens Are None, Current try is 17
-2025-05-06 18:32:48,056 : New Reasoning Tokens Are None, Current try is 18
-2025-05-06 18:41:44,092 : New Reasoning Tokens Are None, Current try is 19
-2025-05-06 18:50:40,129 : New Reasoning Tokens Are None, Current try is 20
-2025-05-06 18:50:40,131 : #####The Following Question:#####
-Who is Charles Bretagne Marie De La Trémoille's paternal grandfather?
-Has no Meaningful Answer & Explanations, Record and Skip
-  0%|          | 1/1548 [2:58:43<4608:06:55, 10723.47s/it]2025-05-06 18:50:40,153 : ##### This is the --2th-- Question #####
-2025-05-06 18:59:36,229 : New Reasoning Tokens Are None, Current try is 1
-2025-05-06 19:08:32,270 : New Reasoning Tokens Are None, Current try is 2
-2025-05-06 19:17:28,434 : New Reasoning Tokens Are None, Current try is 3
-2025-05-06 19:26:24,515 : New Reasoning Tokens Are None, Current try is 4
-2025-05-06 19:35:20,548 : New Reasoning Tokens Are None, Current try is 5
-2025-05-06 19:44:16,656 : New Reasoning Tokens Are None, Current try is 6
-2025-05-06 19:53:12,760 : New Reasoning Tokens Are None, Current try is 7
-2025-05-06 20:02:08,820 : New Reasoning Tokens Are None, Current try is 8
-2025-05-06 20:11:04,854 : New Reasoning Tokens Are None, Current try is 9
-2025-05-06 20:20:00,928 : New Reasoning Tokens Are None, Current try is 10
-2025-05-06 20:28:57,104 : New Reasoning Tokens Are None, Current try is 11
-2025-05-06 20:37:53,216 : New Reasoning Tokens Are None, Current try is 12
-2025-05-06 20:46:49,276 : New Reasoning Tokens Are None, Current try is 13
-2025-05-06 20:55:45,357 : New Reasoning Tokens Are None, Current try is 14
-2025-05-06 21:04:41,469 : New Reasoning Tokens Are None, Current try is 15
-2025-05-06 21:13:37,569 : New Reasoning Tokens Are None, Current try is 16
-2025-05-06 21:22:33,608 : New Reasoning Tokens Are None, Current try is 17
-2025-05-06 21:31:29,645 : New Reasoning Tokens Are None, Current try is 18
-2025-05-06 21:40:25,687 : New Reasoning Tokens Are None, Current try is 19
-2025-05-06 21:49:21,760 : New Reasoning Tokens Are None, Current try is 20
-2025-05-06 21:49:21,763 : #####The Following Question:#####
-Who is the maternal grandfather of Antiochus X Eusebes?
-Has no Meaningful Answer & Explanations, Record and Skip
-  0%|          | 2/1548 [5:57:25<4604:40:08, 10722.39s/it]2025-05-06 21:49:21,777 : ##### This is the --3th-- Question #####
-2025-05-06 21:58:17,818 : New Reasoning Tokens Are None, Current try is 1
-2025-05-06 22:07:13,862 : New Reasoning Tokens Are None, Current try is 2
-2025-05-06 22:16:09,906 : New Reasoning Tokens Are None, Current try is 3
-2025-05-06 22:25:05,948 : New Reasoning Tokens Are None, Current try is 4
-2025-05-06 22:34:01,994 : New Reasoning Tokens Are None, Current try is 5
-2025-05-06 22:42:58,088 : New Reasoning Tokens Are None, Current try is 6
-2025-05-06 22:51:54,136 : New Reasoning Tokens Are None, Current try is 7
-2025-05-06 23:00:50,241 : New Reasoning Tokens Are None, Current try is 8
-2025-05-06 23:09:46,282 : New Reasoning Tokens Are None, Current try is 9
-2025-05-06 23:18:42,328 : New Reasoning Tokens Are None, Current try is 10
-2025-05-06 23:27:38,374 : New Reasoning Tokens Are None, Current try is 11
-2025-05-06 23:36:34,418 : New Reasoning Tokens Are None, Current try is 12
-2025-05-06 23:45:30,459 : New Reasoning Tokens Are None, Current try is 13
-2025-05-06 23:54:26,497 : New Reasoning Tokens Are None, Current try is 14
-2025-05-07 00:03:22,544 : New Reasoning Tokens Are None, Current try is 15
-2025-05-07 00:12:18,591 : New Reasoning Tokens Are None, Current try is 16
-2025-05-07 00:21:14,684 : New Reasoning Tokens Are None, Current try is 17
-2025-05-07 00:30:10,773 : New Reasoning Tokens Are None, Current try is 18
-2025-05-07 00:39:06,816 : New Reasoning Tokens Are None, Current try is 19
-2025-05-07 00:48:02,910 : New Reasoning Tokens Are None, Current try is 20
-2025-05-07 00:48:02,914 : #####The Following Question:#####
-Who is Catherine Of Pomerania, Countess Palatine Of Neumarkt's father-in-law?
-Has no Meaningful Answer & Explanations, Record and Skip
-  0%|          | 3/1548 [8:56:06<4601:27:00, 10721.83s/it]2025-05-07 00:48:02,935 : ##### This is the --4th-- Question #####
-2025-05-07 00:56:58,973 : New Reasoning Tokens Are None, Current try is 1
-2025-05-07 01:05:55,012 : New Reasoning Tokens Are None, Current try is 2
-2025-05-07 01:14:51,147 : New Reasoning Tokens Are None, Current try is 3
-2025-05-07 01:23:47,201 : New Reasoning Tokens Are None, Current try is 4
-2025-05-07 01:32:43,286 : New Reasoning Tokens Are None, Current try is 5
-2025-05-07 01:41:39,324 : New Reasoning Tokens Are None, Current try is 6
-2025-05-07 01:50:35,364 : New Reasoning Tokens Are None, Current try is 7
-2025-05-07 01:59:31,399 : New Reasoning Tokens Are None, Current try is 8
-2025-05-07 02:08:27,433 : New Reasoning Tokens Are None, Current try is 9
-2025-05-07 02:17:23,622 : New Reasoning Tokens Are None, Current try is 10
-2025-05-07 02:26:19,760 : New Reasoning Tokens Are None, Current try is 11
-2025-05-07 02:35:15,850 : New Reasoning Tokens Are None, Current try is 12
-2025-05-07 02:44:11,933 : New Reasoning Tokens Are None, Current try is 13
-2025-05-07 02:53:07,969 : New Reasoning Tokens Are None, Current try is 14
-2025-05-07 03:02:04,057 : New Reasoning Tokens Are None, Current try is 15
-2025-05-07 03:11:00,095 : New Reasoning Tokens Are None, Current try is 16
-2025-05-07 03:19:56,128 : New Reasoning Tokens Are None, Current try is 17
-2025-05-07 03:28:52,169 : New Reasoning Tokens Are None, Current try is 18
-2025-05-07 03:37:48,207 : New Reasoning Tokens Are None, Current try is 19
-2025-05-07 03:46:44,255 : New Reasoning Tokens Are None, Current try is 20
-2025-05-07 03:46:44,258 : #####The Following Question:#####
-Who is Marie Zéphyrine Of France's paternal grandmother?
-Has no Meaningful Answer & Explanations, Record and Skip
-  0%|          | 4/1548 [11:54:47<4598:23:20, 10721.63s/it]2025-05-07 03:46:44,272 : ##### This is the --5th-- Question #####
-slurmstepd-server0103: error: *** JOB 70475 ON server0103 CANCELLED AT 2025-05-07T03:51:33 DUE TO TIME LIMIT ***
