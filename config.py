@@ -1,4 +1,5 @@
 import argparse
+import os
 
 
 def parse_arguments():
@@ -24,7 +25,10 @@ def parse_arguments():
         "--datapath", default=None, type=str, help='file path'
     )
     parser.add_argument(
-        "--api_key", default="", type = str, help='gpt api_key'
+        "--hf_token", default=os.getenv("HUGGINGFACE_HUB_TOKEN", ""), type=str, help="Hugging Face API token"
+    )
+    parser.add_argument(
+        "--api_key", default="", type=str, help='HuggingFace API key'
     )
     parser.add_argument(
         "--model_engine", default='llama2-7b', help="model engine",
@@ -35,7 +39,8 @@ def parse_arguments():
         choices=["probas-mean", "probas-min", "token-sar", "p-true", "self-probing"]
     )
     parser.add_argument(
-        "--model_path", default='llama3-1_8B', help="your local model path or absolute path to model"
+        "--model_path", default='llama3-1_8B', help="your local model path",
+        choices=["llama3-1_8B", "llama2-13b"]
     )
     parser.add_argument(
         "--output_path", default='output/llama-3.1-8B/', help="your local output path"

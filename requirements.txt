@@ -1,10 +1,13 @@
-torch>=1.13.1
-transformers>=4.29.1
-datasets>=2.12.0
-accelerate>=0.21.0
+torch==2.2.2+cu118 # needs torch.compiler submodule for flex_attention
+--extra-index-url https://download.pytorch.org/whl/cu118
+transformers>=4.45.0
+accelerate>=0.25.0
+safetensors>=0.4.0
+sentencepiece>=0.1.99
+
+# Existing dependencies
 peft>=0.4.0
 trl>=0.4.7
-sentencepiece
 jieba
 rouge-chinese
 nltk
@@ -14,3 +17,4 @@ pydantic==1.10.11
 fastapi==0.95.1
 sse-starlette
 sentence_transformers
+datasets>=2.12.0

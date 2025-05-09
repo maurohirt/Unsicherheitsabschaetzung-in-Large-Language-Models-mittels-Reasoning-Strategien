@@ -14,7 +14,7 @@ export SINGULARITY_CACHEDIR=/tmp/$USER-singularity-cache
 mkdir -p "$SINGULARITY_CACHEDIR"
 
 # Zielpfad für die fertige SIF
-SIF=$HOME/containers/cot-uq_flashattn_test.sif
+SIF=$HOME/containers/cot-uq_latest.sif
 mkdir -p "$(dirname "$SIF")"
 
 # --- Variante A: Pull direkt vom Docker-Registry (schnell) ---

@@ -4,62 +4,52 @@ import os
 import json
 from transformers import LlamaTokenizer, LlamaForCausalLM, AutoConfig
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from huggingface_hub import login as hf_login
 # from peft import PeftModel
 
 HF_NAMES = {
+    # Official Llama-3 repositories (with custom modeling code supporting GQA)
+    # Llama-3.1 release (preferred)
     'llama3-1_8B': 'meta-llama/Llama-3.1-8B',
-    'llama2-13b': 'meta-llama/Llama-2-13b-chat-hf'
+    'llama3-1_8B_instruct': 'meta-llama/Llama-3.1-8B-Instruct',
+    # Legacy repo name kept for backward compatibility
+    'llama3-1_8B_meta': 'meta-llama/Meta-Llama-3-8B',
+    'llama2-13b': 'meta-llama/Llama-2-13b-chat-hf',
 }
 
 def model_init(args):
     model_path = args.model_path # Replace to your model path
     device = torch.device("cuda:0")
-    
-    # Determine the datatype based on hardware capabilities
-    dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
-    print(f"[model_init] Using dtype: {dtype}")
-    
-    # Check if model_path is one of the predefined keys
-    if model_path in HF_NAMES:
-        # Try to find a symlink in the HF cache
-        symlink_path = f"/root/.cache/huggingface/symlinks/{model_path}"
-        if os.path.exists(symlink_path):
-            print(f"Using symlink at {symlink_path}")
-            actual_path = symlink_path
-        else:
-            # Fallback to the HF Hub name
-            actual_path = HF_NAMES[model_path]
-    else:
-        # Use the provided path directly
-        actual_path = model_path
-    
-    print(f"Loading model from: {actual_path}")
-    
-    if "llama" in model_path.lower():
-        # Use local_files_only=True for offline mode
-        model = LlamaForCausalLM.from_pretrained(
-            actual_path,
-            torch_dtype=dtype,
-            device_map="auto",
-            local_files_only=True
-        )
-        tokenizer = AutoTokenizer.from_pretrained(actual_path, local_files_only=True)
-    elif "mistral" in model_path.lower():
+    # login to Hugging Face Hub if token provided via env or args (for offline cache access)
+    token = os.getenv("HUGGINGFACE_HUB_TOKEN", getattr(args, "hf_token", ""))
+    if token:
+        try:
+            hf_login(token=token, add_to_git_credential=False)
+        except Exception:
+            pass
+    if "llama3" in args.model_path:
+        # Use AutoModel for Llama-3 because HF provides custom QKV shapes
         model = AutoModelForCausalLM.from_pretrained(
-            actual_path, 
-            torch_dtype=dtype,
-            device_map="auto",
-            local_files_only=True
-        )
-        tokenizer = AutoTokenizer.from_pretrained(actual_path, local_files_only=True)
+            HF_NAMES[model_path],
+            torch_dtype=torch.bfloat16,
+            trust_remote_code=True,
+        ).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path], trust_remote_code=True)
+    elif "llama2" in args.model_path:
+        model = LlamaForCausalLM.from_pretrained(
+            HF_NAMES[model_path],
+            torch_dtype=torch.bfloat16,
+        ).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
+    elif "mistral" in args.model_path:
+        model = AutoModelForCausalLM.from_pretrained(HF_NAMES[model_path], torch_dtype=torch.bfloat16).to(device)
+        tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
     else:
-        raise ValueError(f"Invalid Model Path: {model_path}")
-    
-    return model, tokenizer, model.device
+        raise("Invalid Model Path")
+    return model, tokenizer, device
 
 def predict(args, prompt, model, tokenizer):
-    # Use the model's device directly
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    inputs = tokenizer(prompt, return_tensors="pt").to('cuda')
     generate_ids = model.generate(
         **inputs, 
         max_new_tokens = args.max_length_cot,
@@ -70,16 +60,16 @@ def predict(args, prompt, model, tokenizer):
     return infer_res
 
 
-def tokenize(prompt, tokenizer, model_name, device, tokenizer_args=None):
+def tokenize(prompt, tokenizer, model_name, tokenizer_args=None):
     if 'instruct' in model_name.lower():
         messages = [
             {"role": "user", "content": prompt}
         ]
-        model_input = tokenizer.apply_chat_template(messages, return_tensors="pt", **(tokenizer_args or {})).to(device)
+        model_input = tokenizer.apply_chat_template(messages, return_tensors="pt", **(tokenizer_args or {})).to('cuda')
     else: # non instruct model
         model_input = tokenizer(prompt, return_tensors='pt', **(tokenizer_args or {}))
         if "input_ids" in model_input:
-            model_input = model_input["input_ids"].to(device)
+            model_input = model_input["input_ids"].to('cuda')
     return model_input
 
 
@@ -106,11 +96,12 @@ def generate_model_answer(args, prompt, model, tokenizer, device, do_sample=Fals
                            top_p=1.0, max_new_tokens=100, stop_token_id=None, verbose=False):
 
     model_path = args.model_path 
-    model_name = model_path  # Use the direct model path instead of HF_NAMES lookup
+    model_name = HF_NAMES[model_path]
 
-    model_input = tokenize(prompt, tokenizer, model_name, device)
+    model_input = tokenize(prompt, tokenizer, model_name).to(device)
 
     with torch.no_grad():
+
         model_output = generate(model_input, model, model_name, do_sample, output_scores, max_new_tokens=max_new_tokens,
                                 top_p=top_p, temperature=temperature, stop_token_id=stop_token_id, tokenizer=tokenizer)
 

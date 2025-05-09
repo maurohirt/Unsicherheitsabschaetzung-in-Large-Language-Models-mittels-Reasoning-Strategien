@@ -1,22 +1,28 @@
 #!/bin/bash
 
 #SBATCH -p performance
-#SBATCH --gres=gpu:1
+#SBATCH --gres=gpu:rtxA4500:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --time=06:00:00
 #SBATCH --job-name=cot_inference_8B
 #SBATCH --output=slurm/logs/slurm_inference_llama8B_%j.out
 #SBATCH --error=slurm/logs/slurm_inference_llama8B_%j.err
+#SBATCH --export=ALL,HUGGINGFACE_HUB_TOKEN
 
 # Environment setup
 PROJECT_ROOT="/home2/mauro.hirt/CoT-UQ"
 echo "Project root: $PROJECT_ROOT"
 
 export PYTHONPATH=$PROJECT_ROOT
-export HOST_HF_CACHE="/home2/mauro.hirt/hf-cache"
 export SIF_PATH="/home2/mauro.hirt/containers/cot-uq_latest.sif"
+
+# Hugging Face caching
+export HOST_HF_CACHE="${PROJECT_ROOT}/hf_cache"
 export CONTAINER_HF_CACHE="/root/.cache/huggingface"
+mkdir -p ${HOST_HF_CACHE}
+# Hugging Face token (must be set in submission environment)
+export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN:-""}
 
 # Define parameters (can be overridden by command line arguments)
 MODEL_ENGINE=${1:-"llama3-1_8B"}
@@ -45,26 +51,30 @@ singularity exec --nv \
     # Navigate to the code directory
     cd /home2/mauro.hirt/CoT-UQ
     
+    # Configure Hugging Face env inside container
+    export HF_HOME=${CONTAINER_HF_CACHE}
+    export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
+    export MODEL_PATH_INSIDE=${MODEL_ENGINE}
+
+    # Ensure models are cached (download if missing)
+    python - <<PY
+import os
+from huggingface_hub import snapshot_download
+
+repo_map = {
+    'llama3-1_8B': 'meta-llama/Llama-3.1-8B',
+    'llama2-13b': 'meta-llama/Llama-2-13b-chat-hf',
+}
+
+model = os.environ.get('MODEL_PATH_INSIDE')
+repo = repo_map.get(model)
+if repo:
+    print(f'Ensuring model {repo} is cached...')
+    snapshot_download(repo_id=repo, token=os.getenv('HUGGINGFACE_HUB_TOKEN'), resume_download=True)
+PY
+
     # Set up environment
-    export HF_HOME=\"${CONTAINER_HF_CACHE}\"
-    export TRANSFORMERS_OFFLINE=1
-    export HF_HUB_OFFLINE=1
-    export PYTHONPATH=/home2/mauro.hirt/CoT-UQ
-    
-    # Use the exact path from the successful test
-    MODEL_PATH_INSIDE=\"/root/.cache/huggingface/models/llama3-8B\"
-    
-    echo \"===== MODEL SETUP =====\"
-    echo \"Using model path: \${MODEL_PATH_INSIDE}\"
-    
-    # Create a symlink for llama3-1_8B to point to the model directory
-    mkdir -p /root/.cache/huggingface/symlinks
-    ln -sfn \"\${MODEL_PATH_INSIDE}\" /root/.cache/huggingface/symlinks/llama3-1_8B
-    echo \"Created symlink: llama3-1_8B -> \${MODEL_PATH_INSIDE}\"
-    
-    # Update model path to use the symlink name that matches config options
-    MODEL_PATH_INSIDE=\"llama3-1_8B\"
-    
+  
     # GPU Information before loading model
     echo \"===== GPU INFO BEFORE MODEL LOADING =====\"
     nvidia-smi --query-gpu=memory.total,memory.used --format=csv
