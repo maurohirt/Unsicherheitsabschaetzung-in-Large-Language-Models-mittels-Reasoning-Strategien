@@ -148,7 +148,12 @@ def llama_inference_refining():
 
                             for j, token_id in enumerate(keyword_token_ids):
                                 idxx = start_position + keyword_token_start_idx + j
-                                keyword_probs.append(probabilities[idxx][token_id])
+                                try:
+                                    keyword_probs.append(probabilities[idxx][token_id])
+                                except KeyError:
+                                    # Token had zero or near-zero probability
+                                    keyword_probs.append(0.0)
+                                    log.debug(f"Token {token_id} not found in probabilities at position {idxx} - using 0.0 as fallback")
                             keywords_probabilities_dict[keyword] = keyword_probs
                             keywords_contributions_dict[keyword] = int(contributions[keyword_idx])
                             keywords_token_ids_dict[keyword] = keyword_token_ids.tolist()

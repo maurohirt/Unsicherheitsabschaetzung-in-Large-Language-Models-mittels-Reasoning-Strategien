@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --time=00:30:00
-#SBATCH --output=logs/build_sif_%j.out
+#SBATCH --output=build_logs/build_sif_%j.out
 
 module load singularity
 
