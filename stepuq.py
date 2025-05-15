@@ -8,7 +8,6 @@ from torchmetrics import AUROC
 from utils import get_tokenwise_importance, extract_p, extract_p_t_importance, extract_keywords, \
                     extract_keykeywords, extract_keystep, weighted_sum, extract_probing_confidence
 
-from src.model.llama2_predict import predict, model_init
 from src.model.llama2_predict import predict, model_init, generate_model_answer
 
 from sentence_transformers.cross_encoder import CrossEncoder
