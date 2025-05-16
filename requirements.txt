@@ -5,6 +5,7 @@ accelerate>=0.25.0
 safetensors>=0.4.0
 sentencepiece>=0.1.99
 torchmetrics>=1.0.0
+openai>=1.6.0
 
 # Existing dependencies
 peft>=0.4.0

@@ -38,19 +38,29 @@ def openai_query(system_prompt, prompt, openai_model_name="gpt-4o-mini"):
             )
             sampled_response = response.choices[0].message.content
         except APIError:
-            logging.exception("OpenAI API Error.", exc_info=True)
-            time.sleep(1)
+            logging.exception("OpenAI API Error. Waiting 9 seconds before retrying...", exc_info=True)
+            time.sleep(9)
     return sampled_response
 
 
 def label_samples():
+    # Check if output_v1_w_labels.json already exists
+    import os
+    output_file = f"{args.output_path}/output_v1_w_labels.json"
+    
+    if os.path.exists(output_file) and os.path.getsize(output_file) > 0:
+        print(f"Labels file {output_file} already exists. Skipping label generation.")
+        return
+    
+    print(f"Generating labels and saving to {output_file}...")
     with open(f"{args.output_path}/output_v1.json", 'r', encoding='utf-8') as f:
         json_data = []
         for line in f.readlines():
             dic = json.loads(line)
             json_data.append(dic)
 
-    with open(f"{args.output_path}/output_v1_w_labels.json", "a", encoding="utf-8") as f:
+    # Open in write mode ('w') instead of append ('a') to avoid duplicates
+    with open(output_file, "w", encoding="utf-8") as f:
         for idx, line in enumerate(tqdm(json_data, total=len(json_data))):
             # give labels for open-ended llm answer
             id = line['id']
@@ -61,7 +71,7 @@ def label_samples():
             if args.dataset in ["gsm8k", "svamp", "ASDiv"]:
                 label = (str(correct_answer) in llm_answer.lower()) or (str(int(correct_answer)) in llm_answer.lower())
             else:
-                t = line['type']
+                t = line.get('type', '')
                 prompt = (
                     PROMPT_ANSWER_KEY_EQUIVALENCY.replace("<ground-truth>", str(correct_answer))
                     .replace("<prediction>", llm_answer)

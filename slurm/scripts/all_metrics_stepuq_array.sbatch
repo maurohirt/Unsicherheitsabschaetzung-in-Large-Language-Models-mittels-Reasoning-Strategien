@@ -4,12 +4,12 @@
 #SBATCH --gres=gpu:rtxA4500:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=28G
-#SBATCH --time=16:00:00
+#SBATCH --time=69:00:00
 #SBATCH --job-name=stepuq_all_metrics
 #SBATCH --output=output/logs/stepuq/stepuq_all_metrics_%A_dataset_%a.out
 #SBATCH --error=output/logs/stepuq/stepuq_all_metrics_%A_dataset_%a.err
 #SBATCH --export=ALL,HUGGINGFACE_HUB_TOKEN
-#SBATCH --array=0  # 5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
+#SBATCH --array=2 # 0 for Test ;5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
 
 # Environment setup
 PROJECT_ROOT="/home2/mauro.hirt/CoT-UQ"
@@ -29,7 +29,8 @@ export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN:-""}
 DATASETS=("ASDiv" "2WikimhQA" "hotpotQA" "svamp" "gsm8k")
 
 # List of all UQ methods to run (both GPU and CPU-based)
-# We'll handle each one separately to avoid array passing issues in singularity
+# Modify this array to change the order or run only specific methods
+UQ_METHODS=("probas-mean" "probas-min" "token-sar" "p-true" "self-probing")
 
 # Define parameters
 MODEL_ENGINE=${1:-"llama3-1_8B"}
@@ -44,7 +45,7 @@ echo "DATASET: ${DATASET}"
 echo "OUTPUT_PATH: ${OUTPUT_PATH}"
 echo "TRY_TIMES: ${TRY_TIMES}"
 echo "ARRAY_ID: ${SLURM_ARRAY_TASK_ID}"
-echo "UQ METHODS: self-probing probas-mean probas-entropy probas-max probas-perplexity token-entropy"
+echo "UQ METHODS: ${UQ_METHODS[*]}"
 
 # Check if inference output exists
 if [ ! -f "${OUTPUT_PATH}/output_v1.json" ]; then
@@ -61,165 +62,70 @@ mkdir -p output/logs/stepuq
 echo "===== GPU INFO BEFORE ANY PROCESSING ====="
 nvidia-smi --query-gpu=memory.total,memory.used --format=csv
 
-# Run each UQ method separately to avoid array passing issues in singularity
-
-# 1. Self-probing (GPU-based)
-echo "Processing UQ method: self-probing"
+# Run all UQ methods in a single container execution
+echo "Processing all UQ methods for dataset: ${DATASET}"
 singularity exec --nv \
   -B ${HOST_HF_CACHE}:${CONTAINER_HF_CACHE} \
-  -B ${PROJECT_ROOT}:/app/CoT-UQ \
+  -B ${PROJECT_ROOT}:${PROJECT_ROOT} \
   "${SIF_PATH}" \
-  bash -c "
-    cd /home2/mauro.hirt/CoT-UQ
+  bash -lc "
+    cd ${PROJECT_ROOT}
     export HF_HOME=${CONTAINER_HF_CACHE}
     export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
     export MODEL_PATH_INSIDE=${MODEL_ENGINE}
+    export PYTHONPATH=${PROJECT_ROOT}
     
-    echo \"===== STARTING self-probing UQ PROCESSING =====\"
-    echo \"Dataset: ${DATASET}, UQ Method: self-probing\"
+    # Add verbose debugging info once at the start
+    echo \"Python executable: \$(which python)\"
+    echo \"Working directory: \$(pwd)\"
+    echo \"PYTHONPATH: \$PYTHONPATH\"
     
-    nvidia-smi --query-gpu=memory.total,memory.used --format=csv
+    # Pass UQ_METHODS array to container
+    UQ_METHODS_STRING=\"${UQ_METHODS[*]}\"
+    echo \"Processing methods: \$UQ_METHODS_STRING\"
     
-    python /home2/mauro.hirt/CoT-UQ/stepuq.py \
-      --dataset ${DATASET} \
-      --model_engine ${MODEL_ENGINE} \
-      --model_path \${MODEL_PATH_INSIDE} \
-      --uq_engine self-probing \
-      --output_path ${OUTPUT_PATH} \
-      --try_times ${TRY_TIMES} || echo \"ERROR: stepuq.py failed for self-probing with code \$?\"
-    
-    echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_self-probing.json\"
-    nvidia-smi --query-gpu=memory.total,memory.used --format=csv
-  "
-
-# 2. Probas-mean (CPU-based)
-echo "Processing UQ method: probas-mean"
-singularity exec --nv \
-  -B ${HOST_HF_CACHE}:${CONTAINER_HF_CACHE} \
-  -B ${PROJECT_ROOT}:/app/CoT-UQ \
-  "${SIF_PATH}" \
-  bash -c "
-    cd /home2/mauro.hirt/CoT-UQ
-    export HF_HOME=${CONTAINER_HF_CACHE}
-    export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-    export MODEL_PATH_INSIDE=${MODEL_ENGINE}
-    
-    echo \"===== STARTING probas-mean UQ PROCESSING =====\"
-    echo \"Dataset: ${DATASET}, UQ Method: probas-mean\"
-    
-    python /home2/mauro.hirt/CoT-UQ/stepuq.py \
-      --dataset ${DATASET} \
-      --model_engine ${MODEL_ENGINE} \
-      --model_path \${MODEL_PATH_INSIDE} \
-      --uq_engine probas-mean \
-      --output_path ${OUTPUT_PATH} \
-      --try_times ${TRY_TIMES} || echo \"ERROR: stepuq.py failed for probas-mean with code \$?\"
-    
-    echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_probas-mean.json\"
-  "
-
-# 3. Probas-entropy (CPU-based)
-echo "Processing UQ method: probas-entropy"
-singularity exec --nv \
-  -B ${HOST_HF_CACHE}:${CONTAINER_HF_CACHE} \
-  -B ${PROJECT_ROOT}:/app/CoT-UQ \
-  "${SIF_PATH}" \
-  bash -c "
-    cd /home2/mauro.hirt/CoT-UQ
-    export HF_HOME=${CONTAINER_HF_CACHE}
-    export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-    export MODEL_PATH_INSIDE=${MODEL_ENGINE}
-    
-    echo \"===== STARTING probas-entropy UQ PROCESSING =====\"
-    echo \"Dataset: ${DATASET}, UQ Method: probas-entropy\"
-    
-    python /home2/mauro.hirt/CoT-UQ/stepuq.py \
-      --dataset ${DATASET} \
-      --model_engine ${MODEL_ENGINE} \
-      --model_path \${MODEL_PATH_INSIDE} \
-      --uq_engine probas-entropy \
-      --output_path ${OUTPUT_PATH} \
-      --try_times ${TRY_TIMES} || echo \"ERROR: stepuq.py failed for probas-entropy with code \$?\"
-    
-    echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_probas-entropy.json\"
-  "
-
-# 4. Probas-max (CPU-based)
-echo "Processing UQ method: probas-max"
-singularity exec --nv \
-  -B ${HOST_HF_CACHE}:${CONTAINER_HF_CACHE} \
-  -B ${PROJECT_ROOT}:/app/CoT-UQ \
-  "${SIF_PATH}" \
-  bash -c "
-    cd /home2/mauro.hirt/CoT-UQ
-    export HF_HOME=${CONTAINER_HF_CACHE}
-    export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-    export MODEL_PATH_INSIDE=${MODEL_ENGINE}
-    
-    echo \"===== STARTING probas-max UQ PROCESSING =====\"
-    echo \"Dataset: ${DATASET}, UQ Method: probas-max\"
-    
-    python /home2/mauro.hirt/CoT-UQ/stepuq.py \
-      --dataset ${DATASET} \
-      --model_engine ${MODEL_ENGINE} \
-      --model_path \${MODEL_PATH_INSIDE} \
-      --uq_engine probas-max \
-      --output_path ${OUTPUT_PATH} \
-      --try_times ${TRY_TIMES} || echo \"ERROR: stepuq.py failed for probas-max with code \$?\"
-    
-    echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_probas-max.json\"
-  "
-
-# 5. Probas-perplexity (CPU-based)
-echo "Processing UQ method: probas-perplexity"
-singularity exec --nv \
-  -B ${HOST_HF_CACHE}:${CONTAINER_HF_CACHE} \
-  -B ${PROJECT_ROOT}:/app/CoT-UQ \
-  "${SIF_PATH}" \
-  bash -c "
-    cd /home2/mauro.hirt/CoT-UQ
-    export HF_HOME=${CONTAINER_HF_CACHE}
-    export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-    export MODEL_PATH_INSIDE=${MODEL_ENGINE}
-    
-    echo \"===== STARTING probas-perplexity UQ PROCESSING =====\"
-    echo \"Dataset: ${DATASET}, UQ Method: probas-perplexity\"
-    
-    python /home2/mauro.hirt/CoT-UQ/stepuq.py \
-      --dataset ${DATASET} \
-      --model_engine ${MODEL_ENGINE} \
-      --model_path \${MODEL_PATH_INSIDE} \
-      --uq_engine probas-perplexity \
-      --output_path ${OUTPUT_PATH} \
-      --try_times ${TRY_TIMES} || echo \"ERROR: stepuq.py failed for probas-perplexity with code \$?\"
-    
-    echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_probas-perplexity.json\"
-  "
-
-# 6. Token-entropy (CPU-based)
-echo "Processing UQ method: token-entropy"
-singularity exec --nv \
-  -B ${HOST_HF_CACHE}:${CONTAINER_HF_CACHE} \
-  -B ${PROJECT_ROOT}:/app/CoT-UQ \
-  "${SIF_PATH}" \
-  bash -c "
-    cd /home2/mauro.hirt/CoT-UQ
-    export HF_HOME=${CONTAINER_HF_CACHE}
-    export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-    export MODEL_PATH_INSIDE=${MODEL_ENGINE}
-    
-    echo \"===== STARTING token-entropy UQ PROCESSING =====\"
-    echo \"Dataset: ${DATASET}, UQ Method: token-entropy\"
-    
-    python /home2/mauro.hirt/CoT-UQ/stepuq.py \
-      --dataset ${DATASET} \
-      --model_engine ${MODEL_ENGINE} \
-      --model_path \${MODEL_PATH_INSIDE} \
-      --uq_engine token-entropy \
-      --output_path ${OUTPUT_PATH} \
-      --try_times ${TRY_TIMES} || echo \"ERROR: stepuq.py failed for token-entropy with code \$?\"
-    
-    echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_token-entropy.json\"
+    # Process each UQ method in a loop
+    for UQ_ENGINE in \$UQ_METHODS_STRING; do
+      echo \"===== STARTING \$UQ_ENGINE UQ PROCESSING =====\"
+      echo \"Dataset: ${DATASET}, UQ Method: \$UQ_ENGINE\"
+      
+      # Show GPU info for self-probing (GPU-based method)
+      if [ \"\$UQ_ENGINE\" == \"self-probing\" ]; then
+        echo \"GPU INFO BEFORE \$UQ_ENGINE:\"
+        nvidia-smi --query-gpu=memory.total,memory.used --format=csv
+      fi
+      
+      # Run the UQ method
+      python ${PROJECT_ROOT}/stepuq.py \
+        --dataset ${DATASET} \
+        --model_engine ${MODEL_ENGINE} \
+        --model_path \${MODEL_PATH_INSIDE} \
+        --uq_engine \$UQ_ENGINE \
+        --output_path ${OUTPUT_PATH} \
+        --try_times ${TRY_TIMES} || {
+          echo \"FATAL: stepuq.py execution failed for \$UQ_ENGINE with code \$?\"
+          
+          # For self-probing, check if there's an error log
+          if [ \"\$UQ_ENGINE\" == \"self-probing\" ] && [ -f \"${OUTPUT_PATH}/error.log\" ]; then
+            echo \"Error log contents:\"
+            cat \"${OUTPUT_PATH}/error.log\"
+          fi
+          
+          # Continue with other methods instead of exiting
+          echo \"Continuing with next method...\"
+          continue
+        }
+      
+      echo \"Output written to: ${OUTPUT_PATH}/confidences/output_v1_\$UQ_ENGINE.json\"
+      
+      # Show GPU info after self-probing
+      if [ \"\$UQ_ENGINE\" == \"self-probing\" ]; then
+        echo \"GPU INFO AFTER \$UQ_ENGINE:\"
+        nvidia-smi --query-gpu=memory.total,memory.used --format=csv
+      fi
+      
+      echo \"\"
+    done
   "
 
 echo "===== ALL UQ METHODS PROCESSING COMPLETED FOR DATASET: ${DATASET} ====="
