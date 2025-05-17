@@ -285,20 +285,42 @@ def get_tokenwise_importance(question, generated_text, tokenizer, measure_model)
     token_importance = torch.tensor(token_importance).reshape(-1)
     return token_importance
 
-def extract_p(keyword_token_probability, contribution_scores = None):
-    if contribution_scores == None:
+def extract_p(keyword_token_probability, contribution_scores=None, method='min'):
+    """Extract probabilities from token probabilities based on specified method.
+    
+    Args:
+        keyword_token_probability: Dictionary of token probabilities
+        contribution_scores: Optional dictionary of contribution scores
+        method: Method to extract probability ('mean' or 'min')
+        
+    Returns:
+        Extracted probabilities based on the specified method
+    """
+    # Import here to avoid circular import
+    from config import args
+    
+    # Determine which method to use based on UQ engine
+    if hasattr(args, 'uq_engine'):
+        if args.uq_engine == 'probas-mean':
+            method = 'mean'
+        elif args.uq_engine == 'probas-min':
+            method = 'min'
+    
+    if contribution_scores is None:
         return_dict = {}
         for step, inner_dict in keyword_token_probability.items():
             for key, values in inner_dict.items():
                 if len(values) == 0:
                     continue
-                # if key.isdigit(): 
-                #     value_to_add = values[0] 
-                # else:
-                #     value_to_add = values[0] 
-                # value_to_add = sum(values)/len(values)
-                value_to_add = min(values)
-                # value_to_add = max(values)
+                    
+                # Apply the correct method
+                if method == 'mean':
+                    value_to_add = sum(values)/len(values)
+                elif method == 'min':
+                    value_to_add = min(values)
+                else:  # Fallback to min if method is unrecognized
+                    value_to_add = min(values)
+                    
                 if key in return_dict:
                     return_dict[key].append(value_to_add)
                 else:
@@ -311,13 +333,15 @@ def extract_p(keyword_token_probability, contribution_scores = None):
             for key, values in inner_dict.items():
                 if len(values) == 0:
                     continue
-                # if key.isdigit(): 
-                #     value_to_add = values[-1] 
-                # else:
-                #     value_to_add = values[0] 
-                # value_to_add = sum(values)/len(values)
-                value_to_add = min(values)
-                # value_to_add = max(values)
+                
+                # Apply the correct method
+                if method == 'mean':
+                    value_to_add = sum(values)/len(values)
+                elif method == 'min':
+                    value_to_add = min(values)
+                else:  # Fallback to min if method is unrecognized
+                    value_to_add = min(values)
+                
                 if key in return_keyword_dict:
                     return_keyword_dict[key].append(value_to_add)
                     return_contribution_dict[key].append(contribution_scores[step][key])
