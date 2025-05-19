@@ -36,7 +36,7 @@ def parse_arguments():
     )
     parser.add_argument(
         "--uq_engine", default='probas-mean', help="uncertainty quantification engine",
-        choices=["probas-mean", "probas-min", "token-sar", "p-true", "self-probing"]
+        choices=["probas-mean", "probas-min", "probas-mean-bl", "probas-min-bl", "token-sar", "token-sar-bl", "p-true", "self-probing"]
     )
     parser.add_argument(
         "--model_path", default='llama3-1_8B', help="your local model path",

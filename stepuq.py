@@ -33,29 +33,86 @@ def compute_step_uncertainty():
             if llm_answer == "":
                 continue
 
-            keyword_token_probability = line['keyword token probability']
-            if keyword_token_probability == {}:
-                continue
-            contribution_scores = line['keyword contribution']
-            if contribution_scores == {}:
-                continue
-
-            if args.uq_engine in ["probas-mean", "probas-min"]:
+            if args.uq_engine == "probas-mean-bl":
+                # 🔵️ we use ONLY the answer-token probs saved by inference_refining.py
+                prob_dict = line["llm answer token probability"]
+                answer_probs = [p for lst in prob_dict.values() for p in lst]
+                if not answer_probs:
+                    continue  # answer was empty or logging failed
+                confidence = sum(answer_probs) / len(answer_probs)
+                
+            elif args.uq_engine == "probas-min-bl":
+                prob_dict = line["llm answer token probability"]
+                answer_probs = [p for lst in prob_dict.values() for p in lst]
+                if not answer_probs:
+                    continue  # answer was empty or logging failed
+                confidence = min(answer_probs)
+                    
+            # ====== existing CoT-UQ branch ======
+            elif args.uq_engine in ["probas-mean", "probas-min"]:
+                keyword_token_probability = line['keyword token probability']
+                contribution_scores = line['keyword contribution']
+                if keyword_token_probability == {} or contribution_scores == {}:
+                    continue
+                
                 probabilities, contribution_dict = extract_p(keyword_token_probability, contribution_scores)
-            elif args.uq_engine in ["token-sar"]:
+                
+                probabilities = {key: weighted_sum(value) for key, value in probabilities.items()}
+                contributions = {key: sum(value)/len(value) for key, value in contribution_dict.items()}
+                
+                # CoT-UQ
+                total_sum = sum(probabilities[key] * contributions[key] for key in probabilities)
+                total_weight = sum(contributions[key] for key in contributions)
+                if total_weight == 0:
+                    p_list = [v for v in probabilities.values()]
+                    confidence = sum(p_list) / len(p_list)
+                else:
+                    confidence = total_sum / total_weight
+                    
+            elif args.uq_engine == "token-sar-bl":
+                # -------- baseline: answer-only with SAR-style relevance weighting ---------
+                prob_dict = line["llm answer token probability"]
+                answer_probs = [p for lst in prob_dict.values() for p in lst]
+                if not answer_probs:
+                    continue
+                
+                # Two-level nesting to satisfy the helper function
+                answer_dict = {"Step 1": {"answer": answer_probs}}
+                dummy_contrib = {"Step 1": {"answer": [1.0] * len(answer_probs)}}
+                
+                # Get relevance-weighted probabilities using the same helper as token-sar
+                probs_dict, _ = extract_p_t_importance(
+                    question,
+                    answer_dict,
+                    tokenizer,
+                    measure_model,
+                    dummy_contrib
+                )
+                
+                # The helper flattens the first level, so we can access the results directly with the key "answer"
+                weighted_list = probs_dict["answer"]
+                confidence = sum(weighted_list) / len(weighted_list)
+                
+            elif args.uq_engine in ["token-sar", "token-sar-bl"]:
+                # For token-sar, we need both keyword token probability and contribution scores
+                if args.uq_engine == "token-sar":
+                    keyword_token_probability = line['keyword token probability']
+                    contribution_scores = line['keyword contribution']
+                    if keyword_token_probability == {} or contribution_scores == {}:
+                        continue
                 probabilities, contribution_dict = extract_p_t_importance(question, keyword_token_probability, tokenizer, measure_model, contribution_scores)
-
-            probabilities = {key: weighted_sum(value) for key, value in probabilities.items()}
-            contributions = {key: sum(value)/len(value) for key, value in contribution_dict.items()}
-            
-            # CoT-UQ
-            total_sum = sum(probabilities[key] * contributions[key] for key in probabilities)
-            total_weight = sum(contributions[key] for key in contributions)
-            if total_weight == 0:
-                p_list = [v for v in probabilities.values()]
-                confidence = sum(p_list) / len(p_list)
-            else:
-                confidence = total_sum / total_weight
+                
+                probabilities = {key: weighted_sum(value) for key, value in probabilities.items()}
+                contributions = {key: sum(value)/len(value) for key, value in contribution_dict.items()}
+                
+                # CoT-UQ
+                total_sum = sum(probabilities[key] * contributions[key] for key in probabilities)
+                total_weight = sum(contributions[key] for key in contributions)
+                if total_weight == 0:
+                    p_list = [v for v in probabilities.values()]
+                    confidence = sum(p_list) / len(p_list)
+                else:
+                    confidence = total_sum / total_weight
 
             formatted_data = {
                 # "id": id,
@@ -269,7 +326,10 @@ def p_true_uncertainty():
 
 
 if __name__ == '__main__':
-    if args.uq_engine in ['probas-mean', 'probas-min', 'token-sar']:
+    if args.uq_engine in [
+        'probas-mean', 'probas-min', 'token-sar',
+        'probas-mean-bl', 'probas-min-bl', 'token-sar-bl'
+    ]:
         compute_step_uncertainty()
     elif args.uq_engine == 'p-true':
         p_true_uncertainty()

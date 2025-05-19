@@ -9,7 +9,7 @@
 #SBATCH --output=output/logs/stepuq/stepuq_all_metrics_%A_dataset_%a.out
 #SBATCH --error=output/logs/stepuq/stepuq_all_metrics_%A_dataset_%a.err
 #SBATCH --export=ALL,HUGGINGFACE_HUB_TOKEN
-#SBATCH --array=2 # 0 for Test ;5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
+#SBATCH --array=0-4 # 0 for Test ;5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
 
 # Environment setup
 PROJECT_ROOT="/home2/mauro.hirt/CoT-UQ"
@@ -30,7 +30,7 @@ DATASETS=("ASDiv" "2WikimhQA" "hotpotQA" "svamp" "gsm8k")
 
 # List of all UQ methods to run (both GPU and CPU-based)
 # Modify this array to change the order or run only specific methods
-UQ_METHODS=("probas-mean" "probas-min" "token-sar" "p-true" "self-probing")
+UQ_METHODS=("probas-mean") #"probas-min" "token-sar" "p-true" "self-probing" rerun probas mean, because implementation was not correct
 
 # Define parameters
 MODEL_ENGINE=${1:-"llama3-1_8B"}
