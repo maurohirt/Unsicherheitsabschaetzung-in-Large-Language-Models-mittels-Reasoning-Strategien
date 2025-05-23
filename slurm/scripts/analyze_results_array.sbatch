@@ -3,12 +3,12 @@
 #SBATCH -p performance
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=25G
-#SBATCH --time=35:00:00
-#SBATCH --job-name=analyze_results
-#SBATCH --output=output/logs/analysis/analyze_results_%A_dataset_%a.out
-#SBATCH --error=output/logs/analysis/analyze_results_%A_dataset_%a.err
+#SBATCH --time=01:35:00
+#SBATCH --job-name=analyze_results_bl
+#SBATCH --output=output/logs/analysis/analyze_results_bl_%A_dataset_%a.out
+#SBATCH --error=output/logs/analysis/analyze_results_bl_%A_dataset_%a.err
 #SBATCH --export=ALL,OPENAI_API_KEY
-#SBATCH --array=2 # All 5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
+#SBATCH --array=0-4 # All 5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
 
 # Environment setup
 PROJECT_ROOT="/home2/mauro.hirt/CoT-UQ"
@@ -23,9 +23,12 @@ export OPENAI_API_KEY=${OPENAI_API_KEY:-""}
 # Array of all datasets to process
 DATASETS=("ASDiv" "2WikimhQA" "hotpotQA" "svamp" "gsm8k")
 
-# List of all UQ methods to analyze
-# Modify this array to change the order or run only specific methods
-UQ_METHODS=("probas-mean" "probas-min" "token-sar" "p-true" "self-probing")
+# List of all UQ baseline methods to analyze
+UQ_METHODS=(
+    #"probas-mean-bl"
+    "probas-min-bl"
+   # "token-sar-bl"
+)
 
 # Define parameters
 MODEL_ENGINE=${1:-"llama3-1_8B"}

@@ -4,10 +4,10 @@
 #SBATCH --gres=gpu:rtxA4500:1
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=28G
-#SBATCH --time=69:00:00
-#SBATCH --job-name=stepuq_all_metrics
-#SBATCH --output=output/logs/stepuq/stepuq_all_metrics_%A_dataset_%a.out
-#SBATCH --error=output/logs/stepuq/stepuq_all_metrics_%A_dataset_%a.err
+#SBATCH --time=00:35:00
+#SBATCH --job-name=stepuq_all_metrics_bl
+#SBATCH --output=output/logs/stepuq/stepuq_all_metrics_bl_%A_dataset_%a.out
+#SBATCH --error=output/logs/stepuq/stepuq_all_metrics_bl_%A_dataset_%a.err
 #SBATCH --export=ALL,HUGGINGFACE_HUB_TOKEN
 #SBATCH --array=0-4 # 0 for Test ;5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k)
 
@@ -28,9 +28,12 @@ export HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN:-""}
 # Array of all datasets to process
 DATASETS=("ASDiv" "2WikimhQA" "hotpotQA" "svamp" "gsm8k")
 
-# List of all UQ methods to run (both GPU and CPU-based)
-# Modify this array to change the order or run only specific methods
-UQ_METHODS=("probas-mean") #"probas-min" "token-sar" "p-true" "self-probing" rerun probas mean, because implementation was not correct
+# List of all UQ baseline methods to run
+UQ_METHODS=(
+  #  "probas-mean-bl"
+    "probas-min-bl"
+  #  "token-sar-bl"
+)
 
 # Define parameters
 MODEL_ENGINE=${1:-"llama3-1_8B"}

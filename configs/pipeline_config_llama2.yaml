@@ -1,0 +1,27 @@
+# Configuration for running pipeline with Llama2-13B model
+
+model_engine: "llama2-13b"
+
+datasets:
+  - "ASDiv"
+  - "2WikimhQA"
+  - "hotpotQA"
+  - "svamp"
+  - "gsm8k"
+
+output_path_base: "/home2/mauro.hirt/CoT-UQ/output"
+
+# Inference parameters
+temperature: 1.2
+try_times: 20
+max_length_cot: 128
+
+# Dataset range (use 'full' for test_end to process entire dataset)
+test_start: "0"
+test_end: "full"
+
+# UQ methods
+uq_methods:
+  - "probas-mean-bl"
+  - "probas-min-bl"
+  - "token-sar-bl"

@@ -36,7 +36,16 @@ def parse_arguments():
     )
     parser.add_argument(
         "--uq_engine", default='probas-mean', help="uncertainty quantification engine",
-        choices=["probas-mean", "probas-min", "probas-mean-bl", "probas-min-bl", "token-sar", "token-sar-bl", "p-true", "self-probing"]
+        choices=[
+            # CoT-UQ methods
+            "probas-mean", "probas-min", "token-sar",
+            # Baseline variants
+            "probas-mean-bl", "probas-min-bl", "token-sar-bl",
+            # P(True) variants
+            "p-true-bl", "p-true-allsteps", "p-true-keystep", "p-true-allkeywords", "p-true-keykeywords",
+            # Self-Probing variants
+            "self-probing-bl", "self-probing-allsteps", "self-probing-keystep", "self-probing-allkeywords", "self-probing-keykeywords"
+        ]
     )
     parser.add_argument(
         "--model_path", default='llama3-1_8B', help="your local model path",
