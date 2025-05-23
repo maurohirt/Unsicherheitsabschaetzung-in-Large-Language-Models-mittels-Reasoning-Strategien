@@ -48,10 +48,7 @@ def compute_step_uncertainty():
 
                 if not answer_probs:          # ← ✓ list is empty?
                     continue
-                print(answer_probs)
                 confidence   = min(answer_probs)
-                print(confidence) 
-                print(confidence)
                     
             # ====== existing CoT-UQ branch ======
             elif args.uq_engine in ["probas-mean", "probas-min"]:

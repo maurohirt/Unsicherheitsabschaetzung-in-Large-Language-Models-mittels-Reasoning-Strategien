@@ -11,9 +11,9 @@ HF_NAMES = {
     # Official Llama-3 repositories (with custom modeling code supporting GQA)
     # Llama-3.1 release (preferred)
     'llama3-1_8B': 'meta-llama/Llama-3.1-8B',
-    'llama3-1_8B_instruct': 'meta-llama/Llama-3.1-8B-Instruct',
+    #'llama3-1_8B_instruct': 'meta-llama/Llama-3.1-8B-Instruct',
     # Legacy repo name kept for backward compatibility
-    'llama3-1_8B_meta': 'meta-llama/Meta-Llama-3-8B',
+   # 'llama3-1_8B_meta': 'meta-llama/Meta-Llama-3-8B',
     'llama2-13b': 'meta-llama/Llama-2-13b-chat-hf',
 }
 
@@ -39,7 +39,8 @@ def model_init(args):
         model = LlamaForCausalLM.from_pretrained(
             HF_NAMES[model_path],
             torch_dtype=torch.bfloat16,
-        ).to(device)
+            device_map="auto",  # Enable multi-GPU if available
+        )
         tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
     elif "mistral" in args.model_path:
         model = AutoModelForCausalLM.from_pretrained(HF_NAMES[model_path], torch_dtype=torch.bfloat16).to(device)
@@ -49,7 +50,9 @@ def model_init(args):
     return model, tokenizer, device
 
 def predict(args, prompt, model, tokenizer):
-    inputs = tokenizer(prompt, return_tensors="pt").to('cuda')
+    # Get device from model's parameters rather than hard-coding 'cuda'
+    device = next(model.parameters()).device
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
     generate_ids = model.generate(
         **inputs, 
         max_new_tokens = args.max_length_cot,
@@ -60,16 +63,19 @@ def predict(args, prompt, model, tokenizer):
     return infer_res
 
 
-def tokenize(prompt, tokenizer, model_name, tokenizer_args=None):
+def tokenize(prompt, tokenizer, model_name, model=None, tokenizer_args=None):
+    # Determine device from model if provided, default to CUDA
+    device = next(model.parameters()).device if model is not None else torch.device("cuda")
+    
     if 'instruct' in model_name.lower():
         messages = [
             {"role": "user", "content": prompt}
         ]
-        model_input = tokenizer.apply_chat_template(messages, return_tensors="pt", **(tokenizer_args or {})).to('cuda')
+        model_input = tokenizer.apply_chat_template(messages, return_tensors="pt", **(tokenizer_args or {})).to(device)
     else: # non instruct model
-        model_input = tokenizer(prompt, return_tensors='pt', **(tokenizer_args or {}))
+        model_input = tokenizer(prompt, return_tensors="pt", **(tokenizer_args or {}))
         if "input_ids" in model_input:
-            model_input = model_input["input_ids"].to('cuda')
+            model_input = model_input["input_ids"].to(device)
     return model_input
 
 
