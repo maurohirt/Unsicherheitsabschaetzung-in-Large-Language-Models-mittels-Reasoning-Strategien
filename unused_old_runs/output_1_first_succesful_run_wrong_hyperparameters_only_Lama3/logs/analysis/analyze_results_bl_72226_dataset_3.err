@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 139, in <module>
+    compute_auroc()
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 130, in compute_auroc
+    auroc_value = auroc(torch.tensor(all_confidences), torch.tensor(all_auroc_target))
+ValueError: too many dimensions 'str'

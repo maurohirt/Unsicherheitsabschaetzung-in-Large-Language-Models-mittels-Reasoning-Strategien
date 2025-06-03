@@ -1,0 +1,51 @@
+# AUROC Scores for Different Datasets and UQ Methods (Model: llama3-1_8B)
+
+## Dataset: ASDiv
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.6475626230239868
+probas-min         | 0.658850789070129
+token-sar          | 0.6559425592422485
+p-true             | 0.4746338129043579
+self-probing       | 0.5257602334022522
+
+## Dataset: 2WikimhQA
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.6599951386451721
+probas-min         | 0.6850999593734741
+token-sar          | 0.6689167022705078
+p-true             | 0.5128632187843323
+self-probing       | 0.5141101479530334
+
+## Dataset: svamp
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.6070464253425598
+probas-min         | 0.6197904348373413
+token-sar          | 0.6135740280151367
+p-true             | 0.504745364189148
+self-probing       | 0.5594625473022461
+
+## Dataset: gsm8k
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.6155174970626831
+probas-min         | 0.6280568838119507
+token-sar          | 0.6249563097953796
+p-true             | 0.5341142416000366
+self-probing       | 0.5102488398551941
+
+## Dataset: hotpotQA
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.623233437538147
+probas-min         | 0.6299494504928589
+token-sar          | 0.6273254752159119
+p-true             | 0.6159378290176392
+self-probing       | 0.5193363428115845

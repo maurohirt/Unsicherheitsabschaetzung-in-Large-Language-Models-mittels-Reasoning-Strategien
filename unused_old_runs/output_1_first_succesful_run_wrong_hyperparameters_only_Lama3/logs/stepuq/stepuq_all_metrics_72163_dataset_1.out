@@ -1,0 +1,22 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: 2WikimhQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+TRY_TIMES: 5
+ARRAY_ID: 1
+UQ METHODS: probas-mean
+===== GPU INFO BEFORE ANY PROCESSING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Processing all UQ methods for dataset: 2WikimhQA
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean
+===== STARTING probas-mean UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: probas-mean
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/confidences/output_v1_probas-mean.json
+
+===== ALL UQ METHODS PROCESSING COMPLETED FOR DATASET: 2WikimhQA =====
+Job completed for dataset: 2WikimhQA

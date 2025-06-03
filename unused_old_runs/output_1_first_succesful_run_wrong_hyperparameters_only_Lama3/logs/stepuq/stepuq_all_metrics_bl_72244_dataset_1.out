@@ -1,0 +1,25 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: 2WikimhQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+TRY_TIMES: 5
+ARRAY_ID: 1
+UQ METHODS: probas-min-bl
+===== GPU INFO BEFORE ANY PROCESSING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Processing all UQ methods for dataset: 2WikimhQA
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-min-bl
+===== STARTING probas-min-bl UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: probas-min-bl
+{'Marie Françoise De La Trémoille': [0.8933094143867493, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]}
+dict_values([[0.8933094143867493, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]])
+[0.8933094143867493, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+FATAL: stepuq.py execution failed for probas-min-bl with code 1
+Continuing with next method...
+===== ALL UQ METHODS PROCESSING COMPLETED FOR DATASET: 2WikimhQA =====
+Job completed for dataset: 2WikimhQA

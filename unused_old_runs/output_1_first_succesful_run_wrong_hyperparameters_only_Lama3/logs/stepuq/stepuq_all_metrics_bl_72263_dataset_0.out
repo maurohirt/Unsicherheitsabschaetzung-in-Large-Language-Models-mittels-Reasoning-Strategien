@@ -1,0 +1,23 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: ASDiv
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+TRY_TIMES: 5
+ARRAY_ID: 0
+UQ METHODS: probas-min-bl
+===== GPU INFO BEFORE ANY PROCESSING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Processing all UQ methods for dataset: ASDiv
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-min-bl
+===== STARTING probas-min-bl UQ PROCESSING =====
+Dataset: ASDiv, UQ Method: probas-min-bl
+[1.0]
+FATAL: stepuq.py execution failed for probas-min-bl with code 1
+Continuing with next method...
+===== ALL UQ METHODS PROCESSING COMPLETED FOR DATASET: ASDiv =====
+Job completed for dataset: ASDiv

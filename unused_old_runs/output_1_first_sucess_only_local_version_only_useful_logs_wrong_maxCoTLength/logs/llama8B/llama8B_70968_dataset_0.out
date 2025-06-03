@@ -1,0 +1,32 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: ASDiv
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+TEMPERATURE: 1.0
+TRY_TIMES: 20
+ARRAY_ID: 0
+DATASET_SELECTED: ASDiv
+Ensuring model meta-llama/Llama-3.1-8B is cached...
+===== GPU INFO BEFORE MODEL LOADING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+===== STARTING INFERENCE =====
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+The Number of Different Questions:  2249
+===== INFERENCE COMPLETED SUCCESSFULLY =====

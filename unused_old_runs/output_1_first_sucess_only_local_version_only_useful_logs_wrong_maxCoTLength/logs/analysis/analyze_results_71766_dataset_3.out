@@ -1,0 +1,129 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: svamp
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+ARRAY_ID: 3
+UQ METHODS: probas-mean probas-min token-sar p-true self-probing
+OpenAI API key not required for svamp dataset
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean probas-min token-sar p-true self-probing
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: probas-mean
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+AUROC: 0.6018694639205933
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean
+
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: probas-min
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+AUROC: 0.6018694639205933
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-min
+
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: token-sar
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+AUROC: 0.6191837787628174
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: token-sar
+
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: p-true
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+AUROC: 0.5122742056846619
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: p-true
+
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: self-probing
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+AUROC: 0.5090673565864563
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: self-probing
+
+===== ALL ANALYSES COMPLETED FOR DATASET: svamp =====
+Job completed for dataset: svamp with all available UQ methods

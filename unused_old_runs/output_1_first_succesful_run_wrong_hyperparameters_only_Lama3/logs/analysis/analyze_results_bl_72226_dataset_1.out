@@ -1,0 +1,83 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: 2WikimhQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+ARRAY_ID: 1
+UQ METHODS: probas-mean-bl probas-min-bl token-sar-bl
+OpenAI API key is set. Length: 164 characters
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean-bl probas-min-bl token-sar-bl
+===== STARTING RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: probas-mean-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5028504729270935
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean-bl
+
+===== STARTING RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: probas-min-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json already exists. Skipping label generation.
+FATAL: analyze_result.py execution failed for probas-min-bl with exit code 1
+Continuing with next method...
+===== STARTING RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: token-sar-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.49871915578842163
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json
+AUROC calculation completed for UQ method: token-sar-bl
+
+===== ALL ANALYSES COMPLETED FOR DATASET: 2WikimhQA =====
+Job completed for dataset: 2WikimhQA with all available UQ methods

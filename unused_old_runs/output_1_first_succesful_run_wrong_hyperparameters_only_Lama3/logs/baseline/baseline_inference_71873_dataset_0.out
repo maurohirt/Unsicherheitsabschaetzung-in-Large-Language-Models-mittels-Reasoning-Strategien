@@ -1,0 +1,40 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: ASDiv
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+TRY_TIMES: 5
+MAX_LENGTH_COT: 1024
+ARRAY_ID: 0
+===== GPU INFO BEFORE INFERENCE =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+HF_HOME: /root/.cache/huggingface
+===== STARTING BASELINE INFERENCE =====
+Dataset: ASDiv
+---------------experiment args---------------
+max_length_cot:1024
+try_times:5
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+The Number of Different Questions:  2249
+Baseline inference completed. Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1.json
+===== GPU INFO AFTER INFERENCE =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+===== BASELINE INFERENCE COMPLETED FOR DATASET: ASDiv =====
+Job completed for dataset: ASDiv

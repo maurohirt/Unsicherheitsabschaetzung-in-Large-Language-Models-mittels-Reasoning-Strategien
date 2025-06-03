@@ -1,0 +1,44 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: svamp
+BASELINE_OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/baseline
+TRY_TIMES: 5
+ARRAY_ID: 3
+UQ METHODS: probas-mean probas-min token-sar p-true self-probing
+===== GPU INFO BEFORE ANY PROCESSING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Processing all UQ methods for baseline dataset: svamp
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing baseline methods: probas-mean probas-min token-sar p-true self-probing
+===== STARTING BASELINE probas-mean UQ PROCESSING =====
+Dataset: svamp, UQ Method: probas-mean
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/baseline/confidences/output_v1_probas-mean.json
+
+===== STARTING BASELINE probas-min UQ PROCESSING =====
+Dataset: svamp, UQ Method: probas-min
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/baseline/confidences/output_v1_probas-min.json
+
+===== STARTING BASELINE token-sar UQ PROCESSING =====
+Dataset: svamp, UQ Method: token-sar
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/baseline/confidences/output_v1_token-sar.json
+
+===== STARTING BASELINE p-true UQ PROCESSING =====
+Dataset: svamp, UQ Method: p-true
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/baseline/confidences/output_v1_p-true.json
+
+===== STARTING BASELINE self-probing UQ PROCESSING =====
+Dataset: svamp, UQ Method: self-probing
+GPU INFO BEFORE self-probing:
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/baseline/confidences/output_v1_self-probing.json
+GPU INFO AFTER self-probing:
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+
+===== ALL BASELINE UQ METHODS PROCESSING COMPLETED FOR DATASET: svamp =====
+Job completed for dataset: svamp

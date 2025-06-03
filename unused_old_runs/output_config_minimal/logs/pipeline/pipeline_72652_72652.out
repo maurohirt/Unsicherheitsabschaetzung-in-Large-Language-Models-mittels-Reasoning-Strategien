@@ -1,0 +1,952 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Loading configuration from: configs/pipeline_config_minimal.yaml
+Configuration loaded:
+  Model: llama3-1_8B
+  Datasets: ['ASDiv']
+  Output path base: /home2/mauro.hirt/CoT-UQ/output
+  Temperature: 1.0
+  Try times: 20
+  Max length CoT: 128
+  UQ methods: ['probas-mean-bl', 'probas-min-bl', 'token-sar-bl', 'probas-mean', 'probas-min', 'token-sar', 'p-true-bl', 'p-true-allsteps', 'p-true-keystep', 'p-true-allkeywords', 'p-true-keykeywords', 'self-probing-bl', 'self-probing-allsteps', 'self-probing-keystep', 'self-probing-allkeywords', 'self-probing-keykeywords']
+  Test start: 0
+  Test end: 10
+
+Ensuring model is cached...
+Ensuring model meta-llama/Llama-3.1-8B is cached...
+
+
+################################################################################
+Processing dataset: ASDiv
+################################################################################
+
+
+============================================================
+Starting: Inference for ASDiv
+Command: python inference_refining.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --temperature 1.0 --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20 --max_length_cot 128 --test_start 0 --test_end 10
+============================================================
+
+---------------experiment args---------------
+max_length_cot:128
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:10
+
+---------------------------------------------
+The Number of Different Questions:  2249
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.19it/s]
+Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.61it/s]
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.56it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.73it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]2025-05-23 18:18:27,402 : ##### This is the --1th-- Question #####
+2025-05-23 18:18:36,775 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+
+ 10%|█         | 1/10 [00:09<01:24,  9.39s/it]2025-05-23 18:18:36,789 : ##### This is the --2th-- Question #####
+
+ 20%|██        | 2/10 [00:14<00:53,  6.65s/it]2025-05-23 18:18:41,526 : ##### This is the --3th-- Question #####
+2025-05-23 18:18:48,236 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+
+ 30%|███       | 3/10 [00:20<00:46,  6.68s/it]2025-05-23 18:18:48,243 : ##### This is the --4th-- Question #####
+2025-05-23 18:18:52,968 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-23 18:18:52,969 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-23 18:18:52,970 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-23 18:18:52,970 : Token Probability from All Steps are All None, Current try is 1
+
+ 40%|████      | 4/10 [00:31<00:49,  8.30s/it]2025-05-23 18:18:59,021 : ##### This is the --5th-- Question #####
+
+ 50%|█████     | 5/10 [00:41<00:43,  8.72s/it]2025-05-23 18:19:08,486 : ##### This is the --6th-- Question #####
+2025-05-23 18:19:13,409 : Exact Tokens Have NO ANSWER, Current try is 1
+
+ 60%|██████    | 6/10 [00:49<00:34,  8.60s/it]2025-05-23 18:19:16,855 : ##### This is the --7th-- Question #####
+
+ 70%|███████   | 7/10 [00:55<00:23,  7.85s/it]2025-05-23 18:19:23,175 : ##### This is the --8th-- Question #####
+2025-05-23 18:19:31,263 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+
+ 80%|████████  | 8/10 [01:03<00:15,  7.93s/it]2025-05-23 18:19:31,273 : ##### This is the --9th-- Question #####
+2025-05-23 18:19:39,209 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+
+ 90%|█████████ | 9/10 [01:11<00:07,  7.94s/it]2025-05-23 18:19:39,216 : ##### This is the --10th-- Question #####
+
+100%|██████████| 10/10 [01:19<00:00,  7.77s/it]
+100%|██████████| 10/10 [01:19<00:00,  7.92s/it]
+
+
+✓ Inference for ASDiv completed successfully in 190.04 seconds
+
+============================================================
+Starting: UQ method probas-mean-bl for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-mean-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 63.37it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+100%|██████████| 10/10 [00:00<00:00, 76959.71it/s]
+
+
+✓ UQ method probas-mean-bl for ASDiv completed successfully in 20.27 seconds
+
+============================================================
+Starting: UQ method probas-min-bl for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-min-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+[0.9399133324623108]
+0.9399133324623108
+0.9399133324623108
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+[1.0]
+1.0
+1.0
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.84it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+100%|██████████| 10/10 [00:00<00:00, 79739.62it/s]
+
+
+✓ UQ method probas-min-bl for ASDiv completed successfully in 9.20 seconds
+
+============================================================
+Starting: UQ method token-sar-bl for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine token-sar-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.80it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:03,  2.29it/s]
+100%|██████████| 10/10 [00:00<00:00, 19.26it/s]
+
+
+✓ UQ method token-sar-bl for ASDiv completed successfully in 9.71 seconds
+
+============================================================
+Starting: UQ method probas-mean for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-mean --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 62.63it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+100%|██████████| 10/10 [00:00<00:00, 51150.05it/s]
+
+
+✓ UQ method probas-mean for ASDiv completed successfully in 9.43 seconds
+
+============================================================
+Starting: UQ method probas-min for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-min --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.16it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+100%|██████████| 10/10 [00:00<00:00, 49813.59it/s]
+
+
+✓ UQ method probas-min for ASDiv completed successfully in 9.28 seconds
+
+============================================================
+Starting: UQ method token-sar for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine token-sar --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 61.17it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:03,  2.86it/s]
+ 20%|██        | 2/10 [00:00<00:01,  4.23it/s]
+ 40%|████      | 4/10 [00:00<00:00,  8.09it/s]
+ 60%|██████    | 6/10 [00:00<00:00,  9.59it/s]
+ 80%|████████  | 8/10 [00:00<00:00, 11.40it/s]
+100%|██████████| 10/10 [00:01<00:00, 13.06it/s]
+100%|██████████| 10/10 [00:01<00:00,  9.75it/s]
+
+
+✓ UQ method token-sar for ASDiv completed successfully in 10.17 seconds
+
+============================================================
+Starting: UQ method p-true-bl for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 62.77it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:04,  1.99it/s]
+ 40%|████      | 4/10 [00:00<00:00,  7.85it/s]
+ 70%|███████   | 7/10 [00:00<00:00, 12.61it/s]
+100%|██████████| 10/10 [00:00<00:00, 16.30it/s]
+100%|██████████| 10/10 [00:00<00:00, 11.77it/s]
+
+
+✓ UQ method p-true-bl for ASDiv completed successfully in 8.91 seconds
+
+============================================================
+Starting: UQ method p-true-allsteps for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.81it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:04,  2.13it/s]
+ 30%|███       | 3/10 [00:00<00:01,  6.11it/s]
+ 50%|█████     | 5/10 [00:00<00:00,  8.93it/s]
+ 70%|███████   | 7/10 [00:00<00:00, 11.14it/s]
+ 90%|█████████ | 9/10 [00:00<00:00, 12.47it/s]
+100%|██████████| 10/10 [00:01<00:00,  9.87it/s]
+
+
+✓ UQ method p-true-allsteps for ASDiv completed successfully in 9.06 seconds
+
+============================================================
+Starting: UQ method p-true-keystep for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-keystep --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.86it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:04,  2.11it/s]
+ 40%|████      | 4/10 [00:00<00:00,  8.00it/s]
+ 70%|███████   | 7/10 [00:00<00:00, 11.68it/s]
+100%|██████████| 10/10 [00:00<00:00, 14.80it/s]
+100%|██████████| 10/10 [00:00<00:00, 11.21it/s]
+
+
+✓ UQ method p-true-keystep for ASDiv completed successfully in 9.53 seconds
+
+============================================================
+Starting: UQ method p-true-allkeywords for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.53it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:04,  2.11it/s]
+ 40%|████      | 4/10 [00:00<00:00,  8.02it/s]
+ 70%|███████   | 7/10 [00:00<00:00, 12.38it/s]
+100%|██████████| 10/10 [00:00<00:00, 15.55it/s]
+100%|██████████| 10/10 [00:00<00:00, 11.62it/s]
+
+
+✓ UQ method p-true-allkeywords for ASDiv completed successfully in 9.04 seconds
+
+============================================================
+Starting: UQ method p-true-keykeywords for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 65.27it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:05,  1.69it/s]
+ 40%|████      | 4/10 [00:00<00:00,  6.82it/s]
+ 70%|███████   | 7/10 [00:00<00:00, 10.99it/s]
+100%|██████████| 10/10 [00:00<00:00, 14.26it/s]
+100%|██████████| 10/10 [00:00<00:00, 10.23it/s]
+
+
+✓ UQ method p-true-keykeywords for ASDiv completed successfully in 8.95 seconds
+
+============================================================
+Starting: UQ method self-probing-bl for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 63.87it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:05,  1.70it/s]
+ 20%|██        | 2/10 [00:03<00:13,  1.70s/it]
+ 30%|███       | 3/10 [00:04<00:10,  1.50s/it]
+ 40%|████      | 4/10 [00:12<00:25,  4.20s/it]
+ 50%|█████     | 5/10 [00:12<00:13,  2.75s/it]
+ 60%|██████    | 6/10 [00:13<00:08,  2.09s/it]
+ 70%|███████   | 7/10 [00:14<00:05,  1.83s/it]
+ 80%|████████  | 8/10 [00:20<00:05,  2.87s/it]
+ 90%|█████████ | 9/10 [00:26<00:03,  3.88s/it]
+100%|██████████| 10/10 [00:28<00:00,  3.33s/it]
+100%|██████████| 10/10 [00:28<00:00,  2.83s/it]
+
+
+✓ UQ method self-probing-bl for ASDiv completed successfully in 36.20 seconds
+
+============================================================
+Starting: UQ method self-probing-allsteps for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 62.19it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:00<00:06,  1.43it/s]
+ 20%|██        | 2/10 [00:00<00:02,  2.71it/s]
+ 30%|███       | 3/10 [00:00<00:01,  3.83it/s]
+ 40%|████      | 4/10 [00:01<00:01,  4.71it/s]
+ 50%|█████     | 5/10 [00:01<00:01,  2.61it/s]
+ 60%|██████    | 6/10 [00:01<00:01,  3.35it/s]
+ 70%|███████   | 7/10 [00:10<00:08,  2.96s/it]
+ 80%|████████  | 8/10 [00:10<00:04,  2.06s/it]
+ 90%|█████████ | 9/10 [00:18<00:04,  4.07s/it]
+100%|██████████| 10/10 [00:19<00:00,  2.85s/it]
+100%|██████████| 10/10 [00:19<00:00,  1.91s/it]
+
+
+✓ UQ method self-probing-allsteps for ASDiv completed successfully in 27.26 seconds
+
+============================================================
+Starting: UQ method self-probing-keystep for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-keystep --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 66.24it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:07<01:07,  7.46s/it]
+ 20%|██        | 2/10 [00:10<00:40,  5.05s/it]
+ 30%|███       | 3/10 [00:11<00:22,  3.19s/it]
+ 40%|████      | 4/10 [00:11<00:11,  1.98s/it]
+ 50%|█████     | 5/10 [00:17<00:16,  3.21s/it]
+ 60%|██████    | 6/10 [00:17<00:08,  2.16s/it]
+ 70%|███████   | 7/10 [00:17<00:04,  1.50s/it]
+ 80%|████████  | 8/10 [00:17<00:02,  1.06s/it]
+ 90%|█████████ | 9/10 [00:18<00:00,  1.10it/s]
+100%|██████████| 10/10 [00:21<00:00,  1.65s/it]
+100%|██████████| 10/10 [00:21<00:00,  2.16s/it]
+
+
+✓ UQ method self-probing-keystep for ASDiv completed successfully in 29.67 seconds
+
+============================================================
+Starting: UQ method self-probing-allkeywords for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 62.87it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:08<01:20,  8.90s/it]
+ 20%|██        | 2/10 [00:09<00:29,  3.74s/it]
+ 30%|███       | 3/10 [00:17<00:41,  5.86s/it]
+ 40%|████      | 4/10 [00:21<00:30,  5.10s/it]
+ 50%|█████     | 5/10 [00:29<00:31,  6.29s/it]
+ 60%|██████    | 6/10 [00:29<00:16,  4.19s/it]
+ 70%|███████   | 7/10 [00:29<00:08,  2.86s/it]
+ 80%|████████  | 8/10 [00:31<00:05,  2.54s/it]
+ 90%|█████████ | 9/10 [00:31<00:01,  1.78s/it]
+100%|██████████| 10/10 [00:32<00:00,  1.52s/it]
+100%|██████████| 10/10 [00:32<00:00,  3.29s/it]
+
+
+✓ UQ method self-probing-allkeywords for ASDiv completed successfully in 41.19 seconds
+
+============================================================
+Starting: UQ method self-probing-keykeywords for ASDiv
+Command: python stepuq.py --dataset ASDiv --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv --try_times 20
+============================================================
+
+
+Warnings/Info: 
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]
+Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 64.87it/s]
+
+  0%|          | 0/10 [00:00<?, ?it/s]
+ 10%|█         | 1/10 [00:08<01:19,  8.86s/it]
+ 20%|██        | 2/10 [00:17<01:08,  8.60s/it]
+ 30%|███       | 3/10 [00:19<00:39,  5.62s/it]
+ 40%|████      | 4/10 [00:19<00:20,  3.44s/it]
+ 50%|█████     | 5/10 [00:27<00:25,  5.05s/it]
+ 60%|██████    | 6/10 [00:27<00:13,  3.37s/it]
+ 70%|███████   | 7/10 [00:35<00:15,  5.02s/it]
+ 80%|████████  | 8/10 [00:36<00:06,  3.46s/it]
+ 90%|█████████ | 9/10 [00:36<00:02,  2.44s/it]
+100%|██████████| 10/10 [00:36<00:00,  1.86s/it]
+100%|██████████| 10/10 [00:36<00:00,  3.68s/it]
+
+
+✓ UQ method self-probing-keykeywords for ASDiv completed successfully in 44.74 seconds
+
+============================================================
+Starting: Analysis for ASDiv with probas-mean-bl
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine probas-mean-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Generating labels and saving to /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json...
+AUROC: 0.4444444477558136
+
+Warnings/Info: 
+  0%|          | 0/10 [00:00<?, ?it/s]
+100%|██████████| 10/10 [00:00<00:00, 37583.37it/s]
+
+
+✓ Analysis for ASDiv with probas-mean-bl completed successfully in 4.27 seconds
+
+============================================================
+Starting: Analysis for ASDiv with probas-min-bl
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine probas-min-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.4444444477558136
+
+
+✓ Analysis for ASDiv with probas-min-bl completed successfully in 3.90 seconds
+
+============================================================
+Starting: Analysis for ASDiv with token-sar-bl
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine token-sar-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.4444444477558136
+
+
+✓ Analysis for ASDiv with token-sar-bl completed successfully in 3.86 seconds
+
+============================================================
+Starting: Analysis for ASDiv with probas-mean
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine probas-mean --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.7777777910232544
+
+
+✓ Analysis for ASDiv with probas-mean completed successfully in 3.87 seconds
+
+============================================================
+Starting: Analysis for ASDiv with probas-min
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine probas-min --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 1.0
+
+
+✓ Analysis for ASDiv with probas-min completed successfully in 3.88 seconds
+
+============================================================
+Starting: Analysis for ASDiv with token-sar
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine token-sar --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.7777777910232544
+
+
+✓ Analysis for ASDiv with token-sar completed successfully in 3.86 seconds
+
+============================================================
+Starting: Analysis for ASDiv with p-true-bl
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine p-true-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.8333333730697632
+
+
+✓ Analysis for ASDiv with p-true-bl completed successfully in 3.86 seconds
+
+============================================================
+Starting: Analysis for ASDiv with p-true-allsteps
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine p-true-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true-allsteps
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.1111111119389534
+
+
+✓ Analysis for ASDiv with p-true-allsteps completed successfully in 3.87 seconds
+
+============================================================
+Starting: Analysis for ASDiv with p-true-keystep
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine p-true-keystep --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true-keystep
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.1111111119389534
+
+
+✓ Analysis for ASDiv with p-true-keystep completed successfully in 4.00 seconds
+
+============================================================
+Starting: Analysis for ASDiv with p-true-allkeywords
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine p-true-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true-allkeywords
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.4444444477558136
+
+
+✓ Analysis for ASDiv with p-true-allkeywords completed successfully in 3.90 seconds
+
+============================================================
+Starting: Analysis for ASDiv with p-true-keykeywords
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine p-true-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true-keykeywords
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.4444444477558136
+
+
+✓ Analysis for ASDiv with p-true-keykeywords completed successfully in 3.86 seconds
+
+============================================================
+Starting: Analysis for ASDiv with self-probing-bl
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine self-probing-bl --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.2222222238779068
+
+
+✓ Analysis for ASDiv with self-probing-bl completed successfully in 3.85 seconds
+
+============================================================
+Starting: Analysis for ASDiv with self-probing-allsteps
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine self-probing-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing-allsteps
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.0555555559694767
+
+
+✓ Analysis for ASDiv with self-probing-allsteps completed successfully in 3.86 seconds
+
+============================================================
+Starting: Analysis for ASDiv with self-probing-keystep
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine self-probing-keystep --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing-keystep
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.4444444477558136
+
+
+✓ Analysis for ASDiv with self-probing-keystep completed successfully in 3.85 seconds
+
+============================================================
+Starting: Analysis for ASDiv with self-probing-allkeywords
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine self-probing-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing-allkeywords
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.1111111119389534
+
+
+✓ Analysis for ASDiv with self-probing-allkeywords completed successfully in 3.85 seconds
+
+============================================================
+Starting: Analysis for ASDiv with self-probing-keykeywords
+Command: python analyze_result.py --dataset ASDiv --model_engine llama3-1_8B --uq_engine self-probing-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+============================================================
+
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing-keykeywords
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.2222222238779068
+
+
+✓ Analysis for ASDiv with self-probing-keykeywords completed successfully in 3.91 seconds
+
+============================================================
+Dataset ASDiv completed in 545.12 seconds
+============================================================
+
+
+################################################################################
+PIPELINE SUMMARY
+################################################################################
+
+
+Dataset: ASDiv
+Total time: 545.12 seconds
+Steps:
+  ✓ inference: success
+  ✓ uq_probas-mean-bl: success
+  ✓ uq_probas-min-bl: success
+  ✓ uq_token-sar-bl: success
+  ✓ uq_probas-mean: success
+  ✓ uq_probas-min: success
+  ✓ uq_token-sar: success
+  ✓ uq_p-true-bl: success
+  ✓ uq_p-true-allsteps: success
+  ✓ uq_p-true-keystep: success
+  ✓ uq_p-true-allkeywords: success
+  ✓ uq_p-true-keykeywords: success
+  ✓ uq_self-probing-bl: success
+  ✓ uq_self-probing-allsteps: success
+  ✓ uq_self-probing-keystep: success
+  ✓ uq_self-probing-allkeywords: success
+  ✓ uq_self-probing-keykeywords: success
+  ✓ analysis_probas-mean-bl: success
+  ✓ analysis_probas-min-bl: success
+  ✓ analysis_token-sar-bl: success
+  ✓ analysis_probas-mean: success
+  ✓ analysis_probas-min: success
+  ✓ analysis_token-sar: success
+  ✓ analysis_p-true-bl: success
+  ✓ analysis_p-true-allsteps: success
+  ✓ analysis_p-true-keystep: success
+  ✓ analysis_p-true-allkeywords: success
+  ✓ analysis_p-true-keykeywords: success
+  ✓ analysis_self-probing-bl: success
+  ✓ analysis_self-probing-allsteps: success
+  ✓ analysis_self-probing-keystep: success
+  ✓ analysis_self-probing-allkeywords: success
+  ✓ analysis_self-probing-keykeywords: success
+
+
+Pipeline completed at: 2025-05-23 18:25:44.254205
+
+✓ All pipeline steps completed successfully!
+===== PIPELINE EXECUTION COMPLETED =====

@@ -1,0 +1,38 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: gsm8k
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/gsm8k
+ARRAY_ID: 4
+UQ METHODS: probas-min-bl
+OpenAI API key not required for gsm8k dataset
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-min-bl
+===== STARTING RESULT ANALYSIS =====
+Dataset: gsm8k, UQ Method: probas-min-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:gsm8k
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/gsm8k
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/gsm8k/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5627707839012146
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/gsm8k/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-min-bl
+
+===== ALL ANALYSES COMPLETED FOR DATASET: gsm8k =====
+Job completed for dataset: gsm8k with all available UQ methods
