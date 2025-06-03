@@ -14,6 +14,11 @@ from sentence_transformers.cross_encoder import CrossEncoder
 
 # AP strategies: Probas-mean, Probas-min, Token-SAR
 def compute_step_uncertainty():
+    # Skip if the UQ output file already exists
+    uq_output_file = os.path.join(args.output_path, "confidences", f"output_v1_{args.uq_engine}.json")
+    if os.path.exists(uq_output_file):
+        print(f"UQ output exists at {uq_output_file}, skipping compute_step_uncertainty")
+        return
     with open(f"{args.output_path}/output_v1.json", 'r', encoding='utf-8') as f:
         json_data = []
         for line in f.readlines():
@@ -34,7 +39,7 @@ def compute_step_uncertainty():
                 continue
 
             if args.uq_engine == "probas-mean-bl":
-                # 🔵️ we use ONLY the answer-token probs saved by inference_refining.py
+                # we use ONLY the answer-token probs saved by inference_refining.py
                 prob_dict = line["llm answer token probability"]
                 answer_probs = [p for lst in prob_dict.values() for p in lst]
                 if not answer_probs:
@@ -46,7 +51,7 @@ def compute_step_uncertainty():
                 # flatten the dict values -> list[float]
                 answer_probs = [p for lst in prob_dict.values() for p in lst]
 
-                if not answer_probs:          # ← ✓ list is empty?
+                if not answer_probs:          # list is empty?
                     continue
                 confidence   = min(answer_probs)
                     
@@ -127,6 +132,11 @@ def compute_step_uncertainty():
 
 # Self-Probing
 def self_probing_uncertainty():
+    # Skip if the UQ output file already exists
+    uq_output_file = os.path.join(args.output_path, "confidences", f"output_v1_{args.uq_engine}.json")
+    if os.path.exists(uq_output_file):
+        print(f"UQ output exists at {uq_output_file}, skipping self_probing_uncertainty")
+        return
     with open(f"{args.output_path}/output_v1.json", 'r', encoding='utf-8') as f:
         json_data = []
         for line in f.readlines():
@@ -138,8 +148,12 @@ def self_probing_uncertainty():
     output_dir = f"{args.output_path}/confidences/"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir) 
-    for idx, line in enumerate(tqdm(json_data[:], total=len(json_data[:]))):
-        with open(f"{args.output_path}/confidences/output_v1_{args.uq_engine}.json", "a", encoding="utf-8") as f:
+    
+    rows_done = 0
+    rows_total = len(json_data)
+    
+    with open(f"{args.output_path}/confidences/output_v1_{args.uq_engine}.json", "a", encoding="utf-8") as f:
+        for idx, line in enumerate(tqdm(json_data[:], total=len(json_data[:]))):
             # give labels for open-ended llm answer
             # id = line['id']
             question = line['question']
@@ -150,41 +164,88 @@ def self_probing_uncertainty():
 
             # For baseline self-probing, we only need question and answer
             if args.uq_engine == "self-probing-bl":
-                prompt = f"Question: {question}\nPossible Answer: {llm_answer}\nQ: How likely is the above answer to be correct? Please first show your reasoning concisely and then answer with the following format:\n```Confidence: [the probability of answer {llm_answer} to be correct, not the one you think correct, please only include the numerical number]%```\nConfidence: "
+                prompt = (
+                    f"Question: {question}\n"
+                    f"Possible Answer: {llm_answer}\n\n"
+                    "Q: How likely is the above answer to be correct? Please first show your reasoning concisely and then answer with the following format:\n"
+                    "```Confidence: [the probability of answer " + llm_answer + " to be correct, not the one you think correct, please only include the numerical number]%```\n"
+                    "Confidence: "
+                )
             
             else:
-                # For other variants, we need keyword_token_probability and contribution_scores
-                keyword_token_probability = line['keyword token probability']
-                if keyword_token_probability == {}:
-                    continue
-
-                contribution_scores = line['keyword contribution']
-                if contribution_scores == {}:
-                    continue
-
+                # Check for required fields based on engine type
                 if args.uq_engine == "self-probing-allsteps":
                     llm_response = line['llm response']
                     if llm_response == "":
                         continue
-                    prompt = f"Question: {question}\nPossible Answer: {llm_answer}\nA step-by-step reasoning to the possible answer: {llm_response}\nQ: Considering these reasoning steps as additional information, how likely is the above answer to be correct? Please first show your reasoning concisely and then answer with the following format:\n```Confidence: [the probability of answer {llm_answer} to be correct, not the one you think correct, please only include the numerical number]%```\nConfidence: "
+                    prompt = (
+                        f"Question: {question}\n"
+                        f"Possible Answer: {llm_answer}\n"
+                        f"A step-by-step reasoning to the possible answer:\n{llm_response}\n\n"
+                        "Q: Considering these reasoning steps as additional information, how likely is the above answer to be correct? "
+                        "Please first show your reasoning concisely and then answer with the following format:\n"
+                        "```Confidence: [the probability of answer " + llm_answer + " to be correct, not the one you think correct, please only include the numerical number]%```\n"
+                        "Confidence: "
+                    )
 
                 elif args.uq_engine == "self-probing-keystep":
+                    # Must have llm_response and keyword contribution
                     llm_response = line['llm response']
                     if llm_response == "":
                         continue
+                    contribution_scores = line.get('keyword contribution')
+                    if not contribution_scores or contribution_scores == {}:
+                        continue
                     key_step = extract_keystep(llm_response, contribution_scores)
-                    prompt = f"Question: {question}\nPossible Answer: {llm_answer}\nThe most critical step in reasoning to the possible answer: {key_step}\nQ: Considering this critical reasoning step as additional information, how likely is the above answer to be correct? Please first show your reasoning concisely and then answer with the following format:\n```Confidence: [the probability of answer {llm_answer} to be correct, not the one you think correct, please only include the numerical number]%```\nConfidence: "
+                    prompt = (
+                        f"Question: {question}\n"
+                        f"Possible Answer: {llm_answer}\n"
+                        f"The most critical step in reasoning to the possible answer: {key_step}\n\n"
+                        "Q: Considering this critical reasoning step as additional information, how likely is the above answer to be correct? "
+                        "Please first show your reasoning concisely and then answer with the following format:\n"
+                        "```Confidence: [the probability of answer " + llm_answer + " to be correct, not the one you think correct, please only include the numerical number]%```\n"
+                        "Confidence: "
+                    )
 
                 elif args.uq_engine == "self-probing-allkeywords":
+                    # Must have keyword token probability and keyword contribution
+                    keyword_token_probability = line.get('keyword token probability')
+                    if not keyword_token_probability or keyword_token_probability == {}:
+                        continue
+                    contribution_scores = line.get('keyword contribution')
+                    if not contribution_scores or contribution_scores == {}:
+                        continue
                     keywords = extract_keywords(keyword_token_probability, contribution_scores)
-                    prompt = f"Question: {question}\nPossible Answer: {llm_answer}\nKeywords during reasoning to the possible answer: {keywords}\nQ: Considering these keywords as additional information, how likely is the above answer to be correct? Please first show your reasoning concisely and then answer with the following format:\n```Confidence: [the probability of answer {llm_answer} to be correct, not the one you think correct, please only include the numerical number]%```\nConfidence: "
+                    prompt = (
+                        f"Question: {question}\n"
+                        f"Possible Answer: {llm_answer}\n"
+                        f"Keywords during reasoning to the possible answer: {keywords}\n\n"
+                        "Q: Considering these keywords as additional information, how likely is the above answer to be correct? "
+                        "Please first show your reasoning concisely and then answer with the following format:\n"
+                        "```Confidence: [the probability of answer " + llm_answer + " to be correct, not the one you think correct, please only include the numerical number]%```\n"
+                        "Confidence: "
+                    )
 
                 elif args.uq_engine == "self-probing-keykeywords":
-                    keywords = extract_keykeywords(contribution_scores)
-                    prompt = f"Question: {question}\nPossible Answer: {llm_answer}\nKeywords during reasoning to the possible answer: {keywords}\nQ: Considering these keywords as additional information, how likely is the above answer to be correct? Please first show your reasoning concisely and then answer with the following format:\n```Confidence: [the probability of answer {llm_answer} to be correct, not the one you think correct, please only include the numerical number]%```\nConfidence: "
+                    # Must have keyword contribution
+                    contribution_scores = line.get('keyword contribution')
+                    if not contribution_scores or contribution_scores == {}:
+                        continue
+                    keykeywords = extract_keykeywords(contribution_scores)
+                    prompt = (
+                        f"Question: {question}\n"
+                        f"Possible Answer: {llm_answer}\n"
+                        f"Keywords during reasoning to the possible answer: {keykeywords}\n\n"
+                        "Q: Considering these keywords as additional information, how likely is the above answer to be correct? "
+                        "Please first show your reasoning concisely and then answer with the following format:\n"
+                        "```Confidence: [the probability of answer " + llm_answer + " to be correct, not the one you think correct, please only include the numerical number]%```\n"
+                        "Confidence: "
+                    )
 
             try_time = 0
-            while try_time < args.try_times:
+            # Hardcode try_times to 10 for UQ computation efficiency
+            max_tries = 10
+            while try_time < max_tries: 
                 response = predict(args, prompt, model, tokenizer)
 
                 confidence = extract_probing_confidence(response)
@@ -204,18 +265,27 @@ def self_probing_uncertainty():
                     "probing response": response,
                 }
                 f.write(json.dumps(formatted_data, ensure_ascii=False) + "\n")
+                rows_done += 1
                 break
-        if try_time >= args.try_times:
-            print(f'#####Cannot extract confidence from:#####\n{response}\nRecord and Skip')
-            error_dir = f"{args.output_path}/confidences/probing_errors"
-            if not os.path.exists(error_dir):
-                os.makedirs(error_dir) 
-            with open(f"{args.output_path}/confidences/probing_errors/output_v1_{args.uq_engine}.json", "a", encoding="utf-8") as f:
-                f.write(json.dumps(line, ensure_ascii=False) + "\n")
+            if try_time >= max_tries:
+                print(f'#####Cannot extract confidence from:#####\n{response}\nRecord and Skip')
+                error_dir = f"{args.output_path}/confidences/probing_errors"
+                if not os.path.exists(error_dir):
+                    os.makedirs(error_dir) 
+                with open(f"{args.output_path}/confidences/probing_errors/output_v1_{args.uq_engine}.json", "a", encoding="utf-8") as error_f:
+                    error_f.write(json.dumps(line, ensure_ascii=False) + "\n")
+    
+    # Add coverage sanity-print
+    print(f"{args.uq_engine}: evaluated {rows_done}/{rows_total} rows")
 
 
 # P(True)
 def p_true_uncertainty():
+    # Skip if the UQ output file already exists
+    uq_output_file = os.path.join(args.output_path, "confidences", f"output_v1_{args.uq_engine}.json")
+    if os.path.exists(uq_output_file):
+        print(f"UQ output exists at {uq_output_file}, skipping p_true_uncertainty")
+        return
 
     with open(f"{args.output_path}/output_v1.json", 'r', encoding='utf-8') as f:
         json_data = []
@@ -231,6 +301,10 @@ def p_true_uncertainty():
     output_dir = f"{args.output_path}/confidences/"
     if not os.path.exists(output_dir):
         os.makedirs(output_dir) 
+    
+    rows_done = 0
+    rows_total = len(json_data)
+    
     with open(f"{args.output_path}/confidences/output_v1_{args.uq_engine}.json", "a", encoding="utf-8") as f:
         for idx, line in enumerate(tqdm(json_data[:], total=len(json_data[:]))):
             # give labels for open-ended llm answer
@@ -243,72 +317,84 @@ def p_true_uncertainty():
 
             # Baseline P(True) - only question and answer
             if args.uq_engine == "p-true-bl":
-                prompt = \
-                    f"""The problem is: {question}
-                A student submitted: {llm_answer}
-                Is the student's answer:
-                (A) True
-                (B) False
-                The student's answer is: """
+                prompt = (
+                    f"The problem is: {question}\n"
+                    f"A student submitted: {llm_answer}\n\n"
+                    "Is the student's answer:\n"
+                    "(A) True\n"
+                    "(B) False\n"
+                    "The student's answer is: "
+                )
             
             else:
-                # For other variants, we need keyword_token_probability and contribution_scores
-                keyword_token_probability = line['keyword token probability']
-                if keyword_token_probability == {}:
-                    continue
-
-                contribution_scores = line['keyword contribution']
-                if contribution_scores == {}:
-                    continue
-
+                # Check for required fields based on engine type
                 if args.uq_engine == "p-true-allsteps":
                     llm_response = line['llm response']
                     if llm_response == "":
                         continue
-                    prompt = \
-                        f"""The problem is: {question}
-                    A student submitted: {llm_answer}
-                    The student explained the answer, which included a step-by-step reasoning: {llm_response}
-                    Considering these reasoning steps as additional information, is the student's answer:
-                    (A) True
-                    (B) False
-                    The student's answer is: """
+                    prompt = (
+                        f"The problem is: {question}\n"
+                        f"A student submitted: {llm_answer}\n"
+                        f"The student explained the answer, which included a step-by-step reasoning: {llm_response}\n\n"
+                        "Considering these reasoning steps as additional information, is the student's answer:\n"
+                        "(A) True\n"
+                        "(B) False\n"
+                        "The student's answer is: "
+                    )
 
                 elif args.uq_engine == "p-true-keystep":
+                    # Must have llm_response and keyword contribution
                     llm_response = line['llm response']
                     if llm_response == "":
                         continue
+                    contribution_scores = line.get('keyword contribution')
+                    if not contribution_scores or contribution_scores == {}:
+                        continue
                     key_step = extract_keystep(llm_response, contribution_scores)
-                    prompt = \
-                        f"""The problem is: {question}
-                    A student submitted: {llm_answer}
-                    The student explained the answer, where the most critical step is: {key_step}
-                    Considering this critical reasoning step as additional information, is the student's answer:
-                    (A) True
-                    (B) False
-                    The student's answer is: """
+                    prompt = (
+                        f"The problem is: {question}\n"
+                        f"A student submitted: {llm_answer}\n"
+                        f"The student explained the answer, where the most critical step is: {key_step}\n\n"
+                        "Considering this critical reasoning step as additional information, is the student's answer:\n"
+                        "(A) True\n"
+                        "(B) False\n"
+                        "The student's answer is: "
+                    )
 
                 elif args.uq_engine == "p-true-allkeywords":
+                    # Must have keyword token probability and keyword contribution
+                    keyword_token_probability = line.get('keyword token probability')
+                    if not keyword_token_probability or keyword_token_probability == {}:
+                        continue
+                    contribution_scores = line.get('keyword contribution')
+                    if not contribution_scores or contribution_scores == {}:
+                        continue
                     keywords = extract_keywords(keyword_token_probability, contribution_scores)
-                    prompt = \
-                        f"""The problem is: {question}
-                    A student submitted: {llm_answer}
-                    The student explained the answer, which included the following keywords {keywords}
-                    Considering these keywords as additional information, is the student's answer:
-                    (A) True
-                    (B) False
-                    The student's answer is: """
+                    prompt = (
+                        f"The problem is: {question}\n"
+                        f"A student submitted: {llm_answer}\n"
+                        f"The student explained the answer, which included the following keywords {keywords}\n\n"
+                        "Considering these keywords as additional information, is the student's answer:\n"
+                        "(A) True\n"
+                        "(B) False\n"
+                        "The student's answer is: "
+                    )
 
                 elif args.uq_engine == "p-true-keykeywords":
-                    keywords = extract_keykeywords(contribution_scores)
-                    prompt = \
-                        f"""The problem is: {question}
-                    A student submitted: {llm_answer}
-                    The student explained the answer, which included the following keywords {keywords}
-                    Considering these keywords as additional information, is the student's answer:
-                    (A) True
-                    (B) False
-                    The student's answer is: """
+                    # Must have keyword contribution
+                    contribution_scores = line.get('keyword contribution')
+                    if not contribution_scores or contribution_scores == {}:
+                        continue
+                    keykeywords = extract_keykeywords(contribution_scores)
+                    prompt = (
+                        f"The problem is: {question}\n"
+                        f"A student submitted: {llm_answer}\n"
+                        f"The student explained the answer, which included the following keywords {keykeywords}\n\n"
+                        "Considering these keywords as additional information, is the student's answer:\n"
+                        "(A) True\n"
+                        "(B) False\n"
+                        "The student's answer is: "
+                    )
 
             _, _, scores, _ = generate_model_answer(args, prompt, model, tokenizer, device,
                                                                    max_new_tokens=1,
@@ -325,6 +411,10 @@ def p_true_uncertainty():
                 "confidence": float(p_true),
             }
             f.write(json.dumps(formatted_data, ensure_ascii=False) + "\n")
+            rows_done += 1
+    
+    # Add coverage sanity-print
+    print(f"{args.uq_engine}: evaluated {rows_done}/{rows_total} rows")
 
 
 if __name__ == '__main__':

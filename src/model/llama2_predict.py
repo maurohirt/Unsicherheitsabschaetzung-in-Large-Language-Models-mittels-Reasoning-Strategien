@@ -27,8 +27,9 @@ def model_init(args):
             hf_login(token=token, add_to_git_credential=False)
         except Exception:
             pass
+    
     if "llama3" in args.model_path:
-        # Use AutoModel for Llama-3 because HF provides custom QKV shapes
+        # Keep existing Llama3 configuration unchanged
         model = AutoModelForCausalLM.from_pretrained(
             HF_NAMES[model_path],
             torch_dtype=torch.bfloat16,
@@ -36,12 +37,17 @@ def model_init(args):
         ).to(device)
         tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path], trust_remote_code=True)
     elif "llama2" in args.model_path:
+        # Enhanced Llama2 configuration for multi-GPU stability
         model = LlamaForCausalLM.from_pretrained(
             HF_NAMES[model_path],
-            torch_dtype=torch.bfloat16,
+            torch_dtype=torch.float16,  # Changed from bfloat16 to float16 for better stability
             device_map="auto",  # Enable multi-GPU if available
+           
         )
         tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
+        # Set pad token if not already set
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.eos_token
     elif "mistral" in args.model_path:
         model = AutoModelForCausalLM.from_pretrained(HF_NAMES[model_path], torch_dtype=torch.bfloat16).to(device)
         tokenizer = AutoTokenizer.from_pretrained(HF_NAMES[model_path])
@@ -50,18 +56,17 @@ def model_init(args):
     return model, tokenizer, device
 
 def predict(args, prompt, model, tokenizer):
-    # Get device from model's parameters rather than hard-coding 'cuda'
-    device = next(model.parameters()).device
-    inputs = tokenizer(prompt, return_tensors="pt").to(device)
-    generate_ids = model.generate(
-        **inputs, 
-        max_new_tokens = args.max_length_cot,
-        temperature=args.temperature, 
-        pad_token_id=tokenizer.eos_token_id)
-    generate_ids = generate_ids[0][len(inputs["input_ids"][0]):-1]
-    infer_res = tokenizer.decode(generate_ids)
-    return infer_res
-
+    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
+    with torch.no_grad():                       # NEW
+        gen = model.generate(
+            **inputs,
+            max_new_tokens=args.max_length_cot,
+            temperature=args.temperature,
+            pad_token_id=tokenizer.eos_token_id,
+        )
+    gen_ids = gen[:, inputs["input_ids"].shape[1]:]   # batch-safe slicing
+    return tokenizer.batch_decode(gen_ids, skip_special_tokens=True)
+    
 
 def tokenize(prompt, tokenizer, model_name, model=None, tokenizer_args=None):
     # Determine device from model if provided, default to CUDA
@@ -95,6 +100,9 @@ def generate(model_input, model, model_name, do_sample=False, output_scores=Fals
                                   **(additional_kwargs or {}))
 
     return model_output
+
+    
+
 
 
 def generate_model_answer(args, prompt, model, tokenizer, device, do_sample=False, output_scores=False,

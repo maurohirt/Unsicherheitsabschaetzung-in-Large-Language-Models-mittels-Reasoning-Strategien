@@ -9,12 +9,18 @@ import torch.nn.functional as F
 from config import args
 from src.model.llama2_predict import predict, model_init
 from src.format.get_cot_prompt import get_cot_prompt
+from src.format.get_dot_prompt import get_dot_prompt
 from src.format.get_step_exact_tokens import get_step_exact_tokens
 
 from utils import load_data, print_exp, setup_log, is_effectively_empty, find_subsequence_position, step_exacts_2_list, \
                     parse_response_to_dict, find_token_indices, is_word_in_sentence, match_final_answer_token_ids 
 
 def llama_inference_refining():
+    # Skip if inference output already exists
+    output_file = os.path.join(args.output_path, "output_v1.json")
+    if os.path.exists(output_file):
+        print(f"Inference output exists at {output_file}, skipping inference_refining")
+        return
     output_dir = os.path.dirname(args.output_path)
     if not os.path.exists(output_dir):
         os.makedirs(output_dir) 
@@ -40,8 +46,8 @@ def llama_inference_refining():
                 t = types[idx]
 
             log.debug(f"##### This is the --{idx + 1}th-- Question #####")
-
-            cot_prompt = get_cot_prompt(args, q)
+            cot_prompt = get_dot_prompt(args, q)
+            #cot_prompt = get_cot_prompt(args, q)
 
             inputs = tokenizer(cot_prompt, return_tensors="pt")
             inputs = {key: value.to(model.device) for key, value in inputs.items()}
@@ -122,42 +128,41 @@ def llama_inference_refining():
                     keywords_contributions = {}
                     keywords_token_ids = {}
                     for step_idx, (step_name, step_text) in enumerate(steps_dict.items()):
-                        # # Skip the Final Answer
+                        # Skip the Final Answer
                         keywords = keywords_list[step_idx]
                         contributions = contributions_list[step_idx]
                         if len(keywords) == 1 and keywords[0] == 'NO ANSWER':
                             continue
-                        step_tokens = tokenizer.tokenize(step_text)
-                        processed_step_tokens = [token[1:] if token.startswith('Ġ') or token.startswith('▁')  else token for token in step_tokens]
-                        step_token_ids = tokenizer.convert_tokens_to_ids(step_tokens)
-                        start_position = find_subsequence_position(step_token_ids[1:-2], generated_ids) - 1
-                        step_token_ids = generated_ids[start_position: start_position + len(step_tokens)]
                         keywords_probabilities_dict = {}
                         keywords_contributions_dict = {}
                         keywords_token_ids_dict = {}
                         for keyword_idx, keyword in enumerate(keywords):
-
                             keyword_probs = []
                             keyword_token_ids = []
-                            if is_word_in_sentence(step_text, keyword) is not True:
-                                log.debug(f"\n{step_name}-Keyword-{keyword_idx} Does not appear in the Step Text")
+                            if not is_word_in_sentence(step_text, keyword):
+                                log.debug(f"{step_name}-Keyword-{keyword_idx} Does not appear in the Step Text")
                                 continue
-                            keyword_token_start_idx, keyword_token_end_idx = find_token_indices(processed_step_tokens, keyword)
-                            keyword_token_ids = generated_ids[start_position + keyword_token_start_idx: start_position + keyword_token_end_idx + 1]
-                            keyword_token_ids = keyword_token_ids.data.cpu().numpy()
-
+                            # Tokenize the keyword itself and find its position in generated_ids
+                            keyword_tokens = tokenizer.tokenize(keyword)
+                            keyword_token_ids_local = tokenizer.convert_tokens_to_ids(keyword_tokens)
+                            pos = find_subsequence_position(keyword_token_ids_local, generated_ids)
+                            if pos < 0:
+                                log.debug(f"{step_name}-Keyword-{keyword_idx} ('{keyword}') not found in generated_ids")
+                                continue
+                            # Extract token IDs for this keyword
+                            slice_ids = generated_ids[pos: pos + len(keyword_token_ids_local)]
+                            keyword_token_ids = slice_ids.data.cpu().numpy()
+                            # Gather probabilities for each sub-token
                             for j, token_id in enumerate(keyword_token_ids):
-                                idxx = start_position + keyword_token_start_idx + j
+                                idxx = pos + j
                                 try:
                                     keyword_probs.append(probabilities[idxx][token_id])
                                 except KeyError:
-                                    # Token had zero or near-zero probability
                                     keyword_probs.append(0.0)
                                     log.debug(f"Token {token_id} not found in probabilities at position {idxx} - using 0.0 as fallback")
                             keywords_probabilities_dict[keyword] = keyword_probs
                             keywords_contributions_dict[keyword] = int(contributions[keyword_idx])
                             keywords_token_ids_dict[keyword] = keyword_token_ids.tolist()
-                            
                         keywords_probabilities[step_name] = keywords_probabilities_dict
                         keywords_contributions[step_name] = keywords_contributions_dict
                         keywords_token_ids[step_name] = keywords_token_ids_dict
