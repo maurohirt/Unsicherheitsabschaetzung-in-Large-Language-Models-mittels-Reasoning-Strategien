@@ -49,7 +49,7 @@ Input: {input}
 '''
 
 # 1-shot
-propose_prompt = '''Input: 2 8 8 14
+old_propose_prompt = '''Input: 2 8 8 14
 Possible next steps:
 2 + 8 = 10 (left: 8 10 14)
 8 / 2 = 4 (left: 4 8 14)
@@ -62,6 +62,29 @@ Possible next steps:
 Input: {input}
 Possible next steps:
 '''
+
+propose_prompt = """
+## TASK: Game of 24 Solver
+
+**Rules:**
+* Use each number exactly once.
+* Combine two numbers per step using +, -, *, or /.
+* No extra text or comments, just the "Possible next steps:" output as shown in the example.
+* Only include steps that are most likely to lead to a solution for 24.
+
+Input: 2 8 8 14
+Possible next steps:
+2 + 8 = 10 (left: 8 10 14)
+8 / 2 = 4 (left: 4 8 14)
+14 + 2 = 16 (left: 8 8 16)
+2 * 8 = 16 (left: 8 14 16)
+8 - 2 = 6 (left: 6 8 14)
+14 - 8 = 6 (left: 2 6 8)
+14 / 2 = 7 (left: 7 8 8)
+14 - 2 = 12 (left: 8 8 12)
+Input: {input}
+Possible next steps:
+"""
 
 value_prompt = '''Evaluate if given numbers can reach 24 (sure/likely/impossible)
 10 14
