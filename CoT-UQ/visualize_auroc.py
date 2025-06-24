@@ -38,7 +38,7 @@ def plot_auroc_subplot(df, uq_method_type, dataset_name, ax):
 
 if __name__ == "__main__":
     # Configuration
-    run_number = "2"  # Change this to match the run number you want to process (e.g., "0", "1", "2", etc.)
+    run_number = "4"  # Processing run 4
     
     # Setup paths
     base_dir = Path(__file__).parent

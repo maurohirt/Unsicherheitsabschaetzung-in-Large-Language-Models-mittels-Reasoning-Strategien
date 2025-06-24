@@ -1,0 +1,391 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Loading configuration from: configs/pipeline_config_full_lama3_dot.yaml
+Array Task ID: 2
+Running as array job, task ID: 2
+Loading configuration from: configs/pipeline_config_full_lama3_dot.yaml
+Array job mode: Processing only dataset hotpotQA (index 2)
+Configuration loaded:
+  Model: llama3-1_8B
+  Dataset(s) to process: ['hotpotQA']
+  Output path base: /home2/mauro.hirt/CoT-UQ/output_cot_4
+  Temperature: 1.0
+  Try times: 20
+  Max length CoT: 128
+  UQ methods: ['probas-mean-bl', 'probas-min-bl', 'token-sar-bl', 'probas-mean', 'probas-min', 'token-sar', 'p-true-bl', 'p-true-allsteps', 'p-true-keystep', 'p-true-allkeywords', 'p-true-keykeywords', 'self-probing-bl', 'self-probing-allsteps', 'self-probing-keystep', 'self-probing-allkeywords', 'self-probing-keykeywords']
+  Test start: 0
+  Test end: full
+
+
+################################################################################
+Processing dataset: hotpotQA
+################################################################################
+
+
+============================================================
+Starting: Inference for hotpotQA
+Command: python inference_refining.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --temperature 1.0 --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --try_times 20 --max_length_cot 128 --test_start 0 --test_end full
+============================================================
+
+---------------experiment args---------------
+max_length_cot:128
+try_times:20
+temperature:1.0
+dataset:hotpotQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+Inference output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/output_v1.json, skipping inference_refining
+
+
+✓ Inference for hotpotQA completed successfully in 6.06 seconds
+
+============================================================
+Starting: UQ method probas-mean-bl for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-mean-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_probas-mean-bl.json, skipping compute_step_uncertainty
+
+✓ UQ method probas-mean-bl for hotpotQA completed successfully in 4.38 seconds
+
+============================================================
+Starting: UQ method probas-min-bl for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-min-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+
+
+Note: CrossEncoder deprecation warning (expected, can be ignored)
+
+✓ UQ method probas-min-bl for hotpotQA completed successfully in 10.12 seconds
+
+============================================================
+Starting: UQ method token-sar-bl for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine token-sar-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_token-sar-bl.json, skipping compute_step_uncertainty
+
+✓ UQ method token-sar-bl for hotpotQA completed successfully in 4.00 seconds
+
+============================================================
+Starting: UQ method probas-mean for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-mean --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_probas-mean.json, skipping compute_step_uncertainty
+
+✓ UQ method probas-mean for hotpotQA completed successfully in 4.12 seconds
+
+============================================================
+Starting: UQ method probas-min for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine probas-min --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_probas-min.json, skipping compute_step_uncertainty
+
+✓ UQ method probas-min for hotpotQA completed successfully in 4.04 seconds
+
+============================================================
+Starting: UQ method token-sar for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine token-sar --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_token-sar.json, skipping compute_step_uncertainty
+
+✓ UQ method token-sar for hotpotQA completed successfully in 4.48 seconds
+
+============================================================
+Starting: UQ method p-true-bl for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_p-true-bl.json, skipping p_true_uncertainty
+
+✓ UQ method p-true-bl for hotpotQA completed successfully in 3.99 seconds
+
+============================================================
+Starting: UQ method p-true-allsteps for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_p-true-allsteps.json, skipping p_true_uncertainty
+
+✓ UQ method p-true-allsteps for hotpotQA completed successfully in 4.09 seconds
+
+============================================================
+Starting: UQ method p-true-keystep for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-keystep --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_p-true-keystep.json, skipping p_true_uncertainty
+
+✓ UQ method p-true-keystep for hotpotQA completed successfully in 3.96 seconds
+
+============================================================
+Starting: UQ method p-true-allkeywords for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_p-true-allkeywords.json, skipping p_true_uncertainty
+
+✓ UQ method p-true-allkeywords for hotpotQA completed successfully in 4.01 seconds
+
+============================================================
+Starting: UQ method p-true-keykeywords for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine p-true-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_p-true-keykeywords.json, skipping p_true_uncertainty
+
+✓ UQ method p-true-keykeywords for hotpotQA completed successfully in 3.97 seconds
+
+============================================================
+Starting: UQ method self-probing-bl for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_self-probing-bl.json, skipping self_probing_uncertainty
+
+✓ UQ method self-probing-bl for hotpotQA completed successfully in 4.01 seconds
+
+============================================================
+Starting: UQ method self-probing-allsteps for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_self-probing-allsteps.json, skipping self_probing_uncertainty
+
+✓ UQ method self-probing-allsteps for hotpotQA completed successfully in 4.01 seconds
+
+============================================================
+Starting: UQ method self-probing-keystep for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-keystep --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_self-probing-keystep.json, skipping self_probing_uncertainty
+
+✓ UQ method self-probing-keystep for hotpotQA completed successfully in 3.96 seconds
+
+============================================================
+Starting: UQ method self-probing-allkeywords for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_self-probing-allkeywords.json, skipping self_probing_uncertainty
+
+✓ UQ method self-probing-allkeywords for hotpotQA completed successfully in 3.96 seconds
+
+============================================================
+Starting: UQ method self-probing-keykeywords for hotpotQA
+Command: python stepuq.py --dataset hotpotQA --model_engine llama3-1_8B --model_path llama3-1_8B --uq_engine self-probing-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA --temperature 1.0 --try_times 5
+============================================================
+
+UQ output exists at /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA/confidences/output_v1_self-probing-keykeywords.json, skipping self_probing_uncertainty
+
+✓ UQ method self-probing-keykeywords for hotpotQA completed successfully in 4.01 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with probas-mean-bl
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine probas-mean-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5563140511512756
+
+✓ Analysis for hotpotQA with probas-mean-bl completed successfully in 4.21 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with probas-min-bl
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine probas-min-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5613271594047546
+
+✓ Analysis for hotpotQA with probas-min-bl completed successfully in 4.09 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with token-sar-bl
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine token-sar-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5176132917404175
+
+✓ Analysis for hotpotQA with token-sar-bl completed successfully in 4.13 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with probas-mean
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine probas-mean --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5890210866928101
+
+✓ Analysis for hotpotQA with probas-mean completed successfully in 4.11 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with probas-min
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine probas-min --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5920618772506714
+
+✓ Analysis for hotpotQA with probas-min completed successfully in 4.09 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with token-sar
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine token-sar --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.590090274810791
+
+✓ Analysis for hotpotQA with token-sar completed successfully in 4.45 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with p-true-bl
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine p-true-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.564254105091095
+
+✓ Analysis for hotpotQA with p-true-bl completed successfully in 4.04 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with p-true-allsteps
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine p-true-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5594413876533508
+
+✓ Analysis for hotpotQA with p-true-allsteps completed successfully in 4.07 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with p-true-keystep
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine p-true-keystep --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5644913911819458
+
+✓ Analysis for hotpotQA with p-true-keystep completed successfully in 4.06 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with p-true-allkeywords
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine p-true-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.6007986068725586
+
+✓ Analysis for hotpotQA with p-true-allkeywords completed successfully in 4.12 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with p-true-keykeywords
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine p-true-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.6011703610420227
+
+✓ Analysis for hotpotQA with p-true-keykeywords completed successfully in 4.12 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with self-probing-bl
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine self-probing-bl --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.557032585144043
+
+✓ Analysis for hotpotQA with self-probing-bl completed successfully in 4.06 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with self-probing-allsteps
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine self-probing-allsteps --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5301692485809326
+
+✓ Analysis for hotpotQA with self-probing-allsteps completed successfully in 4.10 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with self-probing-keystep
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine self-probing-keystep --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5295140147209167
+
+✓ Analysis for hotpotQA with self-probing-keystep completed successfully in 4.25 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with self-probing-allkeywords
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine self-probing-allkeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5414692759513855
+
+✓ Analysis for hotpotQA with self-probing-allkeywords completed successfully in 4.19 seconds
+
+============================================================
+Starting: Analysis for hotpotQA with self-probing-keykeywords
+Command: python analyze_result.py --dataset hotpotQA --model_engine llama3-1_8B --uq_engine self-probing-keykeywords --output_path /home2/mauro.hirt/CoT-UQ/output_cot_4/llama3-1_8B/hotpotQA
+============================================================
+
+AUROC: 0.5335602164268494
+
+✓ Analysis for hotpotQA with self-probing-keykeywords completed successfully in 4.04 seconds
+
+============================================================
+Dataset hotpotQA completed in 143.30 seconds
+============================================================
+
+
+################################################################################
+PIPELINE SUMMARY
+################################################################################
+
+
+Dataset: hotpotQA
+Total time: 143.30 seconds
+Steps:
+  ✓ inference: success
+  ✓ uq_probas-mean-bl: success
+  ✓ uq_probas-min-bl: success
+  ✓ uq_token-sar-bl: success
+  ✓ uq_probas-mean: success
+  ✓ uq_probas-min: success
+  ✓ uq_token-sar: success
+  ✓ uq_p-true-bl: success
+  ✓ uq_p-true-allsteps: success
+  ✓ uq_p-true-keystep: success
+  ✓ uq_p-true-allkeywords: success
+  ✓ uq_p-true-keykeywords: success
+  ✓ uq_self-probing-bl: success
+  ✓ uq_self-probing-allsteps: success
+  ✓ uq_self-probing-keystep: success
+  ✓ uq_self-probing-allkeywords: success
+  ✓ uq_self-probing-keykeywords: success
+  ✓ analysis_probas-mean-bl: success
+  ✓ analysis_probas-min-bl: success
+  ✓ analysis_token-sar-bl: success
+  ✓ analysis_probas-mean: success
+  ✓ analysis_probas-min: success
+  ✓ analysis_token-sar: success
+  ✓ analysis_p-true-bl: success
+  ✓ analysis_p-true-allsteps: success
+  ✓ analysis_p-true-keystep: success
+  ✓ analysis_p-true-allkeywords: success
+  ✓ analysis_p-true-keykeywords: success
+  ✓ analysis_self-probing-bl: success
+  ✓ analysis_self-probing-allsteps: success
+  ✓ analysis_self-probing-keystep: success
+  ✓ analysis_self-probing-allkeywords: success
+  ✓ analysis_self-probing-keykeywords: success
+
+
+Pipeline completed at: 2025-06-23 13:56:53.675944
+
+✓ All pipeline steps completed successfully!
+===== PIPELINE EXECUTION COMPLETED =====

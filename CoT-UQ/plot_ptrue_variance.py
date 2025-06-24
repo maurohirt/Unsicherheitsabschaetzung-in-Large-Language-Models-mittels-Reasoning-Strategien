@@ -4,7 +4,7 @@ import numpy as np
 from pathlib import Path
 
 # Configuration: runs to include and methods
-runs = ["0", "1", "2"]
+runs = ["0", "1", "2", "3", "4"]
 methods = [
     "p-true-bl",
     "p-true-allsteps",
@@ -23,6 +23,20 @@ method_display_names = {
 # Order of datasets to display
 datasets_order = ["HotpotQA", "2WikimhQA", "GSM8K", "SVAMP", "ASDiv"]
 
+def load_paper_se_data(base_dir):
+    """Load paper AUROC data for SE strategies."""
+    paper_csv_path = base_dir / "se_strategies_paper_auroc.csv"
+    if not paper_csv_path.exists():
+        print(f"Warning: Paper SE AUROC data file not found: {paper_csv_path}")
+        return pd.DataFrame() # Return empty DataFrame if file not found
+    try:
+        df = pd.read_csv(paper_csv_path)
+        # Ensure columns are named consistently if needed, though the provided file seems fine
+        return df
+    except Exception as e:
+        print(f"Error loading paper SE AUROC data: {e}")
+        return pd.DataFrame()
+
 def load_data(base_dir):
     """Load AUROC data from all runs."""
     all_dfs = []
@@ -40,7 +54,7 @@ def load_data(base_dir):
         exit(1)
     return pd.concat(all_dfs, ignore_index=True)
 
-def plot_ptrue_variance(df, output_path):
+def plot_ptrue_variance(df, paper_df, output_path):
     """Create a plot showing variance in p-true methods across runs."""
     # Determine y-axis limits
     y_min = max(0, df['AUROC'].min() - 0.01)
@@ -88,6 +102,16 @@ def plot_ptrue_variance(df, output_path):
             # Plot mean as a horizontal line
             ax.hlines(np.mean(vals), j-0.2, j+0.2, color='red', linewidth=2, zorder=4)
 
+            # Plot paper data if available
+            if not paper_df.empty:
+                paper_auroc_series = paper_df[
+                    (paper_df['dataset'].str.lower() == dataset.lower()) &
+                    (paper_df['UQ_method'] == method)
+                ]['AUROC']
+                if not paper_auroc_series.empty:
+                    paper_val = paper_auroc_series.iloc[0]
+                    ax.scatter(j, paper_val, color='green', marker='X', s=60, zorder=5, label='_nolegend_')
+
         # Set x-ticks and labels
         ax.set_xticks(x)
         ax.set_xticklabels([method_display_names.get(m, m) for m in methods], 
@@ -105,7 +129,8 @@ def plot_ptrue_variance(df, output_path):
     handles = [
         plt.Line2D([0], [0], color='lightblue', lw=3, alpha=0.7, label='Min-Max Range'),
         plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', markersize=8, label='Run Values'),
-        plt.Line2D([0], [0], color='red', lw=2, label='Mean')
+        plt.Line2D([0], [0], color='red', lw=2, label='Mean'),
+        plt.Line2D([0], [0], marker='X', color='w', markerfacecolor='green', markeredgecolor='green', markersize=8, label='Paper Value')
     ]
     fig.legend(handles=handles, loc='lower center', ncol=3, bbox_to_anchor=(0.5, 0.01))
     
@@ -123,4 +148,5 @@ if __name__ == "__main__":
     output_path = output_dir / "ptrue_variance.png"
 
     df_all = load_data(base_dir)
-    plot_ptrue_variance(df_all, output_path)
+    paper_df = load_paper_se_data(base_dir)
+    plot_ptrue_variance(df_all, paper_df, output_path)

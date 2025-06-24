@@ -241,7 +241,7 @@ def create_auroc_table_figure(csv_file_path, output_image_path):
 
 if __name__ == "__main__":
     # Configuration
-    run_number = "2"  # Change this to match the run number you want to process (e.g., "0", "1", "2", etc.)
+    run_number = "4"  # Processing run 4
     
     # Setup paths
     base_dir = Path(__file__).parent

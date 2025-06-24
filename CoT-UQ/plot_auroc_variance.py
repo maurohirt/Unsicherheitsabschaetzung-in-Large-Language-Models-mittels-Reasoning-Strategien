@@ -5,7 +5,7 @@ from pathlib import Path
 from matplotlib.lines import Line2D
 
 # Configuration: runs to include and methods
-runs = ["0", "1", "2"]
+runs = ["0", "1", "2", "3", "4"]
 methods = ["probas-min-bl", "probas-min", "probas-mean-bl", "probas-mean", "token-sar-bl", "token-sar"]
 datasets_order = ["HotpotQA", "2WikimhQA", "GSM8K", "SVAMP", "ASDiv"]
 
@@ -78,19 +78,19 @@ def plot_variance(df, paper_df, output_path):
             if vals_m.size == 0:
                 continue
             # Plot min-max line for run data
-            if len(vals_m) > 0:
-                ax.vlines(j, vals_m.min(), vals_m.max(), color='lightblue', linewidth=3, alpha=0.7)
-                # Plot individual run points with jitter
-                jitter = np.random.normal(loc=j, scale=0.05, size=len(vals_m))
-                ax.scatter(jitter, vals_m, color='blue', edgecolor='black', zorder=3, alpha=0.7, label='Run Data' if i == 0 and j == 0 else "")
+            ax.vlines(j, vals_m.min(), vals_m.max(), color='lightblue', linewidth=3, alpha=0.7)
+            # Plot individual run points with jitter
+            jitter = np.random.normal(loc=j, scale=0.05, size=len(vals_m))
+            ax.scatter(jitter, vals_m, color='blue', edgecolor='black', zorder=3, alpha=0.7, label='_nolegend_')
+            # Plot mean as a horizontal line
+            ax.hlines(np.mean(vals_m), j-0.2, j+0.2, color='red', linewidth=2, zorder=4)
             
             # Plot paper data if available
             if paper_df is not None:
                 paper_vals = paper_df[(paper_df['dataset'].str.lower() == dataset.lower()) & 
                                     (paper_df['UQ_method'] == method)]['AUROC'].values
                 if len(paper_vals) > 0:
-                    ax.scatter(j, paper_vals[0], color='red', marker='x', s=100, zorder=4, 
-                              label='Paper Data' if i == 0 and j == 0 else "")
+                    ax.scatter(j, paper_vals[0], color='green', marker='X', s=60, zorder=5, label='_nolegend_')
 
         ax.set_xticks(x)
         ax.set_xticklabels(methods, rotation=45, ha='right')
@@ -104,10 +104,12 @@ def plot_variance(df, paper_df, output_path):
 
     # Add legend
     handles = [
-        Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', markersize=8, label='Run Data'),
-        Line2D([0], [0], marker='x', color='red', markersize=8, label='Paper Data')
+        Line2D([0], [0], color='lightblue', lw=3, alpha=0.7, label='Min-Max Range'),
+        Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', markersize=8, label='Run Values'),
+        Line2D([0], [0], color='red', lw=2, label='Mean'),
+        Line2D([0], [0], marker='X', color='w', markerfacecolor='green', markeredgecolor='green', markersize=8, label='Paper Value')
     ]
-    fig.legend(handles=handles, loc='lower center', ncol=2, bbox_to_anchor=(0.5, 0.01))
+    fig.legend(handles=handles, loc='lower center', ncol=3, bbox_to_anchor=(0.5, 0.01))
     
     fig.suptitle("AUROC: Run Data vs Paper Data", fontsize=16)
     fig.tight_layout(rect=[0, 0.03, 1, 0.95])

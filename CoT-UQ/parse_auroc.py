@@ -52,7 +52,7 @@ def parse_log_file(log_file_path):
 
 if __name__ == "__main__":
     # Configuration
-    run_number = "2"  # Change this to match the run number in your logs directory (e.g., "0", "1", "2", etc.)
+    run_number = "4"  # Processing run 4
     
     # Setup paths
     base_dir = Path(__file__).parent
