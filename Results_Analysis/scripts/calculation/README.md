@@ -1,115 +1,99 @@
-# AUROC Calculation Scripts
+# Calculation Scripts for Uncertainty Metrics
 
-This directory contains scripts for calculating Area Under the Receiver Operating Characteristic (AUROC) scores for uncertainty quantification metrics across multiple runs.
+This directory contains scripts to compute evaluation metrics for uncertainty quantification across multiple experimental runs:
+
+- **AUROC** (Area Under the ROC Curve)
+- **ECE** (Expected Calibration Error)
+- **Brier Score**
+- **Accuracy** (classification accuracy; not a UQ metric)
 
 ## Overview
 
-The main script `calculate_auroc.py` performs the following tasks:
+Each script processes raw model outputs per run, calculates the specified metric for each uncertainty method, and aggregates results across runs:
 
-1. Loads data from multiple experimental runs
-2. Calculates AUROC scores for specified uncertainty metrics
-3. Aggregates results across runs
-4. Generates summary statistics and visualizations
+- `calculate_auroc.py`: Generates per-run ROC curves and AUROC scores, aggregates mean, std, and confidence intervals.
+- `calculate_ece.py`: Computes calibration error by binning confidences, collects bin-level accuracy vs. confidence, aggregates ECE scores.
+- `calculate_brier.py`: Calculates Brier Score (mean squared error between confidence and true label) per run and aggregates statistics.
+- `calculate_accuracy.py`: Computes classification accuracy (percentage correct) per run and aggregates across runs.
+
+### Accuracy
+
+The `calculate_accuracy.py` script computes classification accuracy (percentage of correct predictions) per run and per dataset. It loads data via `DataLoader`, counts true labels, aggregates across runs (mean, std, 95% CI), saves per-run and aggregated JSON, and generates a markdown report.
 
 ## Prerequisites
 
 - Python 3.7+
-- Required packages (install with `pip install -r requirements.txt`):
-  - numpy
-  - scikit-learn
-  - scipy
-  - tqdm
-  - pyyaml
-  - jinja2
+- Install dependencies:
+  ```bash
+  pip install -r requirements.txt
+  ```
+- Key packages: numpy, scikit-learn, scipy, tqdm, pyyaml, jinja2
 
-## Usage
+## Configuration
 
-### Command Line Interface
-
-```bash
-python calculate_auroc.py --data-dir /path/to/data --output-dir /path/to/output --dataset dataset_name --metrics metric1 metric2 ...
-```
-
-### Using Configuration File
-
-1. Edit the configuration file `configs/auroc_config.yaml` to specify:
-   - Input/output directories
-   - Datasets to process
-   - Uncertainty metrics to evaluate
-   - Run numbers to include
-
-2. Run the script with the configuration file:
-
-```bash
-python calculate_auroc.py --config configs/auroc_config.yaml
-```
-
-### Example
-
-To calculate AUROC for entropy and max_prob metrics on the sst2 dataset across runs 0-4:
-
-```bash
-python calculate_auroc.py \
-  --data-dir ../Data/CoT/raw \
-  --output-dir ../results/auroc_scores \
-  --dataset sst2 \
-  --metrics entropy max_prob \
-  --runs 0 1 2 3 4
-```
-
-## Output
-
-The script generates the following output files:
-
-- `output_dir/run_X/dataset_auroc.json`: Per-run AUROC results
-- `output_dir/dataset_aggregated_auroc.json`: Aggregated results across all runs
-
-Each result file contains:
-- AUROC scores
-- ROC curve data (FPR, TPR, thresholds)
-- Aggregated statistics (mean, std, confidence intervals)
-
-## Customization
-
-To use with your own data, ensure your data files follow this structure:
-
-```
-data_dir/
-  run_0/
-    dataset1.json
-    dataset2.json
-  run_1/
-    dataset1.json
-    dataset2.json
-  ...
-```
-
-Each JSON file should contain:
-- `labels`: Ground truth labels
-- `predictions`: Model predictions
-- `uncertainty_metrics`: Dictionary of uncertainty scores for each metric
-
-## Notes
-
-- The script assumes that higher uncertainty scores indicate more uncertain predictions.
-- For binary classification, the positive class for AUROC is defined as incorrect predictions (`y_true != y_pred`).
-
-## Additional Scripts
-
-- `calculate_ece.py`: Calculates Expected Calibration Error (ECE) per run with detailed bin data, aggregates results, and generates JSON and markdown reports.
-- `calculate_brier.py`: Computes Brier scores per metric per run, aggregates across runs, and outputs JSON and markdown reports.
-
-## Configuration Files
-
-Each script uses its own configuration file under `configs/`:
+Each script automatically loads its YAML config from the `configs/` folder (no flags required):
 
 - `configs/auroc_config.yaml`
 - `configs/ece_config.yaml`
 - `configs/brier_config.yaml`
 
-Run the scripts directly; they automatically load their corresponding configuration files:
+Typical config fields:
+- `datasets`: List of dataset names to process (e.g., ASDiv)
+- `data_dir`: Path to raw data (e.g., `Data/CoT/raw`)
+- `model`: Model identifier or path
+- `runs`: Runs to include (e.g., `[0, 1, 2, 3, 4]`)
+- `metrics`: List of metrics or groups (use `@group_name` to reference groups in imported UQ methods YAML)
+- `n_bins` (ECE only): Number of bins for calibration error
+
+Edit these YAML files to point to your data and desired metrics.
+
+## Usage
+
+From the project root, run:
 ```bash
-python calculate_auroc.py
-python calculate_ece.py
-python calculate_brier.py
+python scripts/calculation/calculate_auroc.py
+python scripts/calculation/calculate_ece.py
+python scripts/calculation/calculate_brier.py
+python scripts/calculation/calculate_accuracy.py
 ```
+
+Each script will:
+1. Load its config
+2. Initialize `DataLoader` with `data_dir` and `model`
+3. Process each dataset and run
+4. Save per-run JSON in `results/<task>/<dataset>/run_X/`
+5. Save aggregated JSON in `results/<task>/<dataset>/aggregated/`
+6. Generate a Markdown report in `results/<task>/<dataset>/`
+
+## Raw Data Format
+
+Raw data in `{data_dir}` must be organized as:
+
+```
+{data_dir}/run_{run_id}/{model}/{dataset}/output_v1_w_labels.json
+{data_dir}/run_{run_id}/{model}/{dataset}/confidences/output_v1_<metric>.json
+```
+
+Within each dataset folder:
+- `output_v1_w_labels.json`: JSON lines with keys:
+  - `question`: input question
+  - `llm answer`: model's response
+  - `correct answer`: ground truth answer
+  - `label`: boolean indicating correctness
+- `confidences/`: directory containing files `output_v1_<metric>.json` with JSON lines containing:
+  - `question`
+  - `confidence`
+
+The `DataLoader` matches each `question` in `confidences` to the examples by question text.
+## Outputs
+
+- **Per-run JSON**: `results/<task>/<dataset>/run_<run>/<dataset>_<task>.json`
+- **Aggregated JSON**: `results/<task>/<dataset>/aggregated/<dataset>_<task>.json`
+- **Markdown report**: `results/<task>/<dataset>/<dataset>_<task>_report.md`
+
+Replace `<task>` with `auroc`, `ece`, `brier`, or `accuracy`.
+
+## Notes
+
+- All scripts assume higher confidence = more certain (used directly for Brier/ECE). For AUROC, positive class is incorrect predictions (`y_true != y_pred`).
+- ECE uses equal-width bins; adjust `n_bins` in config if needed.
