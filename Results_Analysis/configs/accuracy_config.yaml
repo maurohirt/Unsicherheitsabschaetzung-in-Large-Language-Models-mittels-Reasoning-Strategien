@@ -1,0 +1,14 @@
+# Configuration for accuracy calculations
+
+# Base paths (relative to the project root)
+data_path: "Data/CoT/raw"
+output_path: "results/cot/accuracy"
+results_path: "results/cot/accuracy"
+
+# Model and runs
+model: "llama3-1_8B"
+runs: [0, 1, 2, 3, 4]
+
+# Import dataset configurations
+imports:
+  - "datasets.yaml"  # Contains the datasets list

@@ -1,0 +1,49 @@
+{
+  "by_dataset": {
+    "2WikimhQA": {
+      "mean_accuracy": 0.06102164413965615,
+      "std_accuracy": 0.005237873845256802,
+      "min_accuracy": 0.056347150259067356,
+      "max_accuracy": 0.06952965235173825,
+      "num_runs": 5
+    },
+    "hotpotQA": {
+      "mean_accuracy": 0.26076553135511427,
+      "std_accuracy": 0.015749038264716547,
+      "min_accuracy": 0.24244359301830568,
+      "max_accuracy": 0.2752173395260212,
+      "num_runs": 5
+    },
+    "gsm8k": {
+      "mean_accuracy": 0.41901879936440267,
+      "std_accuracy": 0.015185369835632416,
+      "min_accuracy": 0.4061738424045491,
+      "max_accuracy": 0.4419604471195185,
+      "num_runs": 5
+    },
+    "svamp": {
+      "mean_accuracy": 0.6073010255645375,
+      "std_accuracy": 0.003546988592576036,
+      "min_accuracy": 0.6022044088176353,
+      "max_accuracy": 0.611,
+      "num_runs": 5
+    },
+    "ASDiv": {
+      "mean_accuracy": 0.645887336004018,
+      "std_accuracy": 0.008690286677520701,
+      "min_accuracy": 0.6350201522615315,
+      "max_accuracy": 0.654243376740009,
+      "num_runs": 5
+    }
+  },
+  "overall": {
+    "mean_accuracy": 0.35236342263193715,
+    "std_accuracy": 0.22293342312187378,
+    "min_accuracy": 0.056347150259067356,
+    "max_accuracy": 0.654243376740009,
+    "total_correct": 22781,
+    "total_examples": 64652,
+    "num_runs": 5,
+    "num_datasets": 5
+  }
+}

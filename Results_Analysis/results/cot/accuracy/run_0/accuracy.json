@@ -1,0 +1,27 @@
+{
+  "2WikimhQA": {
+    "accuracy": 0.05749354005167959,
+    "num_correct": 89,
+    "num_total": 1548
+  },
+  "hotpotQA": {
+    "accuracy": 0.2752173395260212,
+    "num_correct": 2311,
+    "num_total": 8397
+  },
+  "gsm8k": {
+    "accuracy": 0.4146341463414634,
+    "num_correct": 510,
+    "num_total": 1230
+  },
+  "svamp": {
+    "accuracy": 0.611,
+    "num_correct": 611,
+    "num_total": 1000
+  },
+  "ASDiv": {
+    "accuracy": 0.6470588235294118,
+    "num_correct": 1441,
+    "num_total": 2227
+  }
+}

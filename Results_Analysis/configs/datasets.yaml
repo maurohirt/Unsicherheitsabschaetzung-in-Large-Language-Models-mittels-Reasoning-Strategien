@@ -1,0 +1,7 @@
+# configs/datasets.yaml
+datasets:
+  - "2WikimhQA"  # Exact case as in directory
+  - "hotpotQA"   # Note: lowercase 'h' in actual directory
+  - "gsm8k"      # All lowercase in actual directory
+  - "svamp"      # All lowercase in actual directory
+  - "ASDiv"      # Exact case as in directory
