@@ -27,7 +27,7 @@ The `calculate_accuracy.py` script computes classification accuracy (percentage 
   ```bash
   pip install -r requirements.txt
   ```
-- Key packages: numpy, scikit-learn, scipy, tqdm, pyyaml, jinja2
+- Key packages: numpy, pandas, scikit-learn, scipy, tqdm, pyyaml, seaborn, matplotlib, jinja2
 
 ## Configuration
 
