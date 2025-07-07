@@ -1,9 +1,0 @@
-{
-    "summary": {
-        "total_examples": 100,
-        "cnt_avg_total": 30.4,
-        "cnt_any_total": 72,
-        "avg_per_example": 0.304,
-        "solved_rate": 0.72
-    }
-}

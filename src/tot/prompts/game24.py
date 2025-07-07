@@ -14,63 +14,87 @@ Input: {input}
 '''
 
 # 5-shot
-cot_prompt = '''Use numbers and basic arithmetic operations (+ - * /) to obtain 24. Each step, you are only allowed to choose two of the remaining numbers to obtain a new number.
+cot_prompt = '''Your Task is to generate the Answer field that shows the full trajectory of the solution. No explanation or comments. Strictly adhere to the format shown in the example.
 Input: 4 4 6 8
 Steps:
 4 + 8 = 12 (left: 4 6 12)
 6 - 4 = 2 (left: 2 12)
 2 * 12 = 24 (left: 24)
 Answer: (6 - 4) * (4 + 8) = 24
-Input: 2 9 10 12
-Steps:
-12 * 2 = 24 (left: 9 10 24)
-10 - 9 = 1 (left: 1 24)
-24 * 1 = 24 (left: 24)
-Answer: (12 * 2) * (10 - 9) = 24
-Input: 4 9 10 13
-Steps:
-13 - 10 = 3 (left: 3 4 9)
-9 - 3 = 6 (left: 4 6)
-4 * 6 = 24 (left: 24)
-Answer: 4 * (9 - (13 - 10)) = 24
-Input: 1 4 8 8
-Steps:
-8 / 4 = 2 (left: 1 2 8)
-1 + 2 = 3 (left: 3 8)
-3 * 8 = 24 (left: 24)
-Answer: (1 + 8 / 4) * 8 = 24
-Input: 5 5 5 9
-Steps:
-5 + 5 = 10 (left: 5 9 10)
-10 + 5 = 15 (left: 9 15)
-15 + 9 = 24 (left: 24)
-Answer: ((5 + 5) + 5) + 9 = 24
+
 Input: {input}
 '''
 
 # 1-shot
-old_propose_prompt = '''Input: 2 8 8 14
+old_propose_prompt = '''Input: 2 2 4 6
 Possible next steps:
+4 * 6 = 24  (left: 2 2 24)
+2 * 6 = 12  (left: 2 4 12)
+2 * 4 = 8   (left: 2 8 6)
+4 + 6 = 10  (left: 2 2 10)
+2 + 6 = 8   (left: 2 4 8)
+2 + 4 = 6   (left: 2 6 6)
+6 / 2 = 3   (left: 2 4 3)
+2 / 2 = 1   (left: 1 4 6)
+6 - 2 = 4   (left: 2 4 4)
+4 - 2 = 2   (left: 2 2 6)
+2 - 2 = 0   (left: 0 4 6)
+Input: {input}
+Possible next steps:
+'''
+
+#this prompt was used for the variant that uses token probs and generates only one solution per step
+single_solution_propose_prompt = """
+## TASK: You are an expert Game of 24 Solver.
+
+Given remaining numbers, output exactly one valid operation in the format:
+a [operation] b = result (left: remaining numbers)
+Use only one of the operations (+, -, *, /) between exactly two numbers.
+Replace the used numbers with the result and list the new remaining numbers.
+Always output a valid step even if not possible to reach 24(only 2 numbers exist that cant be combined to 24).
+if no more valid steps exist output "None"
+No extra text or comments; do not explain.
+
+Example:
+Input: 2 8 8 14
+Possible next step:
+14 - 8 = 6 (left: 2 6 8)
+
+Input: {input}
+Possible next step:
+"""
+
+# this prompt was used for the variant that uses token probs and generates multiple solutions per step 
+propose_prompt = """
+## TASK: Game of 24 Solver
+
+**Rules:**
+* Use each number exactly once.
+* Combine exactly two numbers per step using only one of the operations +, -, *, or /.
+* No extra text or comments, just the "Possible next step:" output as shown in the example.
+* Only include the next step that is most likely to lead to a solution for Game of 24.
+
+Input: 2 8 8 14
+Possible next step:
 2 + 8 = 10 (left: 8 10 14)
 8 / 2 = 4 (left: 4 8 14)
 14 + 2 = 16 (left: 8 8 16)
 2 * 8 = 16 (left: 8 14 16)
 8 - 2 = 6 (left: 6 8 14)
 14 - 8 = 6 (left: 2 6 8)
-14 /  2 = 7 (left: 7 8 8)
+14 / 2 = 7 (left: 7 8 8)
 14 - 2 = 12 (left: 8 8 12)
 Input: {input}
-Possible next steps:
-'''
-
-propose_prompt = """
+Possible next step:
+"""
+# this promt was used for the baseline that uses the self-probing variant and for the ranom baseline. 
+multiple_solutions_propose_prompt = """
 ## TASK: Game of 24 Solver
 
 **Rules:**
 * Use each number exactly once.
 * Combine two numbers per step using +, -, *, or /.
 * No extra text or comments, just the "Possible next steps:" output as shown in the example.
-* Only include steps that are most likely to lead to a solution for 24.
 
 Input: 2 8 8 14
 Possible next steps:

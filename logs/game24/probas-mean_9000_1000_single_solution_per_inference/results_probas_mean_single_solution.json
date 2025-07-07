@@ -1,0 +1,46 @@
+{
+    "summary": {
+      "total_examples": 100,
+      "cnt_avg_total": 0.6,
+      "cnt_any_total": 3,
+      "avg_per_example": 0.006,
+      "solved_rate": 0.03
+    },
+    "cost_estimate": {
+      "tokens": {
+        "input": {
+          "total": 389802,
+          "cache_hit": 333008,
+          "cache_miss": 56794,
+          "cache_hit_rate": 0.8543
+        },
+        "output": 143282
+      },
+      "pricing_usd_per_million_tokens": {
+        "standard": {
+          "input_cache_hit": 0.07,
+          "input_cache_miss": 0.27,
+          "output": 1.10
+        },
+        "discount": {
+          "input_cache_hit": 0.035,
+          "input_cache_miss": 0.135,
+          "output": 0.55
+        }
+      },
+      "cost_estimate_usd": {
+        "standard": {
+          "input_cache_hit": 0.0233,
+          "input_cache_miss": 0.0153,
+          "output": 0.1576,
+          "total": 0.1963
+        },
+        "discount": {
+          "input_cache_hit": 0.0117,
+          "input_cache_miss": 0.0077,
+          "output": 0.0788,
+          "total": 0.0981
+        }
+      }
+    }
+}

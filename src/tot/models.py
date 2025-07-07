@@ -60,7 +60,10 @@ def chatgpt(messages, model="gpt-4", temperature=0.7, max_tokens=1000, n=1, stop
     while n > 0:
         cnt = min(n, 20)
         n -= cnt
-        res = completions_with_backoff(model=model, messages=messages, temperature=temperature, max_tokens=max_tokens, n=cnt, stop=stop, logprobs=return_logprobs, top_logprobs=top_logprobs)
+        extra_kwargs = {}
+        if return_logprobs:
+            extra_kwargs = {"logprobs": True, "top_logprobs": top_logprobs}
+        res = completions_with_backoff(model=model, messages=messages, temperature=temperature, max_tokens=max_tokens, n=cnt, stop=stop, **extra_kwargs)
         if return_logprobs:
             outputs.extend([choice for choice in res.choices])  # return raw choices with logprobs
         else:

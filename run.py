@@ -31,8 +31,13 @@ def run(args):
         
         # log main metric
         accs = [info['r'] for info in infos]
-        cnt_avg += sum(accs) / len(accs)
-        cnt_any += any(accs)
+        if accs:
+            cnt_avg += sum(accs) / len(accs)
+            cnt_any += any(accs)
+        else:
+            # no candidate produced a complete answer: count as zero
+            cnt_avg += 0
+            cnt_any += 0
         print(i, 'sum(accs)', sum(accs), 'cnt_avg', cnt_avg, 'cnt_any', cnt_any, '\n')
     
     n = args.task_end_index - args.task_start_index
@@ -54,10 +59,14 @@ def parse_args():
 
     args.add_argument('--method_generate', type=str, choices=['sample', 'propose'])
     args.add_argument('--method_evaluate', type=str, choices=['value', 'vote'])
-    args.add_argument('--method_select', type=str, choices=['sample', 'greedy'], default='greedy')
+    args.add_argument('--method_select', type=str, choices=['sample', 'greedy', 'random'], default='greedy')
     args.add_argument('--n_generate_sample', type=int, default=1)  # only thing needed if naive_run
     args.add_argument('--n_evaluate_sample', type=int, default=1)
     args.add_argument('--n_select_sample', type=int, default=1)
+    args.add_argument('--n_propose_sample', type=int, default=1, help='Number of single-solution propose calls when uq_metric is set')
+
+    # Uncertainty metric; empty string keeps legacy behaviour
+    args.add_argument('--uq_metric', type=str, default='', choices=['', 'mean', 'min', 'max', 'entropy', 'random'])
 
     args = args.parse_args()
     return args
