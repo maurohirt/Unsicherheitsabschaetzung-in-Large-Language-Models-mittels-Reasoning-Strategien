@@ -39,6 +39,7 @@ def parse_arguments():
         choices=[
             # CoT-UQ methods
             "probas-mean", "probas-min", "token-sar",
+            "probas-mean-alltokens", "probas-min-alltokens", "entropy-geo-alltokens", "token-sar-alltokens",
             # Baseline variants
             "probas-mean-bl", "probas-min-bl", "token-sar-bl",
             # P(True) variants

@@ -11,7 +11,7 @@ datasets:
   - "svamp"
   - "gsm8k"
 
-output_path_base: "/home2/mauro.hirt/CoT-UQ/output_dot"
+output_path_base: "/home2/mauro.hirt/CoT-UQ/output3"
 
 # Full inference parameters
 temperature: 1.0
@@ -33,6 +33,11 @@ uq_methods:
   - "probas-mean"
   - "probas-min"
   - "token-sar"
+  # All-tokens variants
+  - "probas-mean-alltokens"
+  - "probas-min-alltokens"
+  - "entropy-geo-alltokens"
+  - "token-sar-alltokens"
   
   # P(True) variants
   - "p-true-bl"

@@ -5,11 +5,12 @@ import torch
 import os
 from tqdm import tqdm
 import torch.nn.functional as F
+import math
 
 from config import args
 from src.model.llama2_predict import predict, model_init
 from src.format.get_cot_prompt import get_cot_prompt
-from src.format.get_dot_prompt import get_dot_prompt
+from src.format.get_cod_prompt import get_cod_prompt
 from src.format.get_step_exact_tokens import get_step_exact_tokens
 
 from utils import load_data, print_exp, setup_log, is_effectively_empty, find_subsequence_position, step_exacts_2_list, \
@@ -46,7 +47,7 @@ def llama_inference_refining():
                 t = types[idx]
 
             log.debug(f"##### This is the --{idx + 1}th-- Question #####")
-            cot_prompt = get_dot_prompt(args, q)
+            cot_prompt = get_cod_prompt(args, q)
             #cot_prompt = get_cot_prompt(args, q)
 
             inputs = tokenizer(cot_prompt, return_tensors="pt")
@@ -79,6 +80,18 @@ def llama_inference_refining():
                     response_token_ids = tokenizer.convert_tokens_to_ids(response_tokens)
                     original_tokens = tokenizer.convert_ids_to_tokens(generated_ids)
                     probabilities = [{i: p for i, p in enumerate(prob[0]) if p > 0} for prob in [torch.softmax(score, dim=1).tolist() for score in outputs.scores]]
+                    # save COT token ids and probabilities for UQ and entropy
+                    cot_token_ids = generated_ids.tolist()
+                    cot_token_probabilities = [probabilities[i].get(token_id, 0.0) for i, token_id in enumerate(cot_token_ids)]
+                    # compute per-token entropy and normalized confidence
+                    token_entropies = []
+                    token_confs = []
+                    V = tokenizer.vocab_size
+                    for score in outputs.scores:
+                        p = torch.softmax(score, dim=1)[0]
+                        H = - (p * torch.log(p)).sum().item()
+                        token_entropies.append(H)
+                        token_confs.append(1 - H / math.log(V))
 
                     final_answer_probabilities = {}
                     final_answer_token_ids = {}
@@ -185,6 +198,10 @@ def llama_inference_refining():
                             "keyword contribution": keywords_contributions,
                             "keyword token ids": keywords_token_ids,
                             "final answer token ids": final_answer_token_ids,
+                            "cot token ids": cot_token_ids,
+                            "cot token probabilities": cot_token_probabilities,
+                            "cot token entropies": token_entropies,
+                            "cot token confs": token_confs,
                         }
                     else:
                         formatted_data = {
@@ -200,6 +217,10 @@ def llama_inference_refining():
                             "keyword contribution": keywords_contributions,
                             "keyword token ids": keywords_token_ids,
                             "final answer token ids": final_answer_token_ids,
+                            "cot token ids": cot_token_ids,
+                            "cot token probabilities": cot_token_probabilities,
+                            "cot token entropies": token_entropies,
+                            "cot token confs": token_confs,
                         }
                     f.write(json.dumps(formatted_data, ensure_ascii=False) + "\n")
                     break

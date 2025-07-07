@@ -55,7 +55,7 @@ Question: <QUESTION>
 Response: 
 '''
 
-def get_dot_prompt(args, question):
+def get_cod_prompt(args, question):
     if args.dataset in ["gsm8k", "svamp", "ASDiv"]:
         prompt = instruction_math.replace('<QUESTION>', question)
     elif args.dataset == "hotpotQA":

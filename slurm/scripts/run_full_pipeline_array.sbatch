@@ -1,13 +1,12 @@
 #!/bin/bash
-
-#SBATCH -p performance
 #SBATCH --gres=gpu:rtxA4500:1
-#SBATCH --cpus-per-task=8
+#SBATCH -p performance
+#SBATCH --cpus-per-task=2
 #SBATCH --mem=32G
-#SBATCH --time=4-00:00:00
-#SBATCH --job-name=dot_uq_pipeline_array
-#SBATCH --output=output/logs/pipeline/pipeline_%A_dataset_%a.out
-#SBATCH --error=output/logs/pipeline/pipeline_%A_dataset_%a.err
+#SBATCH --time=2-05:00:00
+#SBATCH --job-name=r4_cod_uq_pipeline_array
+#SBATCH --output=output4/logs/pipeline/pipeline_%A_dataset_%a.out
+#SBATCH --error=output4/logs/pipeline/pipeline_%A_dataset_%a.err
 #SBATCH --export=ALL,HUGGINGFACE_HUB_TOKEN,OPENAI_API_KEY
 #SBATCH --array=0-4  # For 5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k) - adjust based on your config
 
@@ -27,7 +26,7 @@ export CONTAINER_HF_CACHE="/root/.cache/huggingface"
 mkdir -p ${HOST_HF_CACHE}
 
 # Create log directory
-mkdir -p output/logs/pipeline
+mkdir -p output4/logs/pipeline
 
 # Check if config file exists
 if [ ! -f "${CONFIG_FILE}" ]; then

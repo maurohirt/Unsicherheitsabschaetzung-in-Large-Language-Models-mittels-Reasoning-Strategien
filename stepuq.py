@@ -1,6 +1,7 @@
 import re
 import os
 import json
+import math
 from config import args
 from tqdm import tqdm
 from torchmetrics import AUROC
@@ -98,6 +99,41 @@ def compute_step_uncertainty():
                 
                 # The helper flattens the first level, so we can access the results directly with the key "answer"
                 weighted_list = probs_dict["answer"]
+                confidence = sum(weighted_list) / len(weighted_list)
+
+            elif args.uq_engine == "probas-mean-alltokens":
+                cot_probs = line["cot token probabilities"]
+                if not cot_probs:
+                    continue
+                confidence = sum(cot_probs) / len(cot_probs)
+
+            elif args.uq_engine == "probas-min-alltokens":
+                cot_probs = line["cot token probabilities"]
+                if not cot_probs:
+                    continue
+                confidence = min(cot_probs)
+
+            elif args.uq_engine == "entropy-geo-alltokens":
+                token_confs = line["cot token confs"]
+                if not token_confs:
+                    continue
+                log_sum = sum(math.log(c) for c in token_confs if c > 0)
+                confidence = math.exp(log_sum / len(token_confs))
+
+            elif args.uq_engine == "token-sar-alltokens":
+                cot_probs = line["cot token probabilities"]
+                if not cot_probs:
+                    continue
+                answer_dict = {"Step 1": {"all": cot_probs}}
+                dummy_contrib = {"Step 1": {"all": [1.0] * len(cot_probs)}}
+                probs_dict, _ = extract_p_t_importance(
+                    question,
+                    answer_dict,
+                    tokenizer,
+                    measure_model,
+                    dummy_contrib
+                )
+                weighted_list = probs_dict["all"]
                 confidence = sum(weighted_list) / len(weighted_list)
                 
             elif args.uq_engine in ["token-sar"]:
@@ -420,7 +456,7 @@ def p_true_uncertainty():
 if __name__ == '__main__':
     if args.uq_engine in [
         'probas-mean', 'probas-min', 'token-sar',
-        'probas-mean-bl', 'probas-min-bl', 'token-sar-bl'
+        'probas-mean-bl', 'probas-min-bl', 'token-sar-bl', 'probas-mean-alltokens', 'probas-min-alltokens', 'entropy-geo-alltokens', 'token-sar-alltokens'
     ]:
         compute_step_uncertainty()
     elif args.uq_engine in [
