@@ -1,0 +1,4 @@
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]/usr/local/lib/python3.9/dist-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Fetching 17 files: 100%|██████████| 17/17 [00:00<00:00, 1029.37it/s]
+slurmstepd-server0103: error: *** JOB 77637 ON server0103 CANCELLED AT 2025-07-02T14:38:27 ***
