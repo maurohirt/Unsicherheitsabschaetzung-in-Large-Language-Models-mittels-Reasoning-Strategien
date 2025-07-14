@@ -166,9 +166,19 @@ def print_summary(aggregated: Dict[str, Any], metrics: List[str]) -> None:
         print(f"{m:<30} {s['mean_ece']:>7.4f}    {s['std_ece']:>7.4f}    [{ci[0]:.4f}, {ci[1]:.4f}]    {s['min_ece']:>7.4f}    {s['max_ece']:>7.4f}    {s['n_runs']}")
 
 
+import argparse
+
 def main():
     base = Path(__file__).parent.parent.parent
-    config_path = base / 'configs' / 'ece_config.yaml'
+    # parse CLI
+    parser = argparse.ArgumentParser(description="Calculate ECE for multiple datasets/runs")
+    parser.add_argument('--config', type=str, default='configs/ece_config.yaml',
+                        help='Path to config YAML (default: configs/ece_config.yaml)')
+    args = parser.parse_args()
+
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = base / config_path
     config = load_config(config_path)
     # resolve absolute paths
     config['data_path'] = (base / config['data_path']).resolve()

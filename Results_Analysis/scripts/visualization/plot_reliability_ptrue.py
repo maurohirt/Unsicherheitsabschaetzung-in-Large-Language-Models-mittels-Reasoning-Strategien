@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Plot Reliability Diagram for P(True) family.
-One plot per dataset with 5 curves: baseline (p-true-bl) and four variants.
-Saves under results/cot/figures/reliability/{dataset}/ptrue_strategies.png
+Plot Reliability Diagram for P(True) family (CoD datasets).
+One plot per dataset with baseline and variant curves.
+Saves under results/cod/figures/reliability/{dataset}/ptrue_strategies.png
 """
 import json
+import argparse
 import sys
 from pathlib import Path
 import matplotlib.pyplot as plt
@@ -24,12 +25,16 @@ def lighten(color, factor=0.5):
 
 def main():
     project_root = Path(__file__).resolve().parents[2]
-    # load datasets
-    ds_cfg = load_yaml_with_imports(project_root / 'configs' / 'datasets.yaml')
-    datasets = ds_cfg.get('datasets', [])
+    parser = argparse.ArgumentParser(description='Reliability plots for P(True) (CoD)')
+    parser.add_argument('--ece_cfg', type=str, default='configs/ece_config_cod.yaml')
+    args = parser.parse_args()
 
-    # define metrics and styles
-    metrics = ['p-true-bl', 'p-true-allsteps', 'p-true-keystep', 'p-true-allkeywords', 'p-true-keykeywords']
+    ece_cfg = load_yaml_with_imports(project_root / args.ece_cfg)
+    datasets = [d for d in ece_cfg.get('datasets', []) if d != '2WikimhQA']  # exclude wiki as per earlier
+
+    # metrics list from config to be flexible
+    group = ece_cfg.get('true_probability_methods', [])
+    metrics = [m['name'] for m in group]
     styles = ['-', '--', '-.', ':', (0, (5, 1))]  # unique line styles
     palette = sns.color_palette('tab10')
     base_color = palette[2]  # choose green for p-true
@@ -44,7 +49,7 @@ def main():
     label_map = {m: m.replace('p-true-', '') for m in metrics}
 
     for ds in datasets:
-        ece_path = project_root / 'results' / 'cot' / 'ece' / ds / 'aggregated' / f"{ds}_ece.json"
+        ece_path = project_root / 'results' / 'cod' / 'ece' / ds / 'aggregated' / f"{ds}_ece.json"
         if not ece_path.exists():
             print(f"Skipping {ds}: missing {ece_path}")
             continue
@@ -76,7 +81,7 @@ def main():
         plt.legend(handles=legend_handles, loc='best', fontsize=9)
         plt.tight_layout()
 
-        out_dir = project_root / 'results' / 'cot' / 'figures' / 'reliability' / ds
+        out_dir = project_root / 'results' / 'cod' / 'figures' / 'reliability' / ds
         out_dir.mkdir(parents=True, exist_ok=True)
         out_file = out_dir / 'ptrue_strategies.png'
         plt.savefig(out_file, dpi=300)

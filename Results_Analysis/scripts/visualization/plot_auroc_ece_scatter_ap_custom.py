@@ -21,18 +21,26 @@ def lighten(color, factor=0.5):
     return tuple(c + (1 - c) * factor)
 
 
+import argparse
+
 def main():
-    # load configs
-    auroc_cfg = load_yaml_with_imports(project_root / 'configs' / 'auroc_config.yaml')
-    ece_cfg = load_yaml_with_imports(project_root / 'configs' / 'ece_config.yaml')
+    # CLI for custom config paths
+    parser = argparse.ArgumentParser(description='AP AUROC vs ECE scatter (custom)')
+    parser.add_argument('--auroc_cfg', type=str, default='configs/auroc_config_cod.yaml')
+    parser.add_argument('--ece_cfg', type=str, default='configs/ece_config_cod.yaml')
+    args = parser.parse_args()
+
+    auroc_cfg = load_yaml_with_imports(project_root / args.auroc_cfg)
+    ece_cfg = load_yaml_with_imports(project_root / args.ece_cfg)
     datasets = auroc_cfg.get('datasets', [])
-    groups = {g: [m['name'] for m in ece_cfg.get(g, [])] for g in ['baseline_methods', 'cot_methods']}
-    ap_metrics = groups['baseline_methods'] + groups['cot_methods']
+    groups = {g: [m['name'] for m in ece_cfg.get(g, [])] for g in ['baseline_methods', 'cot_methods', 'ap_methods']}
+    # include baseline, cot and all-token variants
+    ap_metrics = groups.get('baseline_methods', []) + groups.get('cot_methods', []) + groups.get('ap_methods', [])
 
     # load aggregated data
     rows = []
-    auroc_dir = project_root / auroc_cfg.get('results_path', 'results/cot/auroc') / 'aggregated'
-    ece_dir = project_root / ece_cfg.get('results_path', 'results/cot/ece')
+    auroc_dir = project_root / auroc_cfg.get('results_path', 'results/cod/auroc') / 'aggregated'
+    ece_dir = project_root / ece_cfg.get('results_path', 'results/cod/ece')
     for ds in datasets:
         auroc_file = auroc_dir / f"{ds}_auroc.json"
         ece_file = ece_dir / ds / 'aggregated' / f"{ds}_ece.json"
@@ -51,7 +59,7 @@ def main():
     df = pd.DataFrame(rows)
     # define stats ordering
     stats = ['probas-mean', 'probas-min', 'token-sar']
-    metrics_order = [f"{s}-bl" for s in stats] + stats
+    metrics_order = [f"{s}-bl" for s in stats if f"{s}-bl" in ap_metrics] + [s for s in stats if s in ap_metrics]
     # marker map per dataset
     marker_list = ['o', 's', '^', 'D', 'v']
     marker_map = {ds: marker_list[i] for i, ds in enumerate(datasets)}
@@ -78,7 +86,7 @@ def main():
     metric_handles = []
     for m in metrics_order:
         label = m.replace('probas-', '').replace('-bl', '') + (" (baseline)" if m.endswith('-bl') else "")
-        h = Line2D([0], [0], marker='o', color=color_map[m], linestyle='None', markersize=8, label=label)
+        h = Line2D([0], [0], marker='o', color=color_map.get(m, 'grey'), linestyle='None', markersize=8, label=label)
         metric_handles.append(h)
     leg1 = plt.legend(handles=metric_handles, title='Method (n=5 runs)', bbox_to_anchor=(1.05, 1), loc='upper left')
     # dataset legend
@@ -94,7 +102,7 @@ def main():
     plt.title('Aggregated Probabilities AUROC vs ECE')
     plt.tight_layout()
 
-    out_dir = project_root / 'results' / 'cot' / 'figures' / 'scatter'
+    out_dir = project_root / 'results' / 'cod' / 'figures' / 'scatter'
     out_dir.mkdir(parents=True, exist_ok=True)
     out_file = out_dir / 'auroc_vs_ece_ap_custom.png'
     plt.savefig(out_file, dpi=300)

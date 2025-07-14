@@ -150,7 +150,7 @@ def load_config(config_path: Path) -> Dict[str, Any]:
         config['datasets'] = []
     # Collect metrics from imported UQ method configs
     metrics = []
-    for key in ['baseline_methods', 'cot_methods', 'true_probability_methods', 'self_probing_methods']:
+    for key in ['baseline_methods', 'cot_methods', 'ap_methods', 'true_probability_methods', 'self_probing_methods']:
         if key in config:
             metrics.extend([item['name'] for item in config[key]])
     config['metrics'] = metrics
@@ -275,10 +275,24 @@ def print_summary(aggregated_results: Dict[str, Any], metrics: List[str], runs: 
               f"{stats.get('n_runs', 0)}/{len(runs)}")
 
 
+import argparse
+
 def main():
-    # Get project root and load config
+    # Get project root dir
     project_root = Path(__file__).parent.parent.parent
-    config_path = project_root / 'configs' / 'auroc_config.yaml'
+
+    # parse arguments
+    parser = argparse.ArgumentParser(description='Calculate AUROC scores for uncertainty metrics across multiple runs.')
+    parser.add_argument('--config', type=str, default='configs/auroc_config.yaml',
+                        help='Path to YAML config (default: configs/auroc_config.yaml)')
+    args = parser.parse_args()
+
+    # resolve config path
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = project_root / config_path
+
+    # load config
     config = load_config(config_path)
     # Convert paths to absolute
     for key in ['data_dir', 'output_dir', 'results_path']:
@@ -300,13 +314,7 @@ def main():
         process_dataset(config, data_loader, dataset)
     print("\nAUROC calculation complete! Results saved to:", results_dir)
     return
-    # Set up argument parser
-    parser = argparse.ArgumentParser(description='Calculate AUROC scores for uncertainty metrics across multiple runs.')
-    parser.add_argument('--config', type=str, default='configs/auroc_config.yaml',
-                      help='Path to the configuration file (default: configs/auroc_config.yaml)')
-    
-    # Parse command line arguments
-    args = parser.parse_args()
+
     config_path = Path(args.config)
     
     # Load and validate configuration
@@ -346,7 +354,7 @@ def main():
         process_dataset(config, data_loader, dataset)
     
     print("\nAUROC calculation complete!")
-
+    return
 
 if __name__ == "__main__":
     main()

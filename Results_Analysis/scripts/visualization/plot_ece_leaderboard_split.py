@@ -17,9 +17,16 @@ from src.utils.config_loader import load_yaml_with_imports
 
 
 def main():
+    import argparse
     project_root = Path(__file__).resolve().parents[2]
-    cfg = load_yaml_with_imports(project_root / 'configs' / 'ece_config.yaml')
-    datasets = cfg.get('datasets', [])
+    parser = argparse.ArgumentParser(description='Plot split ECE leaderboards')
+    parser.add_argument('--config', type=str, default='configs/ece_config.yaml', help='Path to ECE config YAML')
+    args = parser.parse_args()
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = project_root / config_path
+    cfg = load_yaml_with_imports(config_path)
+    datasets = [d for d in cfg.get('datasets', []) if d != '2WikimhQA']
     raw_metrics = cfg.get('metrics', [])
     # resolve metrics groups
     metrics = []
@@ -40,7 +47,7 @@ def main():
     metrics = [m for m in metrics if not (m in seen or seen.add(m))]
 
     # group definitions
-    group_keys = ['baseline_methods', 'cot_methods', 'true_probability_methods', 'self_probing_methods']
+    group_keys = ['baseline_methods', 'cot_methods', 'ap_methods', 'true_probability_methods', 'self_probing_methods']
     groups = {g: [e['name'] for e in cfg.get(g, [])] for g in group_keys}
     fam_map = {m: g for g, ms in groups.items() for m in ms}
     families = list(groups.keys())
@@ -101,10 +108,22 @@ def main():
     # family palette
     pal = sns.color_palette('tab10', n_colors=len(families))
     fam_pal = dict(zip(families, pal))
+    def infer_family(metric: str) -> str:
+        if metric.startswith('p-true-'):
+            return 'true_probability_methods'
+        if metric.startswith('self-probing-'):
+            return 'self_probing_methods'
+        if metric.endswith('-bl'):
+            return fam_map.get(metric, 'baseline_methods')
+        if metric.endswith('-alltokens'):
+            return 'ap_methods'
+        if metric.startswith(('probas-', 'token-sar-')):
+            return 'cot_methods'
+        return fam_map.get(metric, 'other')
 
     # subsets: (identifier, families to include, title)
     subsets = [
-        ('baseline_and_cot', ['baseline_methods', 'cot_methods'], 'Baseline & CoT ECE Leaderboard'),
+        ('baseline_cot_alltokens', ['baseline_methods', 'cot_methods', 'ap_methods'], 'Baseline, CoT & AllTokens ECE Leaderboard'),
         ('ptrue_and_selfprobing', ['true_probability_methods', 'self_probing_methods'], 'P(True) & Self-Probing ECE Leaderboard')
     ]
 
@@ -115,42 +134,53 @@ def main():
         colors_sub = [fam_pal.get(fam_map.get(m), (0.5,0.5,0.5)) for m in metrics_sub]
 
         sns.set(style='whitegrid')
-        fig, axes = plt.subplots(2, 3, figsize=(12, 12), sharey=False)
+        n_datasets = len(datasets)
+        n_cols = 3
+        n_rows = (n_datasets + 1) // n_cols + 1
+        fig, axes = plt.subplots(n_rows, n_cols, figsize=(12, 4*n_rows), sharey=False)
         axes = axes.flatten()
-        if len(datasets) == 1:
-            axes = [axes[0]]
-
         for ax, ds in zip(axes, datasets):
             sub = df[df['dataset'] == ds]
-            scores = [sub[sub['metric'] == m]['score'].tolist() for m in metrics_sub]
-            parts = ax.violinplot(scores, positions=list(range(len(metrics_sub))), widths=0.8, showextrema=False)
+            if sub.empty:
+                continue
+            present_metrics = [m for m in metrics_sub if not sub[sub['metric'] == m].empty]
+            if not present_metrics:
+                continue
+            present_labels = [lab for m, lab in zip(metrics_sub, labels_sub) if m in present_metrics]
+            present_colors = [fam_pal.get(infer_family(m), (0.5,0.5,0.5)) for m in present_metrics]
+            scores = [sub[sub['metric'] == m]['score'].tolist() for m in present_metrics]
+            parts = ax.violinplot(scores, positions=list(range(len(present_metrics))), widths=0.8, showextrema=False)
             for idx, pc in enumerate(parts['bodies']):
-                pc.set_facecolor(colors_sub[idx])
+                pc.set_facecolor(present_colors[idx])
                 pc.set_edgecolor('black')
                 pc.set_alpha(0.8)
-            sns.stripplot(x='metric', y='score', data=sub[sub['metric'].isin(metrics_sub)],
-                          order=metrics_sub, color='black', size=3, jitter=True, ax=ax, alpha=0.6)
-            for i, m in enumerate(metrics_sub):
+            sns.stripplot(x='metric', y='score', data=sub[sub['metric'].isin(present_metrics)],
+                          order=present_metrics, color='black', size=3, jitter=True, ax=ax, alpha=0.6)
+            for i, m in enumerate(present_metrics):
                 msub = sub[sub['metric'] == m]
                 if msub.empty:
                     continue
                 mean = msub['mean'].iloc[0]
                 low = msub['ci_low'].iloc[0]
                 high = msub['ci_high'].iloc[0]
-                ax.scatter(i, mean, color='black', marker='D', zorder=10)
+                ax.scatter(i, mean, color='black', marker='D', s=30, zorder=10)
                 ax.vlines(i, low, high, color='black', linewidth=1)
             ax.axhline(0, linestyle='--', color='grey')
             ax.set_title(ds)
             ax.set_xlabel('')
-            ax.set_xticks(range(len(metrics_sub)))
-            ax.set_xticklabels(labels_sub, rotation=45, ha='right')
+            ax.set_xticks(range(len(present_metrics)))
+            ax.set_xticklabels(present_labels, rotation=45, ha='right')
             ax.set_ylabel('ECE')
 
-        legend_ax = axes[len(datasets)]
+        legend_ax = axes[n_datasets]
         legend_ax.axis('off')
+        # remove any unused axes after legend
+        for ax in axes[n_datasets+1:]:
+            ax.remove()
         label_map = {
             'baseline_methods': 'baseline',
             'cot_methods': 'CoT',
+            'ap_methods': 'all tokens',
             'true_probability_methods': 'p(true)',
             'self_probing_methods': 'self-probing'
         }
@@ -158,10 +188,14 @@ def main():
         legend_ax.legend(handles=handles, loc='center')
         plt.tight_layout()
 
-        out = project_root / Path(cfg.get('results_path', 'results/cot/ece')).parent / 'figures' / f'ece_leaderboard_{name}.png'
-        out.parent.mkdir(parents=True, exist_ok=True)
-        plt.savefig(out, dpi=300)
-        print(f"Saved {title} to {out}")
+        results_base = Path(cfg.get('results_path', 'results/cot/ece')).parent
+        if 'cod' in str(results_base):
+            fig_dir = results_base / 'figures'
+        else:
+            fig_dir = Path('results/cod/figures')
+        fig_dir.mkdir(parents=True, exist_ok=True)
+        plt.savefig(fig_dir / f"{name}_ece_leaderboard.png", dpi=300)
+        print(f"Saved {title} to {fig_dir / f'{name}_ece_leaderboard.png'}")
 
 
 if __name__ == '__main__':

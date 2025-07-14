@@ -1,0 +1,69 @@
+# UQ Methods Configuration for CoD experiments
+
+# Baseline methods (non-rationale)
+baseline_methods:
+  - name: "probas-mean-bl"
+    description: "Mean of output probabilities (baseline)"
+  - name: "probas-min-bl"
+    description: "Minimum probability in the output distribution (baseline)"
+  - name: "token-sar-bl"
+    description: "Token-level Sequence Average Reward (baseline)"
+
+# CoD methods (standard rationales)
+cot_methods:
+  - name: "probas-mean"
+    description: "Mean of output probabilities in CoD"
+  - name: "probas-min"
+    description: "Minimum probability in CoD output distribution"
+  - name: "token-sar"
+    description: "Token-level Sequence Average Reward in CoD"
+
+# AP-strategy variants (all-tokens aggregation)
+ap_methods:
+  - name: "probas-mean-alltokens"
+    description: "Mean probabilities aggregated over all tokens"
+  - name: "probas-min-alltokens"
+    description: "Minimum probability across all tokens"
+  - name: "token-sar-alltokens"
+    description: "Token SAR aggregated over all tokens"
+  # All-steps aggregation variants
+  - name: "probas-mean-allsteps"
+    description: "Mean probabilities aggregated over reasoning steps"
+  - name: "probas-min-allsteps"
+    description: "Minimum probability aggregated over reasoning steps"
+  - name: "token-sar-allsteps"
+    description: "Token SAR aggregated over reasoning steps"
+
+# P(True) variants
+true_probability_methods:
+  - name: "p-true-bl"
+    description: "Baseline P(True) method"
+  - name: "p-true-allsteps"
+    description: "P(True) using all reasoning steps"
+  - name: "p-true-keystep"
+    description: "P(True) using only key reasoning steps"
+  - name: "p-true-allkeywords"
+    description: "P(True) using all keywords"
+  - name: "p-true-keykeywords"
+    description: "P(True) using only key keywords"
+
+# Self-Probing variants
+self_probing_methods:
+  - name: "self-probing-bl"
+    description: "Baseline self-probing method"
+  - name: "self-probing-allsteps"
+    description: "Self-probing using all reasoning steps"
+  - name: "self-probing-keystep"
+    description: "Self-probing using only key reasoning steps"
+  - name: "self-probing-allkeywords"
+    description: "Self-probing using all keywords"
+  - name: "self-probing-keykeywords"
+    description: "Self-probing using only key keywords"
+
+# Combined list of all methods (for easy reference)
+all_methods:
+  - "{{ baseline_methods         | map(attribute='name') | list }}"
+  - "{{ cot_methods              | map(attribute='name') | list }}"
+  - "{{ ap_methods               | map(attribute='name') | list }}"
+  - "{{ true_probability_methods | map(attribute='name') | list }}"
+  - "{{ self_probing_methods     | map(attribute='name') | list }}"

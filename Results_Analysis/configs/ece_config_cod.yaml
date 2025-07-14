@@ -1,0 +1,25 @@
+imports:
+  - datasets.yaml
+  - uq_methods_cod.yaml
+
+data_dir: Data/CoD/raw
+model: llama3-1_8B
+output_dir: results/cod/ece
+results_path: results/cod/ece
+
+runs:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+
+n_bins: 10
+
+# metric groups using @ references
+metrics:
+  - '@baseline_methods'
+  - '@cot_methods'
+  - '@ap_methods'
+  - '@true_probability_methods'
+  - '@self_probing_methods'

@@ -120,7 +120,13 @@ def print_summary(agg: Dict[str, Any], metrics: List[str]) -> None:
 
 def main():
     base = Path(__file__).parent.parent.parent
-    config_path = base / 'configs' / 'brier_config.yaml'
+    import argparse
+    parser = argparse.ArgumentParser(description='Calculate Brier scores')
+    parser.add_argument('--config', type=str, default='configs/brier_config.yaml', help='Path to config YAML')
+    args = parser.parse_args()
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = base / config_path
     cfg = load_config(config_path)
     data_path = (base / cfg['data_dir']).resolve()
     results_dir = (base / cfg['results_path']).resolve()

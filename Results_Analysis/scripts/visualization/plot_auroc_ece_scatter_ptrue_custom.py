@@ -21,18 +21,24 @@ def lighten(color, factor=0.5):
     return tuple(c + (1 - c) * factor)
 
 
+import argparse
+
 def main():
-    # load configs
-    auroc_cfg = load_yaml_with_imports(project_root / 'configs' / 'auroc_config.yaml')
-    ece_cfg = load_yaml_with_imports(project_root / 'configs' / 'ece_config.yaml')
+    parser = argparse.ArgumentParser(description='P(True) AUROC vs ECE scatter')
+    parser.add_argument('--auroc_cfg', type=str, default='configs/auroc_config_cod.yaml')
+    parser.add_argument('--ece_cfg', type=str, default='configs/ece_config_cod.yaml')
+    args = parser.parse_args()
+
+    auroc_cfg = load_yaml_with_imports(project_root / args.auroc_cfg)
+    ece_cfg = load_yaml_with_imports(project_root / args.ece_cfg)
     datasets = auroc_cfg.get('datasets', [])
     ptrue_group = ece_cfg.get('true_probability_methods', [])
     metrics_order = [m['name'] for m in ptrue_group]
 
     # load aggregated data
     rows = []
-    auroc_dir = project_root / auroc_cfg.get('results_path', 'results/cot/auroc') / 'aggregated'
-    ece_dir = project_root / ece_cfg.get('results_path', 'results/cot/ece')
+    auroc_dir = project_root / auroc_cfg.get('results_path', 'results/cod/auroc') / 'aggregated'
+    ece_dir = project_root / ece_cfg.get('results_path', 'results/cod/ece')
     for ds in datasets:
         auroc_file = auroc_dir / f"{ds}_auroc.json"
         ece_file = ece_dir / ds / 'aggregated' / f"{ds}_ece.json"
@@ -96,7 +102,7 @@ def main():
     plt.title('P(True) AUROC vs ECE')
     plt.tight_layout()
 
-    out_dir = project_root / 'results' / 'cot' / 'figures' / 'scatter'
+    out_dir = project_root / 'results' / 'cod' / 'figures' / 'scatter'
     out_dir.mkdir(parents=True, exist_ok=True)
     out_file = out_dir / 'auroc_vs_ece_ptrue_custom.png'
     plt.savefig(out_file, dpi=300)

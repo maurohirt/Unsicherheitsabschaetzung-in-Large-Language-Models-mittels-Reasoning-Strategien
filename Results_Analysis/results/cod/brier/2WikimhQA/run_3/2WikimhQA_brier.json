@@ -1,0 +1,78 @@
+{
+  "probas-mean-bl": {
+    "score": 0.6229846117269037,
+    "n_samples": 523
+  },
+  "probas-min-bl": {
+    "score": 0.191829779810209,
+    "n_samples": 523
+  },
+  "token-sar-bl": {
+    "score": 0.5645725006866903,
+    "n_samples": 523
+  },
+  "probas-mean": {
+    "score": 0.47230717861944654,
+    "n_samples": 523
+  },
+  "probas-min": {
+    "score": 0.2606274963429179,
+    "n_samples": 523
+  },
+  "token-sar": {
+    "score": 0.4669894082245035,
+    "n_samples": 523
+  },
+  "probas-mean-alltokens": {
+    "score": 0.5186395624626317,
+    "n_samples": 523
+  },
+  "probas-min-alltokens": {
+    "score": 0.03379979081237231,
+    "n_samples": 523
+  },
+  "token-sar-alltokens": {
+    "score": 0.3880170567556681,
+    "n_samples": 523
+  },
+  "p-true-bl": {
+    "score": 0.5594609099153064,
+    "n_samples": 523
+  },
+  "p-true-allsteps": {
+    "score": 0.6528370903895873,
+    "n_samples": 523
+  },
+  "p-true-keystep": {
+    "score": 0.5928158345427292,
+    "n_samples": 523
+  },
+  "p-true-allkeywords": {
+    "score": 0.6094970688038246,
+    "n_samples": 523
+  },
+  "p-true-keykeywords": {
+    "score": 0.6092914402496977,
+    "n_samples": 523
+  },
+  "self-probing-bl": {
+    "score": 0.5102003373042066,
+    "n_samples": 523
+  },
+  "self-probing-allsteps": {
+    "score": 0.7177851096942639,
+    "n_samples": 523
+  },
+  "self-probing-keystep": {
+    "score": 0.622631091510134,
+    "n_samples": 523
+  },
+  "self-probing-allkeywords": {
+    "score": 0.6135886113577438,
+    "n_samples": 523
+  },
+  "self-probing-keykeywords": {
+    "score": 0.5739078802103269,
+    "n_samples": 523
+  }
+}

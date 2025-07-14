@@ -19,9 +19,15 @@ from src.utils.config_loader import load_yaml_with_imports
 
 
 def main():
+    import argparse
     project_root = Path(__file__).resolve().parents[2]
-    # load ECE config
-    cfg = load_yaml_with_imports(project_root / 'configs' / 'ece_config.yaml')
+    parser = argparse.ArgumentParser(description='Plot ECE leaderboard')
+    parser.add_argument('--config', type=str, default='configs/ece_config.yaml', help='Path to ECE config YAML')
+    args = parser.parse_args()
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = project_root / config_path
+    cfg = load_yaml_with_imports(config_path)
     datasets = cfg.get('datasets', [])
     raw_metrics = cfg.get('metrics', [])
     # resolve '@' group references
@@ -41,6 +47,8 @@ def main():
     # remove duplicates
     seen = set()
     metrics = [m for m in metrics if not (m in seen or seen.add(m))]
+    # exclude *-alltokens variants if user wants to hide them
+    metrics = [m for m in metrics if not m.endswith('-alltokens')]
 
     # group definitions for legend
     group_keys = ['baseline_methods', 'cot_methods', 'true_probability_methods', 'self_probing_methods']
@@ -105,7 +113,21 @@ def main():
     # colors per family
     pal = sns.color_palette('tab10', n_colors=len(families))
     fam_pal = dict(zip(families, pal))
-    col_list = [fam_pal.get(fam_map.get(m), (0.5, 0.5, 0.5)) for m in metrics]
+    # helper to get family reliably by metric prefix as fallback
+    def infer_family(metric: str) -> str:
+        if metric.startswith('p-true-'):
+            return 'true_probability_methods'
+        if metric.startswith('self-probing-'):
+            return 'self_probing_methods'
+        if metric.endswith('-bl'):
+            # baseline variants belong to their primary family determined earlier
+            return fam_map.get(metric, 'baseline_methods')
+        if metric.startswith(('probas-', 'token-sar-')):
+            return 'cot_methods'
+        # fallback to mapping or other
+        return fam_map.get(metric, 'other')
+
+    col_list = [fam_pal.get(infer_family(m), (0.5, 0.5, 0.5)) for m in metrics]
 
     sns.set(style='whitegrid')
     fig, axes = plt.subplots(2, 3, figsize=(12, 12), sharey=False)
@@ -116,32 +138,38 @@ def main():
         sub = df[df['dataset'] == ds]
         if sub.empty:
             continue
-        # violin
-        scores = [sub[sub['metric'] == m]['score'].tolist() for m in metrics]
-        parts = ax.violinplot(scores, positions=list(range(len(metrics))), widths=0.8, showextrema=False)
+        # determine metrics that have data for this dataset
+        present_metrics = [m for m in metrics if not sub[sub['metric'] == m].empty]
+        if not present_metrics:
+            continue
+        present_labels = [metric_labels[metrics.index(m)] for m in present_metrics]
+        present_colors = [col_list[metrics.index(m)] for m in present_metrics]
+        scores = [sub[sub['metric'] == m]['score'].tolist() for m in present_metrics]
+        parts = ax.violinplot(scores, positions=list(range(len(present_metrics))), widths=0.8, showextrema=False)
         for idx, pc in enumerate(parts['bodies']):
-            pc.set_facecolor(col_list[idx])
+            pc.set_facecolor(present_colors[idx])
             pc.set_edgecolor('black')
             pc.set_alpha(0.8)
+
         # raw points
-        sns.stripplot(x='metric', y='score', data=sub, order=metrics,
+        sns.stripplot(x='metric', y='score', data=sub, order=present_metrics,
                       color='black', size=3, jitter=True, ax=ax, alpha=0.6)
         # mean and CI
-        for i, m in enumerate(metrics):
+        for i, m in enumerate(present_metrics):
             msub = sub[sub['metric'] == m]
             if msub.empty:
                 continue
             mean = msub['mean'].iloc[0]
             low = msub['ci_low'].iloc[0]
             high = msub['ci_high'].iloc[0]
-            ax.scatter(i, mean, color='black', marker='D', zorder=10)
+            ax.scatter(i, mean, color='black', marker='D', s=30, zorder=10)
             ax.vlines(i, low, high, color='black', linewidth=1)
         # perfect calibration line at ECE=0
         ax.axhline(0, linestyle='--', color='grey')
         ax.set_title(ds)
         ax.set_xlabel('')
-        ax.set_xticks(range(len(metrics)))
-        ax.set_xticklabels(metric_labels, rotation=45, ha='right')
+        ax.set_xticks(range(len(present_metrics)))
+        ax.set_xticklabels(present_labels, rotation=45, ha='right')
         ax.set_ylabel('ECE')
 
     # legend
@@ -158,7 +186,14 @@ def main():
 
     plt.tight_layout()
     # save
-    out = project_root / Path(cfg.get('results_path', 'results/cot/ece')).parent / 'figures' / 'ece_leaderboard.png'
+    results_base = Path(cfg.get('results_path', 'results/cot/ece')).parent
+    if 'cod' in str(results_base):
+        fig_dir = results_base / 'figures'
+    else:
+        # ensure we do NOT overwrite CoT figures
+        fig_dir = Path('results/cod/figures')
+    fig_dir.mkdir(parents=True, exist_ok=True)
+    out = fig_dir / 'ece_leaderboard.png'
     out.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out, dpi=300)
     print(f"Saved ECE leaderboard to {out}")

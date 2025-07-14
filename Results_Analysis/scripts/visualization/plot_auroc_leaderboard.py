@@ -4,6 +4,7 @@ Plot an AUROC “leaderboard” across datasets: violin distributions of run-wis
 mean diamonds with CIs, and jittered points showing raw variability.
 """
 import json
+import argparse
 from pathlib import Path
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -20,22 +21,24 @@ from src.utils.config_loader import load_yaml_with_imports
 
 
 def main():
-    # project root
     project_root = Path(__file__).resolve().parents[2]
-    # load AUROC config (imports uq methods & datasets)
-    cfg = load_yaml_with_imports(project_root / 'configs' / 'auroc_config.yaml')
+    parser = argparse.ArgumentParser(description='AUROC leaderboard (CoD)')
+    parser.add_argument('--cfg', type=str, default='configs/auroc_config_cod.yaml')
+    args = parser.parse_args()
+
+    cfg = load_yaml_with_imports(project_root / args.cfg)
     datasets = cfg.get('datasets', [])
 
     metrics = cfg.get('metrics', [])
     # group definitions from imported UQ config
-    group_keys = ['baseline_methods', 'cot_methods', 'true_probability_methods', 'self_probing_methods']
+    group_keys = ['baseline_methods', 'cot_methods', 'ap_methods', 'true_probability_methods', 'self_probing_methods']
     groups = {g: [m['name'] for m in cfg.get(g, [])] for g in group_keys}
     # family map
     fam_map = {m: g for g, ms in groups.items() for m in ms}
     families = list(groups.keys())
 
     # load aggregated AUROC JSONs
-    results_dir = project_root / cfg.get('results_path', 'results/cot/auroc') / 'aggregated'
+    results_dir = project_root / cfg.get('results_path', 'results/cod/auroc') / 'aggregated'
     # derive metrics from aggregated JSON if not set
     if not metrics:
         first_ds = next((d for d in datasets), None)
@@ -96,46 +99,6 @@ def main():
                              'ci_low': ci[0], 'ci_high': ci[1],
                              'family': fam})
     df = pd.DataFrame(rows)
-    # load paper AUROC values
-    ap_csv = project_root / 'Data' / 'CoT' / 'raw' / 'paper_auroc_values' / 'ap_strategies_paper_auroc.csv'
-    se_csv = project_root / 'Data' / 'CoT' / 'raw' / 'paper_auroc_values' / 'se_strategies_paper_auroc.csv'
-    df_ap = pd.read_csv(ap_csv)
-    df_se = pd.read_csv(se_csv)
-    # filter AP file: only AP UQ methods, drop SE rows and P(True)
-    df_ap = df_ap[df_ap['strategy']=='AP']
-    df_ap = df_ap[~df_ap['UQ_method'].str.startswith('P(True)')]
-    # mapping helpers
-    def ap_key(u):
-        u = u.lower()
-        if 'w/ cot-uq' in u:
-            if 'tokensar' in u:
-                return 'token-sar'
-            if 'probas-mean' in u:
-                return 'probas-mean'
-            if 'probas-min' in u:
-                return 'probas-min'
-        else:
-            if 'tokensar' in u:
-                return 'token-sar-bl'
-            if 'probas-mean' in u:
-                return 'probas-mean-bl'
-            if 'probas-min' in u:
-                return 'probas-min-bl'
-        return None
-    def se_key(u): return u.lower()
-    # build mapping of (dataset, metric) to paper AUROC
-    paper_map = {}
-    for _, row in pd.concat([df_ap, df_se]).iterrows():
-        ds_csv = row['dataset']
-        ds_match = next((d for d in datasets if d.lower()==ds_csv.lower()), None)
-        if ds_match is None:
-            continue
-        if row['strategy']=='AP':
-            m_key = ap_key(row['UQ_method'])
-        else:
-            m_key = se_key(row['UQ_method'])
-        if m_key and m_key in metrics:
-            paper_map[(ds_match, m_key)] = row['AUROC']
     if df.empty:
         print("No data to plot.")
         return
@@ -175,10 +138,7 @@ def main():
             high = msub['ci_high'].iloc[0]
             ax.scatter(i, mean, color='black', marker='D', zorder=10)
             ax.vlines(i, low, high, color='black', linewidth=1)
-            # overlay paper values
-            pv = paper_map.get((ds, m))
-            if pv is not None:
-                ax.scatter(i, pv, marker='D', facecolors='white', edgecolors='black', s=60, zorder=12)
+
         # random baseline
         ax.axhline(0.5, linestyle='--', color='grey')
         ax.set_title(ds)
@@ -194,18 +154,17 @@ def main():
     # custom legend labels
     label_map = {
         'baseline_methods': 'baseline',
-        'cot_methods': 'Keyword Extraction & Importance Scoring',
+        'cot_methods': 'CoD (std tokens)',
+        'ap_methods': 'AP all-tokens',
         'true_probability_methods': 'p(true)',
         'self_probing_methods': 'self-probing'
     }
     handles = [Patch(facecolor=fam_pal[family], label=label_map.get(family, family)) for family in families]
-    # add paper value marker
-    marker_handle = Line2D([0], [0], marker='D', color='black', markerfacecolor='white', markeredgecolor='black', linestyle='None', markersize=8, label='Reported (Zhang & Zhang, 2025)')
-    handles.append(marker_handle)
+
     legend_ax.legend(handles=handles, loc='center')
     plt.tight_layout()
     # save figure under results/cot/figures
-    out = project_root / Path(cfg.get('results_path', 'results/cot/auroc')).parent / 'figures' / 'auroc_leaderboard.png'
+    out = project_root / Path(cfg.get('results_path', 'results/cod/auroc')).parent / 'figures' / 'auroc_leaderboard.png'
     out.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out, dpi=300)
     print(f"Saved AUROC leaderboard to {out}")

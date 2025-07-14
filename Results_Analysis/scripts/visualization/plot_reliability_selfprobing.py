@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Plot Reliability Diagram for Self-Probing family.
-One plot per dataset with 5 curves: baseline and four variants.
-Saves under results/cot/figures/reliability/{dataset}/selfprobing_strategies.png
+Plot Reliability Diagram for Self-Probing family (CoD datasets).
+One plot per dataset with baseline + variants.
+Saves under results/cod/figures/reliability/{dataset}/selfprobing_strategies.png
 """
 import json
+import argparse
 import sys
 from pathlib import Path
 import matplotlib.pyplot as plt
@@ -24,12 +25,15 @@ def lighten(color, factor=0.5):
 
 def main():
     project_root = Path(__file__).resolve().parents[2]
-    # load datasets
-    ds_cfg = load_yaml_with_imports(project_root / 'configs' / 'datasets.yaml')
-    datasets = ds_cfg.get('datasets', [])
+    parser = argparse.ArgumentParser(description='Self-Probing reliability plots (CoD)')
+    parser.add_argument('--ece_cfg', type=str, default='configs/ece_config_cod.yaml')
+    args = parser.parse_args()
 
-    # define metrics and styles
-    metrics = ['self-probing-bl', 'self-probing-allsteps', 'self-probing-keystep', 'self-probing-allkeywords', 'self-probing-keykeywords']
+    ece_cfg = load_yaml_with_imports(project_root / args.ece_cfg)
+    datasets = [d for d in ece_cfg.get('datasets', []) if d != '2WikimhQA']
+
+    group = ece_cfg.get('self_probing_methods', [])
+    metrics = [m['name'] for m in group]
     styles = ['-', '--', '-.', ':', (0, (3, 1, 1, 1))]  # distinct line styles
     palette = sns.color_palette('tab10')
     base_color = palette[3]  # choose orange for self-probing
@@ -44,7 +48,7 @@ def main():
     label_map = {m: m.replace('self-probing-', '') for m in metrics}
 
     for ds in datasets:
-        ece_path = project_root / 'results' / 'cot' / 'ece' / ds / 'aggregated' / f"{ds}_ece.json"
+        ece_path = project_root / 'results' / 'cod' / 'ece' / ds / 'aggregated' / f"{ds}_ece.json"
         if not ece_path.exists():
             print(f"Skipping {ds}: missing {ece_path}")
             continue
@@ -76,7 +80,7 @@ def main():
         plt.legend(handles=legend_handles, loc='best', fontsize=9)
         plt.tight_layout()
 
-        out_dir = project_root / 'results' / 'cot' / 'figures' / 'reliability' / ds
+        out_dir = project_root / 'results' / 'cod' / 'figures' / 'reliability' / ds
         out_dir.mkdir(parents=True, exist_ok=True)
         out_file = out_dir / 'selfprobing_strategies.png'
         plt.savefig(out_file, dpi=300)

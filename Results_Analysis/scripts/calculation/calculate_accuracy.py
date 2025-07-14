@@ -17,15 +17,27 @@ def load_config(config_path: Path) -> dict:
     """Load configuration from YAML file with imports support."""
     return load_yaml_with_imports(config_path)
 
+import argparse
+
 def main():
-    # Get the project root directory (Results_Analysis)
+    # Get project root (Results_Analysis)
     project_root = Path(__file__).parent.parent.parent
-    
-    # Load configuration using absolute path
-    config_path = project_root / 'configs' / 'accuracy_config.yaml'
+
+    # Parse CLI arguments
+    parser = argparse.ArgumentParser(description="Calculate accuracy for runs/datasets")
+    parser.add_argument('--config', type=str, default='configs/accuracy_config.yaml',
+                        help='Path to YAML config (default: configs/accuracy_config.yaml)')
+    args = parser.parse_args()
+
+    # Resolve config path (absolute)
+    config_path = Path(args.config)
+    if not config_path.is_absolute():
+        config_path = project_root / config_path
+
+    # Load configuration
     config = load_config(config_path)
-    
-    # Convert all paths to absolute paths
+
+    # Convert paths in config to absolute
     for path_key in ['data_path', 'output_path', 'results_path']:
         if path_key in config and not Path(config[path_key]).is_absolute():
             config[path_key] = str(project_root / config[path_key])
@@ -62,6 +74,9 @@ def main():
     # Print summary
     print(f"\nAccuracy calculation complete!")
     print(f"Results saved to: {output_dir.absolute()}")
+
+if __name__ == "__main__":
+    main()
     
     if results['aggregated']['by_dataset']:
         print("\nAggregated Accuracy by Dataset:")
@@ -73,5 +88,4 @@ def main():
         print(f"\nOverall Accuracy: {overall['mean_accuracy']:.4f} "
               f"({overall['total_correct']:,}/{overall['total_examples']:,} correct)")
 
-if __name__ == "__main__":
-    main()
+
