@@ -89,8 +89,6 @@ Possible next step:
 """
 # this promt was used for the baseline that uses the self-probing variant and for the ranom baseline. 
 multiple_solutions_propose_prompt = """
-## TASK: Game of 24 Solver
-
 **Rules:**
 * Use each number exactly once.
 * Combine two numbers per step using +, -, *, or /.

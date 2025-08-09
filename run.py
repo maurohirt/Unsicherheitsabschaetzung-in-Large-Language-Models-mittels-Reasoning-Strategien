@@ -68,7 +68,23 @@ def parse_args():
     # Uncertainty metric; empty string keeps legacy behaviour
     args.add_argument('--uq_metric', type=str, default='', choices=['', 'mean', 'min', 'max', 'entropy', 'random'])
 
+    # For Game24 propose-mode generation, choose between variants
+    # - single: loop single-solution calls with token-UQ scoring
+    # - multi: one multi-solution call, score each line via token-UQ
+    # - heuristic: multi-solution call, scored by heuristic value evaluator (no UQ)
+    args.add_argument('--propose_uq_style', type=str, default='single', choices=['single', 'multi', 'heuristic'])
+
     args = args.parse_args()
+
+    # Normalize args for Game24 propose variants
+    if args.task == 'game24' and args.method_generate == 'propose':
+        if args.propose_uq_style == 'heuristic':
+            # Disable UQ; ensure heuristic evaluator is used with multiple samples
+            args.uq_metric = ''
+            args.method_evaluate = 'value'
+            # Use 3 evaluator samples as per original variant
+            if args.n_evaluate_sample < 3:
+                args.n_evaluate_sample = 3
     return args
 
 

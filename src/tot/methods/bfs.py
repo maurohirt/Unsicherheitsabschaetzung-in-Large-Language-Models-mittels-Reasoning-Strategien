@@ -67,7 +67,7 @@ def get_votes(task, x, ys, n_evaluate_sample):
 # global cache used across generation & evaluation in a run
 uq_score_cache = {}
 
-def get_proposals(task, x, y, uq_metric='', n_propose_sample=1):
+def get_proposals(task, x, y, uq_metric='', n_propose_sample=1, propose_uq_style='single'):
     from tot.tasks.game24 import get_current_numbers
     curr = get_current_numbers(y if y else x)
     # final answer generation when only one number remains
@@ -78,14 +78,33 @@ def get_proposals(task, x, y, uq_metric='', n_propose_sample=1):
         ans = resp.message.content if hasattr(resp, 'message') else resp
         return [y + ans]
     # non-final step
-    # when no UQ: batch multi-solution prompt
+    # when no UQ: batch multi-solution prompt (legacy behavior)
     if not uq_metric:
         prompt = multiple_solutions_propose_prompt.format(input=curr)
         resp = gpt(prompt, n=1, stop=None)[0]
         text = resp.message.content if hasattr(resp, 'message') else resp
-        lines = [ln.strip() for ln in text.split('\n') if ln.strip()]
+        lines = [ln.strip() for ln in text.split('\n') if ln.strip() and '=' in ln and '(left:' in ln]
         return [y + ln + '\n' for ln in lines]
-    # UQ mode: multiple single-solution calls with uniqueness
+    
+    # UQ mode:
+    # - propose_uq_style == 'multi': one multi-solution call, score each line via token-UQ
+    # - propose_uq_style == 'single': multiple single-solution calls with uniqueness (default)
+    if propose_uq_style == 'multi':
+        prompt = multiple_solutions_propose_prompt.format(input=curr)
+        resp = gpt(prompt, n=1, stop=None, return_logprobs=True)[0]
+        txt = resp.message.content if hasattr(resp, 'message') else resp
+        toks, lps, offs = extract_tokens_logps_offsets(txt, resp.logprobs)
+        line_buckets = split_token_probs_by_line(txt, toks, lps, offs)
+        results = []
+        for ln, lps_line in line_buckets:
+            if ('=' in ln) and ('(left:' in ln):
+                cand = y + ln + '\n'
+                score = line_metric(lps_line, uq_metric)
+                uq_score_cache[cand] = score
+                results.append(cand)
+        return results
+
+    # propose_uq_style == 'single': multiple single-solution calls with uniqueness
     results = []
     seen = set()
     seen_ops = set()  # operations already proposed this step
@@ -153,7 +172,7 @@ def solve(args, task, idx, to_print=True):
         if args.method_generate == 'sample':
             new_ys = [get_samples(task, x, y, args.n_generate_sample, prompt_sample=args.prompt_sample, stop=task.stops[step], uq_metric=args.uq_metric) for y in ys]
         elif args.method_generate == 'propose':
-            new_ys = [get_proposals(task, x, y, uq_metric=args.uq_metric, n_propose_sample=args.n_propose_sample) for y in ys]
+            new_ys = [get_proposals(task, x, y, uq_metric=args.uq_metric, n_propose_sample=args.n_propose_sample, propose_uq_style=args.propose_uq_style) for y in ys]
         new_ys = list(itertools.chain(*new_ys))
         # 1) keep only distinct candidates
         new_ys = distinct(new_ys)
