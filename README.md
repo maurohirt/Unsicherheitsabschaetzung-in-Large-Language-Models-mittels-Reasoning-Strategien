@@ -64,7 +64,24 @@ Choose one with `--propose_uq_style` when `--method_generate propose`.
 ## Quick start: example commands
 Replace the index range as you like.
 
-### A) Single-solution per call with token-UQ (recommended temp 0.7)
+### A) Multi-solution per call with token-UQ (temperature 1.8, probas mean)
+```bash
+python run.py \
+  --task game24 \
+  --task_start_index 900 \
+  --task_end_index 905 \
+  --backend deepseek-chat \
+  --method_generate propose \
+  --method_evaluate value \
+  --method_select greedy \
+  --propose_uq_style multi \
+  --uq_metric mean \
+  --n_evaluate_sample 1 \
+  --n_select_sample 5 \
+  --temperature 1.8
+```
+
+### B) Single-solution per call with token-UQ (recommended temp 0.7)
 ```bash
 python run.py \
   --task game24 \
@@ -82,22 +99,6 @@ python run.py \
   --temperature 0.7
 ```
 
-### B) Multi-solution per call with token-UQ (temperature 1.8, probas mean)
-```bash
-python run.py \
-  --task game24 \
-  --task_start_index 900 \
-  --task_end_index 905 \
-  --backend deepseek-chat \
-  --method_generate propose \
-  --method_evaluate value \
-  --method_select greedy \
-  --propose_uq_style multi \
-  --uq_metric mean \
-  --n_evaluate_sample 1 \
-  --n_select_sample 5 \
-  --temperature 1.8
-```
 
 ### C) Multi-solution per call with heuristic evaluator (no UQ, temp 0.7)
 ```bash
