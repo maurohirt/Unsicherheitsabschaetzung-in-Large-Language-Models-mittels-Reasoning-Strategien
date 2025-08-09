@@ -11,7 +11,7 @@ datasets:
   - "svamp"
   - "gsm8k"
 
-output_path_base: "/home2/mauro.hirt/CoT-UQ/output3"
+output_path_base: "/home2/mauro.hirt/CoT-UQ/output"
 
 # Full inference parameters
 temperature: 1.0

@@ -1,14 +1,14 @@
 #!/bin/bash
 #SBATCH --gres=gpu:rtxA4500:1
 #SBATCH -p performance
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --time=2-05:00:00
 #SBATCH --job-name=r4_cod_uq_pipeline_array
 #SBATCH --output=output4/logs/pipeline/pipeline_%A_dataset_%a.out
 #SBATCH --error=output4/logs/pipeline/pipeline_%A_dataset_%a.err
 #SBATCH --export=ALL,HUGGINGFACE_HUB_TOKEN,OPENAI_API_KEY
-#SBATCH --array=0-4  # For 5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k) - adjust based on your config
+#SBATCH --array=0-4%2 # For 5 datasets (ASDiv, 2WikimhQA, hotpotQA, svamp, gsm8k) - adjust based on your config
 
 # Read configuration file path from command line argument
 CONFIG_FILE=${1:-"pipeline_config.yaml"}
