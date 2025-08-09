@@ -2,6 +2,33 @@
 
 This repository contains an end-to-end pipeline to run CoT-UQ on Llama-family models across multiple datasets on an HPC cluster using Singularity and SLURM. It also includes a Dockerfile for building and publishing a container image that can be converted into a Singularity Image File (SIF).
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Quickstart](#quickstart)
+- [Containers (Docker and Singularity)](#containers-docker-and-singularity)
+- [Pipeline Runners (SLURM)](#pipeline-runners-slurm)
+  - [Full pipeline (single job)](#full-pipeline-single-job)
+  - [Full pipeline (array job, one dataset per task)](#full-pipeline-array-job-one-dataset-per-task)
+  - [Stage-by-stage runners (array jobs)](#stage-by-stage-runners-array-jobs)
+- [Key Python Scripts](#key-python-scripts)
+- [Configuration (YAML)](#configuration-yaml)
+- [Outputs](#outputs)
+- [Requirements](#requirements)
+- [Environment variables](#environment-variables)
+- [Notes on logging and defaults](#notes-on-logging-and-defaults)
+- [Useful paths and scripts](#useful-paths-and-scripts)
+- [Troubleshooting](#troubleshooting)
+
+## Prerequisites
+
+- GPU-enabled HPC cluster with SLURM and Singularity/Apptainer.
+- CUDA 11.8-capable nodes (the Docker image targets PyTorch 2.2.2 + cu118).
+- Docker (optional) if you want to build/push the image yourself.
+- Environment variables:
+  - `HUGGINGFACE_HUB_TOKEN` (required for model downloads)
+  - `OPENAI_API_KEY` only if you run analysis on logical QA datasets (2WikimhQA, hotpotQA).
+- Outbound internet access on the cluster to pull images and HF models, or pre-provision them via a local registry/cache.
 
 ## Quickstart
 
@@ -31,12 +58,9 @@ sbatch slurm/scripts/run_full_pipeline.sbatch configs/pipeline_config_full_lama3
 # Processes one dataset per array task based on the config's datasets list
 sbatch slurm/scripts/run_full_pipeline_array.sbatch configs/pipeline_config_full_lama3.yaml
 
-# To run only a specific dataset index (overrides script's #SBATCH --array)
-sbatch --array=4 slurm/scripts/run_full_pipeline_array.sbatch configs/pipeline_config_full_lama3.yaml
 ```
 
-
-## Containers
+## Containers (Docker and Singularity)
 
 ### Build Docker image locally (optional)
 Use the root `Dockerfile` to build a CUDA-enabled image with PyTorch 2.2.2 (CUDA 11.8):
@@ -119,7 +143,6 @@ sbatch --array=2 slurm/scripts/inference_refining_llama8B_datasets_array.sbatch
 - Script: `slurm/scripts/all_metrics_stepuq_array.sbatch`
 - Pass model engine as first argument (defaults to llama3-1_8B)
 - Internally runs `stepuq.py` for each selected `UQ_METHODS`
-- Uses hardcoded `try_times=5` for efficiency (as designed)
 
 Commands:
 ```bash
@@ -166,7 +189,6 @@ sbatch --array=1 slurm/scripts/analyze_results_array.sbatch llama3-1_8B
   - Numeric datasets (e.g., gsm8k) use string/number matching. Logical QA (2WikimhQA, hotpotQA) uses OpenAI (`gpt-4o-mini`) via `OPENAI_API_KEY`.
   - Produces/updates `output_v1_w_labels.json` and prints AUROC.
 
-
 ## Configuration (YAML)
 
 The full pipeline runners read a YAML config. See examples in `configs/`:
@@ -195,42 +217,6 @@ uq_methods:
   - "probas-mean-bl"
   - "probas-min-bl"
   - "token-sar-bl"
-```
-
-
-## Running locally inside the container (debug)
-Interactive Singularity shell:
-```bash
-singularity shell --nv $HOME/containers/cot-uq_latest.sif
-# Inside container
-export HF_HOME=/root/.cache/huggingface
-export HUGGINGFACE_HUB_TOKEN=$HUGGINGFACE_HUB_TOKEN
-cd /home2/<user>/CoT-UQ  # adjust to your cluster path
-
-# Inference
-python inference_refining.py \
-  --dataset svamp \
-  --model_engine llama3-1_8B \
-  --model_path llama3-1_8B \
-  --temperature 1.0 \
-  --try_times 20 \
-  --output_path output/llama3-1_8B/svamp
-
-# UQ (baseline example)
-python stepuq.py \
-  --dataset svamp \
-  --model_engine llama3-1_8B \
-  --model_path llama3-1_8B \
-  --uq_engine probas-min-bl \
-  --output_path output/llama3-1_8B/svamp \
-  --try_times 5
-
-# Analysis (no OPENAI_API_KEY needed for svamp/gsm8k/ASDiv)
-python analyze_result.py \
-  --dataset svamp \
-  --model_engine llama3-1_8B \
-  --uq_engine probas-min-bl \
-  --output_path output/llama3-1_8B/svamp
 ```
 
 
@@ -282,7 +268,7 @@ The SLURM scripts propagate these into the container. If `OPENAI_API_KEY` is mis
 
 ## Notes on logging and defaults
 
-- `inference_refining.py` uses full config params; typical `--try_times=20`.
+- `inference_refining.py` uses full config
 - `stepuq.py` is invoked with `--try_times=5` for speed; includes `--temperature`.
 - `analyze_result.py` does not use `try_times`.
 - SLURM pipeline scripts filter noisy logs (duplicate experiment args, known CrossEncoder warnings, verbose parameter dumps) to keep output focused on progress and results.
@@ -303,3 +289,4 @@ The SLURM scripts propagate these into the container. If `OPENAI_API_KEY` is mis
 - Analysis errors on 2WikimhQA/hotpotQA: ensure `OPENAI_API_KEY` is exported; the array analysis script validates this.
 - Array indices: verify the dataset order shown above; you can override the `--array` range when submitting.
 - GPU memory: scripts print `nvidia-smi` summaries; use fewer concurrent array tasks if constrained.
+
