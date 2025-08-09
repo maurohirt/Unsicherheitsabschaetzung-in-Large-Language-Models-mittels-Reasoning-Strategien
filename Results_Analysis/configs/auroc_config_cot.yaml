@@ -1,0 +1,29 @@
+# Configuration for AUROC calculation (CoT)
+
+imports:
+  - "datasets.yaml"
+  - "uq_methods_cot.yaml"
+
+# Paths
+data_dir: "Data/CoT/raw"
+model_dir: "llama3-1_8B"
+output_dir: "results/cot/auroc"
+results_path: "results/cot/auroc"
+
+# Runs
+runs: [0, 1, 2, 3, 4]
+
+# ROC curve settings
+roc_curve:
+  n_points: 100
+
+# Confidence interval settings
+confidence_interval:
+  level: 0.95
+
+# Grouped metrics
+grouped_metrics:
+  baselines: "{{ baseline_methods | map(attribute='name') | list }}"
+  cot_methods: "{{ cot_methods | map(attribute='name') | list }}"
+  ptrue_methods: "{{ true_probability_methods | map(attribute='name') | list }}"
+  self_probing: "{{ self_probing_methods | map(attribute='name') | list }}"

@@ -88,14 +88,20 @@ def main():
         label = m.replace('probas-', '').replace('-bl', '') + (" (baseline)" if m.endswith('-bl') else "")
         h = Line2D([0], [0], marker='o', color=color_map.get(m, 'grey'), linestyle='None', markersize=8, label=label)
         metric_handles.append(h)
-    leg1 = plt.legend(handles=metric_handles, title='Method (n=5 runs)', bbox_to_anchor=(1.05, 1), loc='upper left')
-    # dataset legend
-    dataset_handles = []
-    for ds in datasets:
-        h = Line2D([0], [0], marker=marker_map[ds], color='black', linestyle='None', markersize=8, label=ds)
-        dataset_handles.append(h)
-    plt.gca().add_artist(leg1)
-    plt.legend(handles=dataset_handles, title='Dataset', bbox_to_anchor=(1.05, 0.6), loc='upper left')
+    # dataset legend drawn first (top)
+    dataset_handles = [Line2D([0], [0], marker=marker_map[ds], color='black', linestyle='None', markersize=8, label=ds)
+                       for ds in datasets]
+    leg_ds = plt.legend(handles=dataset_handles,
+                        title='Dataset',
+                        bbox_to_anchor=(1.05, 1),
+                        loc='upper left')
+    plt.gca().add_artist(leg_ds)
+
+    # method legend drawn second (below dataset)
+    plt.legend(handles=metric_handles,
+               title='Method (n=5 runs)',
+               bbox_to_anchor=(1.05, 0.6),
+               loc='upper left')
 
     plt.xlabel('Mean ECE')
     plt.ylabel('Mean AUROC')

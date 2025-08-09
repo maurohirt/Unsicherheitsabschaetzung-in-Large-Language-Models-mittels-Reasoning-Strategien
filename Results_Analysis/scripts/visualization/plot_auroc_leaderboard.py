@@ -24,9 +24,15 @@ def main():
     project_root = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description='AUROC leaderboard (CoD)')
     parser.add_argument('--cfg', type=str, default='configs/auroc_config_cod.yaml')
+    parser.add_argument('--tag', type=str, default='', help='Optional suffix tag for output filename')
+    parser.add_argument('--exclude_families', type=str, default='',
+                        help='Comma-separated list of family keys to exclude from plot (e.g. "ap_methods")')
     args = parser.parse_args()
 
     cfg = load_yaml_with_imports(project_root / args.cfg)
+    # parse families to exclude
+    exclude_families = [s.strip() for s in args.exclude_families.split(',') if s]
+
     datasets = cfg.get('datasets', [])
 
     metrics = cfg.get('metrics', [])
@@ -35,7 +41,7 @@ def main():
     groups = {g: [m['name'] for m in cfg.get(g, [])] for g in group_keys}
     # family map
     fam_map = {m: g for g, ms in groups.items() for m in ms}
-    families = list(groups.keys())
+    families = [f for f in groups.keys() if f not in exclude_families]
 
     # load aggregated AUROC JSONs
     results_dir = project_root / cfg.get('results_path', 'results/cod/auroc') / 'aggregated'
@@ -47,6 +53,10 @@ def main():
             if path.exists():
                 metrics = list(json.loads(path.read_text()).keys())
         # simplified x-axis labels by stripping prefixes
+    # exclude metrics belonging to excluded families
+    if exclude_families:
+        metrics = [m for m in metrics if fam_map.get(m) not in exclude_families]
+
     # simplified x-axis labels: strip prefixes/suffixes
     metric_labels = []
     for m in metrics:
@@ -103,11 +113,20 @@ def main():
         print("No data to plot.")
         return
 
-    # palette for families
-    pal = sns.color_palette('tab10', n_colors=len(families))
-    fam_pal = dict(zip(families, pal))
+    # custom palette for families (consistent across plots)
+    fam_pal = {
+        'baseline_methods': '#1f77b4',          # blue
+        'cot_methods': '#ff7f0e',              # orange (standard CoT)
+        'ap_methods': '#9467bd',               # violet for all-tokens variant
+        'true_probability_methods': '#2ca02c', # green for p(true)
+        'self_probing_methods': '#d62728'      # red for self-probing
+    }
+    # ensure all families have a colour (fallback grey)
+    for fam in families:
+        fam_pal.setdefault(fam, '#7f7f7f')
+
     # colors per metric in order
-    col_list = [fam_pal.get(fam_map.get(m), (0.5,0.5,0.5)) for m in metrics]
+    col_list = [fam_pal.get(fam_map.get(m), '#7f7f7f') for m in metrics]
 
     sns.set(style='whitegrid')
     fig, axes = plt.subplots(2, 3, figsize=(12, 12), sharey=True)
@@ -154,7 +173,7 @@ def main():
     # custom legend labels
     label_map = {
         'baseline_methods': 'baseline',
-        'cot_methods': 'CoD (std tokens)',
+        'cot_methods': 'keyword extraction & importance scoring',
         'ap_methods': 'AP all-tokens',
         'true_probability_methods': 'p(true)',
         'self_probing_methods': 'self-probing'
@@ -164,7 +183,9 @@ def main():
     legend_ax.legend(handles=handles, loc='center')
     plt.tight_layout()
     # save figure under results/cot/figures
-    out = project_root / Path(cfg.get('results_path', 'results/cod/auroc')).parent / 'figures' / 'auroc_leaderboard.png'
+    # construct output filename with optional tag to avoid overwriting
+    fname = 'auroc_leaderboard' + (f"_{args.tag}" if args.tag else '') + '.png'
+    out = project_root / Path(cfg.get('results_path', 'results/cod/auroc')).parent / 'figures' / fname
     out.parent.mkdir(parents=True, exist_ok=True)
     plt.savefig(out, dpi=300)
     print(f"Saved AUROC leaderboard to {out}")
