@@ -12,6 +12,6 @@ Dieses Repository enthält drei Hauptordner. Unten findest du eine kurze Beschre
 
 - __tree-of-thought-llm__
   - Kurz: Implementierung/Experimente zum Tree-of-Thought-Ansatz (u. a. Game24-Beispiel).
-  - Details: [tree-of-thought-llm/README_GAME24.md](tree-of-thought-llm/README_GAME24.md)
+  - Details: [tree-of-thought-llm/README_GAME24.md](tree-of-thought-llm/README.md)
 
 Hinweis: Für Setup, Nutzung und weiterführende Informationen bitte jeweils das README im entsprechenden Ordner lesen.
