@@ -1,0 +1,4 @@
+999 sum(accs) 1 cnt_avg 14.0 cnt_any 16 
+
+0.14 0.16
+usage_so_far {'completion_tokens': 136876, 'prompt_tokens': 1906849, 'cost': 0.66541283}
