@@ -1,0 +1,54 @@
+# Full configuration for comprehensive pipeline run
+# This includes all datasets and all UQ methods
+
+model_engine: "llama3-1_8B"
+
+# All available datasets
+datasets:
+  - "ASDiv"
+  - "2WikimhQA"
+  - "hotpotQA"
+  - "svamp"
+  - "gsm8k"
+
+output_path_base: "/home2/mauro.hirt/CoT-UQ/output"
+
+# Full inference parameters
+temperature: 1.0
+try_times: 20
+max_length_cot: 128
+
+# Dataset range (use 'full' for test_end to process entire dataset)
+test_start: "0"
+test_end: "full"
+
+# All available UQ methods
+uq_methods:
+  # Baseline methods
+  - "probas-mean-bl"
+  - "probas-min-bl"
+  - "token-sar-bl"
+  
+  # CoT-UQ methods
+  - "probas-mean"
+  - "probas-min"
+  - "token-sar"
+  # All-tokens variants
+  - "probas-mean-alltokens"
+  - "probas-min-alltokens"
+  - "entropy-geo-alltokens"
+  - "token-sar-alltokens"
+  
+  # P(True) variants
+  - "p-true-bl"
+  - "p-true-allsteps"
+  - "p-true-keystep"
+  - "p-true-allkeywords"
+  - "p-true-keykeywords"
+  
+  # Self-Probing variants
+  - "self-probing-bl"
+  - "self-probing-allsteps"
+  - "self-probing-keystep"
+  - "self-probing-allkeywords"
+  - "self-probing-keykeywords"

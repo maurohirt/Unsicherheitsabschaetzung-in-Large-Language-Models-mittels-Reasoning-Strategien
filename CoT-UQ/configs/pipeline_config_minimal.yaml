@@ -1,0 +1,45 @@
+# Minimal configuration for testing the pipeline with a single dataset
+# This is useful for quick tests or debugging
+
+model_engine: "llama2-13b"
+
+# Only process one dataset for testing
+datasets:
+  - "ASDiv"
+
+output_path_base: "/home2/mauro.hirt/CoT-UQ/output_lama2"
+
+# inference hyper parameters
+temperature: 1.0
+try_times: 20  
+max_length_cot: 128
+
+# Test only a small portion of the dataset (first 10 samples)
+test_start: "0"
+test_end: "10"
+
+# Test all UQ methods
+uq_methods:
+  # Baseline methods
+  - "probas-mean-bl"
+  - "probas-min-bl"
+  - "token-sar-bl"
+  
+  # CoT-UQ methods
+  - "probas-mean"
+  - "probas-min"
+  - "token-sar"
+  
+  # P(True) variants
+  - "p-true-bl"
+  - "p-true-allsteps"
+  - "p-true-keystep"
+  - "p-true-allkeywords"
+  - "p-true-keykeywords"
+  
+  # Self-Probing variants
+  - "self-probing-bl"
+  - "self-probing-allsteps"
+  - "self-probing-keystep"
+  - "self-probing-allkeywords"
+  - "self-probing-keykeywords"

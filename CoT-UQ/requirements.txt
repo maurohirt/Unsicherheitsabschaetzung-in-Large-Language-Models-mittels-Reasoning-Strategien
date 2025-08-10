@@ -1,0 +1,22 @@
+torch==2.2.2+cu118 # needs torch.compiler submodule for flex_attention
+--extra-index-url https://download.pytorch.org/whl/cu118
+transformers>=4.45.0
+accelerate>=0.25.0
+safetensors>=0.4.0
+sentencepiece>=0.1.99
+torchmetrics>=1.0.0
+openai>=1.6.0
+
+# Existing dependencies
+peft>=0.4.0
+trl>=0.4.7
+jieba
+rouge-chinese
+nltk
+gradio>=3.36.0
+uvicorn
+pydantic==1.10.11
+fastapi==0.95.1
+sse-starlette
+sentence_transformers
+datasets>=2.12.0

@@ -1,0 +1,45 @@
+slurm/scripts/unused_code_experimental/
+.DS_Store
+# Output directories
+output/*
+slurm/logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Environment
+docker/
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+*.err
+*.out
+
+# Checkpoints and models
+*.bin
+*.ckpt
+*.pt
+*.pth
+*.h5
+*.model
+*.weights
+
+# Cache
+.cache/
+.hf-cache/
+.cache/huggingface/
