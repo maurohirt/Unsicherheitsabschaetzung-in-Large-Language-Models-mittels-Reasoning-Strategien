@@ -3,9 +3,44 @@
 Utilities to compute, aggregate, and visualize uncertainty estimation results across datasets and runs. Includes scripts for AUROC, ECE, Brier score, and Accuracy, plus plotting utilities to build “leaderboards” and reliability diagrams.
 
 - Python: 3.9+ recommended
-- Works from the project root: `Results_Analysis`
+- Run all commands from the repository root: `Results_Analysis/`
+
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [Folder structure](#folder-structure)
+- [Installation](#installation)
+- [Data layout](#data-layout)
+- [Configuration (YAML)](#configuration-yaml)
+- [Switching between CoT and CoD paths](#switching-between-cot-and-cod-paths)
+- [Quickstart](#quickstart)
+- [Visualization](#visualization)
+- [Notes & Troubleshooting](#notes--troubleshooting)
+- [Extending](#extending)
+
+## Prerequisites
+
+- Python 3.9+ (recommended)
+- pip installed
+- Optional: a virtual environment for reproducibility
 
 ## Folder structure
+
+```text
+Results_Analysis/
+├─ configs/
+│  ├─ accuracy_config.yaml, auroc_config.yaml, ece_config.yaml, brier_config.yaml
+│  ├─ *_cod.yaml, *_cot.yaml
+│  └─ datasets.yaml, uq_methods_cot.yaml, uq_methods_cod.yaml
+├─ scripts/
+│  ├─ calculation/ (calculate_*.py)
+│  └─ visualization/ (plot_*_leaderboard.py, plot_reliability_*.py)
+├─ src/
+│  ├─ data/loader.py
+│  ├─ metrics/ (auroc.py, ece.py, brier.py, accuracy.py)
+│  └─ utils/config_loader.py
+├─ Data/
+└─ results/
+```
 
 - `configs/`
   - Metric configs: `accuracy_config.yaml`, `auroc_config.yaml`, `ece_config.yaml`, `brier_config.yaml`
@@ -23,9 +58,12 @@ Utilities to compute, aggregate, and visualize uncertainty estimation results ac
 
 ## Installation
 
-Install dependencies using the pinned requirements file:
+Install with a virtual environment (recommended):
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate  # Windows: .venv\\Scripts\\activate
+pip install -U pip
 pip install -r requirements.txt
 ```
 
@@ -140,16 +178,16 @@ metrics:
 
 ## Quickstart
 
-From the project root (`Results_Analysis`):
+From the project root (`Results_Analysis/`):
 
 1) Adjust a config in `configs/` to point to your data and desired datasets/metrics.
 2) Run metric calculations (each script has a `--config` flag):
 
 ```bash
 python scripts/calculation/calculate_accuracy.py  --config configs/accuracy_config_cot.yaml
-python scripts/calculation/calculate_auroc.py     --config configs/auroc_config.yaml
-python scripts/calculation/calculate_ece.py       --config configs/ece_config.yaml
-python scripts/calculation/calculate_brier.py     --config configs/brier_config.yaml
+python scripts/calculation/calculate_auroc.py     --config configs/auroc_config_cot.yaml
+python scripts/calculation/calculate_ece.py       --config configs/ece_config_cot.yaml
+python scripts/calculation/calculate_brier.py     --config configs/brier_config_cot.yaml
 ```
 
 Each script:
@@ -177,7 +215,7 @@ Other useful plots (see `scripts/visualization/`):
 - `plot_auroc_leaderboard.py`, `plot_brier_leaderboard.py`, `plot_ece_leaderboard_split.py`
 - Reliability diagrams: `plot_reliability_ap.py`, `plot_reliability_ptrue.py`, `plot_reliability_selfprobing.py`
 
-## Notes & troubleshooting
+## Notes & Troubleshooting
 
 - Paths are resolved relative to this folder; scripts prepend the project root so relative paths in configs work when run from `Results_Analysis`.
 - If a metric is missing for a dataset/run, you’ll see warnings like "Metric '<name>' not found" and the run will be skipped for that metric.
