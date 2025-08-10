@@ -1,0 +1,38 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: hotpotQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA
+ARRAY_ID: 2
+UQ METHODS: probas-min-bl
+OpenAI API key is set. Length: 164 characters
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-min-bl
+===== STARTING RESULT ANALYSIS =====
+Dataset: hotpotQA, UQ Method: probas-min-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:hotpotQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5292503833770752
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-min-bl
+
+===== ALL ANALYSES COMPLETED FOR DATASET: hotpotQA =====
+Job completed for dataset: hotpotQA with all available UQ methods

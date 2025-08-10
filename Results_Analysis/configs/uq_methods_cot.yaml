@@ -1,0 +1,65 @@
+# UQ Methods Configuration
+# This file defines all available uncertainty quantification methods
+
+# Baseline methods (non-CoT)
+baseline_methods:
+  - name: "probas-mean-bl"
+    description: "Mean of output probabilities (baseline)"
+    
+  - name: "probas-min-bl"
+    description: "Minimum probability in the output distribution (baseline)"
+    
+  - name: "token-sar-bl"
+    description: "Token-level Sequence Average Reward (baseline)"
+
+# Standard CoT-UQ methods
+cot_methods:
+  - name: "probas-mean"
+    description: "Mean of output probabilities in CoT"
+    
+  - name: "probas-min"
+    description: "Minimum probability in CoT output distribution"
+    
+  - name: "token-sar"
+    description: "Token-level Sequence Average Reward in CoT"
+
+# P(True) variants
+true_probability_methods:
+  - name: "p-true-bl"
+    description: "Baseline P(True) method"
+    
+  - name: "p-true-allsteps"
+    description: "P(True) using all reasoning steps"
+    
+  - name: "p-true-keystep"
+    description: "P(True) using only key reasoning steps"
+    
+  - name: "p-true-allkeywords"
+    description: "P(True) using all keywords"
+    
+  - name: "p-true-keykeywords"
+    description: "P(True) using only key keywords"
+
+# Self-Probing variants
+self_probing_methods:
+  - name: "self-probing-bl"
+    description: "Baseline self-probing method"
+    
+  - name: "self-probing-allsteps"
+    description: "Self-probing using all reasoning steps"
+    
+  - name: "self-probing-keystep"
+    description: "Self-probing using only key reasoning steps"
+    
+  - name: "self-probing-allkeywords"
+    description: "Self-probing using all keywords"
+    
+  - name: "self-probing-keykeywords"
+    description: "Self-probing using only key keywords"
+
+# Combined list of all methods (for easy reference)
+all_methods:
+  - "{{ baseline_methods | map(attribute='name') | list }}"
+  - "{{ cot_methods | map(attribute='name') | list }}"
+  - "{{ true_probability_methods | map(attribute='name') | list }}"
+  - "{{ self_probing_methods | map(attribute='name') | list }}"

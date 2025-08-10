@@ -1,0 +1,1 @@
+{"id": "nluds-0606", "question": "Tony had $20. He paid $8 for a ticket to a baseball game. At the game, he bought a hot dog for $3. What amount of money did Tony have then?", "correct answer": 9.0, "llm response": "Step 1: Tony: $20\nStep 2: Ticket: $8\nStep 3: Tony: $20 - 8\nStep 4: Hot dog: $3\nStep 5: Tony: $20 - 8 - 3\nFinal Answer: $9", "llm answer": "$9"}

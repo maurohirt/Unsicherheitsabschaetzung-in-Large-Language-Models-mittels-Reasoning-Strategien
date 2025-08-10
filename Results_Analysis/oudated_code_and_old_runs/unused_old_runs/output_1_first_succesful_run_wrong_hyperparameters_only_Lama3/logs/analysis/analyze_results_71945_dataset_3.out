@@ -1,0 +1,38 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: svamp
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+ARRAY_ID: 3
+UQ METHODS: probas-mean
+OpenAI API key not required for svamp dataset
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: probas-mean
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5933434367179871
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean
+
+===== ALL ANALYSES COMPLETED FOR DATASET: svamp =====
+Job completed for dataset: svamp with all available UQ methods

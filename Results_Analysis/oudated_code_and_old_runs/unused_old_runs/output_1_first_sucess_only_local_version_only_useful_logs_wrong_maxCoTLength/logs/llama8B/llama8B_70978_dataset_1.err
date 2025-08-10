@@ -1,0 +1,1635 @@
+Fetching 17 files:   0%|          | 0/17 [00:00<?, ?it/s]/usr/local/lib/python3.9/dist-packages/huggingface_hub/file_download.py:943: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+Fetching 17 files: 100%|██████████| 17/17 [00:00<00:00, 2551.65it/s]
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:00<00:00,  4.01it/s]Loading checkpoint shards:  50%|█████     | 2/4 [00:00<00:00,  3.54it/s]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:00<00:00,  3.50it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00,  4.70it/s]
+  0%|          | 0/1548 [00:00<?, ?it/s]2025-05-09 19:13:31,201 : ##### This is the --1th-- Question #####
+  0%|          | 1/1548 [00:10<4:23:10, 10.21s/it]2025-05-09 19:13:41,405 : ##### This is the --2th-- Question #####
+  0%|          | 2/1548 [00:24<5:20:05, 12.42s/it]2025-05-09 19:13:55,380 : ##### This is the --3th-- Question #####
+  0%|          | 3/1548 [00:32<4:27:47, 10.40s/it]2025-05-09 19:14:03,372 : ##### This is the --4th-- Question #####
+  0%|          | 4/1548 [00:45<4:53:29, 11.41s/it]2025-05-09 19:14:16,318 : ##### This is the --5th-- Question #####
+  0%|          | 5/1548 [01:05<6:16:01, 14.62s/it]2025-05-09 19:14:36,649 : ##### This is the --6th-- Question #####
+  0%|          | 6/1548 [01:21<6:25:29, 15.00s/it]2025-05-09 19:14:52,376 : ##### This is the --7th-- Question #####
+  0%|          | 7/1548 [01:34<6:12:25, 14.50s/it]2025-05-09 19:15:05,850 : ##### This is the --8th-- Question #####
+2025-05-09 19:15:14,723 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:15:23,750 : New Reasoning Tokens Are None, Current try is 2
+  1%|          | 8/1548 [02:01<7:50:43, 18.34s/it]2025-05-09 19:15:32,410 : ##### This is the --9th-- Question #####
+2025-05-09 19:15:45,707 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  1%|          | 9/1548 [02:14<7:10:01, 16.77s/it]2025-05-09 19:15:45,718 : ##### This is the --10th-- Question #####
+  1%|          | 10/1548 [02:20<5:43:42, 13.41s/it]2025-05-09 19:15:51,605 : ##### This is the --11th-- Question #####
+2025-05-09 19:16:02,427 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:16:02,427 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:16:02,427 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+  1%|          | 11/1548 [02:31<5:23:16, 12.62s/it]2025-05-09 19:16:02,436 : ##### This is the --12th-- Question #####
+  1%|          | 12/1548 [02:39<4:46:00, 11.17s/it]2025-05-09 19:16:10,296 : ##### This is the --13th-- Question #####
+2025-05-09 19:16:23,419 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+  1%|          | 13/1548 [02:52<5:01:00, 11.77s/it]2025-05-09 19:16:23,429 : ##### This is the --14th-- Question #####
+  1%|          | 14/1548 [02:57<4:13:50,  9.93s/it]2025-05-09 19:16:29,113 : ##### This is the --15th-- Question #####
+  1%|          | 15/1548 [03:06<4:01:28,  9.45s/it]2025-05-09 19:16:37,457 : ##### This is the --16th-- Question #####
+  1%|          | 16/1548 [03:17<4:16:14, 10.04s/it]2025-05-09 19:16:48,856 : ##### This is the --17th-- Question #####
+  1%|          | 17/1548 [03:27<4:11:11,  9.84s/it]2025-05-09 19:16:58,250 : ##### This is the --18th-- Question #####
+  1%|          | 18/1548 [03:40<4:40:51, 11.01s/it]2025-05-09 19:17:11,987 : ##### This is the --19th-- Question #####
+  1%|          | 19/1548 [03:49<4:20:57, 10.24s/it]2025-05-09 19:17:20,425 : ##### This is the --20th-- Question #####
+2025-05-09 19:17:28,074 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:17:28,074 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+  1%|▏         | 20/1548 [03:56<4:01:01,  9.46s/it]2025-05-09 19:17:28,080 : ##### This is the --21th-- Question #####
+2025-05-09 19:17:39,832 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  1%|▏         | 21/1548 [04:08<4:18:22, 10.15s/it]2025-05-09 19:17:39,838 : ##### This is the --22th-- Question #####
+2025-05-09 19:17:43,363 : Exact Tokens Have no contribution scores, Current try is 1
+  1%|▏         | 22/1548 [04:18<4:15:43, 10.05s/it]2025-05-09 19:17:49,670 : ##### This is the --23th-- Question #####
+2025-05-09 19:17:58,575 : New Reasoning Tokens Are None, Current try is 1
+  1%|▏         | 23/1548 [04:39<5:39:02, 13.34s/it]2025-05-09 19:18:10,666 : ##### This is the --24th-- Question #####
+  2%|▏         | 24/1548 [04:51<5:32:26, 13.09s/it]2025-05-09 19:18:23,167 : ##### This is the --25th-- Question #####
+  2%|▏         | 25/1548 [05:08<6:00:52, 14.22s/it]2025-05-09 19:18:40,017 : ##### This is the --26th-- Question #####
+2025-05-09 19:18:46,575 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+  2%|▏         | 26/1548 [05:15<5:02:25, 11.92s/it]2025-05-09 19:18:46,585 : ##### This is the --27th-- Question #####
+  2%|▏         | 27/1548 [05:23<4:33:27, 10.79s/it]2025-05-09 19:18:54,730 : ##### This is the --28th-- Question #####
+  2%|▏         | 28/1548 [05:36<4:51:20, 11.50s/it]2025-05-09 19:19:07,887 : ##### This is the --29th-- Question #####
+  2%|▏         | 29/1548 [05:43<4:16:03, 10.11s/it]2025-05-09 19:19:14,769 : ##### This is the --30th-- Question #####
+  2%|▏         | 30/1548 [05:50<3:54:53,  9.28s/it]2025-05-09 19:19:22,115 : ##### This is the --31th-- Question #####
+  2%|▏         | 31/1548 [05:58<3:42:17,  8.79s/it]2025-05-09 19:19:29,760 : ##### This is the --32th-- Question #####
+  2%|▏         | 32/1548 [06:04<3:18:11,  7.84s/it]2025-05-09 19:19:35,394 : ##### This is the --33th-- Question #####
+  2%|▏         | 33/1548 [06:13<3:32:28,  8.42s/it]2025-05-09 19:19:45,139 : ##### This is the --34th-- Question #####
+  2%|▏         | 34/1548 [06:20<3:17:45,  7.84s/it]2025-05-09 19:19:51,627 : ##### This is the --35th-- Question #####
+  2%|▏         | 35/1548 [06:33<3:57:34,  9.42s/it]2025-05-09 19:20:04,751 : ##### This is the --36th-- Question #####
+2025-05-09 19:20:13,619 : New Reasoning Tokens Are None, Current try is 1
+  2%|▏         | 36/1548 [06:59<5:59:21, 14.26s/it]2025-05-09 19:20:30,297 : ##### This is the --37th-- Question #####
+  2%|▏         | 37/1548 [07:12<5:55:06, 14.10s/it]2025-05-09 19:20:44,026 : ##### This is the --38th-- Question #####
+  2%|▏         | 38/1548 [07:21<5:11:29, 12.38s/it]2025-05-09 19:20:52,380 : ##### This is the --39th-- Question #####
+2025-05-09 19:21:03,694 : Exact Tokens Have NO ANSWER, Current try is 1
+  3%|▎         | 39/1548 [07:47<6:55:10, 16.51s/it]2025-05-09 19:21:18,533 : ##### This is the --40th-- Question #####
+  3%|▎         | 40/1548 [08:01<6:36:07, 15.76s/it]2025-05-09 19:21:32,547 : ##### This is the --41th-- Question #####
+2025-05-09 19:21:42,517 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+  3%|▎         | 41/1548 [08:11<5:52:16, 14.03s/it]2025-05-09 19:21:42,523 : ##### This is the --42th-- Question #####
+  3%|▎         | 42/1548 [08:24<5:42:33, 13.65s/it]2025-05-09 19:21:55,289 : ##### This is the --43th-- Question #####
+2025-05-09 19:22:01,511 : Exact Tokens Have no contribution scores, Current try is 1
+  3%|▎         | 43/1548 [08:38<5:51:16, 14.00s/it]2025-05-09 19:22:10,125 : ##### This is the --44th-- Question #####
+2025-05-09 19:22:19,283 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 19:22:28,235 : New Reasoning Tokens Are None, Current try is 2
+  3%|▎         | 44/1548 [09:09<7:54:28, 18.93s/it]2025-05-09 19:22:40,548 : ##### This is the --45th-- Question #####
+2025-05-09 19:23:00,619 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:23:00,621 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:23:00,621 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:23:00,625 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+  3%|▎         | 45/1548 [09:29<8:02:52, 19.28s/it]2025-05-09 19:23:00,631 : ##### This is the --46th-- Question #####
+2025-05-09 19:23:08,099 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:23:08,102 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  3%|▎         | 46/1548 [09:36<6:33:56, 15.74s/it]2025-05-09 19:23:08,109 : ##### This is the --47th-- Question #####
+2025-05-09 19:23:13,804 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  3%|▎         | 47/1548 [09:42<5:18:21, 12.73s/it]2025-05-09 19:23:13,809 : ##### This is the --48th-- Question #####
+  3%|▎         | 48/1548 [09:46<4:12:10, 10.09s/it]2025-05-09 19:23:17,739 : ##### This is the --49th-- Question #####
+  3%|▎         | 49/1548 [09:53<3:45:55,  9.04s/it]2025-05-09 19:23:24,347 : ##### This is the --50th-- Question #####
+  3%|▎         | 50/1548 [09:59<3:28:31,  8.35s/it]2025-05-09 19:23:31,086 : ##### This is the --51th-- Question #####
+2025-05-09 19:23:42,189 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 19:23:42,191 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+  3%|▎         | 51/1548 [10:11<3:49:05,  9.18s/it]2025-05-09 19:23:42,210 : ##### This is the --52th-- Question #####
+2025-05-09 19:24:02,350 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:24:02,352 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  3%|▎         | 52/1548 [10:31<5:11:00, 12.47s/it]2025-05-09 19:24:02,358 : ##### This is the --53th-- Question #####
+2025-05-09 19:24:15,949 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+2025-05-09 19:24:15,950 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+  3%|▎         | 53/1548 [10:44<5:19:16, 12.81s/it]2025-05-09 19:24:15,965 : ##### This is the --54th-- Question #####
+  3%|▎         | 54/1548 [11:05<6:14:35, 15.04s/it]2025-05-09 19:24:36,212 : ##### This is the --55th-- Question #####
+  4%|▎         | 55/1548 [11:21<6:25:23, 15.49s/it]2025-05-09 19:24:52,741 : ##### This is the --56th-- Question #####
+  4%|▎         | 56/1548 [11:37<6:26:17, 15.53s/it]2025-05-09 19:25:08,379 : ##### This is the --57th-- Question #####
+  4%|▎         | 57/1548 [11:54<6:37:13, 15.98s/it]2025-05-09 19:25:25,415 : ##### This is the --58th-- Question #####
+  4%|▎         | 58/1548 [12:04<5:53:25, 14.23s/it]2025-05-09 19:25:35,556 : ##### This is the --59th-- Question #####
+2025-05-09 19:25:49,288 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+  4%|▍         | 59/1548 [12:18<5:49:31, 14.08s/it]2025-05-09 19:25:49,296 : ##### This is the --60th-- Question #####
+  4%|▍         | 60/1548 [12:34<6:04:48, 14.71s/it]2025-05-09 19:26:05,471 : ##### This is the --61th-- Question #####
+  4%|▍         | 61/1548 [12:45<5:39:48, 13.71s/it]2025-05-09 19:26:16,847 : ##### This is the --62th-- Question #####
+  4%|▍         | 62/1548 [12:54<5:05:47, 12.35s/it]2025-05-09 19:26:26,010 : ##### This is the --63th-- Question #####
+  4%|▍         | 63/1548 [13:01<4:24:21, 10.68s/it]2025-05-09 19:26:32,805 : ##### This is the --64th-- Question #####
+  4%|▍         | 64/1548 [13:10<4:08:28, 10.05s/it]2025-05-09 19:26:41,369 : ##### This is the --65th-- Question #####
+2025-05-09 19:26:50,083 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:26:59,521 : New Reasoning Tokens Are None, Current try is 2
+2025-05-09 19:27:13,655 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:27:13,655 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+  4%|▍         | 65/1548 [13:42<6:53:17, 16.72s/it]2025-05-09 19:27:13,672 : ##### This is the --66th-- Question #####
+  4%|▍         | 66/1548 [14:02<7:17:06, 17.70s/it]2025-05-09 19:27:33,638 : ##### This is the --67th-- Question #####
+2025-05-09 19:27:42,502 : New Reasoning Tokens Are None, Current try is 1
+  4%|▍         | 67/1548 [14:20<7:16:12, 17.67s/it]2025-05-09 19:27:51,254 : ##### This is the --68th-- Question #####
+  4%|▍         | 68/1548 [14:40<7:33:13, 18.37s/it]2025-05-09 19:28:11,265 : ##### This is the --69th-- Question #####
+  4%|▍         | 69/1548 [14:47<6:13:01, 15.13s/it]2025-05-09 19:28:18,842 : ##### This is the --70th-- Question #####
+  5%|▍         | 70/1548 [14:54<5:14:32, 12.77s/it]2025-05-09 19:28:26,089 : ##### This is the --71th-- Question #####
+2025-05-09 19:28:34,971 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:28:50,286 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  5%|▍         | 71/1548 [15:19<6:38:48, 16.20s/it]2025-05-09 19:28:50,296 : ##### This is the --72th-- Question #####
+  5%|▍         | 72/1548 [15:30<6:05:23, 14.85s/it]2025-05-09 19:29:02,007 : ##### This is the --73th-- Question #####
+2025-05-09 19:29:11,916 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 19:29:20,784 : New Reasoning Tokens Are None, Current try is 2
+  5%|▍         | 73/1548 [16:03<8:15:23, 20.15s/it]2025-05-09 19:29:34,526 : ##### This is the --74th-- Question #####
+  5%|▍         | 74/1548 [16:10<6:38:55, 16.24s/it]2025-05-09 19:29:41,631 : ##### This is the --75th-- Question #####
+2025-05-09 19:29:49,727 : Exact Tokens Have NO ANSWER, Current try is 1
+  5%|▍         | 75/1548 [16:29<6:59:30, 17.09s/it]2025-05-09 19:30:00,697 : ##### This is the --76th-- Question #####
+2025-05-09 19:30:09,564 : New Reasoning Tokens Are None, Current try is 1
+  5%|▍         | 76/1548 [16:43<6:37:20, 16.20s/it]2025-05-09 19:30:14,813 : ##### This is the --77th-- Question #####
+2025-05-09 19:30:23,689 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:30:30,543 : Exact Tokens Have NO ANSWER, Current try is 2
+  5%|▍         | 77/1548 [17:11<8:02:15, 19.67s/it]2025-05-09 19:30:42,597 : ##### This is the --78th-- Question #####
+  5%|▌         | 78/1548 [17:31<8:04:10, 19.76s/it]2025-05-09 19:31:02,567 : ##### This is the --79th-- Question #####
+  5%|▌         | 79/1548 [17:37<6:25:21, 15.74s/it]2025-05-09 19:31:08,919 : ##### This is the --80th-- Question #####
+  5%|▌         | 80/1548 [17:45<5:27:35, 13.39s/it]2025-05-09 19:31:16,826 : ##### This is the --81th-- Question #####
+2025-05-09 19:31:25,599 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:31:36,284 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:31:36,286 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+  5%|▌         | 81/1548 [18:05<6:11:56, 15.21s/it]2025-05-09 19:31:36,291 : ##### This is the --82th-- Question #####
+  5%|▌         | 82/1548 [18:16<5:46:28, 14.18s/it]2025-05-09 19:31:48,071 : ##### This is the --83th-- Question #####
+  5%|▌         | 83/1548 [18:33<6:03:35, 14.89s/it]2025-05-09 19:32:04,613 : ##### This is the --84th-- Question #####
+2025-05-09 19:32:11,312 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 19:32:16,294 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  5%|▌         | 84/1548 [18:45<5:39:53, 13.93s/it]2025-05-09 19:32:16,300 : ##### This is the --85th-- Question #####
+  5%|▌         | 85/1548 [19:03<6:09:12, 15.14s/it]2025-05-09 19:32:34,270 : ##### This is the --86th-- Question #####
+2025-05-09 19:32:46,844 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:32:46,845 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+  6%|▌         | 86/1548 [19:15<5:50:14, 14.37s/it]2025-05-09 19:32:46,852 : ##### This is the --87th-- Question #####
+  6%|▌         | 87/1548 [19:31<6:01:49, 14.86s/it]2025-05-09 19:33:02,849 : ##### This is the --88th-- Question #####
+2025-05-09 19:33:07,379 : Exact Tokens Have no contribution scores, Current try is 1
+  6%|▌         | 88/1548 [19:46<5:59:09, 14.76s/it]2025-05-09 19:33:17,373 : ##### This is the --89th-- Question #####
+  6%|▌         | 89/1548 [19:51<4:52:58, 12.05s/it]2025-05-09 19:33:23,094 : ##### This is the --90th-- Question #####
+2025-05-09 19:33:29,360 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  6%|▌         | 90/1548 [19:58<4:10:39, 10.32s/it]2025-05-09 19:33:29,365 : ##### This is the --91th-- Question #####
+  6%|▌         | 91/1548 [20:13<4:43:25, 11.67s/it]2025-05-09 19:33:44,202 : ##### This is the --92th-- Question #####
+  6%|▌         | 92/1548 [20:21<4:18:22, 10.65s/it]2025-05-09 19:33:52,460 : ##### This is the --93th-- Question #####
+  6%|▌         | 93/1548 [20:41<5:28:20, 13.54s/it]2025-05-09 19:34:12,754 : ##### This is the --94th-- Question #####
+2025-05-09 19:34:18,010 : Exact Tokens Have NO ANSWER, Current try is 1
+  6%|▌         | 94/1548 [21:00<6:07:25, 15.16s/it]2025-05-09 19:34:31,695 : ##### This is the --95th-- Question #####
+  6%|▌         | 95/1548 [21:07<5:11:15, 12.85s/it]2025-05-09 19:34:39,162 : ##### This is the --96th-- Question #####
+2025-05-09 19:34:54,492 : Len of keywords list doesn't match the len of step dict, Current try is 1
+  6%|▌         | 96/1548 [21:35<7:00:54, 17.39s/it]2025-05-09 19:35:07,148 : ##### This is the --97th-- Question #####
+  6%|▋         | 97/1548 [21:42<5:40:51, 14.09s/it]2025-05-09 19:35:13,553 : ##### This is the --98th-- Question #####
+  6%|▋         | 98/1548 [21:53<5:20:16, 13.25s/it]2025-05-09 19:35:24,834 : ##### This is the --99th-- Question #####
+  6%|▋         | 99/1548 [22:05<5:10:25, 12.85s/it]2025-05-09 19:35:36,759 : ##### This is the --100th-- Question #####
+  6%|▋         | 100/1548 [22:24<5:52:53, 14.62s/it]2025-05-09 19:35:55,507 : ##### This is the --101th-- Question #####
+2025-05-09 19:36:10,195 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+  7%|▋         | 101/1548 [22:39<5:53:10, 14.64s/it]2025-05-09 19:36:10,202 : ##### This is the --102th-- Question #####
+  7%|▋         | 102/1548 [22:49<5:24:39, 13.47s/it]2025-05-09 19:36:20,943 : ##### This is the --103th-- Question #####
+  7%|▋         | 103/1548 [22:57<4:45:27, 11.85s/it]2025-05-09 19:36:29,014 : ##### This is the --104th-- Question #####
+  7%|▋         | 104/1548 [23:07<4:27:41, 11.12s/it]2025-05-09 19:36:38,434 : ##### This is the --105th-- Question #####
+  7%|▋         | 105/1548 [23:14<3:57:26,  9.87s/it]2025-05-09 19:36:45,390 : ##### This is the --106th-- Question #####
+  7%|▋         | 106/1548 [23:25<4:09:25, 10.38s/it]2025-05-09 19:36:56,947 : ##### This is the --107th-- Question #####
+  7%|▋         | 107/1548 [23:33<3:50:39,  9.60s/it]2025-05-09 19:37:04,745 : ##### This is the --108th-- Question #####
+2025-05-09 19:37:13,605 : New Reasoning Tokens Are None, Current try is 1
+  7%|▋         | 108/1548 [23:53<5:06:14, 12.76s/it]2025-05-09 19:37:24,874 : ##### This is the --109th-- Question #####
+2025-05-09 19:37:33,748 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:37:52,010 : Len of keywords list doesn't match the len of step dict, Current try is 2
+  7%|▋         | 109/1548 [24:33<8:21:24, 20.91s/it]2025-05-09 19:38:04,783 : ##### This is the --110th-- Question #####
+  7%|▋         | 110/1548 [24:40<6:41:41, 16.76s/it]2025-05-09 19:38:11,870 : ##### This is the --111th-- Question #####
+2025-05-09 19:38:23,947 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  7%|▋         | 111/1548 [24:52<6:07:48, 15.36s/it]2025-05-09 19:38:23,952 : ##### This is the --112th-- Question #####
+  7%|▋         | 112/1548 [25:00<5:12:19, 13.05s/it]2025-05-09 19:38:31,624 : ##### This is the --113th-- Question #####
+  7%|▋         | 113/1548 [25:09<4:40:06, 11.71s/it]2025-05-09 19:38:40,208 : ##### This is the --114th-- Question #####
+  7%|▋         | 114/1548 [25:24<5:04:07, 12.72s/it]2025-05-09 19:38:55,296 : ##### This is the --115th-- Question #####
+  7%|▋         | 115/1548 [25:40<5:27:28, 13.71s/it]2025-05-09 19:39:11,310 : ##### This is the --116th-- Question #####
+  7%|▋         | 116/1548 [25:48<4:50:07, 12.16s/it]2025-05-09 19:39:19,838 : ##### This is the --117th-- Question #####
+  8%|▊         | 117/1548 [26:02<5:05:41, 12.82s/it]2025-05-09 19:39:34,203 : ##### This is the --118th-- Question #####
+  8%|▊         | 118/1548 [26:11<4:33:21, 11.47s/it]2025-05-09 19:39:42,521 : ##### This is the --119th-- Question #####
+  8%|▊         | 119/1548 [26:24<4:43:26, 11.90s/it]2025-05-09 19:39:55,429 : ##### This is the --120th-- Question #####
+  8%|▊         | 120/1548 [26:39<5:03:56, 12.77s/it]2025-05-09 19:40:10,229 : ##### This is the --121th-- Question #####
+  8%|▊         | 121/1548 [26:53<5:14:00, 13.20s/it]2025-05-09 19:40:24,441 : ##### This is the --122th-- Question #####
+2025-05-09 19:40:38,478 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+2025-05-09 19:40:38,478 : 
+Step 3-Keyword-3 Does not appear in the Step Text
+  8%|▊         | 122/1548 [27:07<5:19:46, 13.45s/it]2025-05-09 19:40:38,489 : ##### This is the --123th-- Question #####
+  8%|▊         | 123/1548 [27:20<5:17:01, 13.35s/it]2025-05-09 19:40:51,583 : ##### This is the --124th-- Question #####
+  8%|▊         | 124/1548 [27:31<5:00:39, 12.67s/it]2025-05-09 19:41:02,664 : ##### This is the --125th-- Question #####
+  8%|▊         | 125/1548 [27:51<5:54:27, 14.95s/it]2025-05-09 19:41:22,923 : ##### This is the --126th-- Question #####
+2025-05-09 19:41:30,598 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+  8%|▊         | 126/1548 [27:59<5:02:34, 12.77s/it]2025-05-09 19:41:30,608 : ##### This is the --127th-- Question #####
+  8%|▊         | 127/1548 [28:19<5:54:26, 14.97s/it]2025-05-09 19:41:50,709 : ##### This is the --128th-- Question #####
+  8%|▊         | 128/1548 [28:35<5:58:26, 15.15s/it]2025-05-09 19:42:06,268 : ##### This is the --129th-- Question #####
+2025-05-09 19:42:13,314 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+  8%|▊         | 129/1548 [28:42<5:00:47, 12.72s/it]2025-05-09 19:42:13,323 : ##### This is the --130th-- Question #####
+2025-05-09 19:42:22,167 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:42:36,546 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+  8%|▊         | 130/1548 [29:05<6:15:06, 15.87s/it]2025-05-09 19:42:36,554 : ##### This is the --131th-- Question #####
+  8%|▊         | 131/1548 [29:11<5:06:23, 12.97s/it]2025-05-09 19:42:42,764 : ##### This is the --132th-- Question #####
+2025-05-09 19:42:51,664 : New Reasoning Tokens Are None, Current try is 1
+  9%|▊         | 132/1548 [29:36<6:27:28, 16.42s/it]2025-05-09 19:43:07,225 : ##### This is the --133th-- Question #####
+  9%|▊         | 133/1548 [29:44<5:28:36, 13.93s/it]2025-05-09 19:43:15,356 : ##### This is the --134th-- Question #####
+2025-05-09 19:43:28,768 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+  9%|▊         | 134/1548 [29:57<5:24:43, 13.78s/it]2025-05-09 19:43:28,775 : ##### This is the --135th-- Question #####
+2025-05-09 19:43:48,746 : 
+Step 5-Keyword-1 Does not appear in the Step Text
+  9%|▊         | 135/1548 [30:17<6:08:17, 15.64s/it]2025-05-09 19:43:48,753 : ##### This is the --136th-- Question #####
+  9%|▉         | 136/1548 [30:26<5:17:46, 13.50s/it]2025-05-09 19:43:57,273 : ##### This is the --137th-- Question #####
+  9%|▉         | 137/1548 [30:38<5:11:59, 13.27s/it]2025-05-09 19:44:09,994 : ##### This is the --138th-- Question #####
+  9%|▉         | 138/1548 [30:45<4:22:26, 11.17s/it]2025-05-09 19:44:16,259 : ##### This is the --139th-- Question #####
+2025-05-09 19:44:33,272 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 19:44:38,970 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-09 19:44:53,133 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:44:53,134 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+  9%|▉         | 139/1548 [31:21<7:23:27, 18.88s/it]2025-05-09 19:44:53,150 : ##### This is the --140th-- Question #####
+  9%|▉         | 140/1548 [31:33<6:30:08, 16.63s/it]2025-05-09 19:45:04,502 : ##### This is the --141th-- Question #####
+  9%|▉         | 141/1548 [31:43<5:42:48, 14.62s/it]2025-05-09 19:45:14,444 : ##### This is the --142th-- Question #####
+  9%|▉         | 142/1548 [31:49<4:42:05, 12.04s/it]2025-05-09 19:45:20,455 : ##### This is the --143th-- Question #####
+  9%|▉         | 143/1548 [32:02<4:49:57, 12.38s/it]2025-05-09 19:45:33,641 : ##### This is the --144th-- Question #####
+  9%|▉         | 144/1548 [32:20<5:31:56, 14.19s/it]2025-05-09 19:45:52,035 : ##### This is the --145th-- Question #####
+  9%|▉         | 145/1548 [32:27<4:41:32, 12.04s/it]2025-05-09 19:45:59,070 : ##### This is the --146th-- Question #####
+  9%|▉         | 146/1548 [32:34<4:02:16, 10.37s/it]2025-05-09 19:46:05,536 : ##### This is the --147th-- Question #####
+  9%|▉         | 147/1548 [32:48<4:25:12, 11.36s/it]2025-05-09 19:46:19,208 : ##### This is the --148th-- Question #####
+ 10%|▉         | 148/1548 [32:56<4:07:25, 10.60s/it]2025-05-09 19:46:28,046 : ##### This is the --149th-- Question #####
+2025-05-09 19:46:33,285 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 10%|▉         | 149/1548 [33:02<3:29:46,  9.00s/it]2025-05-09 19:46:33,295 : ##### This is the --150th-- Question #####
+2025-05-09 19:46:50,113 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 10%|▉         | 150/1548 [33:31<5:51:21, 15.08s/it]2025-05-09 19:47:02,567 : ##### This is the --151th-- Question #####
+ 10%|▉         | 151/1548 [33:39<5:05:38, 13.13s/it]2025-05-09 19:47:11,137 : ##### This is the --152th-- Question #####
+ 10%|▉         | 152/1548 [33:53<5:09:13, 13.29s/it]2025-05-09 19:47:24,816 : ##### This is the --153th-- Question #####
+2025-05-09 19:47:34,526 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 10%|▉         | 153/1548 [34:03<4:44:06, 12.22s/it]2025-05-09 19:47:34,531 : ##### This is the --154th-- Question #####
+ 10%|▉         | 154/1548 [34:13<4:28:44, 11.57s/it]2025-05-09 19:47:44,575 : ##### This is the --155th-- Question #####
+ 10%|█         | 155/1548 [34:22<4:09:37, 10.75s/it]2025-05-09 19:47:53,426 : ##### This is the --156th-- Question #####
+2025-05-09 19:48:02,287 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:48:09,178 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:48:09,179 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 10%|█         | 156/1548 [34:37<4:44:18, 12.25s/it]2025-05-09 19:48:09,187 : ##### This is the --157th-- Question #####
+ 10%|█         | 157/1548 [34:50<4:49:00, 12.47s/it]2025-05-09 19:48:22,147 : ##### This is the --158th-- Question #####
+2025-05-09 19:48:35,884 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:48:35,885 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 10%|█         | 158/1548 [35:04<4:57:45, 12.85s/it]2025-05-09 19:48:35,906 : ##### This is the --159th-- Question #####
+ 10%|█         | 159/1548 [35:12<4:25:32, 11.47s/it]2025-05-09 19:48:44,146 : ##### This is the --160th-- Question #####
+ 10%|█         | 160/1548 [35:19<3:52:00, 10.03s/it]2025-05-09 19:48:50,812 : ##### This is the --161th-- Question #####
+ 10%|█         | 161/1548 [35:29<3:52:17, 10.05s/it]2025-05-09 19:49:00,907 : ##### This is the --162th-- Question #####
+2025-05-09 19:49:14,085 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 10%|█         | 162/1548 [35:42<4:13:53, 10.99s/it]2025-05-09 19:49:14,097 : ##### This is the --163th-- Question #####
+2025-05-09 19:49:26,324 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 11%|█         | 163/1548 [35:55<4:22:18, 11.36s/it]2025-05-09 19:49:26,329 : ##### This is the --164th-- Question #####
+ 11%|█         | 164/1548 [36:01<3:45:41,  9.78s/it]2025-05-09 19:49:32,428 : ##### This is the --165th-- Question #####
+ 11%|█         | 165/1548 [36:07<3:23:54,  8.85s/it]2025-05-09 19:49:39,091 : ##### This is the --166th-- Question #####
+2025-05-09 19:49:49,718 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 19:50:04,316 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+ 11%|█         | 166/1548 [36:33<5:17:02, 13.76s/it]2025-05-09 19:50:04,326 : ##### This is the --167th-- Question #####
+ 11%|█         | 167/1548 [36:39<4:24:24, 11.49s/it]2025-05-09 19:50:10,501 : ##### This is the --168th-- Question #####
+ 11%|█         | 168/1548 [36:44<3:38:29,  9.50s/it]2025-05-09 19:50:15,363 : ##### This is the --169th-- Question #####
+2025-05-09 19:50:37,294 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 11%|█         | 169/1548 [37:06<5:04:06, 13.23s/it]2025-05-09 19:50:37,304 : ##### This is the --170th-- Question #####
+ 11%|█         | 170/1548 [37:19<5:02:11, 13.16s/it]2025-05-09 19:50:50,292 : ##### This is the --171th-- Question #####
+ 11%|█         | 171/1548 [37:24<4:06:57, 10.76s/it]2025-05-09 19:50:55,454 : ##### This is the --172th-- Question #####
+ 11%|█         | 172/1548 [37:30<3:32:23,  9.26s/it]2025-05-09 19:51:01,218 : ##### This is the --173th-- Question #####
+2025-05-09 19:51:05,699 : Exact Tokens Have no contribution scores, Current try is 1
+ 11%|█         | 173/1548 [37:41<3:45:12,  9.83s/it]2025-05-09 19:51:12,366 : ##### This is the --174th-- Question #####
+ 11%|█         | 174/1548 [37:53<4:04:26, 10.67s/it]2025-05-09 19:51:25,016 : ##### This is the --175th-- Question #####
+ 11%|█▏        | 175/1548 [38:01<3:42:16,  9.71s/it]2025-05-09 19:51:32,488 : ##### This is the --176th-- Question #####
+ 11%|█▏        | 176/1548 [38:13<4:00:46, 10.53s/it]2025-05-09 19:51:44,921 : ##### This is the --177th-- Question #####
+2025-05-09 19:51:54,666 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 11%|█▏        | 177/1548 [38:38<5:39:30, 14.86s/it]2025-05-09 19:52:09,885 : ##### This is the --178th-- Question #####
+2025-05-09 19:52:20,389 : Exact Tokens Have NO ANSWER, Current try is 1
+ 11%|█▏        | 178/1548 [39:03<6:44:54, 17.73s/it]2025-05-09 19:52:34,320 : ##### This is the --179th-- Question #####
+2025-05-09 19:52:47,029 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 19:53:01,939 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:53:01,942 : 
+Step 6-Keyword-0 Does not appear in the Step Text
+ 12%|█▏        | 179/1548 [39:30<7:52:20, 20.70s/it]2025-05-09 19:53:01,948 : ##### This is the --180th-- Question #####
+ 12%|█▏        | 180/1548 [39:38<6:25:16, 16.90s/it]2025-05-09 19:53:09,977 : ##### This is the --181th-- Question #####
+2025-05-09 19:53:24,037 : Exact Tokens Have NO ANSWER, Current try is 1
+ 12%|█▏        | 181/1548 [39:59<6:51:44, 18.07s/it]2025-05-09 19:53:30,784 : ##### This is the --182th-- Question #####
+ 12%|█▏        | 182/1548 [40:11<6:09:40, 16.24s/it]2025-05-09 19:53:42,740 : ##### This is the --183th-- Question #####
+ 12%|█▏        | 183/1548 [40:22<5:30:53, 14.54s/it]2025-05-09 19:53:53,335 : ##### This is the --184th-- Question #####
+2025-05-09 19:54:13,240 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 12%|█▏        | 184/1548 [40:42<6:07:19, 16.16s/it]2025-05-09 19:54:13,263 : ##### This is the --185th-- Question #####
+2025-05-09 19:54:25,991 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 12%|█▏        | 185/1548 [40:54<5:43:45, 15.13s/it]2025-05-09 19:54:25,997 : ##### This is the --186th-- Question #####
+ 12%|█▏        | 186/1548 [41:04<5:07:50, 13.56s/it]2025-05-09 19:54:35,893 : ##### This is the --187th-- Question #####
+ 12%|█▏        | 187/1548 [41:12<4:28:41, 11.85s/it]2025-05-09 19:54:43,733 : ##### This is the --188th-- Question #####
+ 12%|█▏        | 188/1548 [41:18<3:51:49, 10.23s/it]2025-05-09 19:54:50,187 : ##### This is the --189th-- Question #####
+2025-05-09 19:54:59,079 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:55:12,333 : Exact Tokens Have NO ANSWER, Current try is 2
+ 12%|█▏        | 189/1548 [41:55<6:48:23, 18.03s/it]2025-05-09 19:55:26,429 : ##### This is the --190th-- Question #####
+2025-05-09 19:55:35,416 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 19:55:44,339 : New Reasoning Tokens Are None, Current try is 2
+2025-05-09 19:55:58,007 : Len of keywords list doesn't match the len of step dict, Current try is 3
+ 12%|█▏        | 190/1548 [42:38<9:39:01, 25.58s/it]2025-05-09 19:56:09,628 : ##### This is the --191th-- Question #####
+2025-05-09 19:56:18,032 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 12%|█▏        | 191/1548 [42:46<7:42:06, 20.43s/it]2025-05-09 19:56:18,043 : ##### This is the --192th-- Question #####
+ 12%|█▏        | 192/1548 [42:54<6:16:34, 16.66s/it]2025-05-09 19:56:25,908 : ##### This is the --193th-- Question #####
+ 12%|█▏        | 193/1548 [43:12<6:20:55, 16.87s/it]2025-05-09 19:56:43,260 : ##### This is the --194th-- Question #####
+ 13%|█▎        | 194/1548 [43:27<6:10:23, 16.41s/it]2025-05-09 19:56:58,608 : ##### This is the --195th-- Question #####
+2025-05-09 19:57:11,493 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 13%|█▎        | 195/1548 [43:40<5:46:18, 15.36s/it]2025-05-09 19:57:11,502 : ##### This is the --196th-- Question #####
+2025-05-09 19:57:15,467 : Cannot locate the Final Answer, Current try is 1
+ 13%|█▎        | 196/1548 [43:49<5:07:15, 13.64s/it]2025-05-09 19:57:21,120 : ##### This is the --197th-- Question #####
+2025-05-09 19:57:30,025 : New Reasoning Tokens Are None, Current try is 1
+ 13%|█▎        | 197/1548 [44:05<5:22:33, 14.33s/it]2025-05-09 19:57:37,054 : ##### This is the --198th-- Question #####
+2025-05-09 19:57:41,042 : Exact Tokens Have NO ANSWER, Current try is 1
+ 13%|█▎        | 198/1548 [44:15<4:49:48, 12.88s/it]2025-05-09 19:57:46,570 : ##### This is the --199th-- Question #####
+2025-05-09 19:57:55,526 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:58:09,952 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+ 13%|█▎        | 199/1548 [44:38<6:00:34, 16.04s/it]2025-05-09 19:58:09,966 : ##### This is the --200th-- Question #####
+2025-05-09 19:58:19,560 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:58:19,562 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:58:19,564 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 13%|█▎        | 200/1548 [44:48<5:16:57, 14.11s/it]2025-05-09 19:58:19,573 : ##### This is the --201th-- Question #####
+ 13%|█▎        | 201/1548 [45:04<5:28:21, 14.63s/it]2025-05-09 19:58:35,408 : ##### This is the --202th-- Question #####
+2025-05-09 19:58:41,339 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:58:41,339 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:58:41,340 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 19:58:41,341 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:58:41,342 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-09 19:58:41,342 : Token Probability from All Steps are All None, Current try is 1
+ 13%|█▎        | 202/1548 [45:16<5:14:07, 14.00s/it]2025-05-09 19:58:47,962 : ##### This is the --203th-- Question #####
+ 13%|█▎        | 203/1548 [45:24<4:31:54, 12.13s/it]2025-05-09 19:58:55,716 : ##### This is the --204th-- Question #####
+2025-05-09 19:59:03,933 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 13%|█▎        | 204/1548 [45:32<4:05:27, 10.96s/it]2025-05-09 19:59:03,940 : ##### This is the --205th-- Question #####
+ 13%|█▎        | 205/1548 [45:41<3:47:13, 10.15s/it]2025-05-09 19:59:12,210 : ##### This is the --206th-- Question #####
+2025-05-09 19:59:21,118 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 19:59:29,728 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 13%|█▎        | 206/1548 [45:58<4:36:31, 12.36s/it]2025-05-09 19:59:29,734 : ##### This is the --207th-- Question #####
+ 13%|█▎        | 207/1548 [46:11<4:38:16, 12.45s/it]2025-05-09 19:59:42,388 : ##### This is the --208th-- Question #####
+2025-05-09 19:59:51,274 : New Reasoning Tokens Are None, Current try is 1
+ 13%|█▎        | 208/1548 [46:32<5:39:08, 15.19s/it]2025-05-09 20:00:03,976 : ##### This is the --209th-- Question #####
+ 14%|█▎        | 209/1548 [46:39<4:39:45, 12.54s/it]2025-05-09 20:00:10,310 : ##### This is the --210th-- Question #####
+ 14%|█▎        | 210/1548 [46:45<3:59:44, 10.75s/it]2025-05-09 20:00:16,895 : ##### This is the --211th-- Question #####
+2025-05-09 20:00:24,587 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:00:24,587 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:00:24,589 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:00:24,589 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 14%|█▎        | 211/1548 [46:53<3:39:10,  9.84s/it]2025-05-09 20:00:24,595 : ##### This is the --212th-- Question #####
+2025-05-09 20:00:28,526 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 14%|█▎        | 212/1548 [46:57<2:59:35,  8.07s/it]2025-05-09 20:00:28,531 : ##### This is the --213th-- Question #####
+ 14%|█▍        | 213/1548 [47:08<3:22:04,  9.08s/it]2025-05-09 20:00:39,984 : ##### This is the --214th-- Question #####
+2025-05-09 20:00:55,359 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 14%|█▍        | 214/1548 [47:24<4:03:56, 10.97s/it]2025-05-09 20:00:55,365 : ##### This is the --215th-- Question #####
+ 14%|█▍        | 215/1548 [47:31<3:36:12,  9.73s/it]2025-05-09 20:01:02,204 : ##### This is the --216th-- Question #####
+ 14%|█▍        | 216/1548 [47:45<4:05:21, 11.05s/it]2025-05-09 20:01:16,343 : ##### This is the --217th-- Question #####
+2025-05-09 20:01:27,752 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:01:27,752 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:01:27,752 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:01:27,753 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:01:27,758 : 
+Step 4-Keyword-1 Does not appear in the Step Text
+ 14%|█▍        | 217/1548 [47:56<4:07:40, 11.16s/it]2025-05-09 20:01:27,764 : ##### This is the --218th-- Question #####
+2025-05-09 20:01:42,365 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:01:51,278 : New Reasoning Tokens Are None, Current try is 2
+ 14%|█▍        | 218/1548 [48:27<6:21:40, 17.22s/it]2025-05-09 20:01:59,109 : ##### This is the --219th-- Question #####
+ 14%|█▍        | 219/1548 [48:34<5:12:24, 14.10s/it]2025-05-09 20:02:05,947 : ##### This is the --220th-- Question #####
+ 14%|█▍        | 220/1548 [48:44<4:43:39, 12.82s/it]2025-05-09 20:02:15,757 : ##### This is the --221th-- Question #####
+2025-05-09 20:02:28,276 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 14%|█▍        | 221/1548 [48:57<4:41:30, 12.73s/it]2025-05-09 20:02:28,287 : ##### This is the --222th-- Question #####
+2025-05-09 20:02:37,196 : New Reasoning Tokens Are None, Current try is 1
+ 14%|█▍        | 222/1548 [49:18<5:38:44, 15.33s/it]2025-05-09 20:02:49,673 : ##### This is the --223th-- Question #####
+2025-05-09 20:02:58,535 : New Reasoning Tokens Are None, Current try is 1
+ 14%|█▍        | 223/1548 [49:32<5:30:05, 14.95s/it]2025-05-09 20:03:03,735 : ##### This is the --224th-- Question #####
+ 14%|█▍        | 224/1548 [49:38<4:31:11, 12.29s/it]2025-05-09 20:03:09,821 : ##### This is the --225th-- Question #####
+2025-05-09 20:03:23,405 : Exact Tokens Have NO ANSWER, Current try is 1
+ 15%|█▍        | 225/1548 [50:05<6:08:34, 16.72s/it]2025-05-09 20:03:36,870 : ##### This is the --226th-- Question #####
+2025-05-09 20:03:53,351 : Exact Tokens Have NO ANSWER, Current try is 1
+ 15%|█▍        | 226/1548 [50:29<6:55:37, 18.86s/it]2025-05-09 20:04:00,739 : ##### This is the --227th-- Question #####
+2025-05-09 20:04:16,580 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+ 15%|█▍        | 227/1548 [50:45<6:35:24, 17.96s/it]2025-05-09 20:04:16,590 : ##### This is the --228th-- Question #####
+ 15%|█▍        | 228/1548 [50:53<5:30:14, 15.01s/it]2025-05-09 20:04:24,722 : ##### This is the --229th-- Question #####
+ 15%|█▍        | 229/1548 [51:00<4:37:10, 12.61s/it]2025-05-09 20:04:31,725 : ##### This is the --230th-- Question #####
+ 15%|█▍        | 230/1548 [51:07<4:01:06, 10.98s/it]2025-05-09 20:04:38,897 : ##### This is the --231th-- Question #####
+ 15%|█▍        | 231/1548 [51:20<4:15:47, 11.65s/it]2025-05-09 20:04:52,124 : ##### This is the --232th-- Question #####
+2025-05-09 20:05:11,359 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:05:20,331 : New Reasoning Tokens Are None, Current try is 2
+ 15%|█▍        | 232/1548 [52:02<7:30:13, 20.53s/it]2025-05-09 20:05:33,357 : ##### This is the --233th-- Question #####
+2025-05-09 20:05:42,214 : New Reasoning Tokens Are None, Current try is 1
+ 15%|█▌        | 233/1548 [52:24<7:38:56, 20.94s/it]2025-05-09 20:05:55,268 : ##### This is the --234th-- Question #####
+ 15%|█▌        | 234/1548 [52:44<7:32:57, 20.68s/it]2025-05-09 20:06:15,343 : ##### This is the --235th-- Question #####
+ 15%|█▌        | 235/1548 [52:49<5:52:30, 16.11s/it]2025-05-09 20:06:20,779 : ##### This is the --236th-- Question #####
+ 15%|█▌        | 236/1548 [52:59<5:11:14, 14.23s/it]2025-05-09 20:06:30,638 : ##### This is the --237th-- Question #####
+2025-05-09 20:06:34,333 : Exact Tokens Have no contribution scores, Current try is 1
+ 15%|█▌        | 237/1548 [53:16<5:29:28, 15.08s/it]2025-05-09 20:06:47,689 : ##### This is the --238th-- Question #####
+ 15%|█▌        | 238/1548 [53:28<5:09:08, 14.16s/it]2025-05-09 20:06:59,708 : ##### This is the --239th-- Question #####
+ 15%|█▌        | 239/1548 [53:35<4:24:37, 12.13s/it]2025-05-09 20:07:07,096 : ##### This is the --240th-- Question #####
+ 16%|█▌        | 240/1548 [53:49<4:36:02, 12.66s/it]2025-05-09 20:07:21,001 : ##### This is the --241th-- Question #####
+ 16%|█▌        | 241/1548 [54:00<4:20:34, 11.96s/it]2025-05-09 20:07:31,330 : ##### This is the --242th-- Question #####
+2025-05-09 20:07:37,474 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:07:51,252 : Len of keywords list doesn't match the len of step dict, Current try is 2
+2025-05-09 20:08:05,272 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:08:05,274 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:08:05,276 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 16%|█▌        | 242/1548 [54:34<6:43:58, 18.56s/it]2025-05-09 20:08:05,287 : ##### This is the --243th-- Question #####
+ 16%|█▌        | 243/1548 [54:39<5:19:11, 14.68s/it]2025-05-09 20:08:10,895 : ##### This is the --244th-- Question #####
+2025-05-09 20:08:19,749 : New Reasoning Tokens Are None, Current try is 1
+ 16%|█▌        | 244/1548 [55:00<5:56:09, 16.39s/it]2025-05-09 20:08:31,278 : ##### This is the --245th-- Question #####
+ 16%|█▌        | 245/1548 [55:12<5:32:55, 15.33s/it]2025-05-09 20:08:44,142 : ##### This is the --246th-- Question #####
+ 16%|█▌        | 246/1548 [55:18<4:30:07, 12.45s/it]2025-05-09 20:08:49,865 : ##### This is the --247th-- Question #####
+2025-05-09 20:08:55,992 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 16%|█▌        | 247/1548 [55:24<3:48:50, 10.55s/it]2025-05-09 20:08:55,999 : ##### This is the --248th-- Question #####
+2025-05-09 20:09:13,155 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:09:13,155 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:09:13,155 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+ 16%|█▌        | 248/1548 [55:41<4:31:36, 12.54s/it]2025-05-09 20:09:13,166 : ##### This is the --249th-- Question #####
+ 16%|█▌        | 249/1548 [55:47<3:43:28, 10.32s/it]2025-05-09 20:09:18,318 : ##### This is the --250th-- Question #####
+ 16%|█▌        | 250/1548 [55:58<3:49:24, 10.60s/it]2025-05-09 20:09:29,580 : ##### This is the --251th-- Question #####
+ 16%|█▌        | 251/1548 [56:07<3:41:59, 10.27s/it]2025-05-09 20:09:39,068 : ##### This is the --252th-- Question #####
+ 16%|█▋        | 252/1548 [56:22<4:09:17, 11.54s/it]2025-05-09 20:09:53,575 : ##### This is the --253th-- Question #####
+ 16%|█▋        | 253/1548 [56:27<3:27:59,  9.64s/it]2025-05-09 20:09:58,769 : ##### This is the --254th-- Question #####
+ 16%|█▋        | 254/1548 [56:34<3:09:40,  8.79s/it]2025-05-09 20:10:05,599 : ##### This is the --255th-- Question #####
+2025-05-09 20:10:11,636 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:10:11,636 : 
+Step 1-Keyword-4 Does not appear in the Step Text
+ 16%|█▋        | 255/1548 [56:40<2:51:47,  7.97s/it]2025-05-09 20:10:11,653 : ##### This is the --256th-- Question #####
+2025-05-09 20:10:20,460 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 17%|█▋        | 256/1548 [56:49<2:57:06,  8.22s/it]2025-05-09 20:10:20,471 : ##### This is the --257th-- Question #####
+2025-05-09 20:10:33,732 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:10:48,868 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 17%|█▋        | 257/1548 [57:17<5:07:15, 14.28s/it]2025-05-09 20:10:48,874 : ##### This is the --258th-- Question #####
+ 17%|█▋        | 258/1548 [57:31<5:07:07, 14.29s/it]2025-05-09 20:11:03,171 : ##### This is the --259th-- Question #####
+ 17%|█▋        | 259/1548 [57:43<4:52:02, 13.59s/it]2025-05-09 20:11:15,152 : ##### This is the --260th-- Question #####
+2025-05-09 20:11:23,743 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:11:30,365 : Exact Tokens Have NO ANSWER, Current try is 2
+ 17%|█▋        | 260/1548 [58:05<5:44:49, 16.06s/it]2025-05-09 20:11:36,984 : ##### This is the --261th-- Question #####
+2025-05-09 20:11:45,573 : New Reasoning Tokens Are None, Current try is 1
+ 17%|█▋        | 261/1548 [58:20<5:36:20, 15.68s/it]2025-05-09 20:11:51,765 : ##### This is the --262th-- Question #####
+ 17%|█▋        | 262/1548 [58:29<4:52:14, 13.64s/it]2025-05-09 20:12:00,628 : ##### This is the --263th-- Question #####
+2025-05-09 20:12:19,915 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 17%|█▋        | 263/1548 [58:48<5:28:24, 15.33s/it]2025-05-09 20:12:19,928 : ##### This is the --264th-- Question #####
+ 17%|█▋        | 264/1548 [58:58<4:55:09, 13.79s/it]2025-05-09 20:12:30,122 : ##### This is the --265th-- Question #####
+ 17%|█▋        | 265/1548 [59:11<4:48:20, 13.48s/it]2025-05-09 20:12:42,894 : ##### This is the --266th-- Question #####
+2025-05-09 20:12:46,488 : Exact Tokens Have NO ANSWER, Current try is 1
+ 17%|█▋        | 266/1548 [59:29<5:17:12, 14.85s/it]2025-05-09 20:13:00,911 : ##### This is the --267th-- Question #####
+ 17%|█▋        | 267/1548 [59:34<4:14:00, 11.90s/it]2025-05-09 20:13:05,928 : ##### This is the --268th-- Question #####
+ 17%|█▋        | 268/1548 [59:47<4:19:14, 12.15s/it]2025-05-09 20:13:18,675 : ##### This is the --269th-- Question #####
+ 17%|█▋        | 269/1548 [59:53<3:38:57, 10.27s/it]2025-05-09 20:13:24,560 : ##### This is the --270th-- Question #####
+ 17%|█▋        | 270/1548 [1:00:04<3:41:22, 10.39s/it]2025-05-09 20:13:35,235 : ##### This is the --271th-- Question #####
+2025-05-09 20:13:43,824 : New Reasoning Tokens Are None, Current try is 1
+ 18%|█▊        | 271/1548 [1:00:18<4:08:13, 11.66s/it]2025-05-09 20:13:49,868 : ##### This is the --272th-- Question #####
+ 18%|█▊        | 272/1548 [1:00:25<3:36:50, 10.20s/it]2025-05-09 20:13:56,636 : ##### This is the --273th-- Question #####
+ 18%|█▊        | 273/1548 [1:00:37<3:50:09, 10.83s/it]2025-05-09 20:14:08,947 : ##### This is the --274th-- Question #####
+ 18%|█▊        | 274/1548 [1:00:56<4:43:09, 13.34s/it]2025-05-09 20:14:28,128 : ##### This is the --275th-- Question #####
+ 18%|█▊        | 275/1548 [1:01:06<4:19:54, 12.25s/it]2025-05-09 20:14:37,845 : ##### This is the --276th-- Question #####
+ 18%|█▊        | 276/1548 [1:01:20<4:28:50, 12.68s/it]2025-05-09 20:14:51,538 : ##### This is the --277th-- Question #####
+ 18%|█▊        | 277/1548 [1:01:32<4:27:40, 12.64s/it]2025-05-09 20:15:04,062 : ##### This is the --278th-- Question #####
+2025-05-09 20:15:16,105 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:15:16,106 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 18%|█▊        | 278/1548 [1:01:44<4:23:45, 12.46s/it]2025-05-09 20:15:16,119 : ##### This is the --279th-- Question #####
+ 18%|█▊        | 279/1548 [1:01:47<3:22:30,  9.58s/it]2025-05-09 20:15:18,957 : ##### This is the --280th-- Question #####
+2025-05-09 20:15:25,577 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:15:25,577 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 18%|█▊        | 280/1548 [1:01:54<3:03:39,  8.69s/it]2025-05-09 20:15:25,584 : ##### This is the --281th-- Question #####
+ 18%|█▊        | 281/1548 [1:01:59<2:41:24,  7.64s/it]2025-05-09 20:15:30,785 : ##### This is the --282th-- Question #####
+ 18%|█▊        | 282/1548 [1:02:18<3:54:45, 11.13s/it]2025-05-09 20:15:50,036 : ##### This is the --283th-- Question #####
+ 18%|█▊        | 283/1548 [1:02:32<4:09:43, 11.84s/it]2025-05-09 20:16:03,564 : ##### This is the --284th-- Question #####
+ 18%|█▊        | 284/1548 [1:02:38<3:35:06, 10.21s/it]2025-05-09 20:16:09,956 : ##### This is the --285th-- Question #####
+ 18%|█▊        | 285/1548 [1:02:52<3:57:42, 11.29s/it]2025-05-09 20:16:23,772 : ##### This is the --286th-- Question #####
+ 18%|█▊        | 286/1548 [1:03:03<3:52:12, 11.04s/it]2025-05-09 20:16:34,223 : ##### This is the --287th-- Question #####
+ 19%|█▊        | 287/1548 [1:03:10<3:32:23, 10.11s/it]2025-05-09 20:16:42,151 : ##### This is the --288th-- Question #####
+2025-05-09 20:16:50,744 : New Reasoning Tokens Are None, Current try is 1
+ 19%|█▊        | 288/1548 [1:03:30<4:30:48, 12.90s/it]2025-05-09 20:17:01,556 : ##### This is the --289th-- Question #####
+2025-05-09 20:17:14,368 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 19%|█▊        | 289/1548 [1:03:43<4:30:07, 12.87s/it]2025-05-09 20:17:14,381 : ##### This is the --290th-- Question #####
+2025-05-09 20:17:27,092 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 19%|█▊        | 290/1548 [1:04:02<5:08:43, 14.72s/it]2025-05-09 20:17:33,420 : ##### This is the --291th-- Question #####
+2025-05-09 20:17:42,007 : New Reasoning Tokens Are None, Current try is 1
+ 19%|█▉        | 291/1548 [1:04:19<5:24:31, 15.49s/it]2025-05-09 20:17:50,697 : ##### This is the --292th-- Question #####
+ 19%|█▉        | 292/1548 [1:04:36<5:35:50, 16.04s/it]2025-05-09 20:18:08,032 : ##### This is the --293th-- Question #####
+ 19%|█▉        | 293/1548 [1:04:41<4:22:10, 12.53s/it]2025-05-09 20:18:12,379 : ##### This is the --294th-- Question #####
+ 19%|█▉        | 294/1548 [1:04:47<3:42:56, 10.67s/it]2025-05-09 20:18:18,695 : ##### This is the --295th-- Question #####
+2025-05-09 20:18:31,225 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:18:31,225 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 19%|█▉        | 295/1548 [1:05:00<3:54:31, 11.23s/it]2025-05-09 20:18:31,232 : ##### This is the --296th-- Question #####
+ 19%|█▉        | 296/1548 [1:05:08<3:35:41, 10.34s/it]2025-05-09 20:18:39,485 : ##### This is the --297th-- Question #####
+ 19%|█▉        | 297/1548 [1:05:13<3:06:12,  8.93s/it]2025-05-09 20:18:45,136 : ##### This is the --298th-- Question #####
+ 19%|█▉        | 298/1548 [1:05:20<2:50:42,  8.19s/it]2025-05-09 20:18:51,610 : ##### This is the --299th-- Question #####
+ 19%|█▉        | 299/1548 [1:05:35<3:33:29, 10.26s/it]2025-05-09 20:19:06,677 : ##### This is the --300th-- Question #####
+ 19%|█▉        | 300/1548 [1:05:42<3:13:16,  9.29s/it]2025-05-09 20:19:13,721 : ##### This is the --301th-- Question #####
+ 19%|█▉        | 301/1548 [1:06:01<4:16:13, 12.33s/it]2025-05-09 20:19:33,140 : ##### This is the --302th-- Question #####
+ 20%|█▉        | 302/1548 [1:06:11<3:57:35, 11.44s/it]2025-05-09 20:19:42,503 : ##### This is the --303th-- Question #####
+2025-05-09 20:19:57,068 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:20:10,908 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 20%|█▉        | 303/1548 [1:06:39<5:43:02, 16.53s/it]2025-05-09 20:20:10,915 : ##### This is the --304th-- Question #####
+2025-05-09 20:20:25,196 : Exact Tokens Have no contribution scores, Current try is 1
+ 20%|█▉        | 304/1548 [1:07:09<7:04:46, 20.49s/it]2025-05-09 20:20:40,639 : ##### This is the --305th-- Question #####
+2025-05-09 20:20:48,295 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 20%|█▉        | 305/1548 [1:07:17<5:44:46, 16.64s/it]2025-05-09 20:20:48,302 : ##### This is the --306th-- Question #####
+2025-05-09 20:20:52,120 : Exact Tokens Have no contribution scores, Current try is 1
+ 20%|█▉        | 306/1548 [1:07:29<5:15:42, 15.25s/it]2025-05-09 20:21:00,309 : ##### This is the --307th-- Question #####
+ 20%|█▉        | 307/1548 [1:07:35<4:18:07, 12.48s/it]2025-05-09 20:21:06,322 : ##### This is the --308th-- Question #####
+ 20%|█▉        | 308/1548 [1:07:42<3:43:53, 10.83s/it]2025-05-09 20:21:13,312 : ##### This is the --309th-- Question #####
+2025-05-09 20:21:21,896 : New Reasoning Tokens Are None, Current try is 1
+ 20%|█▉        | 309/1548 [1:08:06<5:07:27, 14.89s/it]2025-05-09 20:21:37,664 : ##### This is the --310th-- Question #####
+2025-05-09 20:21:52,648 : Exact Tokens Have NO ANSWER, Current try is 1
+ 20%|██        | 310/1548 [1:08:29<5:55:51, 17.25s/it]2025-05-09 20:22:00,418 : ##### This is the --311th-- Question #####
+2025-05-09 20:22:12,962 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 20:22:21,546 : New Reasoning Tokens Are None, Current try is 2
+ 20%|██        | 311/1548 [1:09:01<7:30:12, 21.84s/it]2025-05-09 20:22:32,961 : ##### This is the --312th-- Question #####
+ 20%|██        | 312/1548 [1:09:17<6:52:34, 20.03s/it]2025-05-09 20:22:48,767 : ##### This is the --313th-- Question #####
+2025-05-09 20:22:57,348 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:23:11,207 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 20%|██        | 313/1548 [1:09:40<7:07:12, 20.76s/it]2025-05-09 20:23:11,226 : ##### This is the --314th-- Question #####
+ 20%|██        | 314/1548 [1:09:47<5:45:26, 16.80s/it]2025-05-09 20:23:18,778 : ##### This is the --315th-- Question #####
+ 20%|██        | 315/1548 [1:10:00<5:19:50, 15.56s/it]2025-05-09 20:23:31,467 : ##### This is the --316th-- Question #####
+2025-05-09 20:23:43,836 : Exact Tokens Have NO ANSWER, Current try is 1
+ 20%|██        | 316/1548 [1:10:20<5:46:44, 16.89s/it]2025-05-09 20:23:51,438 : ##### This is the --317th-- Question #####
+ 20%|██        | 317/1548 [1:10:28<4:50:24, 14.15s/it]2025-05-09 20:23:59,220 : ##### This is the --318th-- Question #####
+ 21%|██        | 318/1548 [1:10:37<4:18:57, 12.63s/it]2025-05-09 20:24:08,299 : ##### This is the --319th-- Question #####
+2025-05-09 20:24:11,876 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 20:24:20,463 : New Reasoning Tokens Are None, Current try is 2
+2025-05-09 20:24:31,118 : Exact Tokens Have no contribution scores, Current try is 3
+ 21%|██        | 319/1548 [1:11:12<6:38:16, 19.44s/it]2025-05-09 20:24:43,642 : ##### This is the --320th-- Question #####
+ 21%|██        | 320/1548 [1:11:17<5:08:33, 15.08s/it]2025-05-09 20:24:48,523 : ##### This is the --321th-- Question #####
+ 21%|██        | 321/1548 [1:11:21<4:02:31, 11.86s/it]2025-05-09 20:24:52,876 : ##### This is the --322th-- Question #####
+ 21%|██        | 322/1548 [1:11:34<4:06:51, 12.08s/it]2025-05-09 20:25:05,476 : ##### This is the --323th-- Question #####
+ 21%|██        | 323/1548 [1:11:48<4:21:12, 12.79s/it]2025-05-09 20:25:19,934 : ##### This is the --324th-- Question #####
+ 21%|██        | 324/1548 [1:12:02<4:28:46, 13.18s/it]2025-05-09 20:25:33,996 : ##### This is the --325th-- Question #####
+2025-05-09 20:25:43,883 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:25:56,033 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-09 20:26:15,387 : Exact Tokens Have NO ANSWER, Current try is 3
+ 21%|██        | 325/1548 [1:12:50<8:00:49, 23.59s/it]2025-05-09 20:26:21,890 : ##### This is the --326th-- Question #####
+ 21%|██        | 326/1548 [1:12:57<6:17:11, 18.52s/it]2025-05-09 20:26:28,578 : ##### This is the --327th-- Question #####
+ 21%|██        | 327/1548 [1:13:08<5:33:29, 16.39s/it]2025-05-09 20:26:39,989 : ##### This is the --328th-- Question #####
+2025-05-09 20:26:45,461 : Exact Tokens Have NO ANSWER, Current try is 1
+ 21%|██        | 328/1548 [1:13:18<4:53:29, 14.43s/it]2025-05-09 20:26:49,864 : ##### This is the --329th-- Question #####
+2025-05-09 20:27:02,678 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:27:13,154 : Cannot locate the Final Answer, Current try is 2
+2025-05-09 20:27:18,208 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 21%|██▏       | 329/1548 [1:13:47<6:18:04, 18.61s/it]2025-05-09 20:27:18,216 : ##### This is the --330th-- Question #####
+ 21%|██▏       | 330/1548 [1:13:57<5:29:42, 16.24s/it]2025-05-09 20:27:28,939 : ##### This is the --331th-- Question #####
+ 21%|██▏       | 331/1548 [1:14:09<5:03:32, 14.97s/it]2025-05-09 20:27:40,919 : ##### This is the --332th-- Question #####
+ 21%|██▏       | 332/1548 [1:14:18<4:22:50, 12.97s/it]2025-05-09 20:27:49,232 : ##### This is the --333th-- Question #####
+ 22%|██▏       | 333/1548 [1:14:23<3:36:44, 10.70s/it]2025-05-09 20:27:54,648 : ##### This is the --334th-- Question #####
+ 22%|██▏       | 334/1548 [1:14:28<3:01:50,  8.99s/it]2025-05-09 20:27:59,630 : ##### This is the --335th-- Question #####
+ 22%|██▏       | 335/1548 [1:14:36<2:54:26,  8.63s/it]2025-05-09 20:28:07,424 : ##### This is the --336th-- Question #####
+2025-05-09 20:28:15,999 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:28:22,367 : Exact Tokens Have NO ANSWER, Current try is 2
+ 22%|██▏       | 336/1548 [1:15:06<5:07:44, 15.23s/it]2025-05-09 20:28:38,076 : ##### This is the --337th-- Question #####
+2025-05-09 20:28:51,759 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:28:51,759 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 22%|██▏       | 337/1548 [1:15:20<4:58:09, 14.77s/it]2025-05-09 20:28:51,766 : ##### This is the --338th-- Question #####
+ 22%|██▏       | 338/1548 [1:15:26<4:04:37, 12.13s/it]2025-05-09 20:28:57,730 : ##### This is the --339th-- Question #####
+ 22%|██▏       | 339/1548 [1:15:42<4:29:49, 13.39s/it]2025-05-09 20:29:14,062 : ##### This is the --340th-- Question #####
+ 22%|██▏       | 340/1548 [1:15:51<4:02:44, 12.06s/it]2025-05-09 20:29:23,005 : ##### This is the --341th-- Question #####
+ 22%|██▏       | 341/1548 [1:16:04<4:04:06, 12.13s/it]2025-05-09 20:29:35,323 : ##### This is the --342th-- Question #####
+ 22%|██▏       | 342/1548 [1:16:15<4:00:18, 11.96s/it]2025-05-09 20:29:46,867 : ##### This is the --343th-- Question #####
+2025-05-09 20:30:02,857 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:30:02,859 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:30:02,863 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+ 22%|██▏       | 343/1548 [1:16:31<4:24:31, 13.17s/it]2025-05-09 20:30:02,868 : ##### This is the --344th-- Question #####
+ 22%|██▏       | 344/1548 [1:16:36<3:36:40, 10.80s/it]2025-05-09 20:30:08,127 : ##### This is the --345th-- Question #####
+ 22%|██▏       | 345/1548 [1:16:54<4:15:24, 12.74s/it]2025-05-09 20:30:25,398 : ##### This is the --346th-- Question #####
+2025-05-09 20:30:33,793 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:30:33,795 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:30:33,797 : 
+Step 4-Keyword-1 Does not appear in the Step Text
+ 22%|██▏       | 346/1548 [1:17:02<3:49:10, 11.44s/it]2025-05-09 20:30:33,803 : ##### This is the --347th-- Question #####
+2025-05-09 20:30:53,283 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:30:53,284 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:30:53,287 : 
+Step 4-Keyword-1 Does not appear in the Step Text
+ 22%|██▏       | 347/1548 [1:17:22<4:37:21, 13.86s/it]2025-05-09 20:30:53,305 : ##### This is the --348th-- Question #####
+ 22%|██▏       | 348/1548 [1:17:28<3:53:53, 11.69s/it]2025-05-09 20:30:59,950 : ##### This is the --349th-- Question #####
+ 23%|██▎       | 349/1548 [1:17:41<4:01:48, 12.10s/it]2025-05-09 20:31:12,997 : ##### This is the --350th-- Question #####
+ 23%|██▎       | 350/1548 [1:17:47<3:24:18, 10.23s/it]2025-05-09 20:31:18,870 : ##### This is the --351th-- Question #####
+ 23%|██▎       | 351/1548 [1:17:59<3:30:53, 10.57s/it]2025-05-09 20:31:30,231 : ##### This is the --352th-- Question #####
+ 23%|██▎       | 352/1548 [1:18:18<4:22:22, 13.16s/it]2025-05-09 20:31:49,442 : ##### This is the --353th-- Question #####
+2025-05-09 20:31:58,025 : New Reasoning Tokens Are None, Current try is 1
+ 23%|██▎       | 353/1548 [1:18:34<4:40:28, 14.08s/it]2025-05-09 20:32:05,674 : ##### This is the --354th-- Question #####
+ 23%|██▎       | 354/1548 [1:18:41<3:58:13, 11.97s/it]2025-05-09 20:32:12,714 : ##### This is the --355th-- Question #####
+ 23%|██▎       | 355/1548 [1:18:55<4:11:38, 12.66s/it]2025-05-09 20:32:26,968 : ##### This is the --356th-- Question #####
+ 23%|██▎       | 356/1548 [1:19:00<3:23:48, 10.26s/it]2025-05-09 20:32:31,634 : ##### This is the --357th-- Question #####
+ 23%|██▎       | 357/1548 [1:19:19<4:18:12, 13.01s/it]2025-05-09 20:32:51,055 : ##### This is the --358th-- Question #####
+ 23%|██▎       | 358/1548 [1:19:27<3:45:18, 11.36s/it]2025-05-09 20:32:58,572 : ##### This is the --359th-- Question #####
+2025-05-09 20:33:02,703 : Cannot locate the Final Answer, Current try is 1
+2025-05-09 20:33:08,162 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 23%|██▎       | 359/1548 [1:19:36<3:34:38, 10.83s/it]2025-05-09 20:33:08,175 : ##### This is the --360th-- Question #####
+2025-05-09 20:33:20,365 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 23%|██▎       | 360/1548 [1:19:49<3:42:36, 11.24s/it]2025-05-09 20:33:20,373 : ##### This is the --361th-- Question #####
+ 23%|██▎       | 361/1548 [1:19:54<3:04:52,  9.34s/it]2025-05-09 20:33:25,289 : ##### This is the --362th-- Question #####
+2025-05-09 20:33:40,129 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 20:33:53,321 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:33:53,321 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+ 23%|██▎       | 362/1548 [1:20:22<4:55:35, 14.95s/it]2025-05-09 20:33:53,330 : ##### This is the --363th-- Question #####
+2025-05-09 20:33:58,255 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 20:34:05,504 : Len of keywords list doesn't match the len of step dict, Current try is 2
+ 23%|██▎       | 363/1548 [1:20:41<5:19:21, 16.17s/it]2025-05-09 20:34:12,344 : ##### This is the --364th-- Question #####
+2025-05-09 20:34:22,812 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:34:28,876 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 24%|██▎       | 364/1548 [1:20:57<5:21:18, 16.28s/it]2025-05-09 20:34:28,882 : ##### This is the --365th-- Question #####
+2025-05-09 20:34:47,853 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:34:47,855 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:34:47,861 : 
+Step 5-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:34:47,866 : 
+Step 6-Keyword-3 Does not appear in the Step Text
+ 24%|██▎       | 365/1548 [1:21:16<5:37:02, 17.09s/it]2025-05-09 20:34:47,872 : ##### This is the --366th-- Question #####
+2025-05-09 20:35:05,317 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 24%|██▎       | 366/1548 [1:21:34<5:38:52, 17.20s/it]2025-05-09 20:35:05,326 : ##### This is the --367th-- Question #####
+ 24%|██▎       | 367/1548 [1:21:46<5:11:08, 15.81s/it]2025-05-09 20:35:17,884 : ##### This is the --368th-- Question #####
+2025-05-09 20:35:26,460 : New Reasoning Tokens Are None, Current try is 1
+ 24%|██▍       | 368/1548 [1:22:14<6:23:29, 19.50s/it]2025-05-09 20:35:45,993 : ##### This is the --369th-- Question #####
+ 24%|██▍       | 369/1548 [1:22:21<5:08:56, 15.72s/it]2025-05-09 20:35:52,900 : ##### This is the --370th-- Question #####
+2025-05-09 20:36:05,793 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:36:18,521 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 24%|██▍       | 370/1548 [1:22:47<6:07:00, 18.69s/it]2025-05-09 20:36:18,533 : ##### This is the --371th-- Question #####
+ 24%|██▍       | 371/1548 [1:22:59<5:29:05, 16.78s/it]2025-05-09 20:36:30,831 : ##### This is the --372th-- Question #####
+2025-05-09 20:36:37,887 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:36:46,470 : New Reasoning Tokens Are None, Current try is 2
+2025-05-09 20:37:03,334 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:37:03,335 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+ 24%|██▍       | 372/1548 [1:23:32<7:01:23, 21.50s/it]2025-05-09 20:37:03,350 : ##### This is the --373th-- Question #####
+2025-05-09 20:37:15,027 : 
+Step 5-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:37:15,027 : 
+Step 5-Keyword-4 Does not appear in the Step Text
+2025-05-09 20:37:15,030 : 
+Step 6-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:37:15,030 : 
+Step 6-Keyword-4 Does not appear in the Step Text
+ 24%|██▍       | 373/1548 [1:23:43<6:03:22, 18.56s/it]2025-05-09 20:37:15,037 : ##### This is the --374th-- Question #####
+ 24%|██▍       | 374/1548 [1:23:52<5:06:29, 15.66s/it]2025-05-09 20:37:23,958 : ##### This is the --375th-- Question #####
+ 24%|██▍       | 375/1548 [1:23:58<4:09:54, 12.78s/it]2025-05-09 20:37:30,015 : ##### This is the --376th-- Question #####
+2025-05-09 20:37:37,180 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 24%|██▍       | 376/1548 [1:24:25<5:30:30, 16.92s/it]2025-05-09 20:37:56,587 : ##### This is the --377th-- Question #####
+2025-05-09 20:38:04,694 : Exact Tokens Have NO ANSWER, Current try is 1
+ 24%|██▍       | 377/1548 [1:24:46<5:53:42, 18.12s/it]2025-05-09 20:38:17,520 : ##### This is the --378th-- Question #####
+2025-05-09 20:38:27,390 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 24%|██▍       | 378/1548 [1:24:56<5:05:09, 15.65s/it]2025-05-09 20:38:27,402 : ##### This is the --379th-- Question #####
+2025-05-09 20:38:41,596 : Exact Tokens Have NO ANSWER, Current try is 1
+ 24%|██▍       | 379/1548 [1:25:22<6:10:00, 18.99s/it]2025-05-09 20:38:54,184 : ##### This is the --380th-- Question #####
+ 25%|██▍       | 380/1548 [1:25:35<5:33:18, 17.12s/it]2025-05-09 20:39:06,946 : ##### This is the --381th-- Question #####
+ 25%|██▍       | 381/1548 [1:25:42<4:34:14, 14.10s/it]2025-05-09 20:39:13,994 : ##### This is the --382th-- Question #####
+ 25%|██▍       | 382/1548 [1:25:53<4:12:14, 12.98s/it]2025-05-09 20:39:24,361 : ##### This is the --383th-- Question #####
+2025-05-09 20:39:43,704 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 25%|██▍       | 383/1548 [1:26:12<4:49:07, 14.89s/it]2025-05-09 20:39:43,716 : ##### This is the --384th-- Question #####
+ 25%|██▍       | 384/1548 [1:26:25<4:40:17, 14.45s/it]2025-05-09 20:39:57,125 : ##### This is the --385th-- Question #####
+2025-05-09 20:40:07,796 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 20:40:22,137 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:40:22,137 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+ 25%|██▍       | 385/1548 [1:26:50<5:41:32, 17.62s/it]2025-05-09 20:40:22,147 : ##### This is the --386th-- Question #####
+2025-05-09 20:40:27,802 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 25%|██▍       | 386/1548 [1:26:56<4:31:45, 14.03s/it]2025-05-09 20:40:27,809 : ##### This is the --387th-- Question #####
+ 25%|██▌       | 387/1548 [1:27:10<4:28:30, 13.88s/it]2025-05-09 20:40:41,321 : ##### This is the --388th-- Question #####
+2025-05-09 20:40:49,236 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 25%|██▌       | 388/1548 [1:27:18<3:53:44, 12.09s/it]2025-05-09 20:40:49,249 : ##### This is the --389th-- Question #####
+2025-05-09 20:41:00,256 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 25%|██▌       | 389/1548 [1:27:29<3:47:20, 11.77s/it]2025-05-09 20:41:00,264 : ##### This is the --390th-- Question #####
+2025-05-09 20:41:19,448 : Exact Tokens Have NO ANSWER, Current try is 1
+ 25%|██▌       | 390/1548 [1:27:56<5:15:19, 16.34s/it]2025-05-09 20:41:27,263 : ##### This is the --391th-- Question #####
+2025-05-09 20:41:42,919 : Exact Tokens Have NO ANSWER, Current try is 1
+ 25%|██▌       | 391/1548 [1:28:18<5:49:42, 18.14s/it]2025-05-09 20:41:49,598 : ##### This is the --392th-- Question #####
+ 25%|██▌       | 392/1548 [1:28:24<4:40:31, 14.56s/it]2025-05-09 20:41:55,808 : ##### This is the --393th-- Question #####
+ 25%|██▌       | 393/1548 [1:28:37<4:32:40, 14.16s/it]2025-05-09 20:42:09,052 : ##### This is the --394th-- Question #####
+2025-05-09 20:42:21,772 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+ 25%|██▌       | 394/1548 [1:28:50<4:24:08, 13.73s/it]2025-05-09 20:42:21,778 : ##### This is the --395th-- Question #####
+ 26%|██▌       | 395/1548 [1:28:58<3:50:27, 11.99s/it]2025-05-09 20:42:29,710 : ##### This is the --396th-- Question #####
+ 26%|██▌       | 396/1548 [1:29:10<3:52:31, 12.11s/it]2025-05-09 20:42:42,095 : ##### This is the --397th-- Question #####
+2025-05-09 20:42:50,678 : New Reasoning Tokens Are None, Current try is 1
+ 26%|██▌       | 397/1548 [1:29:34<4:56:21, 15.45s/it]2025-05-09 20:43:05,340 : ##### This is the --398th-- Question #####
+ 26%|██▌       | 398/1548 [1:29:47<4:41:47, 14.70s/it]2025-05-09 20:43:18,294 : ##### This is the --399th-- Question #####
+2025-05-09 20:43:32,041 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:43:32,042 : 
+Step 1-Keyword-4 Does not appear in the Step Text
+2025-05-09 20:43:32,043 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:43:32,044 : 
+Step 2-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:43:32,044 : 
+Step 2-Keyword-4 Does not appear in the Step Text
+2025-05-09 20:43:32,046 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:43:32,046 : 
+Step 3-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:43:32,046 : 
+Step 3-Keyword-4 Does not appear in the Step Text
+ 26%|██▌       | 399/1548 [1:30:00<4:36:08, 14.42s/it]2025-05-09 20:43:32,055 : ##### This is the --400th-- Question #####
+ 26%|██▌       | 400/1548 [1:30:16<4:41:46, 14.73s/it]2025-05-09 20:43:47,498 : ##### This is the --401th-- Question #####
+ 26%|██▌       | 401/1548 [1:30:25<4:12:34, 13.21s/it]2025-05-09 20:43:57,178 : ##### This is the --402th-- Question #####
+ 26%|██▌       | 402/1548 [1:30:30<3:23:06, 10.63s/it]2025-05-09 20:44:01,794 : ##### This is the --403th-- Question #####
+ 26%|██▌       | 403/1548 [1:30:39<3:12:02, 10.06s/it]2025-05-09 20:44:10,532 : ##### This is the --404th-- Question #####
+ 26%|██▌       | 404/1548 [1:30:46<2:53:51,  9.12s/it]2025-05-09 20:44:17,440 : ##### This is the --405th-- Question #####
+2025-05-09 20:44:26,017 : New Reasoning Tokens Are None, Current try is 1
+ 26%|██▌       | 405/1548 [1:31:01<3:29:06, 10.98s/it]2025-05-09 20:44:32,753 : ##### This is the --406th-- Question #####
+ 26%|██▌       | 406/1548 [1:31:07<2:58:47,  9.39s/it]2025-05-09 20:44:38,454 : ##### This is the --407th-- Question #####
+ 26%|██▋       | 407/1548 [1:31:26<3:56:18, 12.43s/it]2025-05-09 20:44:57,954 : ##### This is the --408th-- Question #####
+ 26%|██▋       | 408/1548 [1:31:33<3:23:32, 10.71s/it]2025-05-09 20:45:04,671 : ##### This is the --409th-- Question #####
+ 26%|██▋       | 409/1548 [1:31:45<3:31:54, 11.16s/it]2025-05-09 20:45:16,888 : ##### This is the --410th-- Question #####
+2025-05-09 20:45:25,469 : New Reasoning Tokens Are None, Current try is 1
+ 26%|██▋       | 410/1548 [1:32:00<3:50:50, 12.17s/it]2025-05-09 20:45:31,407 : ##### This is the --411th-- Question #####
+2025-05-09 20:45:44,200 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:45:52,784 : New Reasoning Tokens Are None, Current try is 2
+ 27%|██▋       | 411/1548 [1:32:29<5:26:51, 17.25s/it]2025-05-09 20:46:00,501 : ##### This is the --412th-- Question #####
+2025-05-09 20:46:08,527 : 
+Step 1-Keyword-4 Does not appear in the Step Text
+2025-05-09 20:46:08,528 : 
+Step 2-Keyword-3 Does not appear in the Step Text
+ 27%|██▋       | 412/1548 [1:32:37<4:34:14, 14.48s/it]2025-05-09 20:46:08,536 : ##### This is the --413th-- Question #####
+ 27%|██▋       | 413/1548 [1:32:45<3:56:55, 12.52s/it]2025-05-09 20:46:16,488 : ##### This is the --414th-- Question #####
+2025-05-09 20:46:26,900 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:46:26,906 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:46:26,906 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 27%|██▋       | 414/1548 [1:32:55<3:44:48, 11.89s/it]2025-05-09 20:46:26,918 : ##### This is the --415th-- Question #####
+ 27%|██▋       | 415/1548 [1:33:01<3:09:58, 10.06s/it]2025-05-09 20:46:32,695 : ##### This is the --416th-- Question #####
+ 27%|██▋       | 416/1548 [1:33:09<2:55:25,  9.30s/it]2025-05-09 20:46:40,212 : ##### This is the --417th-- Question #####
+ 27%|██▋       | 417/1548 [1:33:13<2:30:45,  8.00s/it]2025-05-09 20:46:45,176 : ##### This is the --418th-- Question #####
+2025-05-09 20:46:53,755 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:46:59,439 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 27%|██▋       | 418/1548 [1:33:28<3:06:03,  9.88s/it]2025-05-09 20:46:59,445 : ##### This is the --419th-- Question #####
+ 27%|██▋       | 419/1548 [1:33:41<3:22:17, 10.75s/it]2025-05-09 20:47:12,230 : ##### This is the --420th-- Question #####
+2025-05-09 20:47:20,813 : New Reasoning Tokens Are None, Current try is 1
+ 27%|██▋       | 420/1548 [1:34:00<4:09:20, 13.26s/it]2025-05-09 20:47:31,361 : ##### This is the --421th-- Question #####
+ 27%|██▋       | 421/1548 [1:34:07<3:38:28, 11.63s/it]2025-05-09 20:47:39,177 : ##### This is the --422th-- Question #####
+2025-05-09 20:47:44,300 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 20:47:52,879 : New Reasoning Tokens Are None, Current try is 2
+2025-05-09 20:47:55,446 : Cannot locate the Final Answer, Current try is 3
+ 27%|██▋       | 422/1548 [1:34:32<4:48:16, 15.36s/it]2025-05-09 20:48:03,241 : ##### This is the --423th-- Question #####
+ 27%|██▋       | 423/1548 [1:34:48<4:56:32, 15.82s/it]2025-05-09 20:48:20,118 : ##### This is the --424th-- Question #####
+2025-05-09 20:48:27,901 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 27%|██▋       | 424/1548 [1:34:56<4:11:11, 13.41s/it]2025-05-09 20:48:27,911 : ##### This is the --425th-- Question #####
+ 27%|██▋       | 425/1548 [1:35:10<4:11:34, 13.44s/it]2025-05-09 20:48:41,434 : ##### This is the --426th-- Question #####
+2025-05-09 20:48:50,012 : New Reasoning Tokens Are None, Current try is 1
+ 28%|██▊       | 426/1548 [1:35:28<4:38:00, 14.87s/it]2025-05-09 20:48:59,622 : ##### This is the --427th-- Question #####
+ 28%|██▊       | 427/1548 [1:35:40<4:23:44, 14.12s/it]2025-05-09 20:49:11,988 : ##### This is the --428th-- Question #####
+ 28%|██▊       | 428/1548 [1:35:50<3:59:22, 12.82s/it]2025-05-09 20:49:21,793 : ##### This is the --429th-- Question #####
+ 28%|██▊       | 429/1548 [1:36:09<4:35:17, 14.76s/it]2025-05-09 20:49:41,074 : ##### This is the --430th-- Question #####
+2025-05-09 20:49:53,524 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 20:49:53,532 : 
+Step 5-Keyword-1 Does not appear in the Step Text
+ 28%|██▊       | 430/1548 [1:36:22<4:22:12, 14.07s/it]2025-05-09 20:49:53,546 : ##### This is the --431th-- Question #####
+ 28%|██▊       | 431/1548 [1:36:35<4:17:03, 13.81s/it]2025-05-09 20:50:06,732 : ##### This is the --432th-- Question #####
+ 28%|██▊       | 432/1548 [1:36:42<3:39:33, 11.80s/it]2025-05-09 20:50:13,861 : ##### This is the --433th-- Question #####
+2025-05-09 20:50:22,443 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:50:29,640 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 28%|██▊       | 433/1548 [1:36:58<4:01:33, 13.00s/it]2025-05-09 20:50:29,647 : ##### This is the --434th-- Question #####
+ 28%|██▊       | 434/1548 [1:37:04<3:21:13, 10.84s/it]2025-05-09 20:50:35,445 : ##### This is the --435th-- Question #####
+2025-05-09 20:50:44,035 : New Reasoning Tokens Are None, Current try is 1
+ 28%|██▊       | 435/1548 [1:37:21<3:56:03, 12.73s/it]2025-05-09 20:50:52,573 : ##### This is the --436th-- Question #####
+ 28%|██▊       | 436/1548 [1:37:30<3:36:17, 11.67s/it]2025-05-09 20:51:01,786 : ##### This is the --437th-- Question #####
+2025-05-09 20:51:10,383 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:51:10,383 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+ 28%|██▊       | 437/1548 [1:37:39<3:19:06, 10.75s/it]2025-05-09 20:51:10,394 : ##### This is the --438th-- Question #####
+ 28%|██▊       | 438/1548 [1:37:53<3:36:30, 11.70s/it]2025-05-09 20:51:24,313 : ##### This is the --439th-- Question #####
+ 28%|██▊       | 439/1548 [1:37:57<2:57:57,  9.63s/it]2025-05-09 20:51:29,100 : ##### This is the --440th-- Question #####
+ 28%|██▊       | 440/1548 [1:38:10<3:16:34, 10.64s/it]2025-05-09 20:51:42,116 : ##### This is the --441th-- Question #####
+2025-05-09 20:51:59,892 : 
+Step 2-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:51:59,892 : 
+Step 2-Keyword-4 Does not appear in the Step Text
+2025-05-09 20:51:59,895 : 
+Step 3-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:51:59,898 : 
+Step 4-Keyword-3 Does not appear in the Step Text
+2025-05-09 20:51:59,902 : 
+Step 5-Keyword-2 Does not appear in the Step Text
+ 28%|██▊       | 441/1548 [1:38:28<3:55:58, 12.79s/it]2025-05-09 20:51:59,912 : ##### This is the --442th-- Question #####
+ 29%|██▊       | 442/1548 [1:38:43<4:04:34, 13.27s/it]2025-05-09 20:52:14,302 : ##### This is the --443th-- Question #####
+2025-05-09 20:52:21,733 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 29%|██▊       | 443/1548 [1:38:50<3:32:10, 11.52s/it]2025-05-09 20:52:21,739 : ##### This is the --444th-- Question #####
+ 29%|██▊       | 444/1548 [1:39:03<3:38:52, 11.90s/it]2025-05-09 20:52:34,508 : ##### This is the --445th-- Question #####
+2025-05-09 20:52:47,217 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 29%|██▊       | 445/1548 [1:39:16<3:43:12, 12.14s/it]2025-05-09 20:52:47,226 : ##### This is the --446th-- Question #####
+ 29%|██▉       | 446/1548 [1:39:29<3:48:06, 12.42s/it]2025-05-09 20:53:00,293 : ##### This is the --447th-- Question #####
+ 29%|██▉       | 447/1548 [1:39:35<3:15:35, 10.66s/it]2025-05-09 20:53:06,845 : ##### This is the --448th-- Question #####
+ 29%|██▉       | 448/1548 [1:39:41<2:50:44,  9.31s/it]2025-05-09 20:53:13,017 : ##### This is the --449th-- Question #####
+ 29%|██▉       | 449/1548 [1:39:46<2:27:04,  8.03s/it]2025-05-09 20:53:18,057 : ##### This is the --450th-- Question #####
+2025-05-09 20:53:31,454 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:53:31,456 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 29%|██▉       | 450/1548 [1:40:00<2:56:29,  9.64s/it]2025-05-09 20:53:31,462 : ##### This is the --451th-- Question #####
+2025-05-09 20:53:45,531 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:53:45,531 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 29%|██▉       | 451/1548 [1:40:14<3:20:38, 10.97s/it]2025-05-09 20:53:45,541 : ##### This is the --452th-- Question #####
+ 29%|██▉       | 452/1548 [1:40:32<4:01:07, 13.20s/it]2025-05-09 20:54:03,934 : ##### This is the --453th-- Question #####
+ 29%|██▉       | 453/1548 [1:40:39<3:23:44, 11.16s/it]2025-05-09 20:54:10,348 : ##### This is the --454th-- Question #####
+ 29%|██▉       | 454/1548 [1:40:58<4:08:39, 13.64s/it]2025-05-09 20:54:29,763 : ##### This is the --455th-- Question #####
+ 29%|██▉       | 455/1548 [1:41:05<3:33:02, 11.69s/it]2025-05-09 20:54:36,918 : ##### This is the --456th-- Question #####
+2025-05-09 20:54:48,816 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:54:48,818 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 29%|██▉       | 456/1548 [1:41:17<3:34:00, 11.76s/it]2025-05-09 20:54:48,826 : ##### This is the --457th-- Question #####
+2025-05-09 20:55:05,812 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:55:05,814 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 30%|██▉       | 457/1548 [1:41:34<4:02:21, 13.33s/it]2025-05-09 20:55:05,819 : ##### This is the --458th-- Question #####
+2025-05-09 20:55:14,395 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:55:21,359 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 30%|██▉       | 458/1548 [1:41:50<4:14:13, 13.99s/it]2025-05-09 20:55:21,366 : ##### This is the --459th-- Question #####
+2025-05-09 20:55:35,885 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:55:35,895 : 
+Step 6-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:55:35,898 : 
+Step 7-Keyword-2 Does not appear in the Step Text
+2025-05-09 20:55:35,901 : 
+Step 8-Keyword-2 Does not appear in the Step Text
+ 30%|██▉       | 459/1548 [1:42:04<4:16:59, 14.16s/it]2025-05-09 20:55:35,916 : ##### This is the --460th-- Question #####
+2025-05-09 20:55:38,867 : Cannot locate the Final Answer, Current try is 1
+ 30%|██▉       | 460/1548 [1:42:20<4:23:25, 14.53s/it]2025-05-09 20:55:51,295 : ##### This is the --461th-- Question #####
+ 30%|██▉       | 461/1548 [1:42:25<3:34:33, 11.84s/it]2025-05-09 20:55:56,877 : ##### This is the --462th-- Question #####
+2025-05-09 20:56:05,292 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-09 20:56:05,292 : 
+Step 4-Keyword-1 Does not appear in the Step Text
+ 30%|██▉       | 462/1548 [1:42:34<3:15:46, 10.82s/it]2025-05-09 20:56:05,298 : ##### This is the --463th-- Question #####
+2025-05-09 20:56:13,870 : New Reasoning Tokens Are None, Current try is 1
+ 30%|██▉       | 463/1548 [1:43:01<4:47:23, 15.89s/it]2025-05-09 20:56:33,033 : ##### This is the --464th-- Question #####
+ 30%|██▉       | 464/1548 [1:43:07<3:51:49, 12.83s/it]2025-05-09 20:56:38,730 : ##### This is the --465th-- Question #####
+ 30%|███       | 465/1548 [1:43:15<3:27:33, 11.50s/it]2025-05-09 20:56:47,114 : ##### This is the --466th-- Question #####
+ 30%|███       | 466/1548 [1:43:28<3:33:18, 11.83s/it]2025-05-09 20:56:59,712 : ##### This is the --467th-- Question #####
+2025-05-09 20:57:05,868 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 30%|███       | 467/1548 [1:43:34<3:02:30, 10.13s/it]2025-05-09 20:57:05,877 : ##### This is the --468th-- Question #####
+2025-05-09 20:57:21,555 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 30%|███       | 468/1548 [1:43:50<3:32:20, 11.80s/it]2025-05-09 20:57:21,563 : ##### This is the --469th-- Question #####
+ 30%|███       | 469/1548 [1:43:59<3:15:52, 10.89s/it]2025-05-09 20:57:30,344 : ##### This is the --470th-- Question #####
+ 30%|███       | 470/1548 [1:44:10<3:17:19, 10.98s/it]2025-05-09 20:57:41,544 : ##### This is the --471th-- Question #####
+ 30%|███       | 471/1548 [1:44:21<3:19:48, 11.13s/it]2025-05-09 20:57:53,018 : ##### This is the --472th-- Question #####
+2025-05-09 20:58:01,597 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 20:58:10,180 : New Reasoning Tokens Are None, Current try is 2
+ 30%|███       | 472/1548 [1:44:58<5:35:29, 18.71s/it]2025-05-09 20:58:29,405 : ##### This is the --473th-- Question #####
+ 31%|███       | 473/1548 [1:45:03<4:20:26, 14.54s/it]2025-05-09 20:58:34,206 : ##### This is the --474th-- Question #####
+ 31%|███       | 474/1548 [1:45:15<4:08:36, 13.89s/it]2025-05-09 20:58:46,590 : ##### This is the --475th-- Question #####
+2025-05-09 20:58:56,229 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 20:59:11,251 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-09 20:59:24,628 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 31%|███       | 475/1548 [1:45:53<6:18:00, 21.14s/it]2025-05-09 20:59:24,634 : ##### This is the --476th-- Question #####
+2025-05-09 20:59:37,004 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 31%|███       | 476/1548 [1:46:05<5:30:41, 18.51s/it]2025-05-09 20:59:37,012 : ##### This is the --477th-- Question #####
+ 31%|███       | 477/1548 [1:46:19<5:03:45, 17.02s/it]2025-05-09 20:59:50,553 : ##### This is the --478th-- Question #####
+2025-05-09 21:00:02,017 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 31%|███       | 478/1548 [1:46:30<4:33:49, 15.35s/it]2025-05-09 21:00:02,023 : ##### This is the --479th-- Question #####
+ 31%|███       | 479/1548 [1:46:42<4:15:49, 14.36s/it]2025-05-09 21:00:14,059 : ##### This is the --480th-- Question #####
+ 31%|███       | 480/1548 [1:46:52<3:50:23, 12.94s/it]2025-05-09 21:00:23,698 : ##### This is the --481th-- Question #####
+ 31%|███       | 481/1548 [1:46:58<3:11:52, 10.79s/it]2025-05-09 21:00:29,463 : ##### This is the --482th-- Question #####
+ 31%|███       | 482/1548 [1:47:04<2:47:27,  9.43s/it]2025-05-09 21:00:35,705 : ##### This is the --483th-- Question #####
+ 31%|███       | 483/1548 [1:47:18<3:13:10, 10.88s/it]2025-05-09 21:00:49,988 : ##### This is the --484th-- Question #####
+2025-05-09 21:00:58,565 : New Reasoning Tokens Are None, Current try is 1
+ 31%|███▏      | 484/1548 [1:47:37<3:57:09, 13.37s/it]2025-05-09 21:01:09,179 : ##### This is the --485th-- Question #####
+ 31%|███▏      | 485/1548 [1:47:44<3:21:30, 11.37s/it]2025-05-09 21:01:15,882 : ##### This is the --486th-- Question #####
+2025-05-09 21:01:21,389 : Exact Tokens Have NO ANSWER, Current try is 1
+ 31%|███▏      | 486/1548 [1:47:57<3:31:28, 11.95s/it]2025-05-09 21:01:29,167 : ##### This is the --487th-- Question #####
+ 31%|███▏      | 487/1548 [1:48:10<3:36:27, 12.24s/it]2025-05-09 21:01:42,092 : ##### This is the --488th-- Question #####
+2025-05-09 21:01:47,662 : 
+Step 2-Keyword-3 Does not appear in the Step Text
+ 32%|███▏      | 488/1548 [1:48:16<3:00:56, 10.24s/it]2025-05-09 21:01:47,669 : ##### This is the --489th-- Question #####
+ 32%|███▏      | 489/1548 [1:48:29<3:14:08, 11.00s/it]2025-05-09 21:02:00,438 : ##### This is the --490th-- Question #####
+2025-05-09 21:02:03,367 : Cannot locate the Final Answer, Current try is 1
+ 32%|███▏      | 490/1548 [1:48:37<3:00:32, 10.24s/it]2025-05-09 21:02:08,900 : ##### This is the --491th-- Question #####
+2025-05-09 21:02:17,488 : New Reasoning Tokens Are None, Current try is 1
+ 32%|███▏      | 491/1548 [1:49:02<4:16:29, 14.56s/it]2025-05-09 21:02:33,547 : ##### This is the --492th-- Question #####
+2025-05-09 21:02:52,881 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 32%|███▏      | 492/1548 [1:49:21<4:41:31, 16.00s/it]2025-05-09 21:02:52,888 : ##### This is the --493th-- Question #####
+ 32%|███▏      | 493/1548 [1:49:36<4:34:50, 15.63s/it]2025-05-09 21:03:07,668 : ##### This is the --494th-- Question #####
+ 32%|███▏      | 494/1548 [1:49:42<3:41:28, 12.61s/it]2025-05-09 21:03:13,220 : ##### This is the --495th-- Question #####
+2025-05-09 21:03:32,656 : Exact Tokens Have NO ANSWER, Current try is 1
+ 32%|███▏      | 495/1548 [1:50:15<5:28:31, 18.72s/it]2025-05-09 21:03:46,205 : ##### This is the --496th-- Question #####
+2025-05-09 21:03:54,791 : New Reasoning Tokens Are None, Current try is 1
+ 32%|███▏      | 496/1548 [1:50:27<4:56:01, 16.88s/it]2025-05-09 21:03:58,802 : ##### This is the --497th-- Question #####
+ 32%|███▏      | 497/1548 [1:50:40<4:32:42, 15.57s/it]2025-05-09 21:04:11,301 : ##### This is the --498th-- Question #####
+ 32%|███▏      | 498/1548 [1:50:52<4:14:32, 14.55s/it]2025-05-09 21:04:23,459 : ##### This is the --499th-- Question #####
+ 32%|███▏      | 499/1548 [1:51:06<4:13:19, 14.49s/it]2025-05-09 21:04:37,819 : ##### This is the --500th-- Question #####
+2025-05-09 21:04:43,892 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 32%|███▏      | 500/1548 [1:51:19<4:04:01, 13.97s/it]2025-05-09 21:04:50,586 : ##### This is the --501th-- Question #####
+2025-05-09 21:04:57,017 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 21:05:02,710 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 32%|███▏      | 501/1548 [1:51:31<3:54:11, 13.42s/it]2025-05-09 21:05:02,716 : ##### This is the --502th-- Question #####
+ 32%|███▏      | 502/1548 [1:51:44<3:50:27, 13.22s/it]2025-05-09 21:05:15,466 : ##### This is the --503th-- Question #####
+ 32%|███▏      | 503/1548 [1:51:51<3:16:32, 11.28s/it]2025-05-09 21:05:22,236 : ##### This is the --504th-- Question #####
+2025-05-09 21:05:30,890 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:05:30,896 : 
+Step 6-Keyword-1 Does not appear in the Step Text
+ 33%|███▎      | 504/1548 [1:51:59<3:02:41, 10.50s/it]2025-05-09 21:05:30,904 : ##### This is the --505th-- Question #####
+ 33%|███▎      | 505/1548 [1:52:05<2:40:00,  9.20s/it]2025-05-09 21:05:37,087 : ##### This is the --506th-- Question #####
+2025-05-09 21:05:48,851 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:05:48,852 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 33%|███▎      | 506/1548 [1:52:17<2:53:14,  9.98s/it]2025-05-09 21:05:48,864 : ##### This is the --507th-- Question #####
+2025-05-09 21:06:04,452 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 21:06:12,637 : Exact Tokens Have NO ANSWER, Current try is 2
+ 33%|███▎      | 507/1548 [1:52:59<5:39:24, 19.56s/it]2025-05-09 21:06:30,798 : ##### This is the --508th-- Question #####
+ 33%|███▎      | 508/1548 [1:53:13<5:07:53, 17.76s/it]2025-05-09 21:06:44,356 : ##### This is the --509th-- Question #####
+ 33%|███▎      | 509/1548 [1:53:26<4:43:21, 16.36s/it]2025-05-09 21:06:57,455 : ##### This is the --510th-- Question #####
+2025-05-09 21:07:16,814 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:07:16,818 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 33%|███▎      | 510/1548 [1:53:45<4:58:41, 17.27s/it]2025-05-09 21:07:16,824 : ##### This is the --511th-- Question #####
+ 33%|███▎      | 511/1548 [1:53:57<4:29:12, 15.58s/it]2025-05-09 21:07:28,460 : ##### This is the --512th-- Question #####
+2025-05-09 21:07:37,042 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:07:49,833 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:07:49,836 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 33%|███▎      | 512/1548 [1:54:18<4:59:01, 17.32s/it]2025-05-09 21:07:49,847 : ##### This is the --513th-- Question #####
+2025-05-09 21:08:00,498 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 33%|███▎      | 513/1548 [1:54:29<4:24:17, 15.32s/it]2025-05-09 21:08:00,504 : ##### This is the --514th-- Question #####
+2025-05-09 21:08:09,466 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 33%|███▎      | 514/1548 [1:54:38<3:51:13, 13.42s/it]2025-05-09 21:08:09,479 : ##### This is the --515th-- Question #####
+ 33%|███▎      | 515/1548 [1:54:46<3:25:47, 11.95s/it]2025-05-09 21:08:18,016 : ##### This is the --516th-- Question #####
+2025-05-09 21:08:34,380 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+ 33%|███▎      | 516/1548 [1:55:03<3:48:23, 13.28s/it]2025-05-09 21:08:34,388 : ##### This is the --517th-- Question #####
+2025-05-09 21:08:42,970 : New Reasoning Tokens Are None, Current try is 1
+ 33%|███▎      | 517/1548 [1:55:25<4:36:39, 16.10s/it]2025-05-09 21:08:57,078 : ##### This is the --518th-- Question #####
+ 33%|███▎      | 518/1548 [1:55:32<3:46:03, 13.17s/it]2025-05-09 21:09:03,399 : ##### This is the --519th-- Question #####
+ 34%|███▎      | 519/1548 [1:55:39<3:15:19, 11.39s/it]2025-05-09 21:09:10,636 : ##### This is the --520th-- Question #####
+2025-05-09 21:09:15,936 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 21:09:23,546 : Exact Tokens Have no contribution scores, Current try is 2
+ 34%|███▎      | 520/1548 [1:56:04<4:26:15, 15.54s/it]2025-05-09 21:09:35,862 : ##### This is the --521th-- Question #####
+ 34%|███▎      | 521/1548 [1:56:11<3:39:34, 12.83s/it]2025-05-09 21:09:42,362 : ##### This is the --522th-- Question #####
+2025-05-09 21:09:50,945 : New Reasoning Tokens Are None, Current try is 1
+ 34%|███▎      | 522/1548 [1:56:38<4:56:17, 17.33s/it]2025-05-09 21:10:10,191 : ##### This is the --523th-- Question #####
+ 34%|███▍      | 523/1548 [1:56:51<4:32:53, 15.97s/it]2025-05-09 21:10:23,005 : ##### This is the --524th-- Question #####
+2025-05-09 21:10:25,954 : Cannot locate the Final Answer, Current try is 1
+2025-05-09 21:10:45,287 : Exact Tokens Have NO ANSWER, Current try is 2
+ 34%|███▍      | 524/1548 [1:57:20<5:35:52, 19.68s/it]2025-05-09 21:10:51,334 : ##### This is the --525th-- Question #####
+ 34%|███▍      | 525/1548 [1:57:37<5:23:20, 18.96s/it]2025-05-09 21:11:08,626 : ##### This is the --526th-- Question #####
+2025-05-09 21:11:28,004 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 34%|███▍      | 526/1548 [1:57:56<5:25:12, 19.09s/it]2025-05-09 21:11:28,022 : ##### This is the --527th-- Question #####
+2025-05-09 21:11:42,572 : 
+Step 7-Keyword-0 Does not appear in the Step Text
+ 34%|███▍      | 527/1548 [1:58:11<5:01:45, 17.73s/it]2025-05-09 21:11:42,578 : ##### This is the --528th-- Question #####
+ 34%|███▍      | 528/1548 [1:58:16<3:57:56, 14.00s/it]2025-05-09 21:11:47,857 : ##### This is the --529th-- Question #####
+ 34%|███▍      | 529/1548 [1:58:29<3:51:45, 13.65s/it]2025-05-09 21:12:00,686 : ##### This is the --530th-- Question #####
+ 34%|███▍      | 530/1548 [1:58:43<3:51:00, 13.62s/it]2025-05-09 21:12:14,228 : ##### This is the --531th-- Question #####
+ 34%|███▍      | 531/1548 [1:58:55<3:44:08, 13.22s/it]2025-05-09 21:12:26,539 : ##### This is the --532th-- Question #####
+ 34%|███▍      | 532/1548 [1:59:12<4:04:42, 14.45s/it]2025-05-09 21:12:43,860 : ##### This is the --533th-- Question #####
+ 34%|███▍      | 533/1548 [1:59:18<3:20:15, 11.84s/it]2025-05-09 21:12:49,595 : ##### This is the --534th-- Question #####
+2025-05-09 21:12:58,170 : New Reasoning Tokens Are None, Current try is 1
+ 34%|███▍      | 534/1548 [1:59:33<3:35:08, 12.73s/it]2025-05-09 21:13:04,405 : ##### This is the --535th-- Question #####
+ 35%|███▍      | 535/1548 [1:59:47<3:41:13, 13.10s/it]2025-05-09 21:13:18,380 : ##### This is the --536th-- Question #####
+ 35%|███▍      | 536/1548 [2:00:05<4:05:12, 14.54s/it]2025-05-09 21:13:36,265 : ##### This is the --537th-- Question #####
+ 35%|███▍      | 537/1548 [2:00:17<3:55:00, 13.95s/it]2025-05-09 21:13:48,838 : ##### This is the --538th-- Question #####
+ 35%|███▍      | 538/1548 [2:00:29<3:44:53, 13.36s/it]2025-05-09 21:14:00,822 : ##### This is the --539th-- Question #####
+ 35%|███▍      | 539/1548 [2:00:34<3:02:23, 10.85s/it]2025-05-09 21:14:05,804 : ##### This is the --540th-- Question #####
+ 35%|███▍      | 540/1548 [2:00:48<3:15:09, 11.62s/it]2025-05-09 21:14:19,217 : ##### This is the --541th-- Question #####
+ 35%|███▍      | 541/1548 [2:00:53<2:43:09,  9.72s/it]2025-05-09 21:14:24,520 : ##### This is the --542th-- Question #####
+ 35%|███▌      | 542/1548 [2:00:59<2:23:41,  8.57s/it]2025-05-09 21:14:30,402 : ##### This is the --543th-- Question #####
+ 35%|███▌      | 543/1548 [2:01:12<2:45:46,  9.90s/it]2025-05-09 21:14:43,395 : ##### This is the --544th-- Question #####
+2025-05-09 21:14:48,126 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 21:15:04,482 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:15:04,488 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 35%|███▌      | 544/1548 [2:01:33<3:41:51, 13.26s/it]2025-05-09 21:15:04,500 : ##### This is the --545th-- Question #####
+ 35%|███▌      | 545/1548 [2:01:46<3:39:11, 13.11s/it]2025-05-09 21:15:17,266 : ##### This is the --546th-- Question #####
+2025-05-09 21:15:29,771 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 35%|███▌      | 546/1548 [2:01:58<3:35:57, 12.93s/it]2025-05-09 21:15:29,777 : ##### This is the --547th-- Question #####
+ 35%|███▌      | 547/1548 [2:02:12<3:38:39, 13.11s/it]2025-05-09 21:15:43,292 : ##### This is the --548th-- Question #####
+ 35%|███▌      | 548/1548 [2:02:18<3:02:53, 10.97s/it]2025-05-09 21:15:49,288 : ##### This is the --549th-- Question #####
+2025-05-09 21:15:55,430 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:15:55,433 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 35%|███▌      | 549/1548 [2:02:24<2:38:37,  9.53s/it]2025-05-09 21:15:55,439 : ##### This is the --550th-- Question #####
+ 36%|███▌      | 550/1548 [2:02:33<2:39:35,  9.60s/it]2025-05-09 21:16:05,199 : ##### This is the --551th-- Question #####
+2025-05-09 21:16:19,387 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:16:19,387 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+ 36%|███▌      | 551/1548 [2:02:48<3:02:24, 10.98s/it]2025-05-09 21:16:19,396 : ##### This is the --552th-- Question #####
+ 36%|███▌      | 552/1548 [2:02:53<2:31:44,  9.14s/it]2025-05-09 21:16:24,252 : ##### This is the --553th-- Question #####
+2025-05-09 21:16:43,162 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 36%|███▌      | 553/1548 [2:03:11<3:20:13, 12.07s/it]2025-05-09 21:16:43,168 : ##### This is the --554th-- Question #####
+2025-05-09 21:16:51,745 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:17:00,326 : New Reasoning Tokens Are None, Current try is 2
+ 36%|███▌      | 554/1548 [2:03:40<4:42:26, 17.05s/it]2025-05-09 21:17:11,833 : ##### This is the --555th-- Question #####
+2025-05-09 21:17:20,414 : New Reasoning Tokens Are None, Current try is 1
+ 36%|███▌      | 555/1548 [2:04:01<5:01:24, 18.21s/it]2025-05-09 21:17:32,754 : ##### This is the --556th-- Question #####
+2025-05-09 21:17:48,853 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 36%|███▌      | 556/1548 [2:04:17<4:50:41, 17.58s/it]2025-05-09 21:17:48,866 : ##### This is the --557th-- Question #####
+ 36%|███▌      | 557/1548 [2:04:23<3:52:48, 14.10s/it]2025-05-09 21:17:54,825 : ##### This is the --558th-- Question #####
+2025-05-09 21:18:08,174 : Exact Tokens Have NO ANSWER, Current try is 1
+ 36%|███▌      | 558/1548 [2:04:47<4:42:31, 17.12s/it]2025-05-09 21:18:19,017 : ##### This is the --559th-- Question #####
+2025-05-09 21:18:27,606 : New Reasoning Tokens Are None, Current try is 1
+ 36%|███▌      | 559/1548 [2:05:11<5:13:51, 19.04s/it]2025-05-09 21:18:42,530 : ##### This is the --560th-- Question #####
+ 36%|███▌      | 560/1548 [2:05:23<4:37:15, 16.84s/it]2025-05-09 21:18:54,224 : ##### This is the --561th-- Question #####
+2025-05-09 21:19:02,810 : New Reasoning Tokens Are None, Current try is 1
+ 36%|███▌      | 561/1548 [2:05:45<5:05:58, 18.60s/it]2025-05-09 21:19:16,937 : ##### This is the --562th-- Question #####
+ 36%|███▋      | 562/1548 [2:05:58<4:37:53, 16.91s/it]2025-05-09 21:19:29,910 : ##### This is the --563th-- Question #####
+ 36%|███▋      | 563/1548 [2:06:04<3:42:43, 13.57s/it]2025-05-09 21:19:35,670 : ##### This is the --564th-- Question #####
+2025-05-09 21:19:40,325 : Exact Tokens Have no contribution scores, Current try is 1
+ 36%|███▋      | 564/1548 [2:06:18<3:46:27, 13.81s/it]2025-05-09 21:19:50,042 : ##### This is the --565th-- Question #####
+ 36%|███▋      | 565/1548 [2:06:32<3:47:02, 13.86s/it]2025-05-09 21:20:04,014 : ##### This is the --566th-- Question #####
+ 37%|███▋      | 566/1548 [2:06:52<4:13:26, 15.49s/it]2025-05-09 21:20:23,298 : ##### This is the --567th-- Question #####
+ 37%|███▋      | 567/1548 [2:07:02<3:47:35, 13.92s/it]2025-05-09 21:20:33,572 : ##### This is the --568th-- Question #####
+ 37%|███▋      | 568/1548 [2:07:09<3:12:26, 11.78s/it]2025-05-09 21:20:40,361 : ##### This is the --569th-- Question #####
+2025-05-09 21:20:53,414 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:20:53,415 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:20:53,416 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 37%|███▋      | 569/1548 [2:07:22<3:18:30, 12.17s/it]2025-05-09 21:20:53,423 : ##### This is the --570th-- Question #####
+ 37%|███▋      | 570/1548 [2:07:29<2:53:12, 10.63s/it]2025-05-09 21:21:00,459 : ##### This is the --571th-- Question #####
+ 37%|███▋      | 571/1548 [2:07:36<2:35:37,  9.56s/it]2025-05-09 21:21:07,519 : ##### This is the --572th-- Question #####
+2025-05-09 21:21:12,067 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:21:12,068 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 37%|███▋      | 572/1548 [2:07:40<2:11:03,  8.06s/it]2025-05-09 21:21:12,074 : ##### This is the --573th-- Question #####
+ 37%|███▋      | 573/1548 [2:07:53<2:31:28,  9.32s/it]2025-05-09 21:21:24,346 : ##### This is the --574th-- Question #####
+2025-05-09 21:21:32,928 : New Reasoning Tokens Are None, Current try is 1
+ 37%|███▋      | 574/1548 [2:08:12<3:17:54, 12.19s/it]2025-05-09 21:21:43,242 : ##### This is the --575th-- Question #####
+ 37%|███▋      | 575/1548 [2:08:19<2:55:20, 10.81s/it]2025-05-09 21:21:50,831 : ##### This is the --576th-- Question #####
+ 37%|███▋      | 576/1548 [2:08:25<2:32:19,  9.40s/it]2025-05-09 21:21:56,945 : ##### This is the --577th-- Question #####
+ 37%|███▋      | 577/1548 [2:08:38<2:48:41, 10.42s/it]2025-05-09 21:22:09,749 : ##### This is the --578th-- Question #####
+ 37%|███▋      | 578/1548 [2:08:43<2:23:59,  8.91s/it]2025-05-09 21:22:15,116 : ##### This is the --579th-- Question #####
+ 37%|███▋      | 579/1548 [2:08:55<2:39:11,  9.86s/it]2025-05-09 21:22:27,190 : ##### This is the --580th-- Question #####
+ 37%|███▋      | 580/1548 [2:09:01<2:20:21,  8.70s/it]2025-05-09 21:22:33,192 : ##### This is the --581th-- Question #####
+2025-05-09 21:22:46,468 : Exact Tokens Have NO ANSWER, Current try is 1
+ 38%|███▊      | 581/1548 [2:09:31<4:02:10, 15.03s/it]2025-05-09 21:23:02,984 : ##### This is the --582th-- Question #####
+ 38%|███▊      | 582/1548 [2:09:39<3:26:59, 12.86s/it]2025-05-09 21:23:10,771 : ##### This is the --583th-- Question #####
+2025-05-09 21:23:21,436 : Exact Tokens Have no contribution scores, Current try is 1
+ 38%|███▊      | 583/1548 [2:09:57<3:50:03, 14.30s/it]2025-05-09 21:23:28,453 : ##### This is the --584th-- Question #####
+ 38%|███▊      | 584/1548 [2:10:12<3:51:59, 14.44s/it]2025-05-09 21:23:43,208 : ##### This is the --585th-- Question #####
+2025-05-09 21:23:51,785 : New Reasoning Tokens Are None, Current try is 1
+ 38%|███▊      | 585/1548 [2:10:25<3:49:07, 14.28s/it]2025-05-09 21:23:57,102 : ##### This is the --586th-- Question #####
+ 38%|███▊      | 586/1548 [2:10:38<3:41:14, 13.80s/it]2025-05-09 21:24:09,795 : ##### This is the --587th-- Question #####
+2025-05-09 21:24:18,375 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:24:31,043 : Exact Tokens Have NO ANSWER, Current try is 2
+ 38%|███▊      | 587/1548 [2:11:04<4:40:03, 17.49s/it]2025-05-09 21:24:35,877 : ##### This is the --588th-- Question #####
+ 38%|███▊      | 588/1548 [2:11:17<4:17:11, 16.07s/it]2025-05-09 21:24:48,658 : ##### This is the --589th-- Question #####
+2025-05-09 21:24:57,530 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:24:57,531 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 38%|███▊      | 589/1548 [2:11:26<3:42:26, 13.92s/it]2025-05-09 21:24:57,540 : ##### This is the --590th-- Question #####
+ 38%|███▊      | 590/1548 [2:11:37<3:26:42, 12.95s/it]2025-05-09 21:25:08,221 : ##### This is the --591th-- Question #####
+ 38%|███▊      | 591/1548 [2:11:44<2:59:55, 11.28s/it]2025-05-09 21:25:15,621 : ##### This is the --592th-- Question #####
+2025-05-09 21:25:21,686 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 38%|███▊      | 592/1548 [2:11:50<2:34:52,  9.72s/it]2025-05-09 21:25:21,695 : ##### This is the --593th-- Question #####
+ 38%|███▊      | 593/1548 [2:12:09<3:20:34, 12.60s/it]2025-05-09 21:25:41,018 : ##### This is the --594th-- Question #####
+2025-05-09 21:25:51,498 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 21:26:04,917 : Exact Tokens Have NO ANSWER, Current try is 2
+ 38%|███▊      | 594/1548 [2:12:41<4:49:00, 18.18s/it]2025-05-09 21:26:12,206 : ##### This is the --595th-- Question #####
+ 38%|███▊      | 595/1548 [2:12:54<4:28:19, 16.89s/it]2025-05-09 21:26:26,109 : ##### This is the --596th-- Question #####
+ 39%|███▊      | 596/1548 [2:13:08<4:11:52, 15.87s/it]2025-05-09 21:26:39,602 : ##### This is the --597th-- Question #####
+2025-05-09 21:26:51,765 : Exact Tokens Have NO ANSWER, Current try is 1
+ 39%|███▊      | 597/1548 [2:13:32<4:52:05, 18.43s/it]2025-05-09 21:27:03,988 : ##### This is the --598th-- Question #####
+ 39%|███▊      | 598/1548 [2:13:45<4:25:58, 16.80s/it]2025-05-09 21:27:16,985 : ##### This is the --599th-- Question #####
+ 39%|███▊      | 599/1548 [2:13:59<4:10:32, 15.84s/it]2025-05-09 21:27:30,592 : ##### This is the --600th-- Question #####
+ 39%|███▉      | 600/1548 [2:14:06<3:31:05, 13.36s/it]2025-05-09 21:27:38,160 : ##### This is the --601th-- Question #####
+2025-05-09 21:27:47,156 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 21:28:01,256 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-09 21:28:13,906 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 39%|███▉      | 601/1548 [2:14:42<5:16:55, 20.08s/it]2025-05-09 21:28:13,918 : ##### This is the --602th-- Question #####
+ 39%|███▉      | 602/1548 [2:14:49<4:14:30, 16.14s/it]2025-05-09 21:28:20,875 : ##### This is the --603th-- Question #####
+ 39%|███▉      | 603/1548 [2:14:55<3:25:55, 13.07s/it]2025-05-09 21:28:26,789 : ##### This is the --604th-- Question #####
+2025-05-09 21:28:32,370 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:28:32,373 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 39%|███▉      | 604/1548 [2:15:01<2:50:22, 10.83s/it]2025-05-09 21:28:32,383 : ##### This is the --605th-- Question #####
+ 39%|███▉      | 605/1548 [2:15:07<2:30:49,  9.60s/it]2025-05-09 21:28:39,102 : ##### This is the --606th-- Question #####
+2025-05-09 21:28:53,050 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 21:29:06,199 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-09 21:29:19,393 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 39%|███▉      | 606/1548 [2:15:48<4:55:16, 18.81s/it]2025-05-09 21:29:19,400 : ##### This is the --607th-- Question #####
+2025-05-09 21:29:38,642 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 21:29:54,680 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:29:54,681 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+ 39%|███▉      | 607/1548 [2:16:23<6:12:31, 23.75s/it]2025-05-09 21:29:54,698 : ##### This is the --608th-- Question #####
+2025-05-09 21:30:03,279 : New Reasoning Tokens Are None, Current try is 1
+ 39%|███▉      | 608/1548 [2:16:38<5:30:50, 21.12s/it]2025-05-09 21:30:09,659 : ##### This is the --609th-- Question #####
+2025-05-09 21:30:22,721 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:30:22,724 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:30:22,728 : 
+Step 5-Keyword-0 Does not appear in the Step Text
+ 39%|███▉      | 609/1548 [2:16:51<4:52:43, 18.70s/it]2025-05-09 21:30:22,734 : ##### This is the --610th-- Question #####
+2025-05-09 21:30:37,712 : 
+Step 1-Keyword-5 Does not appear in the Step Text
+2025-05-09 21:30:37,712 : 
+Step 1-Keyword-6 Does not appear in the Step Text
+ 39%|███▉      | 610/1548 [2:17:06<4:34:58, 17.59s/it]2025-05-09 21:30:37,721 : ##### This is the --611th-- Question #####
+2025-05-09 21:30:53,954 : Exact Tokens Have NO ANSWER, Current try is 1
+ 39%|███▉      | 611/1548 [2:17:30<5:02:17, 19.36s/it]2025-05-09 21:31:01,210 : ##### This is the --612th-- Question #####
+ 40%|███▉      | 612/1548 [2:17:42<4:27:58, 17.18s/it]2025-05-09 21:31:13,296 : ##### This is the --613th-- Question #####
+2025-05-09 21:31:20,968 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 40%|███▉      | 613/1548 [2:17:49<3:43:16, 14.33s/it]2025-05-09 21:31:20,974 : ##### This is the --614th-- Question #####
+ 40%|███▉      | 614/1548 [2:17:59<3:22:27, 13.01s/it]2025-05-09 21:31:30,894 : ##### This is the --615th-- Question #####
+ 40%|███▉      | 615/1548 [2:18:07<2:59:53, 11.57s/it]2025-05-09 21:31:39,110 : ##### This is the --616th-- Question #####
+2025-05-09 21:31:51,603 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 40%|███▉      | 616/1548 [2:18:20<3:04:02, 11.85s/it]2025-05-09 21:31:51,611 : ##### This is the --617th-- Question #####
+2025-05-09 21:32:00,185 : New Reasoning Tokens Are None, Current try is 1
+ 40%|███▉      | 617/1548 [2:18:41<3:48:48, 14.75s/it]2025-05-09 21:32:13,124 : ##### This is the --618th-- Question #####
+2025-05-09 21:32:17,772 : Exact Tokens Have no contribution scores, Current try is 1
+ 40%|███▉      | 618/1548 [2:18:53<3:33:52, 13.80s/it]2025-05-09 21:32:24,704 : ##### This is the --619th-- Question #####
+ 40%|███▉      | 619/1548 [2:19:02<3:09:14, 12.22s/it]2025-05-09 21:32:33,251 : ##### This is the --620th-- Question #####
+2025-05-09 21:32:41,250 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 40%|████      | 620/1548 [2:19:10<2:49:28, 10.96s/it]2025-05-09 21:32:41,256 : ##### This is the --621th-- Question #####
+2025-05-09 21:32:52,605 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:32:52,605 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:32:52,606 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:32:52,608 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:32:52,616 : 
+Step 5-Keyword-2 Does not appear in the Step Text
+ 40%|████      | 621/1548 [2:19:21<2:51:11, 11.08s/it]2025-05-09 21:32:52,622 : ##### This is the --622th-- Question #####
+ 40%|████      | 622/1548 [2:19:29<2:38:19, 10.26s/it]2025-05-09 21:33:00,964 : ##### This is the --623th-- Question #####
+2025-05-09 21:33:14,943 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 40%|████      | 623/1548 [2:19:43<2:55:23, 11.38s/it]2025-05-09 21:33:14,954 : ##### This is the --624th-- Question #####
+2025-05-09 21:33:29,639 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:33:29,639 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:33:29,639 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+2025-05-09 21:33:29,642 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:33:29,642 : 
+Step 3-Keyword-3 Does not appear in the Step Text
+ 40%|████      | 624/1548 [2:19:58<3:10:34, 12.37s/it]2025-05-09 21:33:29,653 : ##### This is the --625th-- Question #####
+ 40%|████      | 625/1548 [2:20:05<2:46:18, 10.81s/it]2025-05-09 21:33:36,816 : ##### This is the --626th-- Question #####
+2025-05-09 21:33:51,685 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 40%|████      | 626/1548 [2:20:20<3:04:52, 12.03s/it]2025-05-09 21:33:51,693 : ##### This is the --627th-- Question #####
+ 41%|████      | 627/1548 [2:20:27<2:41:53, 10.55s/it]2025-05-09 21:33:58,776 : ##### This is the --628th-- Question #####
+ 41%|████      | 628/1548 [2:20:37<2:37:20, 10.26s/it]2025-05-09 21:34:08,372 : ##### This is the --629th-- Question #####
+ 41%|████      | 629/1548 [2:20:49<2:47:18, 10.92s/it]2025-05-09 21:34:20,846 : ##### This is the --630th-- Question #####
+2025-05-09 21:34:35,833 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 41%|████      | 630/1548 [2:21:04<3:05:51, 12.15s/it]2025-05-09 21:34:35,844 : ##### This is the --631th-- Question #####
+ 41%|████      | 631/1548 [2:21:16<3:02:51, 11.96s/it]2025-05-09 21:34:47,382 : ##### This is the --632th-- Question #####
+ 41%|████      | 632/1548 [2:21:29<3:08:14, 12.33s/it]2025-05-09 21:35:00,566 : ##### This is the --633th-- Question #####
+2025-05-09 21:35:10,853 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:35:10,853 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+2025-05-09 21:35:10,854 : 
+Step 1-Keyword-4 Does not appear in the Step Text
+2025-05-09 21:35:10,857 : 
+Step 3-Keyword-2 Does not appear in the Step Text
+ 41%|████      | 633/1548 [2:21:39<2:58:44, 11.72s/it]2025-05-09 21:35:10,865 : ##### This is the --634th-- Question #####
+ 41%|████      | 634/1548 [2:21:54<3:11:21, 12.56s/it]2025-05-09 21:35:25,394 : ##### This is the --635th-- Question #####
+2025-05-09 21:35:30,982 : Exact Tokens Have no contribution scores, Current try is 1
+ 41%|████      | 635/1548 [2:22:12<3:39:31, 14.43s/it]2025-05-09 21:35:44,168 : ##### This is the --636th-- Question #####
+ 41%|████      | 636/1548 [2:22:25<3:30:58, 13.88s/it]2025-05-09 21:35:56,771 : ##### This is the --637th-- Question #####
+ 41%|████      | 637/1548 [2:22:30<2:52:00, 11.33s/it]2025-05-09 21:36:02,146 : ##### This is the --638th-- Question #####
+2025-05-09 21:36:07,827 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:36:07,827 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:36:07,827 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:36:07,827 : 
+Step 1-Keyword-3 Does not appear in the Step Text
+2025-05-09 21:36:07,827 : 
+Step 1-Keyword-4 Does not appear in the Step Text
+2025-05-09 21:36:07,827 : 
+Step 1-Keyword-5 Does not appear in the Step Text
+2025-05-09 21:36:07,828 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:36:07,828 : 
+Step 2-Keyword-1 Does not appear in the Step Text
+2025-05-09 21:36:07,828 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 41%|████      | 638/1548 [2:22:36<2:26:09,  9.64s/it]2025-05-09 21:36:07,836 : ##### This is the --639th-- Question #####
+ 41%|████▏     | 639/1548 [2:22:48<2:37:42, 10.41s/it]2025-05-09 21:36:20,051 : ##### This is the --640th-- Question #####
+2025-05-09 21:36:24,912 : Exact Tokens Have no contribution scores, Current try is 1
+ 41%|████▏     | 640/1548 [2:23:03<2:56:08, 11.64s/it]2025-05-09 21:36:34,564 : ##### This is the --641th-- Question #####
+2025-05-09 21:36:42,248 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 41%|████▏     | 641/1548 [2:23:11<2:38:05, 10.46s/it]2025-05-09 21:36:42,260 : ##### This is the --642th-- Question #####
+ 41%|████▏     | 642/1548 [2:23:17<2:19:56,  9.27s/it]2025-05-09 21:36:48,749 : ##### This is the --643th-- Question #####
+ 42%|████▏     | 643/1548 [2:23:30<2:36:28, 10.37s/it]2025-05-09 21:37:01,706 : ##### This is the --644th-- Question #####
+2025-05-09 21:37:10,287 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:37:22,450 : Exact Tokens Have NO ANSWER, Current try is 2
+ 42%|████▏     | 644/1548 [2:24:00<4:05:24, 16.29s/it]2025-05-09 21:37:31,792 : ##### This is the --645th-- Question #####
+ 42%|████▏     | 645/1548 [2:24:13<3:48:36, 15.19s/it]2025-05-09 21:37:44,427 : ##### This is the --646th-- Question #####
+2025-05-09 21:37:57,768 : Exact Tokens Have NO ANSWER, Current try is 1
+ 42%|████▏     | 646/1548 [2:24:32<4:05:02, 16.30s/it]2025-05-09 21:38:03,310 : ##### This is the --647th-- Question #####
+ 42%|████▏     | 647/1548 [2:24:39<3:22:34, 13.49s/it]2025-05-09 21:38:10,243 : ##### This is the --648th-- Question #####
+2025-05-09 21:38:16,112 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 42%|████▏     | 648/1548 [2:24:44<2:48:05, 11.21s/it]2025-05-09 21:38:16,120 : ##### This is the --649th-- Question #####
+ 42%|████▏     | 649/1548 [2:24:58<2:56:45, 11.80s/it]2025-05-09 21:38:29,298 : ##### This is the --650th-- Question #####
+ 42%|████▏     | 650/1548 [2:25:17<3:30:26, 14.06s/it]2025-05-09 21:38:48,646 : ##### This is the --651th-- Question #####
+2025-05-09 21:38:57,223 : New Reasoning Tokens Are None, Current try is 1
+ 42%|████▏     | 651/1548 [2:25:45<4:32:48, 18.25s/it]2025-05-09 21:39:16,658 : ##### This is the --652th-- Question #####
+ 42%|████▏     | 652/1548 [2:25:52<3:42:28, 14.90s/it]2025-05-09 21:39:23,740 : ##### This is the --653th-- Question #####
+2025-05-09 21:39:33,018 : Exact Tokens Have NO ANSWER, Current try is 1
+ 42%|████▏     | 653/1548 [2:26:14<4:15:59, 17.16s/it]2025-05-09 21:39:46,183 : ##### This is the --654th-- Question #####
+ 42%|████▏     | 654/1548 [2:26:33<4:22:56, 17.65s/it]2025-05-09 21:40:04,968 : ##### This is the --655th-- Question #####
+2025-05-09 21:40:13,244 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 21:40:17,915 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+ 42%|████▏     | 655/1548 [2:26:46<4:01:43, 16.24s/it]2025-05-09 21:40:17,923 : ##### This is the --656th-- Question #####
+2025-05-09 21:40:31,539 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 42%|████▏     | 656/1548 [2:27:00<3:49:47, 15.46s/it]2025-05-09 21:40:31,549 : ##### This is the --657th-- Question #####
+2025-05-09 21:40:40,132 : New Reasoning Tokens Are None, Current try is 1
+ 42%|████▏     | 657/1548 [2:27:21<4:13:36, 17.08s/it]2025-05-09 21:40:52,409 : ##### This is the --658th-- Question #####
+2025-05-09 21:41:01,001 : New Reasoning Tokens Are None, Current try is 1
+ 43%|████▎     | 658/1548 [2:27:44<4:40:16, 18.89s/it]2025-05-09 21:41:15,549 : ##### This is the --659th-- Question #####
+2025-05-09 21:41:24,132 : New Reasoning Tokens Are None, Current try is 1
+ 43%|████▎     | 659/1548 [2:27:58<4:20:42, 17.60s/it]2025-05-09 21:41:30,107 : ##### This is the --660th-- Question #####
+ 43%|████▎     | 660/1548 [2:28:11<3:58:05, 16.09s/it]2025-05-09 21:41:42,677 : ##### This is the --661th-- Question #####
+2025-05-09 21:41:51,255 : New Reasoning Tokens Are None, Current try is 1
+ 43%|████▎     | 661/1548 [2:28:33<4:22:11, 17.74s/it]2025-05-09 21:42:04,258 : ##### This is the --662th-- Question #####
+ 43%|████▎     | 662/1548 [2:28:49<4:17:40, 17.45s/it]2025-05-09 21:42:21,046 : ##### This is the --663th-- Question #####
+ 43%|████▎     | 663/1548 [2:28:59<3:43:02, 15.12s/it]2025-05-09 21:42:30,729 : ##### This is the --664th-- Question #####
+2025-05-09 21:42:42,931 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+ 43%|████▎     | 664/1548 [2:29:11<3:29:55, 14.25s/it]2025-05-09 21:42:42,940 : ##### This is the --665th-- Question #####
+ 43%|████▎     | 665/1548 [2:29:22<3:14:27, 13.21s/it]2025-05-09 21:42:53,737 : ##### This is the --666th-- Question #####
+2025-05-09 21:43:05,289 : 
+Step 6-Keyword-0 Does not appear in the Step Text
+ 43%|████▎     | 666/1548 [2:29:34<3:06:55, 12.72s/it]2025-05-09 21:43:05,295 : ##### This is the --667th-- Question #####
+ 43%|████▎     | 667/1548 [2:29:41<2:41:57, 11.03s/it]2025-05-09 21:43:12,389 : ##### This is the --668th-- Question #####
+ 43%|████▎     | 668/1548 [2:29:55<2:55:38, 11.98s/it]2025-05-09 21:43:26,576 : ##### This is the --669th-- Question #####
+2025-05-09 21:43:32,478 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 21:43:43,149 : Exact Tokens Have no contribution scores, Current try is 2
+2025-05-09 21:43:51,730 : New Reasoning Tokens Are None, Current try is 3
+2025-05-09 21:44:00,317 : New Reasoning Tokens Are None, Current try is 4
+ 43%|████▎     | 669/1548 [2:30:40<5:19:16, 21.79s/it]2025-05-09 21:44:11,273 : ##### This is the --670th-- Question #####
+ 43%|████▎     | 670/1548 [2:30:53<4:40:51, 19.19s/it]2025-05-09 21:44:24,399 : ##### This is the --671th-- Question #####
+ 43%|████▎     | 671/1548 [2:30:59<3:45:47, 15.45s/it]2025-05-09 21:44:31,113 : ##### This is the --672th-- Question #####
+ 43%|████▎     | 672/1548 [2:31:11<3:29:34, 14.35s/it]2025-05-09 21:44:42,911 : ##### This is the --673th-- Question #####
+2025-05-09 21:44:57,864 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 43%|████▎     | 673/1548 [2:31:26<3:32:00, 14.54s/it]2025-05-09 21:44:57,875 : ##### This is the --674th-- Question #####
+2025-05-09 21:45:06,460 : New Reasoning Tokens Are None, Current try is 1
+ 44%|████▎     | 674/1548 [2:31:43<3:40:08, 15.11s/it]2025-05-09 21:45:14,332 : ##### This is the --675th-- Question #####
+ 44%|████▎     | 675/1548 [2:31:50<3:06:53, 12.85s/it]2025-05-09 21:45:21,885 : ##### This is the --676th-- Question #####
+2025-05-09 21:45:32,571 : Exact Tokens Have NO ANSWER, Current try is 1
+ 44%|████▎     | 676/1548 [2:32:20<4:21:28, 17.99s/it]2025-05-09 21:45:51,891 : ##### This is the --677th-- Question #####
+2025-05-09 21:45:59,460 : New Reasoning Tokens Are None, Current try is 1
+ 44%|████▎     | 677/1548 [2:32:47<5:00:17, 20.69s/it]2025-05-09 21:46:18,858 : ##### This is the --678th-- Question #####
+2025-05-09 21:46:22,416 : Cannot locate the Final Answer, Current try is 1
+ 44%|████▍     | 678/1548 [2:33:04<4:43:22, 19.54s/it]2025-05-09 21:46:35,735 : ##### This is the --679th-- Question #####
+ 44%|████▍     | 679/1548 [2:33:11<3:48:16, 15.76s/it]2025-05-09 21:46:42,670 : ##### This is the --680th-- Question #####
+2025-05-09 21:46:51,250 : New Reasoning Tokens Are None, Current try is 1
+ 44%|████▍     | 680/1548 [2:33:32<4:10:55, 17.35s/it]2025-05-09 21:47:03,718 : ##### This is the --681th-- Question #####
+2025-05-09 21:47:12,304 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:47:18,560 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+ 44%|████▍     | 681/1548 [2:33:47<3:59:50, 16.60s/it]2025-05-09 21:47:18,568 : ##### This is the --682th-- Question #####
+ 44%|████▍     | 682/1548 [2:34:00<3:43:23, 15.48s/it]2025-05-09 21:47:31,429 : ##### This is the --683th-- Question #####
+ 44%|████▍     | 683/1548 [2:34:12<3:27:39, 14.40s/it]2025-05-09 21:47:43,329 : ##### This is the --684th-- Question #####
+2025-05-09 21:47:52,937 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 21:48:07,295 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 44%|████▍     | 684/1548 [2:34:36<4:08:45, 17.27s/it]2025-05-09 21:48:07,308 : ##### This is the --685th-- Question #####
+ 44%|████▍     | 685/1548 [2:34:48<3:46:44, 15.76s/it]2025-05-09 21:48:19,543 : ##### This is the --686th-- Question #####
+2025-05-09 21:48:28,126 : New Reasoning Tokens Are None, Current try is 1
+ 44%|████▍     | 686/1548 [2:35:07<4:01:01, 16.78s/it]2025-05-09 21:48:38,682 : ##### This is the --687th-- Question #####
+2025-05-09 21:48:42,861 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 44%|████▍     | 687/1548 [2:35:11<3:06:32, 13.00s/it]2025-05-09 21:48:42,868 : ##### This is the --688th-- Question #####
+2025-05-09 21:48:51,448 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:49:05,699 : Exact Tokens Have NO ANSWER, Current try is 2
+ 44%|████▍     | 688/1548 [2:35:43<4:27:07, 18.64s/it]2025-05-09 21:49:14,665 : ##### This is the --689th-- Question #####
+2025-05-09 21:49:27,824 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 45%|████▍     | 689/1548 [2:35:56<4:03:20, 17.00s/it]2025-05-09 21:49:27,830 : ##### This is the --690th-- Question #####
+2025-05-09 21:49:36,649 : Exact Tokens Have NO ANSWER, Current try is 1
+ 45%|████▍     | 690/1548 [2:36:12<3:59:22, 16.74s/it]2025-05-09 21:49:43,969 : ##### This is the --691th-- Question #####
+2025-05-09 21:49:59,224 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 45%|████▍     | 691/1548 [2:36:39<4:40:35, 19.65s/it]2025-05-09 21:50:10,393 : ##### This is the --692th-- Question #####
+2025-05-09 21:50:18,971 : New Reasoning Tokens Are None, Current try is 1
+ 45%|████▍     | 692/1548 [2:37:05<5:09:07, 21.67s/it]2025-05-09 21:50:36,785 : ##### This is the --693th-- Question #####
+ 45%|████▍     | 693/1548 [2:37:12<4:04:31, 17.16s/it]2025-05-09 21:50:43,422 : ##### This is the --694th-- Question #####
+2025-05-09 21:50:50,849 : Len of keywords list doesn't match the len of step dict, Current try is 1
+2025-05-09 21:50:59,430 : New Reasoning Tokens Are None, Current try is 2
+ 45%|████▍     | 694/1548 [2:37:36<4:33:04, 19.19s/it]2025-05-09 21:51:07,332 : ##### This is the --695th-- Question #####
+ 45%|████▍     | 695/1548 [2:37:43<3:42:47, 15.67s/it]2025-05-09 21:51:14,805 : ##### This is the --696th-- Question #####
+2025-05-09 21:51:28,711 : Exact Tokens Have NO ANSWER, Current try is 1
+ 45%|████▍     | 696/1548 [2:38:16<4:56:58, 20.91s/it]2025-05-09 21:51:47,955 : ##### This is the --697th-- Question #####
+ 45%|████▌     | 697/1548 [2:38:22<3:52:32, 16.40s/it]2025-05-09 21:51:53,802 : ##### This is the --698th-- Question #####
+ 45%|████▌     | 698/1548 [2:38:31<3:19:00, 14.05s/it]2025-05-09 21:52:02,371 : ##### This is the --699th-- Question #####
+2025-05-09 21:52:10,047 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:52:10,049 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 45%|████▌     | 699/1548 [2:38:38<2:51:45, 12.14s/it]2025-05-09 21:52:10,056 : ##### This is the --700th-- Question #####
+ 45%|████▌     | 700/1548 [2:38:58<3:22:12, 14.31s/it]2025-05-09 21:52:29,421 : ##### This is the --701th-- Question #####
+ 45%|████▌     | 701/1548 [2:39:17<3:43:47, 15.85s/it]2025-05-09 21:52:48,890 : ##### This is the --702th-- Question #####
+ 45%|████▌     | 702/1548 [2:39:30<3:30:48, 14.95s/it]2025-05-09 21:53:01,731 : ##### This is the --703th-- Question #####
+2025-05-09 21:53:10,316 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 21:53:23,834 : Exact Tokens Have NO ANSWER, Current try is 2
+ 45%|████▌     | 703/1548 [2:40:00<4:33:53, 19.45s/it]2025-05-09 21:53:31,671 : ##### This is the --704th-- Question #####
+ 45%|████▌     | 704/1548 [2:40:06<3:37:34, 15.47s/it]2025-05-09 21:53:37,849 : ##### This is the --705th-- Question #####
+ 46%|████▌     | 705/1548 [2:40:20<3:32:27, 15.12s/it]2025-05-09 21:53:52,173 : ##### This is the --706th-- Question #####
+ 46%|████▌     | 706/1548 [2:40:28<2:59:57, 12.82s/it]2025-05-09 21:53:59,628 : ##### This is the --707th-- Question #####
+2025-05-09 21:54:05,610 : 
+Step 1-Keyword-0 Does not appear in the Step Text
+ 46%|████▌     | 707/1548 [2:40:34<2:31:01, 10.77s/it]2025-05-09 21:54:05,622 : ##### This is the --708th-- Question #####
+ 46%|████▌     | 708/1548 [2:40:51<2:56:11, 12.59s/it]2025-05-09 21:54:22,430 : ##### This is the --709th-- Question #####
+ 46%|████▌     | 709/1548 [2:41:05<3:02:15, 13.03s/it]2025-05-09 21:54:36,510 : ##### This is the --710th-- Question #####
+2025-05-09 21:54:44,146 : 
+Step 4-Keyword-0 Does not appear in the Step Text
+ 46%|████▌     | 710/1548 [2:41:12<2:39:26, 11.42s/it]2025-05-09 21:54:44,152 : ##### This is the --711th-- Question #####
+2025-05-09 21:54:52,725 : New Reasoning Tokens Are None, Current try is 1
+ 46%|████▌     | 711/1548 [2:41:28<2:58:32, 12.80s/it]2025-05-09 21:55:00,181 : ##### This is the --712th-- Question #####
+2025-05-09 21:55:14,318 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:55:14,318 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:55:14,321 : 
+Step 4-Keyword-1 Does not appear in the Step Text
+ 46%|████▌     | 712/1548 [2:41:43<3:03:59, 13.20s/it]2025-05-09 21:55:14,330 : ##### This is the --713th-- Question #####
+ 46%|████▌     | 713/1548 [2:42:02<3:29:24, 15.05s/it]2025-05-09 21:55:33,676 : ##### This is the --714th-- Question #####
+ 46%|████▌     | 714/1548 [2:42:08<2:52:28, 12.41s/it]2025-05-09 21:55:39,928 : ##### This is the --715th-- Question #####
+2025-05-09 21:55:54,710 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 21:55:54,711 : 
+Step 2-Keyword-4 Does not appear in the Step Text
+2025-05-09 21:55:54,714 : 
+Step 4-Keyword-4 Does not appear in the Step Text
+2025-05-09 21:55:54,717 : 
+Step 5-Keyword-4 Does not appear in the Step Text
+ 46%|████▌     | 715/1548 [2:42:23<3:02:13, 13.13s/it]2025-05-09 21:55:54,725 : ##### This is the --716th-- Question #####
+ 46%|████▋     | 716/1548 [2:42:35<2:56:06, 12.70s/it]2025-05-09 21:56:06,439 : ##### This is the --717th-- Question #####
+ 46%|████▋     | 717/1548 [2:42:54<3:23:29, 14.69s/it]2025-05-09 21:56:25,775 : ##### This is the --718th-- Question #####
+ 46%|████▋     | 718/1548 [2:43:05<3:06:16, 13.47s/it]2025-05-09 21:56:36,379 : ##### This is the --719th-- Question #####
+ 46%|████▋     | 719/1548 [2:43:10<2:33:58, 11.14s/it]2025-05-09 21:56:42,104 : ##### This is the --720th-- Question #####
+ 47%|████▋     | 720/1548 [2:43:16<2:10:40,  9.47s/it]2025-05-09 21:56:47,664 : ##### This is the --721th-- Question #####
+2025-05-09 21:56:59,898 : 
+Step 1-Keyword-1 Does not appear in the Step Text
+ 47%|████▋     | 721/1548 [2:43:28<2:22:00, 10.30s/it]2025-05-09 21:56:59,913 : ##### This is the --722th-- Question #####
+2025-05-09 21:57:04,790 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+ 47%|████▋     | 722/1548 [2:43:33<1:59:27,  8.68s/it]2025-05-09 21:57:04,797 : ##### This is the --723th-- Question #####
+2025-05-09 21:57:17,943 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 21:57:17,945 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 47%|████▋     | 723/1548 [2:43:46<2:17:46, 10.02s/it]2025-05-09 21:57:17,956 : ##### This is the --724th-- Question #####
+ 47%|████▋     | 724/1548 [2:44:04<2:49:05, 12.31s/it]2025-05-09 21:57:35,611 : ##### This is the --725th-- Question #####
+ 47%|████▋     | 725/1548 [2:44:11<2:27:46, 10.77s/it]2025-05-09 21:57:42,793 : ##### This is the --726th-- Question #####
+ 47%|████▋     | 726/1548 [2:44:24<2:35:33, 11.35s/it]2025-05-09 21:57:55,505 : ##### This is the --727th-- Question #####
+2025-05-09 21:58:08,181 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 47%|████▋     | 727/1548 [2:44:36<2:40:49, 11.75s/it]2025-05-09 21:58:08,187 : ##### This is the --728th-- Question #####
+ 47%|████▋     | 728/1548 [2:44:49<2:44:37, 12.05s/it]2025-05-09 21:58:20,921 : ##### This is the --729th-- Question #####
+ 47%|████▋     | 729/1548 [2:45:02<2:48:45, 12.36s/it]2025-05-09 21:58:34,021 : ##### This is the --730th-- Question #####
+ 47%|████▋     | 730/1548 [2:45:15<2:51:23, 12.57s/it]2025-05-09 21:58:47,077 : ##### This is the --731th-- Question #####
+ 47%|████▋     | 731/1548 [2:45:21<2:21:07, 10.36s/it]2025-05-09 21:58:52,292 : ##### This is the --732th-- Question #####
+2025-05-09 21:58:58,442 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 47%|████▋     | 732/1548 [2:45:27<2:03:47,  9.10s/it]2025-05-09 21:58:58,448 : ##### This is the --733th-- Question #####
+2025-05-09 21:59:07,031 : New Reasoning Tokens Are None, Current try is 1
+ 47%|████▋     | 733/1548 [2:45:42<2:30:00, 11.04s/it]2025-05-09 21:59:14,020 : ##### This is the --734th-- Question #####
+ 47%|████▋     | 734/1548 [2:45:57<2:44:26, 12.12s/it]2025-05-09 21:59:28,662 : ##### This is the --735th-- Question #####
+ 47%|████▋     | 735/1548 [2:46:12<2:54:27, 12.87s/it]2025-05-09 21:59:43,290 : ##### This is the --736th-- Question #####
+ 48%|████▊     | 736/1548 [2:46:22<2:43:08, 12.06s/it]2025-05-09 21:59:53,433 : ##### This is the --737th-- Question #####
+2025-05-09 22:00:02,014 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 22:00:13,669 : Exact Tokens Have NO ANSWER, Current try is 2
+2025-05-09 22:00:18,131 : Exact Tokens Have no contribution scores, Current try is 3
+2025-05-09 22:00:26,514 : 
+Step 2-Keyword-2 Does not appear in the Step Text
+2025-05-09 22:00:26,515 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 48%|████▊     | 737/1548 [2:46:55<4:08:14, 18.37s/it]2025-05-09 22:00:26,524 : ##### This is the --738th-- Question #####
+ 48%|████▊     | 738/1548 [2:47:03<3:25:37, 15.23s/it]2025-05-09 22:00:34,447 : ##### This is the --739th-- Question #####
+2025-05-09 22:00:46,629 : Len of keywords list doesn't match the len of step dict, Current try is 1
+ 48%|████▊     | 739/1548 [2:47:20<3:34:25, 15.90s/it]2025-05-09 22:00:51,910 : ##### This is the --740th-- Question #####
+ 48%|████▊     | 740/1548 [2:47:28<2:59:47, 13.35s/it]2025-05-09 22:00:59,306 : ##### This is the --741th-- Question #####
+ 48%|████▊     | 741/1548 [2:47:38<2:47:33, 12.46s/it]2025-05-09 22:01:09,681 : ##### This is the --742th-- Question #####
+ 48%|████▊     | 742/1548 [2:47:49<2:42:00, 12.06s/it]2025-05-09 22:01:20,812 : ##### This is the --743th-- Question #####
+ 48%|████▊     | 743/1548 [2:48:01<2:40:40, 11.98s/it]2025-05-09 22:01:32,590 : ##### This is the --744th-- Question #####
+2025-05-09 22:01:45,400 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 22:01:45,401 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 48%|████▊     | 744/1548 [2:48:14<2:43:51, 12.23s/it]2025-05-09 22:01:45,412 : ##### This is the --745th-- Question #####
+2025-05-09 22:01:58,030 : Exact Tokens Have NO ANSWER, Current try is 1
+2025-05-09 22:02:06,611 : New Reasoning Tokens Are None, Current try is 2
+ 48%|████▊     | 745/1548 [2:48:48<4:12:41, 18.88s/it]2025-05-09 22:02:19,813 : ##### This is the --746th-- Question #####
+ 48%|████▊     | 746/1548 [2:49:02<3:51:00, 17.28s/it]2025-05-09 22:02:33,364 : ##### This is the --747th-- Question #####
+2025-05-09 22:02:41,946 : New Reasoning Tokens Are None, Current try is 1
+ 48%|████▊     | 747/1548 [2:49:30<4:33:26, 20.48s/it]2025-05-09 22:03:01,321 : ##### This is the --748th-- Question #####
+ 48%|████▊     | 748/1548 [2:49:36<3:37:30, 16.31s/it]2025-05-09 22:03:07,898 : ##### This is the --749th-- Question #####
+2025-05-09 22:03:16,487 : New Reasoning Tokens Are None, Current try is 1
+ 48%|████▊     | 749/1548 [2:49:54<3:41:13, 16.61s/it]2025-05-09 22:03:25,211 : ##### This is the --750th-- Question #####
+ 48%|████▊     | 750/1548 [2:50:07<3:29:13, 15.73s/it]2025-05-09 22:03:38,884 : ##### This is the --751th-- Question #####
+ 49%|████▊     | 751/1548 [2:50:20<3:16:27, 14.79s/it]2025-05-09 22:03:51,476 : ##### This is the --752th-- Question #####
+ 49%|████▊     | 752/1548 [2:50:28<2:51:27, 12.92s/it]2025-05-09 22:04:00,050 : ##### This is the --753th-- Question #####
+2025-05-09 22:04:08,635 : New Reasoning Tokens Are None, Current try is 1
+ 49%|████▊     | 753/1548 [2:50:45<3:07:24, 14.14s/it]2025-05-09 22:04:17,044 : ##### This is the --754th-- Question #####
+2025-05-09 22:04:22,206 : 
+Step 3-Keyword-1 Does not appear in the Step Text
+ 49%|████▊     | 754/1548 [2:50:51<2:31:33, 11.45s/it]2025-05-09 22:04:22,213 : ##### This is the --755th-- Question #####
+2025-05-09 22:04:24,841 : Cannot locate the Final Answer, Current try is 1
+ 49%|████▉     | 755/1548 [2:51:01<2:27:18, 11.15s/it]2025-05-09 22:04:32,640 : ##### This is the --756th-- Question #####
+ 49%|████▉     | 756/1548 [2:51:09<2:15:26, 10.26s/it]2025-05-09 22:04:40,836 : ##### This is the --757th-- Question #####
+ 49%|████▉     | 757/1548 [2:51:17<2:07:13,  9.65s/it]2025-05-09 22:04:49,063 : ##### This is the --758th-- Question #####
+2025-05-09 22:04:53,023 : Exact Tokens Have no contribution scores, Current try is 1
+2025-05-09 22:05:05,689 : Len of keywords list doesn't match the len of step dict, Current try is 2
+2025-05-09 22:05:20,041 : Len of keywords list doesn't match the len of step dict, Current try is 3
+2025-05-09 22:05:27,202 : Cannot locate the Final Answer, Current try is 4
+ 49%|████▉     | 758/1548 [2:52:08<4:50:21, 22.05s/it]2025-05-09 22:05:40,058 : ##### This is the --759th-- Question #####
+ 49%|████▉     | 759/1548 [2:52:13<3:41:17, 16.83s/it]2025-05-09 22:05:44,691 : ##### This is the --760th-- Question #####
+2025-05-09 22:05:53,269 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 22:05:58,226 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 49%|████▉     | 760/1548 [2:52:27<3:28:03, 15.84s/it]2025-05-09 22:05:58,233 : ##### This is the --761th-- Question #####
+ 49%|████▉     | 761/1548 [2:52:32<2:48:35, 12.85s/it]2025-05-09 22:06:04,113 : ##### This is the --762th-- Question #####
+ 49%|████▉     | 762/1548 [2:52:38<2:18:19, 10.56s/it]2025-05-09 22:06:09,318 : ##### This is the --763th-- Question #####
+ 49%|████▉     | 763/1548 [2:52:51<2:27:45, 11.29s/it]2025-05-09 22:06:22,325 : ##### This is the --764th-- Question #####
+ 49%|████▉     | 764/1548 [2:53:04<2:36:50, 12.00s/it]2025-05-09 22:06:35,984 : ##### This is the --765th-- Question #####
+2025-05-09 22:06:41,344 : 
+Step 1-Keyword-2 Does not appear in the Step Text
+2025-05-09 22:06:41,345 : 
+Step 2-Keyword-3 Does not appear in the Step Text
+ 49%|████▉     | 765/1548 [2:53:10<2:10:39, 10.01s/it]2025-05-09 22:06:41,358 : ##### This is the --766th-- Question #####
+ 49%|████▉     | 766/1548 [2:53:16<1:54:53,  8.81s/it]2025-05-09 22:06:47,373 : ##### This is the --767th-- Question #####
+2025-05-09 22:06:54,958 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 50%|████▉     | 767/1548 [2:53:23<1:49:57,  8.45s/it]2025-05-09 22:06:54,963 : ##### This is the --768th-- Question #####
+ 50%|████▉     | 768/1548 [2:53:39<2:18:55, 10.69s/it]2025-05-09 22:07:10,874 : ##### This is the --769th-- Question #####
+ 50%|████▉     | 769/1548 [2:53:52<2:26:15, 11.26s/it]2025-05-09 22:07:23,488 : ##### This is the --770th-- Question #####
+2025-05-09 22:07:31,542 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 50%|████▉     | 770/1548 [2:54:00<2:13:36, 10.30s/it]2025-05-09 22:07:31,548 : ##### This is the --771th-- Question #####
+ 50%|████▉     | 771/1548 [2:54:04<1:48:17,  8.36s/it]2025-05-09 22:07:35,382 : ##### This is the --772th-- Question #####
+2025-05-09 22:07:43,965 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 22:07:52,547 : New Reasoning Tokens Are None, Current try is 2
+ 50%|████▉     | 772/1548 [2:54:33<3:10:43, 14.75s/it]2025-05-09 22:08:05,030 : ##### This is the --773th-- Question #####
+ 50%|████▉     | 773/1548 [2:54:53<3:28:21, 16.13s/it]2025-05-09 22:08:24,385 : ##### This is the --774th-- Question #####
+2025-05-09 22:08:36,735 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 50%|█████     | 774/1548 [2:55:05<3:13:28, 15.00s/it]2025-05-09 22:08:36,742 : ##### This is the --775th-- Question #####
+2025-05-09 22:08:52,037 : Exact Tokens Have NO ANSWER, Current try is 1
+ 50%|█████     | 775/1548 [2:55:33<4:02:53, 18.85s/it]2025-05-09 22:09:04,588 : ##### This is the --776th-- Question #####
+2025-05-09 22:09:10,682 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+ 50%|█████     | 776/1548 [2:55:39<3:13:21, 15.03s/it]2025-05-09 22:09:10,696 : ##### This is the --777th-- Question #####
+ 50%|█████     | 777/1548 [2:55:57<3:25:18, 15.98s/it]2025-05-09 22:09:28,883 : ##### This is the --778th-- Question #####
+ 50%|█████     | 778/1548 [2:56:13<3:25:53, 16.04s/it]2025-05-09 22:09:45,081 : ##### This is the --779th-- Question #####
+ 50%|█████     | 779/1548 [2:56:20<2:49:38, 13.24s/it]2025-05-09 22:09:51,766 : ##### This is the --780th-- Question #####
+2025-05-09 22:10:10,821 : 
+Step 6-Keyword-1 Does not appear in the Step Text
+ 50%|█████     | 780/1548 [2:56:39<3:11:48, 14.98s/it]2025-05-09 22:10:10,837 : ##### This is the --781th-- Question #####
+2025-05-09 22:10:19,419 : New Reasoning Tokens Are None, Current try is 1
+2025-05-09 22:10:38,656 : 
+Step 2-Keyword-0 Does not appear in the Step Text
+2025-05-09 22:10:38,658 : 
+Step 3-Keyword-0 Does not appear in the Step Text
+ 50%|█████     | 781/1548 [2:57:07<4:00:49, 18.84s/it]2025-05-09 22:10:38,665 : ##### This is the --782th-- Question #####
+ 51%|█████     | 782/1548 [2:57:20<3:37:50, 17.06s/it]2025-05-09 22:10:51,584 : ##### This is the --783th-- Question #####
+2025-05-09 22:11:00,163 : New Reasoning Tokens Are None, Current try is 1
+ 51%|█████     | 782/1548 [2:57:43<2:54:05, 13.64s/it]
+Traceback (most recent call last):
+  File "/home2/mauro.hirt/CoT-UQ/inference_refining.py", line 226, in <module>
+    llama_inference_refining()
+  File "/home2/mauro.hirt/CoT-UQ/inference_refining.py", line 151, in llama_inference_refining
+    keyword_probs.append(probabilities[idxx][token_id])
+KeyError: 16

@@ -1,0 +1,134 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: 2WikimhQA
+BASELINE_OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline
+ARRAY_ID: 1
+UQ METHODS: probas-mean probas-min token-sar p-true self-probing
+OpenAI API key is set. Length: 164 characters
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean probas-min token-sar p-true self-probing
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: probas-mean
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Generating labels and saving to /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json...
+AUROC: 0.6599951386451721
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: probas-min
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.6850999593734741
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-min
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: token-sar
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.6689167022705078
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: token-sar
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: p-true
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5128632187843323
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: p-true
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: self-probing
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5141101479530334
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: self-probing
+
+===== ALL BASELINE ANALYSES COMPLETED FOR DATASET: 2WikimhQA =====
+Job completed for dataset: 2WikimhQA with all available UQ methods

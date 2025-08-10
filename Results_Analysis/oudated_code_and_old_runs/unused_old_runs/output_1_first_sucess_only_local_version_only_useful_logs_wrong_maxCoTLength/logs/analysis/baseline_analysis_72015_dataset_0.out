@@ -1,0 +1,134 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: ASDiv
+BASELINE_OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline
+ARRAY_ID: 0
+UQ METHODS: probas-mean probas-min token-sar p-true self-probing
+OpenAI API key not required for ASDiv dataset
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean probas-min token-sar p-true self-probing
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: ASDiv, UQ Method: probas-mean
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.6475626230239868
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: ASDiv, UQ Method: probas-min
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.6588507890701294
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-min
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: ASDiv, UQ Method: token-sar
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.6559425592422485
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: token-sar
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: ASDiv, UQ Method: p-true
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:p-true
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.4746338129043579
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: p-true
+
+===== STARTING BASELINE RESULT ANALYSIS =====
+Dataset: ASDiv, UQ Method: self-probing
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:ASDiv
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:self-probing
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5257602334022522
+===== BASELINE RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/ASDiv/baseline/output_v1_w_labels.json
+AUROC calculation completed for UQ method: self-probing
+
+===== ALL BASELINE ANALYSES COMPLETED FOR DATASET: ASDiv =====
+Job completed for dataset: ASDiv with all available UQ methods

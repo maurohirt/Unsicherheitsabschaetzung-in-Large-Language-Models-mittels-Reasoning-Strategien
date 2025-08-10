@@ -1,0 +1,38 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: 2WikimhQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+ARRAY_ID: 1
+UQ METHODS: probas-mean
+OpenAI API key is set. Length: 164 characters
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean
+===== STARTING RESULT ANALYSIS =====
+Dataset: 2WikimhQA, UQ Method: probas-mean
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:2WikimhQA
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.6002247929573059
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean
+
+===== ALL ANALYSES COMPLETED FOR DATASET: 2WikimhQA =====
+Job completed for dataset: 2WikimhQA with all available UQ methods

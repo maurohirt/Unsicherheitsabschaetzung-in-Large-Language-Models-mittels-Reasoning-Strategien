@@ -1,0 +1,83 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running analysis with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: svamp
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+ARRAY_ID: 3
+UQ METHODS: probas-mean-bl probas-min-bl token-sar-bl
+OpenAI API key not required for svamp dataset
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean-bl probas-min-bl token-sar-bl
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: probas-mean-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-mean-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5569314956665039
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: probas-mean-bl
+
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: probas-min-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:probas-min-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json already exists. Skipping label generation.
+FATAL: analyze_result.py execution failed for probas-min-bl with exit code 1
+Continuing with next method...
+===== STARTING RESULT ANALYSIS =====
+Dataset: svamp, UQ Method: token-sar-bl
+---------------experiment args---------------
+max_length_cot:256
+try_times:20
+temperature:1.0
+dataset:svamp
+datapath:None
+hf_token:***REMOVED***
+api_key:
+model_engine:llama3-1_8B
+uq_engine:token-sar-bl
+model_path:llama3-1_8B
+output_path:/home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp
+test_start:0
+test_end:full
+
+---------------------------------------------
+Labels file /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json already exists. Skipping label generation.
+AUROC: 0.5253410339355469
+===== RESULT ANALYSIS COMPLETED SUCCESSFULLY =====
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/svamp/output_v1_w_labels.json
+AUROC calculation completed for UQ method: token-sar-bl
+
+===== ALL ANALYSES COMPLETED FOR DATASET: svamp =====
+Job completed for dataset: svamp with all available UQ methods

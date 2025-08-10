@@ -1,0 +1,249 @@
+{
+  "probas-mean-bl": {
+    "mean_score": 0.5700340028625804,
+    "std_score": 0.0037058267263808085,
+    "median_score": 0.5707276140640127,
+    "min_score": 0.5652080510882161,
+    "max_score": 0.5751663136079576,
+    "confidence_interval": [
+      0.565432611232852,
+      0.5746353944923088
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "probas-min-bl": {
+    "mean_score": 0.4008490182347523,
+    "std_score": 0.006339892899806297,
+    "median_score": 0.40065685943217966,
+    "min_score": 0.39439717530008106,
+    "max_score": 0.4098289127425466,
+    "confidence_interval": [
+      0.3929770014685951,
+      0.40872103500090945
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "token-sar-bl": {
+    "mean_score": 0.6351214430047414,
+    "std_score": 0.003253819644132712,
+    "median_score": 0.6355680518332774,
+    "min_score": 0.6312800049833528,
+    "max_score": 0.6388495166481446,
+    "confidence_interval": [
+      0.6310812922959737,
+      0.6391615937135091
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "probas-mean": {
+    "mean_score": 0.41035365844037475,
+    "std_score": 0.0030864770825457743,
+    "median_score": 0.4115200691811763,
+    "min_score": 0.4064378511115876,
+    "max_score": 0.4133487480990313,
+    "confidence_interval": [
+      0.40652129096569667,
+      0.4141860259150528
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "probas-min": {
+    "mean_score": 0.3338372579977028,
+    "std_score": 0.004455619795660516,
+    "median_score": 0.3316559516842423,
+    "min_score": 0.3298208777583229,
+    "max_score": 0.34097749011539447,
+    "confidence_interval": [
+      0.3283048753077471,
+      0.3393696406876585
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "token-sar": {
+    "mean_score": 0.41261531259921347,
+    "std_score": 0.0036276136612830704,
+    "median_score": 0.41386305469791046,
+    "min_score": 0.40811844058365676,
+    "max_score": 0.4165920892008397,
+    "confidence_interval": [
+      0.40811103531660614,
+      0.4171195898818208
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "probas-mean-alltokens": {
+    "mean_score": 0.4388505578038056,
+    "std_score": 0.0016378984882215316,
+    "median_score": 0.43965759069044563,
+    "min_score": 0.4366373208886675,
+    "max_score": 0.4404454704474016,
+    "confidence_interval": [
+      0.43681683821826855,
+      0.44088427738934266
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "probas-min-alltokens": {
+    "mean_score": 0.20133884193154067,
+    "std_score": 0.002768409685993569,
+    "median_score": 0.20070937654109094,
+    "min_score": 0.19810602856096857,
+    "max_score": 0.2057407522655319,
+    "confidence_interval": [
+      0.19790140729216385,
+      0.2047762765709175
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "token-sar-alltokens": {
+    "mean_score": 0.4164864376632996,
+    "std_score": 0.006111184911779556,
+    "median_score": 0.41641286309686804,
+    "min_score": 0.40707512648918703,
+    "max_score": 0.42318359889849355,
+    "confidence_interval": [
+      0.4088983993719769,
+      0.42407447595462233
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "p-true-bl": {
+    "mean_score": 0.47376827947874417,
+    "std_score": 0.0017756058983875518,
+    "median_score": 0.47370598726360075,
+    "min_score": 0.47119938375074966,
+    "max_score": 0.47604937107338824,
+    "confidence_interval": [
+      0.4715635735597181,
+      0.4759729853977702
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "p-true-allsteps": {
+    "mean_score": 0.5281559930203995,
+    "std_score": 0.0018123762884675871,
+    "median_score": 0.527895183912471,
+    "min_score": 0.5262055158783537,
+    "max_score": 0.530431156857488,
+    "confidence_interval": [
+      0.5259056306318112,
+      0.5304063554089878
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "p-true-keystep": {
+    "mean_score": 0.5138625731365933,
+    "std_score": 0.001422243844700595,
+    "median_score": 0.5142915788472255,
+    "min_score": 0.5121323882438784,
+    "max_score": 0.5157725677785527,
+    "confidence_interval": [
+      0.5120966241579616,
+      0.515628522115225
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "p-true-allkeywords": {
+    "mean_score": 0.497636645979446,
+    "std_score": 0.001884164124184025,
+    "median_score": 0.4976056862411663,
+    "min_score": 0.4958370629419479,
+    "max_score": 0.5002399223455185,
+    "confidence_interval": [
+      0.49529714721973955,
+      0.4999761447391525
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "p-true-keykeywords": {
+    "mean_score": 0.4977870362982884,
+    "std_score": 0.0018882915508521127,
+    "median_score": 0.4979358920528863,
+    "min_score": 0.495927765138769,
+    "max_score": 0.500416413880228,
+    "confidence_interval": [
+      0.495442412661483,
+      0.5001316599350938
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "self-probing-bl": {
+    "mean_score": 0.45018126752,
+    "std_score": 0.003746075357821368,
+    "median_score": 0.4515017487228908,
+    "min_score": 0.44405013383729436,
+    "max_score": 0.45371063594219097,
+    "confidence_interval": [
+      0.4455299006136349,
+      0.45483263442636507
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "self-probing-allsteps": {
+    "mean_score": 0.5652589652990437,
+    "std_score": 0.004529672687361993,
+    "median_score": 0.5645188352805666,
+    "min_score": 0.5594735448399896,
+    "max_score": 0.571697742986322,
+    "confidence_interval": [
+      0.5596346337994994,
+      0.5708832967985881
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "self-probing-keystep": {
+    "mean_score": 0.5344000250633716,
+    "std_score": 0.024816607249266962,
+    "median_score": 0.5249346246333483,
+    "min_score": 0.5169207557538747,
+    "max_score": 0.578253516087269,
+    "confidence_interval": [
+      0.5035861372843942,
+      0.565213912842349
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "self-probing-allkeywords": {
+    "mean_score": 0.49801508270033457,
+    "std_score": 0.004261811759174973,
+    "median_score": 0.4962831250175866,
+    "min_score": 0.4945787845999092,
+    "max_score": 0.5053718331582832,
+    "confidence_interval": [
+      0.4927233444718455,
+      0.5033068209288236
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  },
+  "self-probing-keykeywords": {
+    "mean_score": 0.501034625410137,
+    "std_score": 0.0030161012370579147,
+    "median_score": 0.5025366710529036,
+    "min_score": 0.49713475881021746,
+    "max_score": 0.5042096155449002,
+    "confidence_interval": [
+      0.4972896410891443,
+      0.5047796097311297
+    ],
+    "n_runs": 5,
+    "n_samples": 36008
+  }
+}

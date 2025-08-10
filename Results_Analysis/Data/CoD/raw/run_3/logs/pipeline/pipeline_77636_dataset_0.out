@@ -1,0 +1,19 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Loading configuration from: configs/pipeline_config_full_lama3_cod_run4.yaml
+Array Task ID: 0
+Running as array job, task ID: 0
+Loading configuration from: configs/pipeline_config_full_lama3_cod_run4.yaml
+Array job mode: Processing only dataset ASDiv (index 0)
+Configuration loaded:
+  Model: llama3-1_8B
+  Dataset(s) to process: ['ASDiv']
+  Output path base: /home2/mauro.hirt/CoT-UQ/output4
+  Temperature: 1.0
+  Try times: 20
+  Max length CoT: 128
+  UQ methods: ['probas-mean-bl', 'probas-min-bl', 'token-sar-bl', 'probas-mean', 'probas-min', 'token-sar', 'probas-mean-alltokens', 'probas-min-alltokens', 'entropy-geo-alltokens', 'token-sar-alltokens', 'p-true-bl', 'p-true-allsteps', 'p-true-keystep', 'p-true-allkeywords', 'p-true-keykeywords', 'self-probing-bl', 'self-probing-allsteps', 'self-probing-keystep', 'self-probing-allkeywords', 'self-probing-keykeywords']
+  Test start: 0
+  Test end: full
+
+Ensuring model is cached...
+Ensuring model meta-llama/Llama-3.1-8B is cached...

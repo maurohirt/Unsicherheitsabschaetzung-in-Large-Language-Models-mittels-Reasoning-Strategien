@@ -1,0 +1,44 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: 2WikimhQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA
+TRY_TIMES: 5
+ARRAY_ID: 1
+UQ METHODS: probas-mean probas-min token-sar p-true self-probing
+===== GPU INFO BEFORE ANY PROCESSING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Processing all UQ methods for dataset: 2WikimhQA
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean probas-min token-sar p-true self-probing
+===== STARTING probas-mean UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: probas-mean
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/confidences/output_v1_probas-mean.json
+
+===== STARTING probas-min UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: probas-min
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/confidences/output_v1_probas-min.json
+
+===== STARTING token-sar UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: token-sar
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/confidences/output_v1_token-sar.json
+
+===== STARTING p-true UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: p-true
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/confidences/output_v1_p-true.json
+
+===== STARTING self-probing UQ PROCESSING =====
+Dataset: 2WikimhQA, UQ Method: self-probing
+GPU INFO BEFORE self-probing:
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/2WikimhQA/confidences/output_v1_self-probing.json
+GPU INFO AFTER self-probing:
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+
+===== ALL UQ METHODS PROCESSING COMPLETED FOR DATASET: 2WikimhQA =====
+Job completed for dataset: 2WikimhQA

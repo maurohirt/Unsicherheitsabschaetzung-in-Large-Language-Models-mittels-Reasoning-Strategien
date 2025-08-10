@@ -1,0 +1,3 @@
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 4/4 [00:00<00:00, 61.72it/s]
+The CrossEncoder `model_name` argument was renamed and is now deprecated, please use `model_name_or_path` instead.
+  0%|          | 0/1362 [00:00<?, ?it/s]100%|██████████| 1362/1362 [00:00<00:00, 86132.35it/s]

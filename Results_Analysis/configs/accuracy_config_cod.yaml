@@ -1,0 +1,11 @@
+# Configuration for Accuracy calculation (CoD)
+
+data_path: "Data/CoD/raw"
+output_path: "results/cod/accuracy"
+results_path: "results/cod/accuracy"
+
+model: "llama3-1_8B"
+runs: [0, 1, 2, 3, 4]
+
+imports:
+  - "datasets.yaml"

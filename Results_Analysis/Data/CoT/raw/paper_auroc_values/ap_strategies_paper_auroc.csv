@@ -1,0 +1,51 @@
+model_engine,dataset,reasoning_type,strategy,UQ_method,AUROC
+llama3-1_8B,HotpotQA,logical,AP,Probas-mean,0.5373
+llama3-1_8B,2WikimhQA,logical,AP,Probas-mean,0.568
+llama3-1_8B,GSM8K,mathematical,AP,Probas-mean,0.5317000000000001
+llama3-1_8B,SVAMP,mathematical,AP,Probas-mean,0.5394
+llama3-1_8B,ASDiv,mathematical,AP,Probas-mean,0.5834
+llama3-1_8B,HotpotQA,logical,AP,Probas-mean w/ CoT-UQ,0.6201
+llama3-1_8B,2WikimhQA,logical,AP,Probas-mean w/ CoT-UQ,0.6522
+llama3-1_8B,GSM8K,mathematical,AP,Probas-mean w/ CoT-UQ,0.6364
+llama3-1_8B,SVAMP,mathematical,AP,Probas-mean w/ CoT-UQ,0.5982999999999999
+llama3-1_8B,ASDiv,mathematical,AP,Probas-mean w/ CoT-UQ,0.6452
+llama3-1_8B,HotpotQA,logical,AP,Probas-min,0.5834
+llama3-1_8B,2WikimhQA,logical,AP,Probas-min,0.5681
+llama3-1_8B,GSM8K,mathematical,AP,Probas-min,0.5495
+llama3-1_8B,SVAMP,mathematical,AP,Probas-min,0.5478999999999999
+llama3-1_8B,ASDiv,mathematical,AP,Probas-min,0.5869
+llama3-1_8B,HotpotQA,logical,AP,Probas-min w/ CoT-UQ,0.6437
+llama3-1_8B,2WikimhQA,logical,AP,Probas-min w/ CoT-UQ,0.7001999999999999
+llama3-1_8B,GSM8K,mathematical,AP,Probas-min w/ CoT-UQ,0.6309
+llama3-1_8B,SVAMP,mathematical,AP,Probas-min w/ CoT-UQ,0.6049
+llama3-1_8B,ASDiv,mathematical,AP,Probas-min w/ CoT-UQ,0.6484000000000001
+llama3-1_8B,HotpotQA,logical,AP,TOKENSAR,0.5357
+llama3-1_8B,2WikimhQA,logical,AP,TOKENSAR,0.5692
+llama3-1_8B,GSM8K,mathematical,AP,TOKENSAR,0.5446
+llama3-1_8B,SVAMP,mathematical,AP,TOKENSAR,0.5501
+llama3-1_8B,ASDiv,mathematical,AP,TOKENSAR,0.5871
+llama3-1_8B,HotpotQA,logical,AP,TOKENSAR w/ CoT-UQ,0.6107
+llama3-1_8B,2WikimhQA,logical,AP,TOKENSAR w/ CoT-UQ,0.6537999999999999
+llama3-1_8B,GSM8K,mathematical,AP,TOKENSAR w/ CoT-UQ,0.6509999999999999
+llama3-1_8B,SVAMP,mathematical,AP,TOKENSAR w/ CoT-UQ,0.6211
+llama3-1_8B,ASDiv,mathematical,AP,TOKENSAR w/ CoT-UQ,0.6690999999999999
+llama3-1_8B,HotpotQA,logical,SE,P(True),0.6239
+llama3-1_8B,2WikimhQA,logical,SE,P(True),0.5356000000000001
+llama3-1_8B,GSM8K,mathematical,SE,P(True),0.4815
+llama3-1_8B,SVAMP,mathematical,SE,P(True),0.5158
+llama3-1_8B,ASDiv,mathematical,SE,P(True),0.47229999999999994
+llama3-1_8B,HotpotQA,logical,SE,P(True) w/ CoT-UQ,0.631
+llama3-1_8B,2WikimhQA,logical,SE,P(True) w/ CoT-UQ,0.5777
+llama3-1_8B,GSM8K,mathematical,SE,P(True) w/ CoT-UQ,0.526
+llama3-1_8B,SVAMP,mathematical,SE,P(True) w/ CoT-UQ,0.6
+llama3-1_8B,ASDiv,mathematical,SE,P(True) w/ CoT-UQ,0.532
+llama3-1_8B,HotpotQA,logical,SE,Self-Probing,0.5433
+llama3-1_8B,2WikimhQA,logical,SE,Self-Probing,0.5639
+llama3-1_8B,GSM8K,mathematical,SE,Self-Probing,0.4924
+llama3-1_8B,SVAMP,mathematical,SE,Self-Probing,0.5163
+llama3-1_8B,ASDiv,mathematical,SE,Self-Probing,0.5085999999999999
+llama3-1_8B,HotpotQA,logical,SE,Self-Probing w/ CoT-UQ,0.5720000000000001
+llama3-1_8B,2WikimhQA,logical,SE,Self-Probing w/ CoT-UQ,0.5838
+llama3-1_8B,GSM8K,mathematical,SE,Self-Probing w/ CoT-UQ,0.5189
+llama3-1_8B,SVAMP,mathematical,SE,Self-Probing w/ CoT-UQ,0.5426
+llama3-1_8B,ASDiv,mathematical,SE,Self-Probing w/ CoT-UQ,0.5379

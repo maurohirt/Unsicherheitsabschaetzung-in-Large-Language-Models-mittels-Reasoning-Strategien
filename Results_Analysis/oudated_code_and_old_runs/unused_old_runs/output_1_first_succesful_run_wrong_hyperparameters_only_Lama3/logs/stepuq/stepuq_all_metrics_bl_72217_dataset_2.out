@@ -1,0 +1,30 @@
+Project root: /home2/mauro.hirt/CoT-UQ
+Running with parameters:
+MODEL_ENGINE: llama3-1_8B
+DATASET: hotpotQA
+OUTPUT_PATH: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA
+TRY_TIMES: 5
+ARRAY_ID: 2
+UQ METHODS: probas-mean-bl probas-min-bl token-sar-bl
+===== GPU INFO BEFORE ANY PROCESSING =====
+memory.total [MiB], memory.used [MiB]
+20470 MiB, 1 MiB
+Processing all UQ methods for dataset: hotpotQA
+Python executable: /usr/bin/python
+Working directory: /home2/mauro.hirt/CoT-UQ
+PYTHONPATH: /home2/mauro.hirt/CoT-UQ
+Processing methods: probas-mean-bl probas-min-bl token-sar-bl
+===== STARTING probas-mean-bl UQ PROCESSING =====
+Dataset: hotpotQA, UQ Method: probas-mean-bl
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA/confidences/output_v1_probas-mean-bl.json
+
+===== STARTING probas-min-bl UQ PROCESSING =====
+Dataset: hotpotQA, UQ Method: probas-min-bl
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA/confidences/output_v1_probas-min-bl.json
+
+===== STARTING token-sar-bl UQ PROCESSING =====
+Dataset: hotpotQA, UQ Method: token-sar-bl
+Output written to: /home2/mauro.hirt/CoT-UQ/output/llama3-1_8B/hotpotQA/confidences/output_v1_token-sar-bl.json
+
+===== ALL UQ METHODS PROCESSING COMPLETED FOR DATASET: hotpotQA =====
+Job completed for dataset: hotpotQA

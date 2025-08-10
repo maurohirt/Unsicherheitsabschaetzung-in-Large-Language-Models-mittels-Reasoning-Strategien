@@ -1,0 +1,36 @@
+# Configuration for AUROC calculation
+
+# Import configurations
+imports:
+  - "datasets.yaml"        # Dataset configurations
+  - "uq_methods_cot.yaml"  # CoT uncertainty methods configuration
+
+# Base directory containing the run directories (run_0, run_1, etc.)
+data_dir: "Data/CoT/raw"
+
+# Model subdirectory within each run
+model_dir: "llama3-1_8B"
+
+# Directory to save the results (relative to the script location)
+output_dir: "results/cot/auroc"
+results_path: "results/cot/auroc"
+
+
+
+# List of run numbers to process (0-based)
+runs: [0, 1, 2, 3, 4]  # All 5 runs
+
+# Settings for ROC curve calculation
+roc_curve:
+  n_points: 100  # Number of points to use for the ROC curve
+  
+# Settings for confidence interval calculation
+confidence_interval:
+  level: 0.95  # 95% confidence interval
+
+# Group metrics by category for reporting and visualization
+grouped_metrics:
+  baselines: "{{ baseline_methods | map(attribute='name') | list }}"
+  cot_methods: "{{ cot_methods | map(attribute='name') | list }}"
+  ptrue_methods: "{{ true_probability_methods | map(attribute='name') | list }}"
+  self_probing: "{{ self_probing_methods | map(attribute='name') | list }}"

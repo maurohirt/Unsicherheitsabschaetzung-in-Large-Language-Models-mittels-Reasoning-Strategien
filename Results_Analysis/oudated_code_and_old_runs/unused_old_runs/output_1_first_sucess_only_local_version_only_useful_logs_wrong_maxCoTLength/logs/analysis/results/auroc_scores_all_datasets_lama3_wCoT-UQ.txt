@@ -1,0 +1,66 @@
+# AUROC Scores for Different Datasets and UQ Methods (Model: llama3-1_8B)
+
+## Dataset: ASDiv
+
+UQ Method          | AUROC
+------------------ | -------------- 
+probas-mean        | 0.6106381416320801
+probas-min         | 0.6148017644882202
+token-sar          | 0.634463906288147
+p-true             | 0.4996854364871979
+self-probing       | 0.5182198286056519
+probas-mean-bl     | 0.5857812166213989
+probas-min-bl      | 0.5878332257270813
+token-sar-bl       | 0.5610933303833008
+## Dataset: 2WikimhQA
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.6002247929573059
+probas-min         | 0.6224103569984436
+token-sar          | 0.6199325323104858
+p-true             | 0.6173197031021118
+self-probing       | 0.546232283115387
+probas-mean-bl     | 0.5028504729270935
+probas-min-bl      | 0.5008010268211365
+token-sar-bl       | 0.49871915578842163
+
+## Dataset: svamp
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.5933434367179871
+probas-min         | 0.6018694639205933 
+token-sar          | 0.6191837787628174
+p-true             | 0.5122742056846619
+self-probing       | 0.5090673565864563
+probas-mean-bl     | 0.5569314956665039
+probas-min-bl      | 0.5525745749473572
+token-sar-bl       | 0.5253410339355469
+
+## Dataset: gsm8k
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.619001567363739
+probas-min         | 0.6218932271003723 
+token-sar          | 0.6378449201583862
+p-true             | 0.5201287269592285
+self-probing       | 0.5150823593139648
+probas-mean-bl     | 0.5584888458251953
+probas-min-bl      | 0.5627707839012146
+token-sar-bl       | 0.5321133732795715
+
+## Dataset: hotpotQA
+
+UQ Method          | AUROC
+------------------ | --------------
+probas-mean        | 0.6254564523696899
+probas-min         | 0.6487783789634705
+token-sar          | 0.6252014636993408
+p-true             | 0.637802243232727
+self-probing       | 0.5278018116950989
+probas-mean-bl     | 0.5183373689651489
+probas-min-bl      | 0.5292503833770752
+token-sar-bl       | 0.5047792792320251
+

@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 139, in <module>
+    compute_auroc()
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 130, in compute_auroc
+    auroc_value = auroc(torch.tensor(all_confidences), torch.tensor(all_auroc_target))
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/metric.py", line 315, in forward
+    self._forward_cache = self._forward_reduce_state_update(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/metric.py", line 385, in _forward_reduce_state_update
+    batch_val = self.compute()
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/metric.py", line 699, in wrapped_func
+    value = _squeeze_if_scalar(compute(*args, **kwargs))
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/classification/auroc.py", line 125, in compute
+    return _binary_auroc_compute(state, self.thresholds, self.max_fpr)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/functional/classification/auroc.py", line 89, in _binary_auroc_compute
+    fpr, tpr, _ = _binary_roc_compute(state, thresholds, pos_label)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/functional/classification/roc.py", line 54, in _binary_roc_compute
+    fps, tps, thres = _binary_clf_curve(preds=state[0], target=state[1], pos_label=pos_label)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/functional/classification/precision_recall_curve.py", line 73, in _binary_clf_curve
+    tps = _cumsum(target * weight, dim=0)[threshold_idxs]
+IndexError: index is out of bounds for dimension with size 0
+Traceback (most recent call last):
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 139, in <module>
+    compute_auroc()
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 130, in compute_auroc
+    auroc_value = auroc(torch.tensor(all_confidences), torch.tensor(all_auroc_target))
+ValueError: too many dimensions 'str'
+Traceback (most recent call last):
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 139, in <module>
+    compute_auroc()
+  File "/home2/mauro.hirt/CoT-UQ/analyze_result.py", line 130, in compute_auroc
+    auroc_value = auroc(torch.tensor(all_confidences), torch.tensor(all_auroc_target))
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1511, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torch/nn/modules/module.py", line 1520, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/metric.py", line 315, in forward
+    self._forward_cache = self._forward_reduce_state_update(*args, **kwargs)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/metric.py", line 385, in _forward_reduce_state_update
+    batch_val = self.compute()
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/metric.py", line 699, in wrapped_func
+    value = _squeeze_if_scalar(compute(*args, **kwargs))
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/classification/auroc.py", line 125, in compute
+    return _binary_auroc_compute(state, self.thresholds, self.max_fpr)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/functional/classification/auroc.py", line 89, in _binary_auroc_compute
+    fpr, tpr, _ = _binary_roc_compute(state, thresholds, pos_label)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/functional/classification/roc.py", line 54, in _binary_roc_compute
+    fps, tps, thres = _binary_clf_curve(preds=state[0], target=state[1], pos_label=pos_label)
+  File "/usr/local/lib/python3.9/dist-packages/torchmetrics/functional/classification/precision_recall_curve.py", line 73, in _binary_clf_curve
+    tps = _cumsum(target * weight, dim=0)[threshold_idxs]
+IndexError: index is out of bounds for dimension with size 0
